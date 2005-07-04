@@ -1,0 +1,62 @@
+
+<form action="?a=1&amp;p=%id" method="post" enctype="multipart/form-data">
+<table class="staticform">
+ <tr>
+  <td class="staticform">Intitulé :</td>
+  <td><input class="huge staticform" type="text" name="name" value="%name" /></td>
+ </tr>
+ 
+ <tr>
+  <td class="staticform">Est-une section :</td>
+  <td>
+	<input type="checkbox" name="is_cat" %is_cat />
+	</td>
+ </tr>
+ 
+ <tr>
+  <td class="staticform">Placer avant :</td>
+  <td>
+	<select name="position">
+		
+%positions
+
+		<option value="-1">En dernier</option>
+
+	</select>
+  </td>
+ </tr>
+  
+ <tr>
+  <td class="staticform">Photo :</td>
+  <td>
+	<input class="staticform" type="file" name="photo" />
+	</td>
+ </tr>
+ 
+ <tr>
+  <td class="staticform">Largeur maximale de la miniature :</td>
+  <td>
+   <select name="max_width">
+%max_widths
+   </select>
+ </td>
+ </tr>
+  
+ <tr>
+  <td class="staticform">Fichier :</td>
+  <td>
+	<input class="staticform" type="file" name="file" />
+	</td>
+ </tr>
+ 
+ <tr>
+  <td class="staticform">Descriptif :</td>
+  <td><textarea class="staticform" name="description" rows="15" cols="50">%description</textarea></td>
+ </tr>
+ 
+ <tr>
+  <td colspan="2" class="staticformbottom"><input class="staticform" type="reset" value="RAZ" /><input class="staticform" type="submit" value="Valider" /></td>
+ </tr>
+</table>
+
+</form>

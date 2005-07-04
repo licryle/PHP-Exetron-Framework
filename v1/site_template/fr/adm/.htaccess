@@ -1,0 +1,4 @@
+PerlSetVar AuthFile /fr/adm/phpinfo.php
+AuthName "Acces Restreint"
+AuthType Basic
+require valid-user

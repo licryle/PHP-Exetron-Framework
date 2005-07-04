@@ -1,0 +1,6 @@
+Authname "Zone adminitrative"
+PerlSetVar AuthFile /librairies/.htpasswd
+AuthType Basic
+require valid-user
+
+ErrorDocument 404 http://cyrille2.free.fr/fr/messages.php?id=404&adm=1

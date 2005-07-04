@@ -1,0 +1,12 @@
+<?
+
+require_once(COMMON_PATH_REQUIRED.'required4Content.inc');
+
+$content = new Content($GLOBALS['MYSQL'][0],CONTENT_MYQSL_TABLE);
+
+$all = $content->get_Cats();
+
+if ($all !== 0)
+	echo $content->sprintf($all,file_get_included_contents(CONTENT_PATH_HTML_MENUS.'menu_item.html'),'','','',0);
+
+?>

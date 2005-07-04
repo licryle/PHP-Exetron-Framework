@@ -1,0 +1,3 @@
+PHP 1
+ErrorDocument 404 http://cyrille2.free.fr/fr/messages.php?id=404
+ErrorDocument 403 http://cyrille2.free.fr/fr/messages.php?id=403

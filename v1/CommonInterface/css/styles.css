@@ -1,0 +1,80 @@
+/* Styles elementaires (pour l'edition de contenu) */
+
+
+.GRAS {
+	font-weight : bold;
+}
+.ITALIQUE {
+	font-style : italic;
+}
+
+.ROUGE {
+	color : #C51635;
+}
+.BLEU {
+	color : #0000FF;
+}
+.VERT {
+	color : #2D682E;
+}
+.NOIR {
+	color : #000000;
+}
+.BLANC {
+	color : #FFFFFF;
+}
+
+.TITRE {
+	font-size : 13px;
+}
+.SOULIGNE {
+	text-decoration : underline;
+}
+.ALINEA:first-letter {
+	padding-left : 30px;
+}
+.CENTRE {
+	text-align : center;
+	display : block;
+	width : 100%;
+}
+.RIGHT {
+	text-align : right;
+}
+
+.LISTEB {
+	list-style-type : decimal;
+	display : list-item;
+	margin-left : 20px;
+}
+.LISTEA {
+	list-style-type : disc;
+	display : list-item;
+	margin-left : 20px;
+}
+
+.THEMA1 {
+	background-color : #B4CCDF;
+}
+
+.THEMA2 {
+	background-color : #425158;
+	color : #FFFFFF;
+}
+
+.THEMA3 {
+	background-color : #9EC645;
+}
+
+.THEMA4 {
+	background-color : #DA256F;
+	color : #FFFFFF;
+}
+
+.THEMA5 {
+	background-color : #295CAA;
+	color : #FFFFFF;
+}
+
+/* fin styles elementaires */
+
