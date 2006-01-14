@@ -7,6 +7,7 @@ Define('PROTECT_POST',1);
 Define('CHECK_URLS',1);
 
 Define('COPYRIGHT','Tous droits réservés 2004-2005 &copy; <a href="mailto:cyrille2@free.fr">BERLIAT Cyrille</a>');
+Define('MAIL_WEBMASTER','cyrille2@free.fr');
 
 Define('COOKIES_DOMAIN','http://'.$_SERVER['SERVER_ADDR'].':'.$_SERVER['SERVER_PORT'].'/');
 
@@ -47,6 +48,12 @@ require_once(COMMON_PATH_CONF.'content.php');
 // Config Login
 require_once(COMMON_PATH_CONF.'login.php');
 
+// Config Phototheque
+require_once(COMMON_PATH_CONF.'phototheque.php');
+
+// Config Stats
+require_once(COMMON_PATH_CONF.'statistiques.php');
+
 // Config Errors
 require_once(COMMON_PATH_CONF.'errors.php');
 
@@ -68,7 +75,14 @@ $GLOBALS['interfaces'][0]['maquettebtn'] = PATH_HTML.'maquettes/maquette1-button
 $GLOBALS['interfaces'][0]['maquettetable'] = PATH_HTML.'maquettes/maquette1-table.html';
 $GLOBALS['interfaces'][0]['maquettemini'] = PATH_HTML.'maquettes/maquette1-mini.html';
 
-$GLOBALS['interfaces'][0]['css'][0]['normal'] = EXT_URL.'css/styles.php';
+$GLOBALS['interfaces'][0]['css']['normal'] = EXT_URL.'css/styles.php';
+
+$GLOBALS['interfaces'][1]['maquette'] = PATH_HTML.'maquettes/maquette2.html';
+$GLOBALS['interfaces'][1]['maquettebtn'] = PATH_HTML.'maquettes/maquette2-button1.html';
+$GLOBALS['interfaces'][1]['maquettetable'] = PATH_HTML.'maquettes/maquette2-table.html';
+$GLOBALS['interfaces'][1]['maquettemini'] = PATH_HTML.'maquettes/maquette2-mini.html';
+
+$GLOBALS['interfaces'][1]['css']['normal'] = EXT_URL.'css/styles2.php';
 
 // js
 

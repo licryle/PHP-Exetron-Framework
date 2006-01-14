@@ -22,6 +22,11 @@
 
 class Login extends QueriesLogin {
 	private $item = array();
+	private $saccess = array();
+	
+	public function setAccesses($res) {
+		$this->saccess = $res;
+	}
 	
 	
 	
@@ -39,10 +44,6 @@ class Login extends QueriesLogin {
 	}
 	
 	// Recup
-	
-	public static function accessToString($lvl) {
-		return 0;
-	}
 
 	public function BuildAutonum ($length=30) {
 		$alphanum = ALPHANUM;
@@ -79,19 +80,45 @@ class Login extends QueriesLogin {
 	}
 	
 	
+	public function isValidMail($mail) {	
+		$this->cleanError();
+			
+		
+		if (!ereg('([[:alnum:]]{1,}[\.\-\_]{1})*[[:alnum:]]{1,}@([[:alnum:]]+(\.|-|_]{1}))*([[:alnum:]]+[\.]{1}([[:alnum:]]){2,})$',$mail)) {
+			$this->addError('Adresse mail incorrecte.');	
+		}
+		
+		return ($this->isCleanError());
+	}
+	
+	
+	
+	public function isValidLogin($login,$id) {	
+		$this->cleanError();
+		
+		$login = strtolower($login);
+			
+		if ($this->loginExists($login) && $this->getLoginId($login) != $id)
+			$this->addError('Ce login est déjà pris.');
+		
+		if (!eregi('[[:alnum:]]',$login))
+			$this->addError('Ce login n\'est pas alphanumérique');
+
+		return ($this->isCleanError());
+	}
+	
+	
+	
 	public function isValid($row,$modif=0) {
 		$this->cleanError();
 		
 		if (!$modif || $row['pass1'] != '')
 			$this->isValidPwd($row['pass1'],$row['pass2']);
 			
-		$row['login'] = strtolower($row['login']);
+		$this->isValidLogin($row['login'],$row['id']);
 		
-		if ($this->loginExists($row['login']) && $this->getLoginId($row['login']) != $row['id'])
-			$this->addError('Ce login est déjà pris.');
-		
-		if (!eregi('[[:alnum:]]',$row['login']))
-			$this->addError('Ce login n\'est pas alphanumérique');
+		if (!$modif || $row['mail'] != '')
+			$this->isValidMail($row['mail']);
 		
 		if ($row['access'] < 1 || $row['access'] > 5)
 			$this->addError('Accès erroné.');
@@ -119,14 +146,18 @@ class Login extends QueriesLogin {
 	public function modifItem() {
 		$q1 = $this->setLogin($this->item['id'],$this->item['login']);
 		$q2 = $this->setAccess($this->item['id'],$this->item['access']);
+		$q3 = 1;
+		$q4 = 1;
 		
 		if ($this->item['pass'] != '') {
 			$q3 = $this->setPassword($this->item['id'],$this->item['pass']);
-			
-			return( $q1 && $q2 && $q3);
 		}
 		
-		return( $q1 && $q2);
+		if ($this->item['mail'] != '') {
+			$q4 = $this->setMail($this->item['mail'],$this->item['pass']);
+		}
+		
+		return( $q1 && $q2 && $q2 && $q3 && $q4);
 	}
 	
 	public function delItem($id) {
@@ -144,6 +175,7 @@ class Login extends QueriesLogin {
 				'%pass0',
 				'%pass1',
 				'%pass2',
+				'%mail',
 				'%access',
 				'%saccess'
 			);
@@ -154,8 +186,9 @@ class Login extends QueriesLogin {
 				@$row['pass'],
 				@$row['pass1'],
 				@$row['pass2'],
+				$row['mail'],
 				$row['access'],
-				accessToString($row['access'])
+				@$this->saccess[$row['access']]
 			);
 				
 			$s .= str_replace($patterns,$contents,$fmt);	

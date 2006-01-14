@@ -48,6 +48,9 @@ require_once(COMMON_PATH_CONF.'content.php');
 // Config Login
 require_once(COMMON_PATH_CONF.'login.php');
 
+// Config Phototheque
+require_once(COMMON_PATH_CONF.'phototheque.php');
+
 // Config Stats
 require_once(COMMON_PATH_CONF.'statistiques.php');
 

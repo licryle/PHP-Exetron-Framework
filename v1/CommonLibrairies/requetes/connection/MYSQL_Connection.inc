@@ -284,6 +284,12 @@ class MYSQL_Connection {
 							
 		return $this->myquer($quer);
 	}
+	
+	public function delRow($id) {			
+		$quer = 'DELETE FROM `'.$this->table.'` WHERE `'.$this->table.'`.`id`='.intval($id);
+							
+		return $this->myquer($quer);
+	}
 
 	// Ajout
 	

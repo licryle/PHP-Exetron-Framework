@@ -83,21 +83,23 @@ class WebInterface {
 		$inter = & $GLOBALS['interface'];
 		
 		$inter->variables['[EXECTIME]'] = round($inter->getmicrotime()-($inter->start),4);
-		$inter->variables['[LOCATOR]'] = $inter->locator['start'].$inter->locator['string'];
+		@$inter->variables['[LOCATOR]'] = $inter->locator['start'].$inter->locator['string'];
 
 		if($this->debug) $inter->variables['[BODY]'] .= ob_get_contents();
-		
+
 		$page =  str_replace(
 				array_keys($inter->variables),
 				array_values($inter->variables),
 				$inter->maquette);
+				
+				
 				
 		return $inter->validSGML($page);
 	}
 	
 	public function WebInterface ($file,$debug=0) {
 		if (!file_exists($file)) {
-			die('Un problème d\'ordre majeur s\'est produit');
+			die('Un problème d\'ordre majeur s\'est produit: maquette introuvable.');
 		}
 		
 		$this->locator = array();

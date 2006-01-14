@@ -25,6 +25,7 @@ class QueriesLogin extends MYSQL_connection {
 	private $pass;
 	protected $MaxModifChamp = Array(
 							'login'=>'"',
+							'mail'=>'"',
 							'access'=>''
 				);
 				
@@ -50,6 +51,7 @@ class QueriesLogin extends MYSQL_connection {
 							id INT NOT NULL AUTO_INCREMENT,
 							login VARCHAR(255),
 							password VARCHAR(255),
+							mail VARCHAR(255),
 							access TINYINT,
 							autonum VARCHAR(255),
 							PRIMARY KEY(id)
@@ -91,7 +93,7 @@ class QueriesLogin extends MYSQL_connection {
 	}
 	
 	public function setLogin($id,$login) {
-		return $this->setValue('login',$login,NOT_CARDINAL,'id',$id,CARDINAL);		
+		return $this->setValue('login',strtolower($login),NOT_CARDINAL,'id',$id,CARDINAL);		
 	}
 	
 	// Password
@@ -117,6 +119,26 @@ class QueriesLogin extends MYSQL_connection {
 	
 	public function getAccess($id) {
 		return $this->getValue('access','id',$id,CARDINAL);
+	}
+	
+	public function getByAccess($access) {
+		$access = intval($access);
+	
+		$quer = $this->myquer('SELECT * FROM `'.$this->table.'` WHERE
+						access='.$access.'
+				');
+				
+		return $this->ResToArray($quer);	
+	}
+	
+	// Mail 
+	
+	public function setMail($id,$mail) {
+		return $this->setValue('mail',$mail,NOT_CARDINAL,'id',$id,CARDINAL);
+	}
+	
+	public function getMail($id) {
+		return $this->getValue('mail','id',$id,CARDINAL);
 	}
 	
 	// Gestion des users
