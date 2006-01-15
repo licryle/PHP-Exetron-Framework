@@ -1,0 +1,45 @@
+
+<h4 id="aide">Aide à l'utilisation</h4>
+
+<div class="StaticTxt">
+<a href="index.php">Retourner à la liste</a><br />
+<br />
+Il est possible d'appliquer différents styles à des portions de texte :<br />
+Il suffit d'encadrer le texte à mettre en forme par 2 balises comme suit.<br />
+[GRAS ITALIQUE]Mon texte ici sera en gras et italique[FIN] Ici le texte sera sans mise en forme<br />
+Il est bon de noter qu'il est toujours nécessaire d'avoir la balise [FIN] (sans laquelle le style sera appliqué à tout le reste du document). N'hésitez pas à combiner les styles comme dans l'exemple!<br />
+Les mises en forme disponibles sont les suivantes :<br />
+<br />
+- GRAS qui affichera le texte en gras;<br />
+- ITALIQUE qui affichera le texte en italique;<br />
+- SOULIGNE qui affichera le texte souligné;<br />
+- ROUGE ou NOIR ou BLEU ou VERT ou BLANC qui affichera le texte en couleur;<br />
+- TITRE qui affichera le texte de facon légèrement grossi;<br />
+- ALINEA qui affichera le texte avec un alinéa;<br />
+- CENTRE qui centrera le texte;<br />
+- LISTEA qui affichera le texte comme un élément d'une liste ayant pour puce un disque;<br />
+- LISTEB qui affichera le texte comme un élément d'une liste ayant pour puce un numéro;<br />
+<br />
+Concernant les liens, il existe 3 formes de liens qui doivent finir par [/URL] (plus les adresses mails qui ne nécessitent aucune balise, écrivez-les tout simplement) :<br />
+- URL_I pour un lien interne : la page actuelle sera remplacée par la page à l'adresse spécifiée;<br />
+- URL_E pour un lien externe : une nouvelle fenetre s'ouvrira pour l'addresse voulue;<br />
+- URL_S pour un lien interne vers une autre thématique (exemple accueil);<br />
+Il est IMPERATIF de fermer le lien par la balise [/URL] et de commencer chaque adresse par http:// .<br />
+<br />
+Exemples d'utilisations :<br />
+[URL_S=Accueil]Page d'accueil[/URL] affichera "Page d'accueil" et pointera vers l'accueil.<br />
+[URL_E=http://cyrille2.free.fr]Site du concepteur[/URL] affichera "Site du concepteur" et ouvrira une nouvelle fenetre.<br />
+<br />
+<br />
+Enfin, il est possible d'ajouter un lien vers le fichier associé à l'article en encadrant le texte qui sera affiché par [FILE] et [/FILE].<br />
+De plus, il est possible d'afficher le nombre de téléchargements qu'a subit le fichier en écrivant %telecharge<br />
+<br />
+Exemples d'utilisation :<br />
+[FICHIER]Téléchargez le fichier[/FICHIER] (%telecharge téléchargements).<br />
+<br />
+<!--Afin de permettre plus de possibilités, il est aussi possible de définir des blocs de textes visibles uniquement si la personne qui consulte la page est connectée ou non au site.<br />
+Les deux jeux de balises permettant cette fonctionnalité sont [CONNECTE] et [/CONNECTE] ainsi que [NON_CONNECTE] et [/NON_CONNECTE]. Ces balises s'utilisent comme suit :<br />
+[CONNECTE]Ce texte ne sera affiché que si la personne est connectée[/CONNECTE] tandis que [NON_CONNECTE] celui-ci sera affiché aux non connectés[/NON_CONNECTE]<br />
+Il est bien entendu possible d'y intégrer des liens hypertextes ainsi que des styles différents.<br />
+<br />-->
+</div>

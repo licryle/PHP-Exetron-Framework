@@ -1,0 +1,50 @@
+
+<form action="?a=1&amp;p=%id" method="post" enctype="multipart/form-data">
+<table class="staticform">
+ <tr>
+  <td class="staticform">Intitulé :</td>
+  <td><input class="staticform" type="text" name="name" value="%name" /></td>
+ </tr>
+ 
+ <tr>
+  <td class="staticform">Est une section :</td>
+  <td>
+	<input type="checkbox" name="is_cat" %is_cat />
+	</td>
+ </tr>
+ 
+ <tr>
+  <td class="staticform">Photo :</td>
+  <td>
+	<a href="%pathphoto_ext%photo" onclick="window.open(this.href,'_blank'); return false;"><img src="%pathmini_ext%mini" alt="%textname" /></a><br />
+	<input type="file" name="photo" /> - <a href="?a=2&amp;p=%id">Effacer la photo</a>
+  </td>
+ </tr>
+ 
+ <tr>
+  <td class="staticform">Largeur maximale de la miniature :</td>
+  <td>
+   <select name="max_width">
+%max_widths
+   </select>
+ </td>
+ </tr>
+  
+ <tr>
+  <td class="staticform">Fichier :</td>
+  <td>
+	<input type="file" name="file" /> - <a href="?a=3&amp;p=%id">Effacer le fichier</a>
+	</td>
+ </tr>
+ 
+ <tr>
+  <td class="staticform">Descriptif :</td>
+  <td><textarea class="staticform" name="description" rows="15" cols="50">%description</textarea></td>
+ </tr>
+ 
+ <tr>
+  <td colspan="2" class="staticformbottom"><input class="staticform" type="reset" value="RAZ" /><input class="staticform" type="submit" value="Valider" /></td>
+ </tr>
+</table>
+
+</form>
