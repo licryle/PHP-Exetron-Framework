@@ -134,4 +134,3 @@ interface TableSiteInterface
 //-------------------------------- Autres définitions dépendantes de <TableSiteInterface>
 
 ?>
-

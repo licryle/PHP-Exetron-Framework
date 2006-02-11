@@ -82,4 +82,3 @@ interface AbstractIterator
 //-------------------------------- Autres définitions dépendantes de <AbstractIterator>
 
 ?>
-

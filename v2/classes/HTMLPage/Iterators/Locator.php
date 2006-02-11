@@ -183,4 +183,3 @@ class Locator extends AbstractClass implements Iterator, AbstractIterator
 //-------------------------------- Autres définitions dépendantes de <Locator>
 
 ?>
-

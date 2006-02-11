@@ -134,4 +134,3 @@ interface TableGroupInterface
 //-------------------------------- Autres définitions dépendantes de <TableGroupInterface>
 
 ?>
-

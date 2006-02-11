@@ -124,10 +124,11 @@ interface BDDConnectionInterface
     // Contrat :
     //
     
-    public function Open( );
+    public function Open( $isPersistent );
     // Mode d'emploi :
     //Tente d'ouvrir la connexion
-    //
+    //si $isPersistent est égal à true, la connexion sera ouverte en mode persistant
+	//
     // Renvoie :
     //- un objet de type Errors en cas d'erreur(s)
     //- NULL en cas de réussite
@@ -197,4 +198,3 @@ interface BDDConnectionInterface
 //-------------------------------- Autres définitions dépendantes de <BDDConnectionInterface>
 
 ?>
-

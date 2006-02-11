@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |Xxx.php|  -  description
+                           |ApplicationError.php|  -  description
                              -------------------
-    start                : |DATE|
+    start                : |10.02.2006|
     copyright            : (C) 2006 by BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <Xxx> class (file Xxx.php) -----------------
-if (defined('XXX_H'))
+//-------------- Interface of <ApplicationError> class (file ApplicationError.php) -----------------
+if (defined('APPLICATIONERROR_H'))
 {
     return;
 }
@@ -17,7 +17,7 @@ else
 {
 
 }
-define('XXX_H',1);
+define('APPLICATIONERROR_H',1);
 
 //-------------------------------------------------------- system Includes
 
@@ -30,61 +30,36 @@ define('XXX_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <Xxx> class
-//
+// Role of <ApplicationError> class
+//Extension of the Error class, implements constants for specific
+//Application errors
 //
 //------------------------------------------------------------------------ 
 
-class Xxx extends AbstractClass
+class ApplicationError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
 
+	const FUNCTION_NOT_CALLABLE = 'FUNCTION_NOT_CALLABLE';
+	const FUNCTION_PARAM_NOT_ARRAY = 'FUNCTION_PARAM_NOT_ARRAY';
+	const CALLBACK_NOT_EXISTS = 'CALLBACK_NOT_EXISTS';
+
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( );
+    // public function Méthode ( )
     // User's manual :
     //
     // Contract :
     //
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct()
-    // User's manual :
-    //
-    // Contract :
-    //
-    {
-    	
-    } //---- End of __construct
-
-
-    public function __destruct ( )
-    // User's manual :
-    //
-    // Contract :
-    //
-    {
-    } //---- End of __destruct
     
 //---------------------------------------------------------- Magic Methods
-
-    public function __ToString ( )
-    // User's manual :
-    //
-    // Contract :
-    //
-    {
-    } //---- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
 //------------------------------------------------------ protected methods
-    // protected type Méthode ( );
-    // User's manual :
-    //
-    // Contract :
-    //
 
-//--------------------------------------------------- protected properties
+//----------------------------------------------------- Attributs protégés
 
 }
 

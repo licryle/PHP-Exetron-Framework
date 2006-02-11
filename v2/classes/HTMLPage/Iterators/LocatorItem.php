@@ -105,4 +105,3 @@ class LocatorItem extends AbstractClass
 //-------------------------------- Autres définitions dépendantes de <LocatorItem>
 
 ?>
-

@@ -170,4 +170,3 @@ class Errors extends AbstractClass implements Iterator, AbstractIterator
 //-------------------------------- Autres définitions dépendantes de <Errors>
 
 ?>
-

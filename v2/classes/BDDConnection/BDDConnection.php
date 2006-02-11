@@ -40,6 +40,9 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 {
 //----------------------------------------------------------------- PUBLIC
 
+	const CONNECTION_PERSISTENT = 'CONNECTION_PERSISTENT'; // for Open(), specifies a persistent connexion
+	const CONNECTION_NOT_PERSISTENT = 'CONNECTION_NOT_PERSISTENT';
+
 //----------------------------------------------------- Méthodes publiques
     // public type Méthode ( liste des paramètres );
     // Mode d'emploi :
@@ -282,4 +285,3 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 //-------------------------------- Autres définitions dépendantes de <BDDConnection>
 
 ?>
-

@@ -75,4 +75,3 @@ class VariableError extends Error
 //-------------------------------- Autres définitions dépendantes de <VariableError>
 
 ?>
-

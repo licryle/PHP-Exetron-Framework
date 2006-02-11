@@ -271,4 +271,3 @@ class MySQLTable extends BDDTable
 //-------------------------------- Autres définitions dépendantes de <MySQLTable>
 
 ?>
-

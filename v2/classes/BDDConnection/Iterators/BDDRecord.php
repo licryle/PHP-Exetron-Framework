@@ -241,4 +241,3 @@ class BDDRecord extends AbstractClass implements Iterator
 //-------------------------------- Autres définitions dépendantes de <BDDRecord>
 
 ?>
-

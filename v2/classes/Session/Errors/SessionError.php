@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |AbstractClass.php|  -  description
+                           |SessionError.php|  -  description
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
     e-mail               : cyrille.berliat@free.fr
 *************************************************************************/
 
-//---------- Interface de la classe <AbstractClass> (fichier AbstractClass.php) --------------
-if (defined('ABSTRACTCLASS_H'))
+//---------- Interface de la classe <SessionError> (fichier SessionError.php) --------------
+if (defined('SESSIONERROR_H'))
 {
     return;
 }
@@ -17,7 +17,7 @@ else
 {
 
 }
-define('ABSTRACTCLASS_H',1);
+define('SESSIONERROR_H',1);
 
 //-------------------------------------------------------- Include système
 
@@ -30,14 +30,17 @@ define('ABSTRACTCLASS_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <AbstractClass>
-//
+// Rôle de la classe <SessionError>
+// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs Session
 //
 //------------------------------------------------------------------------ 
 
-abstract class AbstractClass
+class SessionError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
+
+//------------------------------------------------------------- Constantes
+    const SESSION_VARIABLE_NOT_SET = 'SESSION_VARIABLE_NOT_SET';
 
 //----------------------------------------------------- Méthodes publiques
     // public type Méthode ( liste des paramètres );
@@ -47,39 +50,8 @@ abstract class AbstractClass
     //
 
 //-------------------------------------------- Constructeurs - destructeur
-    abstract public function __construct();
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
-
-    public function __destruct ( )
-    // Mode d'emploi :
-    //Libère l'espace mémoire des variables de la classe
-    // Contrat :
-    //
-    {
-        /*$vars = get_object_vars($this);
-        
-        foreach($vars as $key => $var)
-        {
-          //  unset($this->{$key});
-        }
-        
-        unset($vars);   */     
-    } //---- Fin du destructeur
-
+    
 //------------------------------------------------------ Méthodes Magiques
-
-    public function __ToString ( )
-    // Mode d'emploi :
-    //Si non redéfinie, imprime un etat de l'objet
-    //
-    // Contrat :
-    //
-    {
-        return (string)var_export($this);
-    }
 
 //------------------------------------------------------------------ PRIVE 
 
@@ -94,6 +66,6 @@ abstract class AbstractClass
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <AbstractClass>
+//-------------------------------- Autres définitions dépendantes de <SessionError>
 
 ?>

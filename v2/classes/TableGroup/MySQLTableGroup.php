@@ -199,4 +199,3 @@ class MySQLTableGroup extends MySQLTable
 //-------------------------------- Autres définitions dépendantes de <MySQLTableGroup>
 
 ?>
-

@@ -78,4 +78,3 @@ class TableGroup
 //-------------------------------- Autres définitions dépendantes de <TableGroup>
 
 ?>
-

@@ -47,7 +47,7 @@ $mysql->setUsername('localuser');
 $mysql->setPassword('localpassword');
 
 
-if ( ( $errs = $mysql->Open( ) ) != NULL )
+if ( ( $errs = $mysql->Open( BDDConnection::CONNECTION_PERSISTENT ) ) != NULL )
 {
     echo $errs,'<br />';
 }

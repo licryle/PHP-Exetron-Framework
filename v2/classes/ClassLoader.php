@@ -2,7 +2,7 @@
 
 /*************************************************************************
                            |ClassLoader.php|
-	Permet le chargement des différentes classesd'un projet
+	Permet le chargement des différentes classes d'un projet
                              -------------------
     début                : |20.11.2005|
     copyright            : (C) 2005 par BERLIAT Cyrille
@@ -202,4 +202,3 @@ class ClassLoader extends AbstractClass
 //-------------------------------- Autres définitions dépendantes de <ClassLoader>
 
 ?>
-

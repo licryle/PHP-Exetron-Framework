@@ -72,4 +72,3 @@ class TableSite
 //-------------------------------- Autres définitions dépendantes de <TableSite>
 
 ?>
-

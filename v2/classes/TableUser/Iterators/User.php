@@ -142,4 +142,3 @@ class User extends BDDRecord
 //-------------------------------- Autres définitions dépendantes de <User>
 
 ?>
-

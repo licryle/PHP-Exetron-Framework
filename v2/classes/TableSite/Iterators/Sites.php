@@ -382,4 +382,3 @@ class Sites extends AbstractClass implements Iterator
 //-------------------------------- Autres définitions dépendantes de <Sites>
 
 ?>
-

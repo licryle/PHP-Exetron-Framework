@@ -68,4 +68,3 @@ class HTMLPageError extends Error
 //-------------------------------- Autres définitions dépendantes de <HTMLPageError>
 
 ?>
-

@@ -412,4 +412,3 @@ class Users extends AbstractClass implements Iterator
 //-------------------------------- Autres définitions dépendantes de <Users>
 
 ?>
-

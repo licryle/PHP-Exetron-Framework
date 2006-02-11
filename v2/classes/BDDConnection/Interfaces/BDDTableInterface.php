@@ -118,4 +118,3 @@ interface BDDTableInterface
 //-------------------------------- Autres définitions dépendantes de <BDDTableInterface>
 
 ?>
-

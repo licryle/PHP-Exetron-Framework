@@ -181,4 +181,3 @@ class MySQLTableSite extends MySQLTable
 //-------------------------------- Autres définitions dépendantes de <MySQLTableSite>
 
 ?>
-

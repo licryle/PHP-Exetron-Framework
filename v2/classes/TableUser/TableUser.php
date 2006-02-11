@@ -78,4 +78,3 @@ class TableUser
 //-------------------------------- Autres définitions dépendantes de <TableUser>
 
 ?>
-

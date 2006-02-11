@@ -142,4 +142,3 @@ class Group extends BDDRecord
 //-------------------------------- Autres définitions dépendantes de <Group>
 
 ?>
-

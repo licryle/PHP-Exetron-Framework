@@ -157,4 +157,3 @@ class Variable extends BDDRecord
 //-------------------------------- Autres définitions dépendantes de <Variable>
 
 ?>
-

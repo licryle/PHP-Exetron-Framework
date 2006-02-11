@@ -147,4 +147,3 @@ interface TableUserInterface
 //-------------------------------- Autres définitions dépendantes de <TableUserInterface>
 
 ?>
-

@@ -109,4 +109,3 @@ class Site extends BDDRecord
 //-------------------------------- Autres définitions dépendantes de <Site>
 
 ?>
-

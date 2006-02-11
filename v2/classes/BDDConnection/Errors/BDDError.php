@@ -82,4 +82,3 @@ class BDDError extends Error
 //-------------------------------- Autres définitions dépendantes de <BDDError>
 
 ?>
-

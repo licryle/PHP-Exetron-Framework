@@ -104,4 +104,3 @@ class Error extends AbstractClass
 //-------------------------------- Autres définitions dépendantes de <Error>
 
 ?>
-

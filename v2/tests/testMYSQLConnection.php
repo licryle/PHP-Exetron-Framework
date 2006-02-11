@@ -25,12 +25,13 @@ if ( $loader->loadClass( 'BDDConnection' , $classpath ) instanceOf Errors )
 	die('Impossible de charger la classe de BDD');
 }
 
-if ( $loader->loadClass( 'MySQLConnection' , $classpath ) instanceOf Errors )
+if ( $loader->loadClass( 'MySQLConnection' , $classpath ) instanceOf Errors )	
 {
 	die('Impossible de charger la classe de Mysql');
 }
+
 $mysql = new MYSQLConnection ( );
-$mysql->setServer('sql.free.fr');
+$mysql->setServer('localhost');
 $mysql->setUsername('exetron');
 $mysql->setPassword('');
 
@@ -40,7 +41,7 @@ if ( ( $errs = $mysql->Close( ) ) != NULL )
 }
 
 
-if ( ( $errs = $mysql->Open( ) ) != NULL )
+if ( ( $errs = $mysql->Open( BDDConnection::CONNECTION_PERSISTENT ) ) != NULL )
 {
     echo $errs,'<br />';
 }

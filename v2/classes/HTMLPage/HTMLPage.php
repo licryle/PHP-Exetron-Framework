@@ -265,4 +265,3 @@ class HTMLPage extends AbstractClass
 //-------------------------------- Autres définitions dépendantes de <HTMLPage>
 
 ?>
-

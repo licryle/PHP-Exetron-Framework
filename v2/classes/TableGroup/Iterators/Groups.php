@@ -384,4 +384,3 @@ class Groups extends AbstractClass implements Iterator
 //-------------------------------- Autres définitions dépendantes de <Groups>
 
 ?>
-

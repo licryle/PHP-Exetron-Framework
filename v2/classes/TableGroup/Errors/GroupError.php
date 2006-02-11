@@ -72,4 +72,3 @@ class GroupError extends Error
 //-------------------------------- Autres définitions dépendantes de <GroupError>
 
 ?>
-

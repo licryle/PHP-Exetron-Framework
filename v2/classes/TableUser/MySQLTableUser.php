@@ -199,4 +199,3 @@ class MySQLTableUser extends MySQLTable
 //-------------------------------- Autres définitions dépendantes de <MySQLTableUser>
 
 ?>
-

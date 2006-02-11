@@ -177,9 +177,10 @@ class MySQLConnection extends BDDConnection
     
     // Contrat :
     
-    public function Open( )
+    public function Open( $isPersistent )
     // Mode d'emploi :
     //Tente d'ouvrir la connexion
+    //si $isPersistent est égal à BDDConnection::CONNECTION_PERSISTENT, la connexion sera ouverte en mode persistant
     //
     // Renvoie :
     //- un objet de type Errors en cas d'erreur(s)
@@ -191,7 +192,16 @@ class MySQLConnection extends BDDConnection
     {
         if ( !$this->isConnected() ) 
         {
-            if ( ($this->connection = @mysql_connect( $this->server , $this->username , $this->password )) )
+			if ( $isPersistent == BDDConnection::CONNECTION_PERSISTENT )
+			{
+				$connectFunction = 'mysql_pconnect';
+			}
+			else
+			{
+				$connectFunction = 'mysql_connect';
+			}
+		
+            if ( ($this->connection = @$connectFunction( $this->server , $this->username , $this->password )) )
             {
                 return NULL;
             }
@@ -411,4 +421,3 @@ class MySQLConnection extends BDDConnection
 //-------------------------------- Autres définitions dépendantes de <MySQLConnection>
 
 ?>
-

@@ -153,4 +153,3 @@ abstract class BDDTable extends AbstractClass implements BDDTableInterface
 //-------------------------------- Autres définitions dépendantes de <BDDTable>
 
 ?>
-

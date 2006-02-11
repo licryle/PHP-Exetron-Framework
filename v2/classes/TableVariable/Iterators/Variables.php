@@ -338,4 +338,3 @@ class Variables extends AbstractClass implements Iterator
 //-------------------------------- Autres définitions dépendantes de <Variables>
 
 ?>
-

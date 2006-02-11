@@ -135,4 +135,3 @@ interface TableVariableInterface
 //-------------------------------- Autres définitions dépendantes de <TableVariableInterface>
 
 ?>
-
