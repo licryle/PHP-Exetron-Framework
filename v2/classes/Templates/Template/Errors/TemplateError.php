@@ -40,6 +40,7 @@ class TemplateError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
     const TEMPLATE_TAG_INEXISTANT = 'TEMPLATE_TAG_INEXISTANT';
+    const TEMPLATE_MAQUETTE_INEXISTANT = 'TEMPLATE_MAQUETTE_INEXISTANT';
 
 //--------------------------------------------------------- Public Methods
     // public function Méthode ( )

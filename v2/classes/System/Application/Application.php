@@ -87,7 +87,10 @@ class Application
     //
 	{
 		// get launchTime in microseconds
-		$this->launchTime = microtime ( true );
+		$this->systemVars['launchTime'] = microtime ( true );
+		
+		// set up call back function for the end of the application
+		register_shutdown_function ( $this->onApplicationEnd, $this->systemVars );
 		
 		$this->launchCallBack ( 'onApplicationStart' );
 	} // End of Start
@@ -118,13 +121,14 @@ class Application
 		return $this->setCallBack ( 'onApplicationStart', $function, $params ) ;
 	}
 	
-    public function OnApplicationEnd ( $function, $params )
+    public function OnApplicationEnd ( $function )
     // User's manual :
     //Set up call_back function for Application End.
 	//The $function will be called when Script will be stopped
 	//
 	//$function is the name of the function to be called
-	//$params must be an array of parameters for the function
+	//$function may accept 1 argument. This argument will be an array of system variables
+	//Please look at the definition of systemVars
 	//
 	//For calling method of a class, use array (& $obj, 'method_name')
 	//
@@ -141,25 +145,15 @@ class Application
     // Contract :
     //
 	{
-		$errors = $this->setCallBack ( 'onApplicationEnd', $function, $params ) ;
+		$falseArray = array();
+			$errors = $this->setCallBack ( 'onApplicationEnd', $function, $falseArray ) ;
+		unset( $falseArray );
 		
 		if ( $errors InstanceOf Errors )
 		{
 			return $errors;
 		}
-		
-		// build register_shutdown_function params
-		$reg_params = '';
-		foreach ( $params as $value )
-		{
-			// replace ' by \', don't use addslashes that parses also "...
-			$reg_params .= ', \''.str_replace ( '\'', '\\\'', $value ) .'\'';
-		}
-		echo $reg_params;
-		eval ( 'register_shutdown_function ( \''.$function.'\' '.$reg_params.' );');
-		
-		unset ( $reg_params );
-		
+
 		return null;
 	}
 
@@ -171,6 +165,8 @@ class Application
     //
     {
 		$this->configuration = new Variables ( null, $err);
+		
+		$this->systemVars = array( );
 	
 		$this->onApplicationStart = -1;
 		$this->onApplicationStartParams = -1;
@@ -301,14 +297,16 @@ class Application
 
 //--------------------------------------------------- protected properties
 	protected static $instance;
-	protected $launchTime; // Unix Time of Application start
+	protected $systemVars; 
+	// Contains Application Vars :
+	//- launchTime : Unix Time of Application start
 	
 	// call-backs
 	protected $onApplicationStart;
 	protected $onApplicationStartParams;
 	
 	protected $onApplicationEnd;
-	protected $onApplicationEndParams;
+	protected $onApplicationEndParams; // false params for ending call_back
 	
 	//configuration of the Application
 	protected $configuration;

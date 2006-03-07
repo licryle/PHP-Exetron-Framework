@@ -183,4 +183,3 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 //-------------------------------- Autres définitions dépendantes de <MySQLTableVariable>
 
 ?>
-
