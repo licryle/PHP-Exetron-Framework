@@ -109,8 +109,8 @@ class XHTMLBodyTemplate extends XHTMLTemplate
 		parent::__construct();
 		
 		$this->maquette =
-'<body '.self::TAG_OPEN.self::TAG_PARAMS.self::TAG_CLOSE.'>
-'.self::TAG_OPEN.self::TAG_CONTENT.self::TAG_CLOSE.'
+'<body '. Template::BuildTag( self::TAG_PARAMS ) .'>
+'. Template::BuildTag( self::TAG_CONTENT ).'
 </body>';
 
 		$this->SetTag ( self::TAG_CONTENT, new XHTMLTemplate() ); 

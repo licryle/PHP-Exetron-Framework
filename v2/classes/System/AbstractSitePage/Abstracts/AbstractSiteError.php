@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |ApplicationError.php|  -  description
+                           |AbstractSiteError.php|  -  description
                              -------------------
     start                : |10.02.2006|
     copyright            : (C) 2006 by BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <ApplicationError> class (file ApplicationError.php) -----------------
-if (defined('APPLICATIONERROR_H'))
+//-------------- Interface of <AbstractSiteError> class (file AbstractSiteError.php) -----------------
+if (defined('ABSTRACTSITERRROR_H'))
 {
     return;
 }
@@ -17,7 +17,7 @@ else
 {
 
 }
-define('APPLICATIONERROR_H',1);
+define('ABSTRACTSITERRROR_H',1);
 
 //-------------------------------------------------------- system Includes
 
@@ -30,21 +30,16 @@ define('APPLICATIONERROR_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <ApplicationError> class
+// Role of <AbstractSiteError> class
 //Extension of the Error class, implements constants for specific
 //Application errors
 //
 //------------------------------------------------------------------------ 
 
-class ApplicationError extends Error
+class AbstractSiteError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
 
-	const FUNCTION_NOT_CALLABLE = 'FUNCTION_NOT_CALLABLE';
-	const FUNCTION_PARAM_NOT_ARRAY = 'FUNCTION_PARAM_NOT_ARRAY';
-	const CALLBACK_NOT_EXISTS = 'CALLBACK_NOT_EXISTS';
-	const CALLBACK_NOT_SET = 'CALLBACK_NOT_SET';
-	const ALREADY_STARTED = 'ALREADY_STARTED';
 
 //--------------------------------------------------------- Public Methods
     // public function Méthode ( )

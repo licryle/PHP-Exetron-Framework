@@ -9,14 +9,11 @@
 *************************************************************************/
 
 //-------------------------------------------------------- system Includes
-//require(); // Type : Class/Conf/
+//require(); // Type : Class/Conf/Loader
 
 $directory = dirname( __FILE__ );
 
-require ( $directory.'/BDDConnection/loader.php' ); // Type : SubLoader
-
-$directory = dirname( __FILE__ );
-require ( $directory.'/MySQLConnection/loader.php' ); // Type : SubLoader
+require_once ( $directory.'/AbstractSingleton.php' ); // Type : AbstractClass
 
 //------------------------------------------------------ personal Includes
 
@@ -25,5 +22,6 @@ require ( $directory.'/MySQLConnection/loader.php' ); // Type : SubLoader
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
+
 
 ?>

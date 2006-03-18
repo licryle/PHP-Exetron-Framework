@@ -36,7 +36,7 @@ define('SESSION_H',1);
 //
 //------------------------------------------------------------------------ 
 
-class Session //extends AbstractClass //implements Iterator, AbstractIterator
+class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -46,6 +46,17 @@ class Session //extends AbstractClass //implements Iterator, AbstractIterator
     //
     // Contrat :
     //
+	
+    public static function GetInstance ( )
+    // User's manual :
+    //Getter of the unique instance. Create this if doesn't exist
+	//Must appears in all children.
+	//
+    // Contract :
+    //
+	{	
+		return parent::getThis( __CLASS__ );
+	} // End of GetInstance
    
     public function Destruct( )
     // Mode d'emploi :

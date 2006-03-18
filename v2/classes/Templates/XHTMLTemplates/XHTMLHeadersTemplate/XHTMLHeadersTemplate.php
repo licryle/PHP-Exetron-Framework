@@ -88,7 +88,7 @@ class XHTMLHeadersTemplate extends XHTMLTemplate
 		$this->maquette = 
 '<head>
 
-'.self::TAG_OPEN.self::TAG_HEADERS.self::TAG_CLOSE.'
+'. Template::BuildTag( self::TAG_HEADERS ) .'
 </head>';
 
 		$this->SetTag ( self::TAG_HEADERS, new XHTMLTemplate() ); 

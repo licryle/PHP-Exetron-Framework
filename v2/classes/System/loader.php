@@ -11,11 +11,24 @@
 //-------------------------------------------------------- system Includes
 //require(); // Type : Class/Conf/
 
-require ( dirname( __FILE__ ).'/AbstractClass/loader.php' ); // Type : SubLoader
-require ( dirname( __FILE__ ).'/Errors/loader.php' ); // Type : SubLoader
+$directory = dirname( __FILE__ );
 
-require ( dirname( __FILE__ ).'/Application/loader.php' ); // Type : SubLoader
-require ( dirname( __FILE__ ).'/Session/loader.php' ); // Type : SubLoader
+require ( $directory.'/AbstractClass/loader.php' ); // Type : SubLoader
+
+$directory = dirname( __FILE__ );
+require ( $directory.'/AbstractSingleton/loader.php' ); // Type : SubLoader
+
+$directory = dirname( __FILE__ );
+require ( $directory.'/Errors/loader.php' ); // Type : SubLoader
+
+$directory = dirname( __FILE__ );
+require ( $directory.'/Application/loader.php' ); // Type : SubLoader
+
+$directory = dirname( __FILE__ );
+require ( $directory.'/AbstractSitePage/loader.php' ); // Type : SubLoader
+
+$directory = dirname( __FILE__ );
+require ( $directory.'/Session/loader.php' ); // Type : SubLoader
 
 //------------------------------------------------------ personal Includes
 

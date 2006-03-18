@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |AbstractClass.php|  -  description
+                           |AbstractSingleton.php|  -  description
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
     e-mail               : cyrille.berliat@free.fr
 *************************************************************************/
 
-//---------- Interface de la classe <AbstractClass> (fichier AbstractClass.php) --------------
-if (defined('ABSTRACTCLASS_H'))
+//---------- Interface de la classe <AbstractSingleton> (fichier AbstractSingleton.php) --------------
+if (defined('ABSTRACTSINGLETON_H'))
 {
     return;
 }
@@ -17,7 +17,7 @@ else
 {
 
 }
-define('ABSTRACTCLASS_H',1);
+define('ABSTRACTSINGLETON_H',1);
 
 //-------------------------------------------------------- Include système
 
@@ -30,12 +30,12 @@ define('ABSTRACTCLASS_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <AbstractClass>
+// Rôle de la classe <AbstractSingleton>
 //
 //
 //------------------------------------------------------------------------ 
 
-abstract class AbstractClass
+abstract class AbstractSingleton
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -45,13 +45,30 @@ abstract class AbstractClass
     //
     // Contrat :
     //
+	
+	abstract public static function GetInstance ( );
+	// User's manual :
+    //Getter of the unique instance. Create this if doesn't exist
+	//Must call parent::getInstance( ) in the code with the given name
+	//of the class : __CLASS__
+	//
+	//Must appears in all children.
+	//
+    // Contract :
+    //
+	//{
+	//	return parent::getThis ( __CLASS__ );
+	//}
 
 //-------------------------------------------- Constructeurs - destructeur
-    abstract public function __construct();
+    protected function __construct()
     // Mode d'emploi (constructeur) :
     //
     // Contrat :
     //
+	{
+	
+	} // End of __construct
 
     public function __destruct ( )
     // Mode d'emploi :
@@ -79,8 +96,8 @@ abstract class AbstractClass
     //
     {
         return (string)var_export($this);
-    } // ENd of __ToString
-
+    } // End of __ToString
+	
 //------------------------------------------------------------------ PRIVE 
 
 //----------------------------------------------------- Méthodes protégées
@@ -89,11 +106,28 @@ abstract class AbstractClass
     //
     // Contrat :
     //
+	
+    protected static function getThis ( $class )
+    // User's manual :
+    //Getter of the unique instance of the class named $class. 
+	//Create this if doesn't exist
+	//
+    // Contract :
+    //
+	{
+		if ( ! IsSet ( self::$instance ) )
+		// instance creation
+		{
+			self::$instance = new $class();
+		}
+		
+		return self::$instance;
+	} // End of getThis
 
 //----------------------------------------------------- Attributs protégés
-
+	protected static $instance; // handler of instance
 }
 
-//-------------------------------- Autres définitions dépendantes de <AbstractClass>
+//-------------------------------- Autres définitions dépendantes de <AbstractSingleton>
 
 ?>

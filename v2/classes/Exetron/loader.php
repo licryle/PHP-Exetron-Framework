@@ -11,10 +11,22 @@
 //-------------------------------------------------------- system Includes
 //require(); // Type : Class/Conf/Loader
 
-require_once ( dirname( __FILE__ ).'/TableGroup/loader.php' ); // Type : loader
-require_once ( dirname( __FILE__ ).'/TableUser/loader.php' ); // Type : loader
-require_once ( dirname( __FILE__ ).'/TableVariable/loader.php' ); // Type : loader
-require_once ( dirname( __FILE__ ).'/TableSite/loader.php' ); // Type : loader
+$directory = dirname( __FILE__ );
+
+require_once ( $directory.'/XHTMLSitePage/loader.php' ); // Type : loader
+
+
+$directory = dirname( __FILE__ );
+require_once ( $directory.'/TableGroup/loader.php' ); // Type : loader
+
+$directory = dirname( __FILE__ );
+require_once ( $directory.'/TableUser/loader.php' ); // Type : loader
+
+$directory = dirname( __FILE__ );
+require_once ( $directory.'/TableVariable/loader.php' ); // Type : loader
+
+$directory = dirname( __FILE__ );
+require_once ( $directory.'/TableSite/loader.php' ); // Type : loader
 
 //------------------------------------------------------ personal Includes
 

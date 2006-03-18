@@ -49,6 +49,18 @@ class Template extends AbstractClass
     // Contract :
     //
     
+    public static function BuildTag ( $tagName )
+    // User's manual :
+    //builds a Tag from TAG_OPEN $tagName and TAG_CLOSE
+    //
+    // Returns :
+    //
+    // Contrat :
+    //tagName must not contain TAG_OPEN or TAG_CLOSE value.
+    {
+        return self::TAG_OPEN. $tagName. self::TAG_CLOSE;
+    } //----- Fin de BuildTag
+    
     public function SetMaquette ( $maquette )
     // User's manual :
     //assign $maquette to page skeleton
@@ -108,7 +120,7 @@ class Template extends AbstractClass
         {
             $errs = new Errors ( );
             
-            $errs->Add( new TemplateError( TemplateError::TEMPLATE_TAG_INEXISTANT , 'The tag '. self::TAG_OPEN . $tag. self::TAG_CLOSE . ' doesn\'t exist.' ) );
+            $errs->Add( new TemplateError( TemplateError::TEMPLATE_TAG_INEXISTANT , 'The tag '. self::BuildTag( $tag ) . ' doesn\'t exist.' ) );
             
             return $errs;
         }
@@ -138,7 +150,7 @@ class Template extends AbstractClass
         {
             $errs = new Errors ( );
             
-            $errs->Add( new TemplateError( TemplateError::TEMPLATE_TAG_INEXISTANT , 'The tag '. self::TAG_OPEN . $tag. self::TAG_CLOSE . ' doesn\'t exist.' ) );
+            $errs->Add( new TemplateError( TemplateError::TEMPLATE_TAG_INEXISTANT , 'The tag '. Template::BuildTag( $tag ) . ' doesn\'t exist.' ) );
             
             return $errs;
         }
@@ -154,7 +166,7 @@ class Template extends AbstractClass
 	//
     // Contrat :
     {
-        return isset ( $this->tags[ self::TAG_OPEN.$tag.self::TAG_CLOSE ] );
+        return isset ( $this->tags[ Template::BuildTag( $tag ) ] );
     } //----- End of TagExists
     
     public function Generate( )

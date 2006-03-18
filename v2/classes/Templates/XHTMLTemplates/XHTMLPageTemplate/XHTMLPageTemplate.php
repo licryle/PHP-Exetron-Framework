@@ -141,18 +141,21 @@ class XHTMLPageTemplate extends XHTMLTemplate
 		$this->maquette = 
 '<?xml version="1.1" encoding="iso-8859-1" standalone="no" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+	
+<!-- Start of XHTML Page -->
 <html>
 
-<!-- headers -->
-'.self::TAG_OPEN.self::TAG_HEADERS.self::TAG_CLOSE.'
-<!-- end of headers -->
+<!-- Start of Headers -->
+'. Template::BuildTag( self::TAG_HEADERS ) .'
+<!-- End of Headers -->
 
-<!-- body -->
-'.self::TAG_OPEN.self::TAG_BODY.self::TAG_CLOSE.'
-<!-- end of body -->
+<!-- Start of Body -->
+'. Template::BuildTag( self::TAG_BODY ) .'
+<!-- End of Body -->
 
-</html>';
+</html>
+<!-- End of XHTML Page -->';
 		
 		
 		$this->SetTag ( self::TAG_BODY, new XHTMLBodyTemplate() );

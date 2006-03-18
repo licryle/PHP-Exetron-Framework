@@ -11,10 +11,18 @@
 //-------------------------------------------------------- system Includes
 //require(); // Type : Class/Conf/
 
-require ( dirname( __FILE__ ).'/XHTMLTemplate/loader.php' ); // Type : SubLoader
-require ( dirname( __FILE__ ).'/XHTMLBodyTemplate/loader.php' ); // Type : SubLoader
-require ( dirname( __FILE__ ).'/XHTMLHeadersTemplate/loader.php' ); // Type : SubLoader
-require ( dirname( __FILE__ ).'/XHTMLPageTemplate/loader.php' ); // Type : SubLoader
+$directory = dirname( __FILE__ );
+
+require ( $directory.'/XHTMLTemplate/loader.php' ); // Type : SubLoader
+
+$directory = dirname( __FILE__ );
+require ( $directory.'/XHTMLBodyTemplate/loader.php' ); // Type : SubLoader
+
+$directory = dirname( __FILE__ );
+require ( $directory.'/XHTMLHeadersTemplate/loader.php' ); // Type : SubLoader
+
+$directory = dirname( __FILE__ );
+require ( $directory.'/XHTMLPageTemplate/loader.php' ); // Type : SubLoader
 
 //------------------------------------------------------ personal Includes
 
