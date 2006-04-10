@@ -1,0 +1,11 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,222,352"];
+	Node1 [label="{ApplicationError\n|+ FUNCTION_NOT_CALLABLE\l+ FUNCTION_PARAM_NOT_ARRAY\l+ CALLBACK_NOT_EXISTS\l+ CALLBACK_NOT_SET\l+ ALREADY_ST\
+ARTED\l|}", height="1.33", width="3.08", color=white, fillcolor=black, style=filled, fontcolor=white, pos="111,56", rects="0,88,222,104 0,24,222,88 0,8,222,24"];
+	Node2 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __ToString()\l}", height="1.33", width="1.19", color=black, fillcolor=white, style=filled, URL="$classError.html", pos="111,188", rects="68,220,154,236 68,192,154,220 68,140,154,192"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="111,308", rects="68,328,154,344 68,312,154,328 68,272,154,312"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,111,140 111,130 111,121 111,113 111,104"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,111,272 111,261 111,253 111,244 111,236"];
+}

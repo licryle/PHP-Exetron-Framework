@@ -1,0 +1,14 @@
+digraph G {
+  compound=true
+  node [ fontsize=10, fontname="Helvetica"];
+  edge [ labelfontsize=9, labelfontname="Helvetica"];
+  subgraph clusterdir_e91ae33d84bf7b9c8b7506bae7bb7a90 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="classes" fontname="Helvetica", fontsize=10, URL="dir_e91ae33d84bf7b9c8b7506bae7bb7a90.html"]
+  subgraph clusterdir_db2e8d01823769e14136967d46751eae {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_db2e8d01823769e14136967d46751eae.html"];
+    dir_db2e8d01823769e14136967d46751eae [shape=plaintext label="DataBases"];
+    dir_5c0f70233e8f3c453351b91336041c13 [shape=box label="BDDConnection" color="red" fillcolor="white" style="filled" URL="dir_5c0f70233e8f3c453351b91336041c13.html"];
+    dir_b42b3666bc48045d79c66308ce8cfd7c [shape=box label="MySQLConnection" color="black" fillcolor="white" style="filled" URL="dir_b42b3666bc48045d79c66308ce8cfd7c.html"];
+  }
+  }
+}

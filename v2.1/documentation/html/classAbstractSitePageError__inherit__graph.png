@@ -1,0 +1,12 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,222,328"];
+	Node1 [label="{AbstractSitePageError\n|+ FUNCTION_NOT_CALLABLE\l+ FUNCTION_PARAM_NOT_ARRAY\l+ CALLBACK_NOT_EXISTS\l|}", height="1.00", width="3.08", color=white, fillcolor=black, style=filled, fontcolor=white, pos="111,44", rects="0,64,222,80 0,24,222,64 0,8,222,24"];
+	Node2 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __ToString()\l}", height="1.33", width="1.19", color=black, fillcolor=white, style=filled, URL="$classError.html", pos="111,164", rects="68,196,154,212 68,168,154,196 68,116,154,168"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="111,284", rects="68,304,154,320 68,288,154,304 68,248,154,288"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,98,116 97,106 97,97 97,88 98,80"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,111,248 111,237 111,229 111,220 111,212"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,111,116 111,106 111,97 111,88 111,80"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,124,116 125,106 125,97 125,88 124,80"];
+}

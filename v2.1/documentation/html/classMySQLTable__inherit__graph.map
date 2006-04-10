@@ -1,0 +1,28 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,638,760"];
+	Node1 [label="{MySQLTable\n|+ TABLE_COLUMN_ALL\l+ MYSQL_CLAUSE_WHERE\l+ MYSQL_CLAUSE_LIMIT\l+ MYSQL_CLAUSE_AND\l+ MYSQL_CLAUSE_OR\l+ MYSQL_CLA\
+USE_ORDER\l+ MYSQL_CLAUSE_ORDER_ASCENDANT\l+ MYSQL_CLAUSE_ORDER_DESCENDANT\l+ MYSQL_CLAUSE_GROUP\l+ MYSQL_CLAUSE_HAVING\l+ MYSQL\
+_SEEK_REGEX\l+ MYSQL_SEEK_MULTICHARS\l+ MYSQL_SEEK_ANYCHAR\l+ MYSQL_SEEK_STRICT\l+ MYSQL_SEEK_SEPARATOR\l+ MYSQL_STRUCTURE_FIELD\
+_NAME\l|+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l+ __construct()\l# isValidProperty()\l# bDDRecordTo\
+TableRecord()\l}", height="4.50", width="3.58", color=white, fillcolor=black, style=filled, fontcolor=white, pos="305,338", rects="176,484,434,500 176,288,434,484 176,176,434,288"];
+	Node2 [label="{BDDTable\n|# $tableName\l# $bDDConnection\l# $structure\l|+ __construct()\l}", height="1.00", width="1.44", color=black, fillcolor=white, style=filled, URL="$classBDDTable.html", pos="305,572", rects="253,592,358,608 253,552,358,592 253,536,358,552"];
+	Node7 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="248,698", rects="205,718,291,734 205,702,291,718 205,662,291,702"];
+	Node8 [label="{BDDTableInterface\n||+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l}", height="1.50", width="1.47", color=black, fillcolor=white, style=filled, URL="$interfaceBDDTableInterface.html", pos="362,698", rects="309,736,416,752 309,720,416,736 309,644,416,720"];
+	Node3 [label="{MySQLTableGroup\n||+ SaveGroups()\l+ SelectGroups()\l+ SelectGroupByIdGroup()\l+ SelectGroupsByIdSite()\l+ FindGroupsByName()\l\
++ UpdateGroupByIdGroup()\l+ InsertGroup()\l+ IdGroupExists()\l}", height="1.83", width="2.11", color=black, fillcolor=white, style=filled, URL="$classMySQLTableGroup.html", pos="76,74", rects="0,124,153,140 0,108,153,124 0,8,153,108"];
+	Node4 [label="{MySQLTableSite\n||+ SaveSites()\l+ SelectSites()\l+ SelectSiteByIdSite()\l+ FindSitesByName()\l+ UpdateSiteByIdSite()\l+ Insert\
+Site()\l+ IdSiteExists()\l}", height="1.67", width="1.69", color=black, fillcolor=white, style=filled, URL="$classMySQLTableSite.html", pos="231,74", rects="170,118,293,134 170,102,293,118 170,14,293,102"];
+	Node5 [label="{MySQLTableUser\n||+ SaveUsers()\l+ SelectUsers()\l+ SelectUserByIdUser()\l+ SelectUsersByIdGroup()\l+ FindUsersByName()\l+ Upda\
+teUserByIdUser()\l+ InsertUser()\l+ IdUserExists()\l}", height="1.83", width="1.92", color=black, fillcolor=white, style=filled, URL="$classMySQLTableUser.html", pos="379,74", rects="310,124,449,140 310,108,449,124 310,8,449,108"];
+	Node6 [label="{MySQLTableVariable\n||+ SaveVariables()\l+ SelectServerVariables()\l+ SelectSiteVariables()\l+ SelectVariablesByName()\l+ Updat\
+eVariableByIdVariable()\l+ InsertVariable()\l+ IdVariableExists()\l}", height="1.67", width="2.39", color=black, fillcolor=white, style=filled, URL="$classMySQLTableVariable.html", pos="552,74", rects="466,118,639,134 466,102,639,118 466,14,639,102"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,305,536 305,526 305,518 305,509 305,500"];
+	Node7 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,264,662 268,653 275,638 282,622 289,608"];
+	Node8 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,337,644 333,635 329,626 325,616 321,608"];
+	Node1 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,176,176 170,169 161,159 152,150 143,140"];
+	Node1 -> Node4 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,260,176 258,167 254,155 251,144 248,134"];
+	Node1 -> Node5 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,350,176 353,167 355,157 358,148 360,140"];
+	Node1 -> Node6 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,434,176 442,168 453,157 466,145 478,134"];
+}

@@ -1,0 +1,13 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,240,472"];
+	Node1 [label="{BDDConnection\n|+ CONNECTION_PERSISTENT\l+ CONNECTION_NOT_PERSISTENT\l# $server\l# $username\l# $password\l# $connection\l# $da\
+tabase\l# $nombreRequetes\l|+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\l+ SetPassword()\l+ GetPassword()\l+ \
+GetQueriesCount()\l+ __ToString()\l}", height="3.00", width="2.94", color=white, fillcolor=black, style=filled, fontcolor=white, pos="107,116", rects="1,208,213,224 1,108,213,208 1,8,213,108"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="43,362", rects="0,382,86,398 0,366,86,382 0,326,86,366"];
+	Node3 [label="{BDDConnectionInterface\n||+ TableExists()\l+ TableDescription()\l+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\
+\l+ SetPassword()\l+ GetPassword()\l+ Open()\l+ SetDatabase()\l+ Query()\l+ GetQueriesCount()\l+ Close()\l+ isConnected()\l}", height="2.83", width="1.89", color=black, fillcolor=white, style=filled, URL="$interfaceBDDConnectionInterface.html", pos="172,362", rects="104,448,240,464 104,432,240,448 104,260,240,432"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,52,326 54,317 61,291 70,257 79,224"];
+	Node3 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,145,260 143,250 140,242 138,233 136,224"];
+}

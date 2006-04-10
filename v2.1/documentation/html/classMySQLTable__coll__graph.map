@@ -1,0 +1,16 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,258,592"];
+	Node1 [label="{MySQLTable\n|+ TABLE_COLUMN_ALL\l+ MYSQL_CLAUSE_WHERE\l+ MYSQL_CLAUSE_LIMIT\l+ MYSQL_CLAUSE_AND\l+ MYSQL_CLAUSE_OR\l+ MYSQL_CLA\
+USE_ORDER\l+ MYSQL_CLAUSE_ORDER_ASCENDANT\l+ MYSQL_CLAUSE_ORDER_DESCENDANT\l+ MYSQL_CLAUSE_GROUP\l+ MYSQL_CLAUSE_HAVING\l+ MYSQL\
+_SEEK_REGEX\l+ MYSQL_SEEK_MULTICHARS\l+ MYSQL_SEEK_ANYCHAR\l+ MYSQL_SEEK_STRICT\l+ MYSQL_SEEK_SEPARATOR\l+ MYSQL_STRUCTURE_FIELD\
+_NAME\l|+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l+ __construct()\l# isValidProperty()\l# bDDRecordTo\
+TableRecord()\l}", height="4.50", width="3.58", color=white, fillcolor=black, style=filled, fontcolor=white, pos="129,170", rects="0,316,258,332 0,120,258,316 0,8,258,120"];
+	Node2 [label="{BDDTable\n|# $tableName\l# $bDDConnection\l# $structure\l|+ __construct()\l}", height="1.00", width="1.44", color=black, fillcolor=white, style=filled, URL="$classBDDTable.html", pos="129,404", rects="77,424,182,440 77,384,182,424 77,368,182,384"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="72,530", rects="29,550,115,566 29,534,115,550 29,494,115,534"];
+	Node4 [label="{BDDTableInterface\n||+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l}", height="1.50", width="1.47", color=black, fillcolor=white, style=filled, URL="$interfaceBDDTableInterface.html", pos="186,530", rects="133,568,240,584 133,552,240,568 133,476,240,552"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,129,368 129,358 129,350 129,341 129,332"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,88,494 92,485 99,470 106,454 113,440"];
+	Node4 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,161,476 157,467 153,458 149,448 145,440"];
+}

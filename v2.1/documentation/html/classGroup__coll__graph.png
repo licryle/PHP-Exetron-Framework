@@ -1,0 +1,11 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,118,424"];
+	Node1 [label="{Group\n||+ Validate()\l+ __construct()\l}", height="0.83", width="1.19", color=white, fillcolor=black, style=filled, fontcolor=white, pos="59,38", rects="16,52,102,68 16,36,102,52 16,8,102,36"];
+	Node2 [label="{BDDRecord\n|# $row\l# $isValid\l|+ IsValid()\l+ Validate()\l+ PropertyExists()\l+ GetProperty()\l+ SetProperty()\l+ GetProperty\
+Count()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __ToString()\l}", height="2.83", width="1.64", color=black, fillcolor=white, style=filled, URL="$classBDDRecord.html", pos="59,206", rects="0,292,118,308 0,264,118,292 0,104,118,264"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="59,380", rects="16,400,102,416 16,384,102,400 16,344,102,384"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,59,104 59,94 59,84 59,76 59,68"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,59,344 59,334 59,326 59,317 59,308"];
+}

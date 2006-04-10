@@ -1,0 +1,8 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,86,196"];
+	Node1 [label="{Xxx\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=white, fillcolor=black, style=filled, fontcolor=white, pos="43,44", rects="0,64,86,80 0,48,86,64 0,8,86,48"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="43,152", rects="0,172,86,188 0,156,86,172 0,116,86,156"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,43,116 43,105 43,97 43,88 43,80"];
+}

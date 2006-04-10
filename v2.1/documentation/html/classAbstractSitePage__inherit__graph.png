@@ -1,0 +1,13 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,160,592"];
+	Node1 [label="{AbstractSitePage\n||+ OnLoad()\l+ Process()\l+ OnUnLoad()\l+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l}", height="1.67", width="1.28", color=white, fillcolor=black, style=filled, fontcolor=white, pos="80,392", rects="34,436,126,452 34,420,126,436 34,332,126,420"];
+	Node2 [label="{AbstractSingleton\n|# $instance\l|+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# getThis()\l}", height="1.33", width="1.33", color=black, fillcolor=white, style=filled, URL="$classAbstractSingleton.html", pos="80,536", rects="32,568,129,584 32,552,129,568 32,488,129,552"];
+	Node3 [label="{XHTMLSitePage\n|+ TAG_EXECUTION_TIME\l# $pageTemplate\l|+ OnLoad()\l+ Process()\l+ OnUnLoad()\l+ __destruct()\l+ __ToString()\l\
++ GetInstance()\l# __construct()\l}", height="1.83", width="2.22", color=black, fillcolor=white, style=filled, URL="$classXHTMLSitePage.html", pos="80,230", rects="0,280,161,296 0,252,161,280 0,164,161,252"];
+	Node4 [label="{WebSitePage\n||+ OnLoad()\l+ Process()\l+ OnUnLoad()\l+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l}", height="1.67", width="1.17", color=black, fillcolor=white, style=filled, URL="$classWebSitePage.html", pos="80,68", rects="38,112,123,128 38,96,123,112 38,8,123,96"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,80,488 80,477 80,469 80,460 80,452"];
+	Node1 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,80,332 80,321 80,313 80,304 80,296"];
+	Node3 -> Node4 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,80,164 80,153 80,145 80,136 80,128"];
+}

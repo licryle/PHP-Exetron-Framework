@@ -1,0 +1,12 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,154,508"];
+	Node1 [label="{Application\n|+ SYSTEM_START_TIME\l# $started\l# $systemVars\l# $onApplicationStart\l# $onApplicationStartParams\l# $onApplicat\
+ionEnd\l# $onApplicationEndParams\l# $var_get\l# $var_post\l# $var_global\l# $var_files\l# $configuration\l|+ GetConfiguration()\
+\l+ SetConfiguration()\l+ GetPOSTVariables()\l+ GetGETVariables()\l+ GetVariables()\l+ GetFILES()\l+ Start()\l+ OnApplicationSta\
+rt()\l+ OnApplicationEnd()\l+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# isCorrectCallBack()\l# setCallBa\
+ck()\l# launchCallBack()\l}", height="5.00", width="2.14", color=white, fillcolor=black, style=filled, fontcolor=white, pos="77,188", rects="0,352,154,368 0,204,154,352 0,8,154,204"];
+	Node2 [label="{AbstractSingleton\n|# $instance\l|+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# getThis()\l}", height="1.33", width="1.33", color=black, fillcolor=white, style=filled, URL="$classAbstractSingleton.html", pos="77,452", rects="29,484,126,500 29,468,126,484 29,404,126,468"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,77,404 77,394 77,386 77,377 77,368"];
+}

@@ -1,0 +1,11 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,160,436"];
+	Node1 [label="{XHTMLSitePage\n|+ TAG_EXECUTION_TIME\l# $pageTemplate\l|+ OnLoad()\l+ Process()\l+ OnUnLoad()\l+ __destruct()\l+ __ToString()\l\
++ GetInstance()\l# __construct()\l}", height="1.83", width="2.22", color=white, fillcolor=black, style=filled, fontcolor=white, pos="80,74", rects="0,124,161,140 0,96,161,124 0,8,161,96"];
+	Node2 [label="{AbstractSitePage\n||+ OnLoad()\l+ Process()\l+ OnUnLoad()\l+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l}", height="1.67", width="1.28", color=black, fillcolor=white, style=filled, URL="$classAbstractSitePage.html", pos="80,236", rects="34,280,126,296 34,264,126,280 34,176,126,264"];
+	Node3 [label="{AbstractSingleton\n|# $instance\l|+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# getThis()\l}", height="1.33", width="1.33", color=black, fillcolor=white, style=filled, URL="$classAbstractSingleton.html", pos="80,380", rects="32,412,129,428 32,396,129,412 32,332,129,396"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,80,176 80,165 80,157 80,148 80,140"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,80,332 80,321 80,313 80,304 80,296"];
+}

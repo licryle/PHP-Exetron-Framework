@@ -1,0 +1,36 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,2342,424"];
+	Node1 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __ToString()\l}", height="1.33", width="1.19", color=white, fillcolor=black, style=filled, fontcolor=white, pos="952,260", rects="909,292,995,308 909,264,995,292 909,212,995,264"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="952,380", rects="909,400,995,416 909,384,995,400 909,344,995,384"];
+	Node3 [label="{AbstractSiteError\n||}", height="0.67", width="1.33", color=black, fillcolor=white, style=filled, URL="$classAbstractSiteError.html", pos="48,92", rects="0,100,96,116 0,84,96,100 0,68,96,84"];
+	Node4 [label="{AbstractSitePageError\n|+ FUNCTION_NOT_CALLABLE\l+ FUNCTION_PARAM_NOT_ARRAY\l+ CALLBACK_NOT_EXISTS\l|}", height="1.00", width="3.08", color=black, fillcolor=white, style=filled, URL="$classAbstractSitePageError.html", pos="225,92", rects="114,112,336,128 114,72,336,112 114,56,336,72"];
+	Node5 [label="{ApplicationError\n|+ FUNCTION_NOT_CALLABLE\l+ FUNCTION_PARAM_NOT_ARRAY\l+ CALLBACK_NOT_EXISTS\l+ CALLBACK_NOT_SET\l+ ALREADY_ST\
+ARTED\l|}", height="1.33", width="3.08", color=black, fillcolor=white, style=filled, URL="$classApplicationError.html", pos="465,92", rects="354,124,576,140 354,60,576,124 354,44,576,60"];
+	Node6 [label="{BDDError\n|+ CONNECTION_NOT_CLOSED\l+ CONNECTION_CLOSED\l+ CONNECTION_ALREADY_OPENED\l+ CONNECTION_CANNOT_OPEN\l+ CONNECTION_CA\
+NNOT_CHANGE_DB\l+ CONNECTION_QUERY_FAILED\l+ CONNECTION_TABLE_INEXISTANT\l+ CONNECTION_COLUMN_INEXISTANT\l+ TABLE_CLASS_INCORREC\
+T\l+ RECORD_NOT_VALID\l+ RECORD_UPDATE_DOESNT_EXIST\l|}", height="2.33", width="3.42", color=black, fillcolor=white, style=filled, URL="$classBDDError.html", pos="717,92", rects="594,160,840,176 594,24,840,160 594,8,840,24"];
+	Node7 [label="{GroupError\n|+ GROUP_NOT_LOADED\l+ GROUP_IDSITE_INEXISTANT\l+ GROUP_NAME_EMPTY\l|}", height="1.00", width="2.61", color=black, fillcolor=white, style=filled, URL="$classGroupError.html", pos="952,92", rects="858,112,1046,128 858,72,1046,112 858,56,1046,72"];
+	Node8 [label="{HTMLPageError\n|+ PAGE_TAG_INEXISTANT\l+ PAGE_MAQUETTE_INCORRECT\l|}", height="0.83", width="2.86", color=black, fillcolor=white, style=filled, URL="$classHTMLPageError.html", pos="1167,92", rects="1064,106,1270,122 1064,78,1270,106 1064,62,1270,78"];
+	Node9 [label="{SessionError\n|+ SESSION_VARIABLE_NOT_SET\l|}", height="0.67", width="2.75", color=black, fillcolor=white, style=filled, URL="$classSessionError.html", pos="1387,92", rects="1288,100,1487,116 1288,84,1487,100 1288,68,1487,84"];
+	Node10 [label="{SiteError\n|+ SITE_NOT_LOADED\l|}", height="0.67", width="1.89", color=black, fillcolor=white, style=filled, URL="$classSiteError.html", pos="1572,92", rects="1504,100,1640,116 1504,84,1640,100 1504,68,1640,84"];
+	Node11 [label="{TemplateError\n|+ TEMPLATE_TAG_INEXISTANT\l+ TEMPLATE_MAQUETTE_INEXISTANT\l|}", height="0.83", width="3.36", color=black, fillcolor=white, style=filled, URL="$classTemplateError.html", pos="1779,92", rects="1658,106,1900,122 1658,78,1900,106 1658,62,1900,78"];
+	Node12 [label="{UserError\n|+ USER_NOT_LOADED\l+ USER_IDGROUP_INEXISTANT\l+ USER_LOGIN_EMPTY\l|}", height="1.00", width="2.69", color=black, fillcolor=white, style=filled, URL="$classUserError.html", pos="2015,92", rects="1918,112,2113,128 1918,72,2113,112 1918,56,2113,72"];
+	Node13 [label="{VariableError\n|+ VARIABLE_NOT_LOADED\l+ VARIABLE_NAME_EMPTY\l+ VARIABLE_SCOPE_INCORRECT\l+ VARIABLE_ACCESS_INCORRECT\l+ VARIAB\
+LE_IDSITE_INEXISTANT\l|}", height="1.33", width="2.94", color=black, fillcolor=white, style=filled, URL="$classVariableError.html", pos="2236,92", rects="2130,124,2343,140 2130,60,2343,124 2130,44,2343,60"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,952,344 952,333 952,325 952,316 952,308"];
+	Node1 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,909,212 900,208 727,139 248,268 96,176 75,163 62,136 55,116"];
+	Node1 -> Node4 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,909,225 901,219 898,216 894,214 891,212 777,156 438,220 318,176 290,166 264,146 246,128"];
+	Node1 -> Node4 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,909,212 900,208 777,159 453,219 336,176 308,166 282,146 262,128"];
+	Node1 -> Node4 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,927,212 918,208 795,159 471,219 354,176 326,165 300,146 277,128"];
+	Node1 -> Node5 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,909,212 899,207 774,148 711,229 576,176 555,168 535,154 517,140"];
+	Node1 -> Node6 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,909,212 901,206 879,190 867,191 840,176"];
+	Node1 -> Node7 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,952,212 952,201 952,177 952,150 952,128"];
+	Node1 -> Node8 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,995,212 1003,206 1025,191 1038,193 1064,176 1088,160 1114,139 1133,122"];
+	Node1 -> Node9 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,995,212 1005,207 1114,155 1170,227 1288,176 1318,162 1347,136 1366,116"];
+	Node1 -> Node10 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,995,212 1004,208 1201,117 1305,278 1504,176 1529,163 1548,136 1559,116"];
+	Node1 -> Node11 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,995,212 1005,208 1147,151 1521,222 1658,176 1691,164 1723,141 1746,122"];
+	Node1 -> Node12 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,995,212 1005,208 1199,128 1730,250 1918,176 1943,166 1967,146 1984,128"];
+	Node1 -> Node13 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,995,212 1005,208 1156,161 2014,218 2130,176 2151,168 2171,154 2188,140"];
+}

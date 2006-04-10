@@ -1,0 +1,17 @@
+digraph G {
+	graph [rankdir=LR];
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,484,84"];
+	Node1 [label=AbstractSingleton, height="0.22", width="1.33", color=black, fillcolor=white, style=filled, URL="$classAbstractSingleton.html", pos="57,42", rects="9,34,106,50"];
+	Node2 [label=AbstractSitePage, height="0.22", width="1.28", color=black, fillcolor=white, style=filled, URL="$classAbstractSitePage.html", pos="188,76", rects="142,68,234,84"];
+	Node3 [label=XHTMLSitePage, height="0.22", width="1.31", color=black, fillcolor=white, style=filled, URL="$classXHTMLSitePage.html", pos="318,76", rects="271,68,366,84"];
+	Node4 [label=WebSitePage, height="0.22", width="1.03", color=black, fillcolor=white, style=filled, URL="$classWebSitePage.html", pos="439,76", rects="402,68,476,84"];
+	Node5 [label=Application, height="0.22", width="0.92", color=black, fillcolor=white, style=filled, URL="$classApplication.html", pos="188,42", rects="155,34,222,50"];
+	Node6 [label=Session, height="0.22", width="0.61", color=black, fillcolor=white, style=filled, URL="$classSession.html", pos="188,8", rects="166,0,210,16"];
+	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, pos="s,106,50 115,53 125,58 129,63 142,68"];
+	Node2 -> Node3 [dir=back, color=midnightblue, style=solid, pos="s,234,76 243,76 252,76 262,76 270,76"];
+	Node3 -> Node4 [dir=back, color=midnightblue, style=solid, pos="s,366,76 375,76 384,76 394,76 402,76"];
+	Node1 -> Node5 [dir=back, color=midnightblue, style=solid, pos="s,106,42 115,42 129,42 143,42 154,42"];
+	Node1 -> Node6 [dir=back, color=midnightblue, style=solid, pos="s,106,34 115,31 125,25 129,20 142,16 150,13 158,12 166,10"];
+}

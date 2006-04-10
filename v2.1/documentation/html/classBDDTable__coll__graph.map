@@ -1,0 +1,10 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,210,232"];
+	Node1 [label="{BDDTable\n|# $tableName\l# $bDDConnection\l# $structure\l|+ __construct()\l}", height="1.00", width="1.44", color=white, fillcolor=black, style=filled, fontcolor=white, pos="100,44", rects="48,64,153,80 48,24,153,64 48,8,153,24"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="43,170", rects="0,190,86,206 0,174,86,190 0,134,86,174"];
+	Node3 [label="{BDDTableInterface\n||+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l}", height="1.50", width="1.47", color=black, fillcolor=white, style=filled, URL="$interfaceBDDTableInterface.html", pos="157,170", rects="104,208,211,224 104,192,211,208 104,116,211,192"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,59,134 63,125 70,110 77,94 84,80"];
+	Node3 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,132,116 128,107 124,98 120,88 116,80"];
+}

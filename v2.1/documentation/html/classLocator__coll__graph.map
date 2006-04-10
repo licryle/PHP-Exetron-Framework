@@ -1,0 +1,14 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,192,400"];
+	Node1 [label="{Locator\n|# $items\l|+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\\
+l+ __ToString()\l+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __\
+ToString()\l}", height="3.83", width="1.19", color=white, fillcolor=black, style=filled, fontcolor=white, pos="95,146", rects="52,268,138,284 52,252,138,268 52,8,138,252"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="43,356", rects="0,376,86,392 0,360,86,376 0,320,86,360"];
+	Node3 [label="{AbstractIterator\n||+ DelAll()\l+ GetCount()\l}", height="0.83", width="1.22", color=black, fillcolor=white, style=filled, URL="$interfaceAbstractIterator.html", pos="148,356", rects="104,370,192,386 104,354,192,370 104,326,192,354"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,47,320 49,311 50,302 52,293 54,284"];
+	Node3 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,136,326 133,317 130,307 127,296 124,284"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,57,320 60,310 62,302 65,293 67,284"];
+	Node3 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,145,326 143,316 141,307 139,296 136,284"];
+}

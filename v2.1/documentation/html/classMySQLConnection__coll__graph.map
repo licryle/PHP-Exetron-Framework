@@ -1,0 +1,17 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,240,736"];
+	Node1 [label="{MySQLConnection\n||+ TableExists()\l+ TableDescription()\l+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\l+ Set\
+Password()\l+ GetPassword()\l+ Open()\l+ SetDatabase()\l+ Query()\l+ GetQueriesCount()\l+ Close()\l+ isConnected()\l+ __construc\
+t()\l+ __ToString()\l}", height="3.17", width="1.56", color=white, fillcolor=black, style=filled, fontcolor=white, pos="107,122", rects="51,220,163,236 51,204,163,220 51,8,163,204"];
+	Node2 [label="{BDDConnection\n|+ CONNECTION_PERSISTENT\l+ CONNECTION_NOT_PERSISTENT\l# $server\l# $username\l# $password\l# $connection\l# $da\
+tabase\l# $nombreRequetes\l|+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\l+ SetPassword()\l+ GetPassword()\l+ \
+GetQueriesCount()\l+ __ToString()\l}", height="3.00", width="2.94", color=black, fillcolor=white, style=filled, URL="$classBDDConnection.html", pos="107,380", rects="1,472,213,488 1,372,213,472 1,272,213,372"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="43,626", rects="0,646,86,662 0,630,86,646 0,590,86,630"];
+	Node4 [label="{BDDConnectionInterface\n||+ TableExists()\l+ TableDescription()\l+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\
+\l+ SetPassword()\l+ GetPassword()\l+ Open()\l+ SetDatabase()\l+ Query()\l+ GetQueriesCount()\l+ Close()\l+ isConnected()\l}", height="2.83", width="1.89", color=black, fillcolor=white, style=filled, URL="$interfaceBDDConnectionInterface.html", pos="172,626", rects="104,712,240,728 104,696,240,712 104,524,240,696"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,107,272 107,262 107,253 107,245 107,236"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,52,590 54,581 61,555 70,521 79,488"];
+	Node4 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,145,524 143,514 140,506 138,497 136,488"];
+}

@@ -1,0 +1,10 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,136,304"];
+	Node1 [label="{SiteError\n|+ SITE_NOT_LOADED\l|}", height="0.67", width="1.89", color=white, fillcolor=black, style=filled, fontcolor=white, pos="68,32", rects="0,40,136,56 0,24,136,40 0,8,136,24"];
+	Node2 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __ToString()\l}", height="1.33", width="1.19", color=black, fillcolor=white, style=filled, URL="$classError.html", pos="68,140", rects="25,172,111,188 25,144,111,172 25,92,111,144"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="68,260", rects="25,280,111,296 25,264,111,280 25,224,111,264"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,68,92 68,82 68,73 68,64 68,56"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,68,224 68,213 68,205 68,196 68,188"];
+}

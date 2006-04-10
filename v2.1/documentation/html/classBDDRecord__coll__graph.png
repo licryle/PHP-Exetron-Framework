@@ -1,0 +1,9 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,118,328"];
+	Node1 [label="{BDDRecord\n|# $row\l# $isValid\l|+ IsValid()\l+ Validate()\l+ PropertyExists()\l+ GetProperty()\l+ SetProperty()\l+ GetProperty\
+Count()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __ToString()\l}", height="2.83", width="1.64", color=white, fillcolor=black, style=filled, fontcolor=white, pos="59,110", rects="0,196,118,212 0,168,118,196 0,8,118,168"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="59,284", rects="16,304,102,320 16,288,102,304 16,248,102,288"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,59,248 59,238 59,230 59,221 59,212"];
+}

@@ -1,0 +1,53 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,1970,412"];
+	Node1 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=white, fillcolor=black, style=filled, fontcolor=white, pos="1203,368", rects="1160,388,1246,404 1160,372,1246,388 1160,332,1246,372"];
+	Node2 [label="{BDDConnection\n|+ CONNECTION_PERSISTENT\l+ CONNECTION_NOT_PERSISTENT\l# $server\l# $username\l# $password\l# $connection\l# $da\
+tabase\l# $nombreRequetes\l|+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\l+ SetPassword()\l+ GetPassword()\l+ \
+GetQueriesCount()\l+ __ToString()\l}", height="3.00", width="2.94", color=red, fillcolor=white, style=filled, URL="$classBDDConnection.html", pos="106,152", rects="0,244,212,260 0,144,212,244 0,44,212,144"];
+	Node4 [label="{BDDRecord\n|# $row\l# $isValid\l|+ IsValid()\l+ Validate()\l+ PropertyExists()\l+ GetProperty()\l+ SetProperty()\l+ GetProperty\
+Count()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __ToString()\l}", height="2.83", width="1.64", color=red, fillcolor=white, style=filled, URL="$classBDDRecord.html", pos="289,152", rects="230,238,348,254 230,210,348,238 230,50,348,210"];
+	Node9 [label="{BDDRecordSet\n|# $items\l|+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __constru\
+ct()\l+ __ToString()\l}", height="2.17", width="1.19", color=black, fillcolor=white, style=filled, URL="$classBDDRecordSet.html", pos="409,152", rects="366,214,452,230 366,198,452,214 366,74,452,198"];
+	Node10 [label="{BDDTable\n|# $tableName\l# $bDDConnection\l# $structure\l|+ __construct()\l}", height="1.00", width="1.44", color=red, fillcolor=white, style=filled, URL="$classBDDTable.html", pos="522,152", rects="470,172,575,188 470,132,575,172 470,116,575,132"];
+	Node12 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __ToString()\l}", height="1.33", width="1.19", color=red, fillcolor=white, style=filled, URL="$classError.html", pos="635,152", rects="592,184,678,200 592,156,678,184 592,104,678,156"];
+	Node24 [label="{Errors\n|# $errors\l|+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\\
+l+ __ToString()\l}", height="2.17", width="1.19", color=black, fillcolor=white, style=filled, URL="$classErrors.html", pos="739,152", rects="696,214,782,230 696,198,782,214 696,74,782,198"];
+	Node25 [label="{Groups\n|# $groups\l|+ GetGroupByIdGroup()\l+ GetGroupByName()\l+ SetGroup()\l+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ \
+Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __destruct()\l}", height="2.67", width="1.86", color=black, fillcolor=white, style=filled, URL="$classGroups.html", pos="867,152", rects="800,232,934,248 800,216,934,232 800,56,934,216"];
+	Node26 [label="{HTMLPage\n|+ HTMLPAGE_TAG_BODY\l+ HTMLPAGE_TAG_EXECTIME\l+ HTMLPAGE_TAG_LOCATOR\l+ DEBUG_ENABLED\l+ DEBUG_DISABLED\l+ CRLF\l# $\
+debugMode\l# $startTime\l# $maquette\l# $menuLocator\l# $tags\l|+ GetLocator()\l+ AddRawHTML()\l+ SetMaquette()\l+ SetTag()\l+ G\
+etTag()\l+ SetDebugMode()\l+ GetDebugMode()\l+ FlushSite()\l+ __construct()\l+ GetMicroTime()\l+ ConvertIntoSGML()\l}", height="4.00", width="2.64", color=black, fillcolor=white, style=filled, URL="$classHTMLPage.html", pos="1047,152", rects="952,280,1143,296 952,144,1143,280 952,8,1143,144"];
+	Node27 [label="{Locator\n|# $items\l|+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\\
+l+ __ToString()\l+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __\
+ToString()\l}", height="3.83", width="1.19", color=black, fillcolor=white, style=filled, URL="$classLocator.html", pos="1203,152", rects="1160,274,1246,290 1160,258,1246,274 1160,14,1246,258"];
+	Node28 [label="{LocatorItem\n|# $label\l# $url\l|+ GetLabel()\l+ GetURL()\l+ __construct()\l+ __ToString()\l+ GetLabel()\l+ GetURL()\l+ __const\
+ruct()\l+ __ToString()\l}", height="2.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classLocatorItem.html", pos="1307,152", rects="1264,208,1350,224 1264,180,1350,208 1264,80,1350,180"];
+	Node29 [label="{Sites\n|# $sites\l|+ GetSiteByIdSite()\l+ GetSiteByName()\l+ SetSite()\l+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Curren\
+t()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __destruct()\l}", height="2.67", width="1.47", color=black, fillcolor=white, style=filled, URL="$classSites.html", pos="1421,152", rects="1368,232,1475,248 1368,216,1475,232 1368,56,1475,216"];
+	Node30 [label="{Template\n|+ TAG_OPEN\l+ TAG_CLOSE\l+ NEWLINE\l# $maquette\l# $tags\l|+ SetMaquette()\l+ SetTag()\l+ GetTag()\l+ AddToTag()\l+ \
+TagExists()\l+ Generate()\l+ __construct()\l+ __ToString()\l+ BuildTag()\l}", height="2.67", width="1.25", color=red, fillcolor=white, style=filled, URL="$classTemplate.html", pos="1537,152", rects="1492,232,1582,248 1492,168,1582,232 1492,56,1582,168"];
+	Node32 [label="{Users\n|# $users\l|+ GetUserByIdUser()\l+ GetUserByName()\l+ SetUser()\l+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Curren\
+t()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __destruct()\l}", height="2.67", width="1.61", color=black, fillcolor=white, style=filled, URL="$classUsers.html", pos="1658,152", rects="1600,232,1716,248 1600,216,1716,232 1600,56,1716,216"];
+	Node33 [label="{Variables\n|# $variables\l|+ GetVariableByName()\l+ SetVariable()\l+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l\
++ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __destruct()\l}", height="2.50", width="1.83", color=black, fillcolor=white, style=filled, URL="$classVariables.html", pos="1800,152", rects="1734,226,1866,242 1734,210,1866,226 1734,62,1866,210"];
+	Node34 [label="{Xxx\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classXxx.html", pos="1927,152", rects="1884,172,1970,188 1884,156,1970,172 1884,116,1970,156"];
+	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1160,332 1150,329 1019,297 303,344 212,296 196,287 181,274 168,260"];
+	Node1 -> Node4 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1160,332 1149,329 1030,302 419,345 348,296 333,285 322,270 314,254"];
+	Node1 -> Node9 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1160,332 1149,329 1042,306 512,342 452,296 432,280 421,255 415,230"];
+	Node1 -> Node10 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1160,332 1149,328 1019,288 677,371 575,296 542,271 529,222 525,188"];
+	Node1 -> Node12 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1160,332 1150,328 1042,295 759,361 678,296 650,273 639,232 636,200"];
+	Node1 -> Node24 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1160,332 1149,328 1062,303 845,347 782,296 762,280 752,255 746,230"];
+	Node1 -> Node25 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1160,332 1151,328 1064,294 1013,355 934,296 918,284 905,266 896,248"];
+	Node1 -> Node26 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1172,332 1166,324 1158,315 1150,305 1143,296"];
+	Node1 -> Node27 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1198,332 1197,322 1197,312 1197,301 1197,290"];
+	Node1 -> Node27 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1208,332 1209,322 1209,312 1209,301 1209,290"];
+	Node1 -> Node28 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1230,332 1237,323 1243,315 1250,305 1255,296 1267,274 1276,248 1283,224"];
+	Node1 -> Node28 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1246,333 1252,326 1260,316 1268,306 1273,296 1285,274 1294,248 1300,224"];
+	Node1 -> Node29 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1246,332 1255,327 1299,309 1329,332 1368,296 1382,283 1392,266 1399,248"];
+	Node1 -> Node30 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1246,332 1255,328 1350,291 1410,365 1492,296 1506,283 1516,266 1523,248"];
+	Node1 -> Node32 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1246,332 1256,328 1337,304 1539,341 1600,296 1616,284 1628,266 1636,248"];
+	Node1 -> Node33 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1246,332 1256,328 1365,295 1647,356 1734,296 1752,283 1766,263 1776,242"];
+	Node1 -> Node34 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,1246,332 1256,329 1353,308 1830,338 1884,296 1916,270 1925,222 1927,188"];
+}

@@ -1,0 +1,11 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,100,400"];
+	Node1 [label="{XHTMLTemplate\n||}", height="0.67", width="1.39", color=white, fillcolor=black, style=filled, fontcolor=white, pos="50,32", rects="0,40,101,56 0,24,101,40 0,8,101,24"];
+	Node2 [label="{Template\n|+ TAG_OPEN\l+ TAG_CLOSE\l+ NEWLINE\l# $maquette\l# $tags\l|+ SetMaquette()\l+ SetTag()\l+ GetTag()\l+ AddToTag()\l+ \
+TagExists()\l+ Generate()\l+ __construct()\l+ __ToString()\l+ BuildTag()\l}", height="2.67", width="1.25", color=black, fillcolor=white, style=filled, URL="$classTemplate.html", pos="50,188", rects="5,268,95,284 5,204,95,268 5,92,95,204"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="50,356", rects="7,376,93,392 7,360,93,376 7,320,93,360"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,50,92 50,81 50,72 50,63 50,56"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,50,320 50,310 50,302 50,293 50,284"];
+}

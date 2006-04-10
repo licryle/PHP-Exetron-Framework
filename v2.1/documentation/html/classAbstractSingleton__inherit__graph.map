@@ -1,0 +1,20 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,416,676"];
+	Node1 [label="{AbstractSingleton\n|# $instance\l|+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# getThis()\l}", height="1.33", width="1.33", color=white, fillcolor=black, style=filled, fontcolor=white, pos="221,620", rects="173,652,270,668 173,636,270,652 173,572,270,636"];
+	Node2 [label="{AbstractSitePage\n||+ OnLoad()\l+ Process()\l+ OnUnLoad()\l+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l}", height="1.67", width="1.28", color=black, fillcolor=white, style=filled, URL="$classAbstractSitePage.html", pos="80,356", rects="34,400,126,416 34,384,126,400 34,296,126,384"];
+	Node3 [label="{XHTMLSitePage\n|+ TAG_EXECUTION_TIME\l# $pageTemplate\l|+ OnLoad()\l+ Process()\l+ OnUnLoad()\l+ __destruct()\l+ __ToString()\l\
++ GetInstance()\l# __construct()\l}", height="1.83", width="2.22", color=red, fillcolor=white, style=filled, URL="$classXHTMLSitePage.html", pos="80,74", rects="0,124,161,140 0,96,161,124 0,8,161,96"];
+	Node4 [label="{Application\n|+ SYSTEM_START_TIME\l# $started\l# $systemVars\l# $onApplicationStart\l# $onApplicationStartParams\l# $onApplicat\
+ionEnd\l# $onApplicationEndParams\l# $var_get\l# $var_post\l# $var_global\l# $var_files\l# $configuration\l|+ GetConfiguration()\
+\l+ SetConfiguration()\l+ GetPOSTVariables()\l+ GetGETVariables()\l+ GetVariables()\l+ GetFILES()\l+ Start()\l+ OnApplicationSta\
+rt()\l+ OnApplicationEnd()\l+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# isCorrectCallBack()\l# setCallBa\
+ck()\l# launchCallBack()\l}", height="5.00", width="2.14", color=black, fillcolor=white, style=filled, URL="$classApplication.html", pos="221,356", rects="144,520,298,536 144,372,298,520 144,176,298,372"];
+	Node5 [label="{Session\n||+ Destruct()\l+ GetId()\l+ SetId()\l+ IsSetVariable()\l+ UnSetVariable()\l+ SetVariable()\l+ GetVariable()\l+ DelAll\
+()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ GetInstance()\l# __construct()\l}", height="3.17", width="1.39", color=black, fillcolor=white, style=filled, URL="$classSession.html", pos="366,356", rects="316,454,416,470 316,438,416,454 316,242,416,438"];
+	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,173,572 165,566 149,554 138,554 126,536 102,500 91,453 85,416"];
+	Node2 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,80,296 80,286 80,241 80,184 80,140"];
+	Node1 -> Node4 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,221,572 221,562 221,554 221,545 221,536"];
+	Node1 -> Node5 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,270,572 278,565 293,554 303,554 316,536 329,516 339,493 346,470"];
+}

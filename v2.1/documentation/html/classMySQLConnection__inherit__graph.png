@@ -1,0 +1,16 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,240,640"];
+	Node1 [label="{MySQLConnection\n||+ TableExists()\l+ TableDescription()\l+ Open()\l+ SetDatabase()\l+ Query()\l+ Close()\l+ isConnected()\l+ _\
+_construct()\l+ __ToString()\l}", height="2.00", width="1.53", color=white, fillcolor=black, style=filled, fontcolor=white, pos="107,80", rects="52,136,162,152 52,120,162,136 52,8,162,120"];
+	Node2 [label="{BDDConnection\n|+ CONNECTION_PERSISTENT\l+ CONNECTION_NOT_PERSISTENT\l# $server\l# $username\l# $password\l# $connection\l# $da\
+tabase\l# $nombreRequetes\l|+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\l+ SetPassword()\l+ GetPassword()\l+ \
+GetQueriesCount()\l+ __ToString()\l}", height="3.00", width="2.94", color=black, fillcolor=white, style=filled, URL="$classBDDConnection.html", pos="107,296", rects="1,388,213,404 1,288,213,388 1,188,213,288"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="43,536", rects="0,556,86,572 0,540,86,556 0,500,86,540"];
+	Node4 [label="{BDDConnectionInterface\n||+ TableExists()\l+ TableDescription()\l+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\
+\l+ SetPassword()\l+ GetPassword()\l+ Open()\l+ SetDatabase()\l+ Query()\l+ Close()\l+ isConnected()\l}", height="2.67", width="1.89", color=black, fillcolor=white, style=filled, URL="$interfaceBDDConnectionInterface.html", pos="172,536", rects="104,616,240,632 104,600,240,616 104,440,240,600"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,107,188 107,177 107,169 107,160 107,152"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,53,500 55,491 62,466 70,435 78,404"];
+	Node4 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,146,440 144,430 141,422 139,413 136,404"];
+}

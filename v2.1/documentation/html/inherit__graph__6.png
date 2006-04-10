@@ -1,0 +1,7 @@
+digraph G {
+	graph [rankdir=LR];
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,120,16"];
+	Node1 [label=TableUserInterface, height="0.22", width="1.44", color=black, fillcolor=white, style=filled, URL="$interfaceTableUserInterface.html", pos="60,8", rects="8,0,112,16"];
+}

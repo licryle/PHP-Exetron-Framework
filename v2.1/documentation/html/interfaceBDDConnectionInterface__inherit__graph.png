@@ -1,0 +1,14 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,212,640"];
+	Node1 [label="{BDDConnectionInterface\n||+ TableExists()\l+ TableDescription()\l+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\
+\l+ SetPassword()\l+ GetPassword()\l+ Open()\l+ SetDatabase()\l+ Query()\l+ Close()\l+ isConnected()\l}", height="2.67", width="1.89", color=white, fillcolor=black, style=filled, fontcolor=white, pos="106,536", rects="38,616,174,632 38,600,174,616 38,440,174,600"];
+	Node2 [label="{BDDConnection\n|+ CONNECTION_PERSISTENT\l+ CONNECTION_NOT_PERSISTENT\l# $server\l# $username\l# $password\l# $connection\l# $da\
+tabase\l# $nombreRequetes\l|+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\l+ SetPassword()\l+ GetPassword()\l+ \
+GetQueriesCount()\l+ __ToString()\l}", height="3.00", width="2.94", color=black, fillcolor=white, style=filled, URL="$classBDDConnection.html", pos="106,296", rects="0,388,212,404 0,288,212,388 0,188,212,288"];
+	Node3 [label="{MySQLConnection\n||+ TableExists()\l+ TableDescription()\l+ Open()\l+ SetDatabase()\l+ Query()\l+ Close()\l+ isConnected()\l+ _\
+_construct()\l+ __ToString()\l}", height="2.00", width="1.53", color=black, fillcolor=white, style=filled, URL="$classMySQLConnection.html", pos="106,80", rects="51,136,161,152 51,120,161,136 51,8,161,120"];
+	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,106,440 106,429 106,421 106,412 106,404"];
+	Node2 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,106,188 106,177 106,169 106,160 106,152"];
+}

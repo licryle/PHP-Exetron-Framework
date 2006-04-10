@@ -1,0 +1,14 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,191,388"];
+	Node1 [label="{AbstractIterator\n||+ DelAll()\l+ GetCount()\l}", height="0.83", width="1.22", color=white, fillcolor=black, style=filled, fontcolor=white, pos="147,350", rects="103,364,191,380 103,348,191,364 103,320,191,348"];
+	Node2 [label="{Errors\n|# $errors\l|+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\\
+l+ __ToString()\l}", height="2.17", width="1.19", color=black, fillcolor=white, style=filled, URL="$classErrors.html", pos="43,146", rects="0,208,86,224 0,192,86,208 0,68,86,192"];
+	Node3 [label="{Locator\n|# $items\l|+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\\
+l+ __ToString()\l+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __\
+ToString()\l}", height="3.83", width="1.19", color=black, fillcolor=white, style=filled, URL="$classLocator.html", pos="147,146", rects="104,268,190,284 104,252,190,268 104,8,190,252"];
+	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,114,320 107,313 99,304 91,294 86,284 75,266 67,244 61,224"];
+	Node1 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,142,320 141,310 141,302 141,293 141,284"];
+	Node1 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,152,320 153,310 153,302 153,293 153,284"];
+}

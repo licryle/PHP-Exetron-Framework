@@ -1,0 +1,10 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,190,412"];
+	Node1 [label="{HTMLPage\n|+ HTMLPAGE_TAG_BODY\l+ HTMLPAGE_TAG_EXECTIME\l+ HTMLPAGE_TAG_LOCATOR\l+ DEBUG_ENABLED\l+ DEBUG_DISABLED\l+ CRLF\l# $\
+debugMode\l# $startTime\l# $maquette\l# $menuLocator\l# $tags\l|+ GetLocator()\l+ AddRawHTML()\l+ SetMaquette()\l+ SetTag()\l+ G\
+etTag()\l+ SetDebugMode()\l+ GetDebugMode()\l+ FlushSite()\l+ __construct()\l+ GetMicroTime()\l+ ConvertIntoSGML()\l}", height="4.00", width="2.64", color=white, fillcolor=black, style=filled, fontcolor=white, pos="95,152", rects="0,280,191,296 0,144,191,280 0,8,191,144"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="95,368", rects="52,388,138,404 52,372,138,388 52,332,138,372"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,95,332 95,322 95,314 95,305 95,296"];
+}

@@ -1,0 +1,9 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,116,316"];
+	Node1 [label="{Users\n|# $users\l|+ GetUserByIdUser()\l+ GetUserByName()\l+ SetUser()\l+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Curren\
+t()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __destruct()\l}", height="2.67", width="1.61", color=white, fillcolor=black, style=filled, fontcolor=white, pos="58,104", rects="0,184,116,200 0,168,116,184 0,8,116,168"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="58,272", rects="15,292,101,308 15,276,101,292 15,236,101,276"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,58,236 58,226 58,218 58,209 58,200"];
+}

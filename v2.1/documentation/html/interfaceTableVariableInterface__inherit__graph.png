@@ -1,0 +1,10 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,172,280"];
+	Node1 [label="{TableVariableInterface\n||+ SelectServerVariables()\l+ SelectSiteVariables()\l+ SelectVariablesByName()\l+ UpdateVariableByIdVa\
+riable()\l+ InsertVariable()\l+ IdVariableExists()\l}", height="1.50", width="2.39", color=white, fillcolor=black, style=filled, fontcolor=white, pos="86,218", rects="0,256,173,272 0,240,173,256 0,164,173,240"];
+	Node2 [label="{MySQLTableVariable\n||+ SaveVariables()\l+ SelectServerVariables()\l+ SelectSiteVariables()\l+ SelectVariablesByName()\l+ Updat\
+eVariableByIdVariable()\l+ InsertVariable()\l+ IdVariableExists()\l}", height="1.67", width="2.39", color=black, fillcolor=white, style=filled, URL="$classMySQLTableVariable.html", pos="86,68", rects="0,112,173,128 0,96,173,112 0,8,173,96"];
+	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,86,164 86,153 86,145 86,136 86,128"];
+}

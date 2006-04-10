@@ -1,0 +1,10 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,242,316"];
+	Node1 [label="{TemplateError\n|+ TEMPLATE_TAG_INEXISTANT\l+ TEMPLATE_MAQUETTE_INEXISTANT\l|}", height="0.83", width="3.36", color=white, fillcolor=black, style=filled, fontcolor=white, pos="121,38", rects="0,52,242,68 0,24,242,52 0,8,242,24"];
+	Node2 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __ToString()\l}", height="1.33", width="1.19", color=black, fillcolor=white, style=filled, URL="$classError.html", pos="121,152", rects="78,184,164,200 78,156,164,184 78,104,164,156"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="121,272", rects="78,292,164,308 78,276,164,292 78,236,164,276"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,121,104 121,94 121,85 121,76 121,68"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,121,236 121,225 121,217 121,208 121,200"];
+}

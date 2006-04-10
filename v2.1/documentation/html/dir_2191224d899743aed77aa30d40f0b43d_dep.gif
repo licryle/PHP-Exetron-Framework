@@ -1,0 +1,25 @@
+digraph G {
+	graph [compound=true];
+	node [label="\N", fontsize=10, fontname=Helvetica];
+	edge [labelfontsize=9, labelfontname=Helvetica];
+	graph [lp="88,0"];
+	graph [bb="0,0,176,100"];
+	subgraph clusterdir_1f7f7f0f90725f7142813121dce0dd78 {
+		graph [bgcolor="#ddddee"];
+		graph [pencolor=black];
+		graph [label=Templates];
+		graph [fontname=Helvetica];
+		graph [fontsize=10];
+		graph [URL="dir_1f7f7f0f90725f7142813121dce0dd78.html"];
+		graph [lp=""];
+		graph [bb="8,8,168,92"];
+		subgraph clusterdir_2191224d899743aed77aa30d40f0b43d {
+			graph [bgcolor="#eeeeff"];
+			graph [label=""];
+			graph [URL="dir_2191224d899743aed77aa30d40f0b43d.html"];
+			graph [bb="16,16,160,68"];
+			dir_2191224d899743aed77aa30d40f0b43d [label=Template, shape=plaintext, pos="124,42", width="0.78", height="0.50"];
+			dir_e457f4d1729c5ecd05476e2f14abc84a [label=Errors, shape=box, color=black, fillcolor=white, style=filled, URL="dir_e457f4d1729c5ecd05476e2f14abc84a.html", pos="51,42", width="0.75", height="0.50"];
+		}
+	}
+}

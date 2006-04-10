@@ -1,0 +1,10 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,188,328"];
+	Node1 [label="{GroupError\n|+ GROUP_NOT_LOADED\l+ GROUP_IDSITE_INEXISTANT\l+ GROUP_NAME_EMPTY\l|}", height="1.00", width="2.61", color=white, fillcolor=black, style=filled, fontcolor=white, pos="94,44", rects="0,64,188,80 0,24,188,64 0,8,188,24"];
+	Node2 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __ToString()\l}", height="1.33", width="1.19", color=black, fillcolor=white, style=filled, URL="$classError.html", pos="94,164", rects="51,196,137,212 51,168,137,196 51,116,137,168"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="94,284", rects="51,304,137,320 51,288,137,304 51,248,137,288"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,94,116 94,106 94,97 94,88 94,80"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,94,248 94,237 94,229 94,220 94,212"];
+}
