@@ -21,7 +21,7 @@ digraph G {
 			dir_6b75889e5fe4068fec075a0b63ad3ffc [label=XHTMLTemplates, shape=plaintext, pos="638,42", width="1.44", height="0.50"];
 			dir_925fa9a6af1204e4b535c5d60fbca570 [label=XHTMLBodyTemplate, shape=box, color=black, fillcolor=white, style=filled, URL="dir_925fa9a6af1204e4b535c5d60fbca570.html", pos="505,42", width="1.75", height="0.50"];
 			dir_40435d8b07e70dd9c91298eab070a01d [label=XHTMLHeadersTemplate, shape=box, color=black, fillcolor=white, style=filled, URL="dir_40435d8b07e70dd9c91298eab070a01d.html", pos="354,42", width="1.94", height="0.50"];
-			dir_800614f0ff4e28b9f1f0a4fae6eb2bc1 [label=XHTMLPageTemplate, shape=box, color=red, fillcolor=white, style=filled, URL="dir_800614f0ff4e28b9f1f0a4fae6eb2bc1.html", pos="204,42", width="1.72", height="0.50"];
+			dir_800614f0ff4e28b9f1f0a4fae6eb2bc1 [label=XHTMLPageTemplate, shape=box, color=black, fillcolor=white, style=filled, URL="dir_800614f0ff4e28b9f1f0a4fae6eb2bc1.html", pos="204,42", width="1.72", height="0.50"];
 			dir_b120a0ab8861a27008a7e2881f615e09 [label=XHTMLTemplate, shape=box, color=black, fillcolor=white, style=filled, URL="dir_b120a0ab8861a27008a7e2881f615e09.html", pos="74,42", width="1.39", height="0.50"];
 		}
 	}

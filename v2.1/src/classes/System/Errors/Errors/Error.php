@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |Error.php|  -  description
+                           |Error.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Error> (fichier Error.php) --------------
-if (defined('ERROR_H'))
+//---------- Class <Error> (file Error.php) --------------
+/*if (defined('ERROR_H'))
 {
     return;
 }
@@ -17,90 +17,99 @@ else
 {
 
 }
-define('ERROR_H',1);
+define('ERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Error>
-//Gestion d'une erreur avec un code et un message d'erreur associé
-//
+/*!
+ * Provides Error management. An error is composed by an error code and a
+ * message.
+ */
 //------------------------------------------------------------------------ 
 
 class Error extends AbstractClass
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
     
     public function GetMessage( )
-    // Mode d'emploi :
-    //Retourne le message associé à l'erreur
-    //
-    // Algorithme : 
-    //trivial
+	/**
+	 * Gets message associated to the error.
+	 *
+	 * @return The message associated to the error
+	 *
+     */
     {
         return $this->erreurString;
     }
     
     public function GetCode( )
-    // Mode d'emploi :
-    //Retourne le code associé à l'erreur
-    //
-    // Algorithme : 
-    //trivial
+	/**
+	 * Gets code associated to the error.
+	 *
+	 * @return The code associated to the error
+	 *
+     */
     {
         return $this->erreurCode;
     }
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( $code, $str )
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
+    /**
+	 * Initialises an Error object from a $code and a message $str.
+	 *
+	 * @param $code The error code
+	 * @param $str The message associated to the error
+	 *
+     */
     {
+		parent::__construct();
+	
         $this->erreurCode = $code;
         $this->erreurString = $str;
-    } //---- Fin du constructeur
+    } //---- End of constructor
+	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
     public function __ToString ( )
-    // Mode d'emploi :
-    // permet l'affichage de l'erreur contenue.
-    // Contrat :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
         return $this->erreurString;
-    } // Fin de __ToString
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
+	/** the code of the error */
     protected $erreurCode;
+	
+	/** the message of the error */
     protected $erreurString;
 }
 
-//-------------------------------- Autres définitions dépendantes de <Error>
+//------------------------------------------------------ other definitions
 
 ?>

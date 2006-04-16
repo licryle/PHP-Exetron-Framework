@@ -34,7 +34,7 @@ Inheritance diagram for BDDTableInterface:<p><center><img src="interfaceBDDTable
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="interfaceBDDTableInterface-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceBDDTableInterface.html#5e7f23cd14a45180342e9c568bbffd83">Select</a> ($champs, $options)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceBDDTableInterface.html#1f5004f27b2101141e12f2d924475683">Select</a> ($fields, $options)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceBDDTableInterface.html#b298e5ed2085cee177aac4a46dc67aa9">Insert</a> (<a class="el" href="classBDDRecord.html">BDDRecord</a> $record)</td></tr>
 
@@ -48,11 +48,11 @@ Inheritance diagram for BDDTableInterface:<p><center><img src="interfaceBDDTable
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Interface that provides generic methods for Database Tables 
 <p>
 
 <p>
-Definition at line <a class="el" href="BDDTableInterface_8php-source.html#l00039">39</a> of file <a class="el" href="BDDTableInterface_8php-source.html">BDDTableInterface.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="BDDTableInterface_8php-source.html#l00037">37</a> of file <a class="el" href="BDDTableInterface_8php-source.html">BDDTableInterface.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="2a8ea6a2c2e5d16842fe6675af4ee26b"></a><!-- doxytag: member="BDDTableInterface::Clear" ref="2a8ea6a2c2e5d16842fe6675af4ee26b" args="()" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -77,6 +77,8 @@ Definition at line <a class="el" href="BDDTableInterface_8php-source.html#l00039
     <td>
 
 <p>
+Tries to delete all entries of the table<p>
+<dl compact><dt><b>Returns:</b></dt><dd>- see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTable.html#6e2df2345cbe92834fd57d02f7d752eb">MySQLTable</a>.    </td>
@@ -107,9 +109,16 @@ Implemented in <a class="el" href="classMySQLTable.html#6e2df2345cbe92834fd57d02
     <td>
 
 <p>
+Tries to delete entries that correpond to $clauses<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$clauses</em>&nbsp;</td><td>clauses constructed in Data Manipulation Language (eg. SQL) to determine which records have to be deleted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a> </dd></dl>
 
 <p>
-Implemented in <a class="el" href="classMySQLTable.html#23fbfd2896f49c29ab484c8320780ea4">MySQLTable</a>.    </td>
+Implemented in <a class="el" href="classMySQLTable.html#309504311d2385a87c0bb634efc394cd">MySQLTable</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="00c43250ef6b56d97e5d7cab3f7c630b"></a><!-- doxytag: member="BDDTableInterface::Drop" ref="00c43250ef6b56d97e5d7cab3f7c630b" args="()" --><p>
@@ -136,6 +145,8 @@ Implemented in <a class="el" href="classMySQLTable.html#23fbfd2896f49c29ab484c83
     <td>
 
 <p>
+Tries to drop the table<p>
+<dl compact><dt><b>Returns:</b></dt><dd>- see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTable.html#73a7e46a8d266779e95744aa0b0943c5">MySQLTable</a>.    </td>
@@ -166,12 +177,19 @@ Implemented in <a class="el" href="classMySQLTable.html#73a7e46a8d266779e95744aa
     <td>
 
 <p>
+Tries to insert the given $record into database<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$record</em>&nbsp;</td><td><a class="el" href="classBDDRecord.html">BDDRecord</a> to be inserted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef99816420">MySQLTable</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="5e7f23cd14a45180342e9c568bbffd83"></a><!-- doxytag: member="BDDTableInterface::Select" ref="5e7f23cd14a45180342e9c568bbffd83" args="($champs, $options)" --><p>
+<a class="anchor" name="1f5004f27b2101141e12f2d924475683"></a><!-- doxytag: member="BDDTableInterface::Select" ref="1f5004f27b2101141e12f2d924475683" args="($fields, $options)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -180,7 +198,7 @@ Implemented in <a class="el" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef
           <td class="md" nowrap valign="top">BDDTableInterface::Select           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">$&nbsp;</td>
-          <td class="mdname" nowrap> <em>champs</em>, </td>
+          <td class="mdname" nowrap> <em>fields</em>, </td>
         </tr>
         <tr>
           <td class="md" nowrap align="right"></td>
@@ -205,9 +223,18 @@ Implemented in <a class="el" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef
     <td>
 
 <p>
+Computes a selection of $fields on entries that correspond to $options<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$fields</em>&nbsp;</td><td>array of string that reprensents fields' name to select </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$options</em>&nbsp;</td><td>string that contains various select options like "where", "order", "limit", ...</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- a <a class="el" href="classBDDRecordSet.html">BDDRecordSet</a> that contains BDDRecord-s ( Database entries) if select was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a> </dd></dl>
 
 <p>
-Implemented in <a class="el" href="classMySQLTable.html#f384718c8a922598d355343683cb4538">MySQLTable</a>.    </td>
+Implemented in <a class="el" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">MySQLTable</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="2ffb9ed733a5f1d5ddd11d8763ba4276"></a><!-- doxytag: member="BDDTableInterface::Update" ref="2ffb9ed733a5f1d5ddd11d8763ba4276" args="(BDDRecord $updatedRec, $clause)" --><p>
@@ -244,6 +271,14 @@ Implemented in <a class="el" href="classMySQLTable.html#f384718c8a922598d3553436
     <td>
 
 <p>
+Tries to update with the given $updatedRec into database in function of $clause parameter.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$updatedRec</em>&nbsp;</td><td>the <a class="el" href="classBDDRecord.html">BDDRecord</a> updated </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$clause</em>&nbsp;</td><td>clause constructed in Data Manipulation Language (eg. SQL) to determine which record has to be updated</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTable.html#96784244d94a2da7047c24d542a25bc8">MySQLTable</a>.    </td>
@@ -251,7 +286,7 @@ Implemented in <a class="el" href="classMySQLTable.html#96784244d94a2da7047c24d5
 </table>
 <hr>The documentation for this interface was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/DataBases/BDDConnection/Interfaces/<a class="el" href="BDDTableInterface_8php-source.html">BDDTableInterface.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:30 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:46 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

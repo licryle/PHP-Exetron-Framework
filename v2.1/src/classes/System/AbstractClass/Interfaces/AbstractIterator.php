@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |AbstractIterator.php|  -  description
+                           |AbstractIterator.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <AbstractIterator> (fichier AbstractIterator.php) --------------
-if (defined('ABSTRACTITERATOR_H'))
+//---------- Interface <AbstractIterator> (file AbstractIterator.php) --------------
+/*if (defined('ABSTRACTITERATOR_H'))
 {
     return;
 }
@@ -17,68 +17,62 @@ else
 {
 
 }
-define('ABSTRACTITERATOR_H',1);
+define('ABSTRACTITERATOR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <AbstractIterator>
-// Ajoute les méthodes nécessaires à l'itération
-//
+/*!
+ * Provides generic methods for ESP's Iterator.
+ */
 //------------------------------------------------------------------------ 
 
 interface AbstractIterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
     
+    /*
+	 * Adds a BDDRecord to the Iterator.
+     *
+     * @param $item the BDDRecord to add
+     *
+     */
     //public function Add( AbstractClass $item );
-    // Mode d'emploi :
-    //Ajoute un ancrage locator à la liste
 
+    /**
+	 * Clears the Iterator.
+     *
+     */
     public function DelAll( );
-    // Mode d'emploi :
-    //Remet à zero la liste des items
-    //
 
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     public function GetCount( );
-    // Mode d'emploi :
-    //retourne le nombre d'items contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'items contenus
     
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
 
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
     
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <AbstractIterator>
+//------------------------------------------------------ other definitions
 
 ?>

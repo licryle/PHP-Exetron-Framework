@@ -39,6 +39,10 @@ Inheritance diagram for BDDTable:<p><center><img src="classBDDTable__inherit__gr
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBDDTable.html#c296a7937b232b07bbbcbfb68cd58b5f">__construct</a> ($table, <a class="el" href="classBDDConnection.html">BDDConnection</a> $connection, &amp;$errors)</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBDDTable.html#2c68cc87ed7f9911fef67c8d4c8cd80b">__destruct</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBDDTable.html#5c20230f9ffb29091d85481435c644e1">__ToString</a> ()</td></tr>
+
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBDDTable.html#f56ad40d572406c4bc8fdff797aa9bc6">$tableName</a></td></tr>
 
@@ -48,11 +52,11 @@ Inheritance diagram for BDDTable:<p><center><img src="classBDDTable__inherit__gr
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Abstract class that provides generic methods for Database Tables 
 <p>
 
 <p>
-Definition at line <a class="el" href="BDDTable_8php-source.html#l00038">38</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="BDDTable_8php-source.html#l00037">37</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="c296a7937b232b07bbbcbfb68cd58b5f"></a><!-- doxytag: member="BDDTable::__construct" ref="c296a7937b232b07bbbcbfb68cd58b5f" args="($table, BDDConnection $connection, &amp;$errors)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -93,11 +97,85 @@ Definition at line <a class="el" href="BDDTable_8php-source.html#l00038">38</a> 
     <td>
 
 <p>
+Initialises <a class="el" href="classBDDTable.html">BDDTable</a> for the table named $table on the given $connection.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$table</em>&nbsp;</td><td>name of the table </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$connection</em>&nbsp;</td><td><a class="el" href="classBDDConnection.html">BDDConnection</a> for all table operations. This must be a valid and connected <a class="el" href="classBDDConnection.html">BDDConnection</a> unless it will cause an <a class="el" href="classError.html">Error</a>. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$errors</em>&nbsp;</td><td>reference to an <a class="el" href="classErrors.html">Errors</a> object. It will be set if an error occurs during instanciation. If operation was successful, it equals NULL </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="BDDTable_8php-source.html#l00095">95</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.
+Definition at line <a class="el" href="BDDTable_8php-source.html#l00111">111</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.
 <p>
-References <a class="el" href="BDDError_8php-source.html#l00044">BDDError::CONNECTION_CLOSED</a>, and <a class="el" href="interfaceBDDConnectionInterface.html#1e018cbb46727851b64922fc04dd6db8">BDDConnectionInterface::TableDescription()</a>.    </td>
+References <a class="el" href="BDDError_8php-source.html#l00043">BDDError::CONNECTION_CLOSED</a>, and <a class="el" href="interfaceBDDConnectionInterface.html#1e018cbb46727851b64922fc04dd6db8">BDDConnectionInterface::TableDescription()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="2c68cc87ed7f9911fef67c8d4c8cd80b"></a><!-- doxytag: member="BDDTable::__destruct" ref="2c68cc87ed7f9911fef67c8d4c8cd80b" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">BDDTable::__destruct           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Destructs ressources allocated 
+<p>
+Reimplemented from <a class="el" href="classAbstractClass.html#97843d1029084c62a26fe60b1709bdb4">AbstractClass</a>.
+<p>
+Reimplemented in <a class="el" href="classMySQLTable.html#51bae42880714255caed4fd45177f93e">MySQLTable</a>.
+<p>
+Definition at line <a class="el" href="BDDTable_8php-source.html#l00151">151</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="5c20230f9ffb29091d85481435c644e1"></a><!-- doxytag: member="BDDTable::__ToString" ref="5c20230f9ffb29091d85481435c644e1" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">BDDTable::__ToString           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Returns a printable version of object for debugging.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>String printable on screen </dd></dl>
+
+<p>
+Reimplemented from <a class="el" href="classAbstractClass.html#1e51d9ae9242be960663e150807bdc8b">AbstractClass</a>.
+<p>
+Definition at line <a class="el" href="BDDTable_8php-source.html#l00161">161</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.    </td>
   </tr>
 </table>
 <hr><h2>Member Data Documentation</h2>
@@ -121,9 +199,9 @@ References <a class="el" href="BDDError_8php-source.html#l00044">BDDError::CONNE
     <td>
 
 <p>
-
+<a class="el" href="classBDDConnection.html">BDDConnection</a> object for database connection 
 <p>
-Definition at line <a class="el" href="BDDTable_8php-source.html#l00149">149</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.    </td>
+Definition at line <a class="el" href="BDDTable_8php-source.html#l00181">181</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="150ef64e5f947748bf41749d2d26faf0"></a><!-- doxytag: member="BDDTable::$structure" ref="150ef64e5f947748bf41749d2d26faf0" args="" --><p>
@@ -146,9 +224,9 @@ Definition at line <a class="el" href="BDDTable_8php-source.html#l00149">149</a>
     <td>
 
 <p>
-
+contains table structure 
 <p>
-Definition at line <a class="el" href="BDDTable_8php-source.html#l00150">150</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.    </td>
+Definition at line <a class="el" href="BDDTable_8php-source.html#l00184">184</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="f56ad40d572406c4bc8fdff797aa9bc6"></a><!-- doxytag: member="BDDTable::$tableName" ref="f56ad40d572406c4bc8fdff797aa9bc6" args="" --><p>
@@ -171,14 +249,14 @@ Definition at line <a class="el" href="BDDTable_8php-source.html#l00150">150</a>
     <td>
 
 <p>
-
+Name of the current table 
 <p>
-Definition at line <a class="el" href="BDDTable_8php-source.html#l00148">148</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.    </td>
+Definition at line <a class="el" href="BDDTable_8php-source.html#l00178">178</a> of file <a class="el" href="BDDTable_8php-source.html">BDDTable.php</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/DataBases/BDDConnection/<a class="el" href="BDDTable_8php-source.html">BDDTable.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:29 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:45 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

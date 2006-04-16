@@ -34,12 +34,12 @@
 <a name="l00003"></a>00003 <span class="comment">/*************************************************************************</span>
 <a name="l00004"></a>00004 <span class="comment">                           |BDDConnection.php|</span>
 <a name="l00005"></a>00005 <span class="comment">                             -------------------</span>
-<a name="l00006"></a>00006 <span class="comment">    début                : |DATE|</span>
-<a name="l00007"></a>00007 <span class="comment">    copyright            : (C) 2005 par BERLIAT Cyrille</span>
-<a name="l00008"></a>00008 <span class="comment">    e-mail               : cyrille.berliat@free.fr</span>
+<a name="l00006"></a>00006 <span class="comment">    start                : |DATE|</span>
+<a name="l00007"></a>00007 <span class="comment">    copyright            : (C) 2005 by BERLIAT Cyrille</span>
+<a name="l00008"></a>00008 <span class="comment">    e-mail               : cyrille.berliat@gmail.com</span>
 <a name="l00009"></a>00009 <span class="comment">*************************************************************************/</span>
 <a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <span class="comment">//---------- Interface of class &lt;BDDConnection&gt; (file BDDConnection.php) --------------</span>
+<a name="l00011"></a>00011 <span class="comment">//---------- Class &lt;BDDConnection&gt; (file BDDConnection.php) --------------</span>
 <a name="l00012"></a>00012 <span class="comment">/*if (defined('BDDCONNECTION_H'))</span>
 <a name="l00013"></a>00013 <span class="comment">{</span>
 <a name="l00014"></a>00014 <span class="comment">    return;</span>
@@ -73,7 +73,7 @@
 <a name="l00047"></a>00047 
 <a name="l00048"></a>00048     <span class="comment">//public function TableExists ( $table );</span>
 <a name="l00049"></a>00049     <span class="comment">/*</span>
-<a name="l00050"></a>00050 <span class="comment">         * Search for table named $table in database.</span>
+<a name="l00050"></a>00050 <span class="comment">         * Searchs for table named $table in database.</span>
 <a name="l00051"></a>00051 <span class="comment">         * Connection may be opened.</span>
 <a name="l00052"></a>00052 <span class="comment">         *</span>
 <a name="l00053"></a>00053 <span class="comment">         * @param $table the tablename to be checked</span>
@@ -167,7 +167,7 @@
 <a name="l00189"></a>00189     
 <a name="l00190"></a>00190     <span class="comment">//public function Open( $isPersistent );</span>
 <a name="l00191"></a>00191         <span class="comment">/*</span>
-<a name="l00192"></a>00192 <span class="comment">         * Try to open connection.</span>
+<a name="l00192"></a>00192 <span class="comment">         * Tries to open connection.</span>
 <a name="l00193"></a>00193 <span class="comment">         *</span>
 <a name="l00194"></a>00194 <span class="comment">         * @param $isPersistent specifies if connection may be persistent or not = { CONNECTION_PERSISTENT | CONNECTION_NOT_PERSISTENT }</span>
 <a name="l00195"></a>00195 <span class="comment">         *</span>
@@ -187,9 +187,9 @@
 <a name="l00237"></a>00237     <span class="comment">//public function Close( );</span>
 <a name="l00246"></a>00246 <span class="comment"></span>    <span class="comment">//public function isConnected ( );</span>
 <a name="l00255"></a>00255 <span class="comment"></span><span class="comment">//---------------------------------------------- Constructors - destructor</span>
-<a name="l00256"></a>00256     <span class="comment">//abstract function __construct( $server = '' , $username = '' , $password = '' );</span>
+<a name="l00256"></a><a class="code" href="classBDDConnection.html#a25094851b4974b3608428586d1f69d5">00256</a>     function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( <a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">$server</a> = '' , <a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">$username</a> = '' , <a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">$password</a> = '' )
 <a name="l00257"></a>00257         <span class="comment">/*</span>
-<a name="l00258"></a>00258 <span class="comment">         * initialise members of the object.</span>
+<a name="l00258"></a>00258 <span class="comment">         * initialises members of the object.</span>
 <a name="l00259"></a>00259 <span class="comment">         * interrupts script if DataBase is not supported.</span>
 <a name="l00260"></a>00260 <span class="comment">         *</span>
 <a name="l00261"></a>00261 <span class="comment">         * @param $server the host address</span>
@@ -197,39 +197,57 @@
 <a name="l00263"></a>00263 <span class="comment">         * @param $password the password associated to the login</span>
 <a name="l00264"></a>00264 <span class="comment">         *</span>
 <a name="l00265"></a>00265 <span class="comment">         */</span>
-<a name="l00266"></a>00266     
-<a name="l00267"></a>00267 <span class="comment">//---------------------------------------------------------- Magic methods</span>
-<a name="l00268"></a>00268 
-<a name="l00269"></a><a class="code" href="classBDDConnection.html#508f3f754f752f8931b0ee7c3d3c4e64">00269</a>     <span class="keyword">public</span> function <a class="code" href="classBDDConnection.html#508f3f754f752f8931b0ee7c3d3c4e64">__ToString</a> ( )
-<a name="l00273"></a>00273     {
-<a name="l00274"></a>00274                 <span class="keywordflow">return</span> parrent::__ToString();
-<a name="l00275"></a>00275     }
-<a name="l00276"></a>00276 
-<a name="l00277"></a>00277 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
-<a name="l00278"></a>00278     
-<a name="l00279"></a>00279 <span class="comment">//------------------------------------------------------ protected methods</span>
-<a name="l00280"></a>00280 
-<a name="l00281"></a>00281 <span class="comment">//------------------------------------------------------ protected members</span>
-<a name="l00283"></a><a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">00283</a> <span class="comment"></span>        <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">$server</a>; 
-<a name="l00284"></a>00284         
-<a name="l00286"></a><a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">00286</a>         <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">$username</a>;
-<a name="l00287"></a>00287         
-<a name="l00289"></a><a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">00289</a>         <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">$password</a>; 
-<a name="l00290"></a>00290     
-<a name="l00291"></a>00291         
-<a name="l00292"></a>00292         
-<a name="l00294"></a><a class="code" href="classBDDConnection.html#773d03af3b56ce8228fb549c7ceebf75">00294</a>         <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#773d03af3b56ce8228fb549c7ceebf75">$connection</a>; 
-<a name="l00295"></a>00295         
-<a name="l00297"></a><a class="code" href="classBDDConnection.html#de33e488a4156b6ea17f665dbd10c166">00297</a>         <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#de33e488a4156b6ea17f665dbd10c166">$database</a>; 
-<a name="l00298"></a>00298         
-<a name="l00300"></a><a class="code" href="classBDDConnection.html#5b00052090d864c8be33a91182a3673e">00300</a>         <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#5b00052090d864c8be33a91182a3673e">$nombreRequetes</a>; 
-<a name="l00301"></a>00301 
-<a name="l00302"></a>00302 }
-<a name="l00303"></a>00303 
-<a name="l00304"></a>00304 <span class="comment">//------------------------------------------------------ other definitions</span>
-<a name="l00305"></a>00305 
-<a name="l00306"></a>00306 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:31:23 2006 for Exetron by&nbsp;
+<a name="l00266"></a>00266         {
+<a name="l00267"></a>00267                 parent::__construct( ); 
+<a name="l00268"></a>00268             
+<a name="l00269"></a>00269                 $this-&gt;connection = NULL;
+<a name="l00270"></a>00270                 
+<a name="l00271"></a>00271                 $this-&gt;server = <a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">$server</a>;
+<a name="l00272"></a>00272                 $this-&gt;username = <a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">$username</a>;
+<a name="l00273"></a>00273                 $this-&gt;password = <a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">$password</a>;
+<a name="l00274"></a>00274                 
+<a name="l00275"></a>00275                 $this-&gt;database = '';
+<a name="l00276"></a>00276                 
+<a name="l00277"></a>00277                 $this-&gt;nombreRequetes = 0;
+<a name="l00278"></a>00278         }
+<a name="l00279"></a>00279          
+<a name="l00280"></a><a class="code" href="classBDDConnection.html#6a351b96438000d3286daaa9f1e40b04">00280</a>     function <a class="code" href="classBDDConnection.html#6a351b96438000d3286daaa9f1e40b04">__destruct</a>( )
+<a name="l00284"></a>00284         {
+<a name="l00285"></a>00285                 parent::__destruct();
+<a name="l00286"></a>00286         } <span class="comment">//----- End of Destructor</span>
+<a name="l00287"></a>00287     
+<a name="l00288"></a>00288 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
+<a name="l00289"></a>00289 
+<a name="l00290"></a><a class="code" href="classBDDConnection.html#508f3f754f752f8931b0ee7c3d3c4e64">00290</a>     <span class="keyword">public</span> function <a class="code" href="classBDDConnection.html#508f3f754f752f8931b0ee7c3d3c4e64">__ToString</a> ( )
+<a name="l00297"></a>00297     {
+<a name="l00298"></a>00298                 <span class="keywordflow">return</span> parrent::__ToString();
+<a name="l00299"></a>00299     }
+<a name="l00300"></a>00300 
+<a name="l00301"></a>00301 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
+<a name="l00302"></a>00302     
+<a name="l00303"></a>00303 <span class="comment">//------------------------------------------------------ protected methods</span>
+<a name="l00304"></a>00304 
+<a name="l00305"></a>00305 <span class="comment">//------------------------------------------------------ protected members</span>
+<a name="l00307"></a><a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">00307</a> <span class="comment"></span>        <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">$server</a>; 
+<a name="l00308"></a>00308         
+<a name="l00310"></a><a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">00310</a>         <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">$username</a>;
+<a name="l00311"></a>00311         
+<a name="l00313"></a><a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">00313</a>         <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">$password</a>; 
+<a name="l00314"></a>00314     
+<a name="l00315"></a>00315         
+<a name="l00316"></a>00316         
+<a name="l00318"></a><a class="code" href="classBDDConnection.html#773d03af3b56ce8228fb549c7ceebf75">00318</a>         <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#773d03af3b56ce8228fb549c7ceebf75">$connection</a>; 
+<a name="l00319"></a>00319         
+<a name="l00321"></a><a class="code" href="classBDDConnection.html#de33e488a4156b6ea17f665dbd10c166">00321</a>         <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#de33e488a4156b6ea17f665dbd10c166">$database</a>; 
+<a name="l00322"></a>00322         
+<a name="l00324"></a><a class="code" href="classBDDConnection.html#5b00052090d864c8be33a91182a3673e">00324</a>         <span class="keyword">protected</span> <a class="code" href="classBDDConnection.html#5b00052090d864c8be33a91182a3673e">$nombreRequetes</a>; 
+<a name="l00325"></a>00325 
+<a name="l00326"></a>00326 }
+<a name="l00327"></a>00327 
+<a name="l00328"></a>00328 <span class="comment">//------------------------------------------------------ other definitions</span>
+<a name="l00329"></a>00329 
+<a name="l00330"></a>00330 ?&gt;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:25:41 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

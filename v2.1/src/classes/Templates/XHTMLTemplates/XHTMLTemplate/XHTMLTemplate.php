@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |XHTMLTemplate.php|  -  description
+                           |XHTMLTemplate.php|
                              -------------------
     début                : |11.02.2006|
     copyright            : (C) 2006 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <XHTMLTemplate> class (file XHTMLTemplate.php) -----------------
-if (defined('XHTMLTemplate_H'))
+//-------------- Class <XHTMLTemplate>  (file XHTMLTemplate.php) -----------------
+/*if (defined('XHTMLTemplate_H'))
 {
     return;
 }
@@ -17,11 +17,9 @@ else
 {
 
 }
-define('XHTMLTemplate_H',1);
+define('XHTMLTemplate_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -29,10 +27,10 @@ define('XHTMLTemplate_H',1);
 
 //------------------------------------------------------------------ Types 
 
-//------------------------------------------------------------------------  
-// Role of <XHTMLTemplate> class
-//
-//
+//------------------------------------------------------------------------ 
+/*!
+ * Basic XHTMLTemplate.
+ */
 //------------------------------------------------------------------------ 
 
 class XHTMLTemplate extends Template
@@ -40,15 +38,38 @@ class XHTMLTemplate extends Template
 //----------------------------------------------------------------- PUBLIC
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
+    public function __construct( )
+	/**
+	 * instanciates a Template.
+	 *
+	 */
+    {
+		parent::__construct();
+    } //---- End of __construct
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
+		parent::__destruct();
+	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
+	public function __ToString ()
+    /**
+	 * Returns a printable version of object for final print out.
+	 *
+	 * @return String printable on screen
+	 *
+	 * @see Template::Generate()
+	 * 
+	 */
+	{
+		return $this->Generate ( );
+	} // End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 

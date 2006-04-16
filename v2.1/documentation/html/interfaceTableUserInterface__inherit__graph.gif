@@ -1,0 +1,10 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,138,304"];
+	Node1 [label="{TableUserInterface\n||+ SelectUsers()\l+ SelectUserByIdUser()\l+ SelectUsersByIdGroup()\l+ FindUsersByName()\l+ UpdateUserByIdU\
+ser()\l+ InsertUser()\l+ IdUserExists()\l}", height="1.67", width="1.92", color=white, fillcolor=black, style=filled, fontcolor=white, pos="69,236", rects="0,280,139,296 0,264,139,280 0,176,139,264"];
+	Node2 [label="{MySQLTableUser\n||+ SaveUsers()\l+ SelectUsers()\l+ SelectUserByIdUser()\l+ SelectUsersByIdGroup()\l+ FindUsersByName()\l+ Upda\
+teUserByIdUser()\l+ InsertUser()\l+ IdUserExists()\l}", height="1.83", width="1.92", color=black, fillcolor=white, style=filled, URL="$classMySQLTableUser.html", pos="69,74", rects="0,124,139,140 0,108,139,124 0,8,139,108"];
+	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,69,176 69,165 69,157 69,148 69,140"];
+}

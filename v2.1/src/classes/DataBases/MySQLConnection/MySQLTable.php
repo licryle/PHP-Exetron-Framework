@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |MySQLTable.php|  -  description
+                           |MySQLTable.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLTable> (fichier MySQLTable.php) --------------
-if (defined('MYSQLTABLE_H'))
+//---------- Class <MySQLTable> (file MySQLTable.php) --------------
+/*if (defined('MYSQLTABLE_H'))
 {
     return;
 }
@@ -17,106 +17,128 @@ else
 {
 
 }
-define('MYSQLTABLE_H',1);
+define('MYSQLTABLE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <MySQLTable>
-//
-//
+/*!
+ * Provides Methods and constants for operations on MySQL Tables
+ */
 //------------------------------------------------------------------------ 
 
 class MySQLTable extends BDDTable
 {
 //----------------------------------------------------------------- PUBLIC
 
-	const TABLE_COLUMN_ALL = '*'; 
-	// représente l'ensemble des colonnes
+	/** represents the whole list of columns */
+	const TABLE_COLUMN_ALL = '*';
 	
+	/** MySQL 'where' clause */
 	const MYSQL_CLAUSE_WHERE = ' WHERE ';
+	
+	/** MySQL 'limit' clause */
 	const MYSQL_CLAUSE_LIMIT = ' LIMIT ';
 	
+	/** MySQL 'and' operator */
 	const MYSQL_CLAUSE_AND = ' AND ';
+	
+	/** MySQL 'or' operator */
 	const MYSQL_CLAUSE_OR = ' OR ';
 	
+	/** MySQL 'order' clause */
 	const MYSQL_CLAUSE_ORDER = ' ORDER BY ';
-	const MYSQL_CLAUSE_ORDER_ASCENDANT = ' ASC ';
-	const MYSQL_CLAUSE_ORDER_DESCENDANT = ' DESC ';
 	
+		/** MySQL 'order' parameter for ascending sort */
+		const MYSQL_CLAUSE_ORDER_ASCENDANT = ' ASC ';
+		
+		/** MySQL 'order' parameter for descending sort */
+		const MYSQL_CLAUSE_ORDER_DESCENDANT = ' DESC ';
+	
+	/** MySQL 'group by' clause */
 	const MYSQL_CLAUSE_GROUP = ' GROUP BY ';
+	
+	/** MySQL 'having' clause */
 	const MYSQL_CLAUSE_HAVING = ' HAVING ';
 	
-	const MYSQL_SEEK_REGEX = ' LIKE '; // utilisation de LIKE
+	/** MySQL regex operator */
+	const MYSQL_SEEK_REGEX = ' LIKE ';
 	
-	// caractères magiques REGEX
-		const MYSQL_SEEK_MULTICHARS = '%'; // remplace X chars différents
-		const MYSQL_SEEK_ANYCHAR = '_'; // remplace un char
-	// fin des caractères magiques REGEX
+		/** Magic char for multichars replacement */
+		const MYSQL_SEEK_MULTICHARS = '%';
+		
+		/** Magic char for unique char replacement */
+		const MYSQL_SEEK_ANYCHAR = '_';
 	
-	const MYSQL_SEEK_STRICT = ' = ';// recherche stricte =
-	const MYSQL_SEEK_SEPARATOR = '"';// char de séparation
-	// paramètre de recherche
+	/** MySQL equals operator */
+	const MYSQL_SEEK_STRICT = ' = ';
 	
-	const MYSQL_STRUCTURE_FIELD_NAME = 'Field'; 
-	// champ contenant le nom du champ dans le structure
+	/** MySQL not equals operator */
+	const MYSQL_SEEK_STRICT = ' <> ';
+	
+	/** MySQL separator operator */
+	const MYSQL_SEEK_SEPARATOR = '"';
+	
+	/** MySQL field name for fields' name in table description */
+	const MYSQL_STRUCTURE_FIELD_NAME = 'Field';
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
-    public function Select ( $champs, $options )
-    // Mode d'emploi :
-    //permet de récuperer le contenu d'une table selon différents paramètres
-	//sous forme d'un BDDRecordSet
-	//
-	//les données sont décodées de la base pour etre exploitables.
-	//
-	//$champs est un tableau ou une chaine de caractères représentant les champs
-	//à selectionner.
-	//$options contient les "where" "order" "limit" et autres sous forme de chaine...
-	//
-    // Contrat :
-    //
+    public function Select ( $fields, $options )
+	/**
+	 * Computes a selection of $fields on entries that correspond to 
+	 * $options
+     *
+     * @param $fields array of string that reprensents fields' name to select
+	 * @param $options string that contains various select options like 
+	 * "where", "order", "limit", ...
+     *
+	 * @return - a BDDRecordSet that contains BDDRecord-s ( Database entries)
+	 * if select was successful
+	 * @return - an Errors object in case of error(s) : see BDDConnectionInterface::Query 
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/select.html
+	 *
+     */
 	{
 		$selectQuery = 'SELECT ';
 		
-		if ( is_array( $champs ) ) 
+		if ( is_array( $fields ) ) 
 		{
-			foreach( $champs as $champ ) 
+			foreach( $fields as $field ) 
 			{
-				$selectQuery .= $champ;
+				$selectQuery .= $field;
 			}
 			
 			$selectQuery = substr( $selectQuery, 0, -1 ) ;
 		}
 		else
 		{
-			$selectQuery .= $champs;
+			$selectQuery .= $fields;
 		}
 		
 		$selectQuery .= ' FROM `'.$this->tableName.'` '.$options;
 		
 		return $this->bDDConnection->Query ( $selectQuery ) ;
-	} //---- Fin de Select
+	} //---- End of Select
 	
     public function Insert ( BDDRecord $record )
-    // Mode d'emploi :
-    //permet d'insérer de nouveaux enregistrements dans la table
-	//
-    // Contrat :
-    //
+	/**
+	 * Tries to insert the given $record into database
+	 *
+	 * @param $record BDDRecord to be inserted
+	 *
+	 * @return - see BDDConnectionInterface::Query 
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/insert.html
+	 *
+     */
 	{
 		$newRecord = $this->bDDRecordToTableRecord ( $record );
 		unset( $record );
@@ -131,15 +153,22 @@ class MySQLTable extends BDDTable
 		$insertQuery = substr ( $insertQuery , 0 , -2 );
 		
 		return $this->bDDConnection->Query ( $insertQuery ) ;
-	} //---- Fin de Insert
+	} //---- End of Insert
 	
     public function Update ( BDDRecord $updatedRec, $clause )
-    // Mode d'emploi :
-    //permet de mettre à jour le contenu de la table en mettant à jour
-	//$updateRec en fonction des $clause
-	//
-    // Contrat :
-    //
+	/**
+	 * Tries to update with the given $updatedRec into database in function
+	 * of $clause parameter.
+	 *
+	 * @param $updatedRec the BDDRecord updated
+	 * @param $clause clause constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which record has to be updated
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/update.html
+	 *
+     */
 	{
 		$newRecord = $this->bDDRecordToTableRecord ( $updatedRec );
 		unset( $updatedRec );
@@ -155,76 +184,91 @@ class MySQLTable extends BDDTable
 		
 		return $this->bDDConnection->Query ( $updateQuery ) ;
 	
-	} //---- Fin de Update
+	} //---- End of Update
 	
-    public function Delete ( $clause )
-    // Mode d'emploi :
-    //permet d'effacer une partie du contenu de la table en fonction des paramètres
-	//passés
-	//
-    // Contrat :
-    //
+    public function Delete ( $clauses )
+	/**
+	 * Tries to delete entries that correpond to $clauses
+	 *
+	 * @param $clauses clauses constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which records have to be deleted
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/delete.html
+	 *
+     */
 	{
 		return $this->bDDConnection->Query ( 'DELETE FROM `'.$this->tableName.'` WHERE '.$clause );
-	} //---- Fin de Delete
+	} //---- End of Delete
 
     public function Clear (  )
-    // Mode d'emploi :
-    //Efface la totalité du contenu de la table courante.
-	//
-    // Contrat :
-    //
+	/**
+	 * Tries to delete all entries of the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/delete.html
+	 *
+     */
 	{
 		return $this->bDDConnection->Query ( 'DELETE FROM `'.$this->tableName.'`' );
-	} //---- Fin de Clear
+	} //---- End of Clear
 	
     public function Drop (  )
-    // Mode d'emploi :
-    //Supprime la table courante de la base de données
-	//passés
-	//
-    // Contrat :
-	//
+	/**
+	 * Tries to drop the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/drop-table.html
+	 *
+     */
 	{
 		return $this->bDDConnection->Query ( 'DROP TABLE `'.$this->tableName.'`' );
-	} //---- Fin de Drop
+	} //---- End of Drop
     
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( $table, MySQLConnection $connection, & $errors )
-    // Mode d'emploi (constructeur) :
-    //instancie un objet de type BDDTable sur la table $table de la base
-	//de $connection
-	//
-	// Renvoie par référence dans $errors :
-	//- NULL si aucune erreur n'est intervenue
-	//- un objet de type errors en cas d'erreur;
-	//
-    // Contrat :
-	//- la connexion doit rester valable tout le temps de opérations sur la table
+    /**
+	 * Initialises MySQLTable for the table named $table on the given 
+	 * $connection.
+	 *
+	 * @param $table name of the table
+	 * @param $connection BDDConnection for all table operations. This must
+	 * be a valid and connected BDDConnection unless it will cause an Error.
+	 * @param $errors reference to an Errors object. It will be set if an
+	 * error occurs during instanciation. If operation was successful, it
+	 * equals NULL
+	 *
+     */
 	{
 		parent::__construct ( $table, $connection, $errors );
-	}
-//------------------------------------------------------ Méthodes Magiques
-
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	} //---- End of constructor
 	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
+	
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
+
 	protected function isValidProperty ( $property )
-	// Mode d'emploi :
-	//vérifie dans la structure de la table si la propriété existe ou non
-	//
-	// Renvoie : 
-	//- vrai si tel est le cas;
-	//- faux sinon
-	//
-	// Contrat :
-	//
+	/**
+	 * Checks into table description if the property named $property
+	 * exists as a field in table
+	 *
+	 * @return true if property exists
+	 * @return false otherwise
+	 *
+     */
 	{
 		foreach ( $this->structure as $champ )
 		{
@@ -235,22 +279,17 @@ class MySQLTable extends BDDTable
 		}
 		
 		return false;
-	}
+	} //----- End of isValidProperty
 	
 	protected function bDDRecordToTableRecord ( BDDRecord $record )
-    // Mode d'emploi :
-    //transforme l'enregistrement fourni en paramètre en un enregistrement
-	//valable pour cette table. Cette fonction fait une intersection de l'
-	//enregistrement et de la structure de la table.
-	//
-	//Chaque donnée est par la meme encodée de facon sure pour les requetes
-	//
-	// Renvoie : 
-	//un objet de type BDDRecord contenant un enregistrement correspondant
-	//a la table
-	//
-    // Contrat :
-    //
+	/**
+	 * Computes conversion from a standard BDDRecord to a safe BDDRecord
+	 * for MySQL queries. It also computes an intersection between 
+	 * table fields and BDDRecord properties.
+	 *
+	 * @return a BDDRecord ready to be saved/updated into table
+	 *
+     */
 	{
 		$tableRecord = new BDDRecord();
 		
@@ -263,11 +302,11 @@ class MySQLTable extends BDDTable
 		}
 		
 		return $tableRecord;
-	}
+	} //----- End of bDDRecordToTableRecord
+//------------------------------------------------------ protected members
 
-//----------------------------------------------------- Attributs protégés
 }
 
-//-------------------------------- Autres définitions dépendantes de <MySQLTable>
+//------------------------------------------------------ other definitions
 
 ?>

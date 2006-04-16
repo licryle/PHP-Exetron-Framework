@@ -3,12 +3,12 @@
 /*************************************************************************
                            |MySQLConnection.php|
                              -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    start                : |DATE|
+    copyright            : (C) 2005 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface of class <MySQLConnection> (file MySQLConnection.php) --------------
+//---------- Class <MySQLConnection> (file MySQLConnection.php) --------------
 /*if (defined('MYSQLCONNECTION_H'))
 {
     return;
@@ -48,7 +48,13 @@ class MySQLConnection extends BDDConnection
 	 * @param $table the tablename to be checked
      *
      * @return - true if table exists
-	 * @return - an Errors object in case of error(s)
+	 * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_NO_DB_SELECTED if No database is selected
+	 * @return see BDDConnection::Query
+	 * @return BDDError::CONNECTION_TABLE_INEXISTANT if table named $table
+	 * does not exist.
+	 *
      *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/show-tables.html
 	 *
@@ -98,7 +104,10 @@ class MySQLConnection extends BDDConnection
 	 * @param $table the name of the table to be describe
 	 *
      * @return - a BDDRecordSet if table exists wich BDDRecord s describe a field of the table
-	 * @return - an Errors object in case of error(s)
+	 * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_NO_DB_SELECTED if No database is selected
+	 * @return see MySQLConnection::Query
 	 *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/describe.html
 	 *
@@ -207,8 +216,12 @@ class MySQLConnection extends BDDConnection
 	 * @param $isPersistent specifies if connection may be persistent or not = { CONNECTION_PERSISTENT | CONNECTION_NOT_PERSISTENT }
 	 *
 	 *
-     * @return - an Errors object in case of error(s)
      * @return - NULL if operation was successful
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_CANNOT_OPEN if connection can not be established
+	 * please have a look on host/login/password
+	 * @return BDDError::CONNECTION_ALREADY_OPENED if connection is already opened 
 	 *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-pconnect.html
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-connect.html
@@ -258,8 +271,11 @@ class MySQLConnection extends BDDConnection
      *
 	 * @param $database the name of the database to be used
      *
-     * @return - an Errors object in case of error(s)
      * @return - NULL if operation was successful
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_CLOSED if connection is closed
+	 * @return BDDError::CONNECTION_CANNOT_CHANGE_DB if database cannot be changed
 	 *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-select-db.html
      *
@@ -296,13 +312,17 @@ class MySQLConnection extends BDDConnection
     
     public function Query( $query )
     /**
-     * try to send a query to DB server
+     * tries to send a query to DB server
 	 * Connection may be opened.
      *
 	 * @param $query the query to be done
      *
-     * @return - an Errors object in case of error(s)
-     * @return - a BDDRecord object which contains entries as BDDRecordItem s
+     * @return - a BDDRecord object which contains entries as BDDRecordItem-s
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_NO_DB_SELECTED if no database has been 
+	 * selected before query
+	 * @return BDDError::CONNECTION_QUERY_FAILED if query failed
      *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-query.html
 	 *
@@ -361,10 +381,12 @@ class MySQLConnection extends BDDConnection
     
     public function Close( )
     /**
-     * Try to close the connection
+     * Tries to close the connection
      *
-     * @return - an Errors object in case of error(s)
      * @return - NULL if operation was successful
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_CLOSED is connection is already closed
      *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-close.html
      */
@@ -374,7 +396,7 @@ class MySQLConnection extends BDDConnection
             // no connection
             $errs = new Errors();
 
-            $errs->Add ( new BDDError ( BDDError::CONNECTION_CLOSED , 'Connexion déjà fermée' ) );
+            $errs->Add ( new BDDError ( BDDError::CONNECTION_CLOSED , 'Connection already closed' ) );
             
             return $errs;
         }
@@ -388,7 +410,7 @@ class MySQLConnection extends BDDConnection
     
     public function isConnected ( )
     /**
-     * Check whether connection is opened or closed
+     * Checks whether connection is opened or closed
      *
      * @return - true if connection is active
      * @return - false if connection is closed
@@ -397,11 +419,11 @@ class MySQLConnection extends BDDConnection
     {
         return ( $this->connection !== NULL && @mysql_stat ( $this->connection ) !== NULL );
     } //----- End of isConnected
-    
-//-------------------------------------------- Constructeurs - destructeur
+
+//---------------------------------------------- Constructors - destructor
     public function __construct( $server = '' , $username = '' , $password = '' )
 	/**
-	 * initialise members of the object.
+	 * initialises members of the object.
 	 * interrupts script if DataBase is not supported.
 	 *
 	 * @param $server the host address
@@ -410,27 +432,32 @@ class MySQLConnection extends BDDConnection
 	 *
 	 */
     {
+		parent::__construct( $server, $username, $password );
+
             if ( ! function_exists( 'mysql_connect' ) )
             {
                 die('PHP does not support MySQL');
             }
-            
-            $this->connection = NULL;
-            
-            $this->server = $server;
-            $this->username = $username;
-            $this->password = $password;
-            
-            $this->database = '';
-            
-            $this->nombreRequetes = 0;
     } //----- End of contructor
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		$this->Close();
+	
+		parent::__destruct();
+	} //----- End of Destructor
     
 //---------------------------------------------------------- Magic methods
 
     public function __ToString ( )
     /**
-	 * Returns a printable version of objet for debugging.
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
 	 */
     {
 		return parrent::__ToString();

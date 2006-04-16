@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |XHTMLSitePage.php|  -  description
+                           |XHTMLSitePage.php|
                              -------------------
     start                : |10.02.2006|
     copyright            : (C) 2006 by BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <XHTMLSitePage> class (file XHTMLSitePage.php) -----------------
-if (defined('XHTMLSITEPAGE_H'))
+//-------------- Class <XHTMLSitePage> (file XHTMLSitePage.php) -----------------
+/*if (defined('XHTMLSITEPAGE_H'))
 {
     return;
 }
@@ -17,11 +17,9 @@ else
 {
 
 }
-define('XHTMLSITEPAGE_H',1);
+define('XHTMLSITEPAGE_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -30,64 +28,77 @@ define('XHTMLSITEPAGE_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <XHTMLSitePage> class
-//
-//
+/*!
+ * XHTML extension of AbstractSitePage. Provides context for XHTML Web 
+ * Pages.
+ */
 //------------------------------------------------------------------------ 
 
 class XHTMLSitePage extends AbstractSitePage
 {
 //----------------------------------------------------------------- PUBLIC
-	const TAG_EXECUTION_TIME = 'EXECTIME'; // tag for execution time disp.
+	/**
+	 * Page Execution Tag Name : the name of tag which will display
+	 * the Page's execution time.
+	 */
+	const TAG_EXECUTION_TIME = 'EXECTIME';
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
-	
+
     public static function GetInstance ( )
-    // User's manual :
-    //Getter of the unique instance. Create this if doesn't exist
-	//Must appears in all children.
-	//
-    // Contract :
-    //
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
 	{	
 		return parent::getThis( __CLASS__ );
-	} // End of GetInstance
+	} //----- End of GetInstance
 	
 
     public function OnLoad ( )
-    // User's manual :
-    //function to be called on ApplicationStart
-	//
-    // Contract :
-    //
+	/**
+	 * callback function to be called by Application on ApplicationStart.
+	 * Initializes the page with an XHTMLPageTemplate.
+	 *
+	 * @see Application class
+	 *
+	 */
 	{
 		$this->pageTemplate = new XHTMLPageTemplate () ;	
 	} //---- End of OnLoad
 	
     public function Process ( )
-    // User's manual :
-    //all processes of the page.
-	//called after ApplicationStart / OnStart.
-	//
-    // Contract :
-    //
+	/**
+	 * Function called after OnLoad and before OnUnLoad.
+	 * Here is all the process of the page.
+	 *
+	 */
 	{
 	} //---- End of Process
 	
     public function OnUnLoad ( $applicationVars )
-    // User's manual :
-    //function to be called on ApplicationEnd
-	//
-    // Contract :
-    //
+	/**
+	 * callback function to be called by Application on ApplicationEnd.
+	 * Sets up Execution time from Tag named TAG_EXECUTION_TIME and
+	 * flushes the page.
+	 *
+	 * @param $applicationVars arguments passed by Application on function
+	 * call - see Application class
+	 *
+	 * @see Application class
+	 *
+	 */
 	{
 		$exectime = new Template();
-		$exectime->SetMaquette ( round( microtime(true) - $applicationVars[ Application::SYSTEM_START_TIME ], 4 ) );
+		$exectime->SetSkeleton ( round( microtime(true) - $applicationVars[ Application::SYSTEM_START_TIME ], 4 ) );
 
 		$this->pageTemplate->GetBody()->SetTag( self::TAG_EXECUTION_TIME, $exectime );
 			
@@ -96,47 +107,42 @@ class XHTMLSitePage extends AbstractSitePage
 
 //---------------------------------------------- Constructors - destructor
     protected function __construct()
-    // User's manual :
-    //Internal constructor that disable instanciation
-    // Contract :
-    //
+	/**
+	 * instanciates an XHTMLSitePage.
+	 *
+	 */
     {
 		parent::__construct();
     } //---- End of __construct
-
-
-    public function __destruct ( )
-    // User's manual :
-    //
-    // Contract :
-    //
-    {
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
 		parent::__destruct();
-    } //---- End of __destruct
+	} //----- End of Destructor
 
 //---------------------------------------------------------- Magic Methods
 
     public function __ToString ( )
-    // User's manual :
-    //
-    // Contract :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
-		return '';
-    } //---- End of __ToString
+		return parrent::__ToString();
+    } //----- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
 //------------------------------------------------------ protected methods
-    // protected type Méthode ( );
-    // User's manual :
-    //
-    // Contract :
-    //
 
 //--------------------------------------------------- protected properties
-
-	protected $pageTemplate; // XHTML Page Template
+	/** The XHTMLPageTemplate */
+	protected $pageTemplate;
 }
 
 //----------------------------------------------------- Others definitions

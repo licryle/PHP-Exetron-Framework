@@ -13,9 +13,6 @@
 
 $directory = dirname( __FILE__ );
 
-require_once ( $directory.'/Iterators/LocatorItem.php' ); // Type : IteratorItem
-require_once ( $directory.'/Iterators/Locator.php' ); // Type : Iterator
-
 require_once ( $directory.'/XHTMLPageTemplate.php' ); // Type : Class
 
 //------------------------------------------------------ personal Includes

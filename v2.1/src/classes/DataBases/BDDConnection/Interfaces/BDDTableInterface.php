@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |BDDTableInterface.php|  -  description
+                           |BDDTableInterface.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLConnection> (fichier BDDTableInterface.php) --------------
-if (defined('BDDTABLEINTERFACE_H'))
+//---------- Interface <BDDTableInterface> (file BDDTableInterface.php) --------------
+/*if (defined('BDDTABLEINTERFACE_H'))
 {
     return;
 }
@@ -17,104 +17,102 @@ else
 {
 
 }
-define('BDDTABLEINTERFACE_H',1);
+define('BDDTABLEINTERFACE_H',1);*/
 
-//-------------------------------------------------------- Include système
 
-//------------------------------------------------------ Include personnel
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <BDDTableInterface>
-// Fournir des méthodes de base d'accès à une base
-// Connexion + requetes
-//
+/*!
+ * Interface that provides generic methods for Database Tables
+ */
 //------------------------------------------------------------------------ 
 
 interface BDDTableInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
     
-    abstract public function Select ( $champs, $options );
-    // Mode d'emploi :
-    //permet de récuperer le contenu d'une table selon différents paramètres
-	//sous forme d'un BDDRecordSet
-	//
-	//
-	//$champs est un tableau ou une chaine de caractères représentant les champs
-	//à selectionner.
-	//$options contient les "where" "order" "limit" et autres sous forme de chaine...
-	//
-    // Contrat :
-    //
+	/**
+	 * Computes a selection of $fields on entries that correspond to 
+	 * $options
+     *
+     * @param $fields array of string that reprensents fields' name to select
+	 * @param $options string that contains various select options like 
+	 * "where", "order", "limit", ...
+     *
+	 * @return - a BDDRecordSet that contains BDDRecord-s ( Database entries)
+	 * if select was successful
+	 * @return - an Errors object in case of error(s) : see BDDConnectionInterface::Query 
+	 *
+     */
+    abstract public function Select ( $fields, $options );
 	
+	/**
+	 * Tries to insert the given $record into database
+	 *
+	 * @param $record BDDRecord to be inserted
+	 *
+	 * @return - see BDDConnectionInterface::Query 
+	 *
+     */
     abstract public function Insert ( BDDRecord $record );
-    // Mode d'emploi :
-    //permet d'insérer de nouveaux enregistrements dans la table
-	//
-    // Contrat :
-    //
 	
+	/**
+	 * Tries to update with the given $updatedRec into database in function
+	 * of $clause parameter.
+	 *
+	 * @param $updatedRec the BDDRecord updated
+	 * @param $clause clause constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which record has to be updated
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
     abstract public function Update ( BDDRecord $updatedRec, $clause );
-    // Mode d'emploi :
-    //permet de mettre à jour le contenu de la table en mettant à jour
-	//$updateRec en fonction des $clause à construire en MySQL
-	//
-    // Contrat :
-    //
 	
+	/**
+	 * Tries to delete entries that correpond to $clauses
+	 *
+	 * @param $clauses clauses constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which records have to be deleted
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
     abstract public function Delete ( $clauses );
-    // Mode d'emploi :
-    //permet d'effacer une partie du contenu de la table en fonction des $clauses
-	//passées
-	//
-    // Contrat :
-    //
 	
+	/**
+	 * Tries to delete all entries of the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
     abstract public function Clear (  );
-    // Mode d'emploi :
-    //Efface la totalité du contenu de la table courante.
-	//
-    // Contrat :
-    //
 	
+	/**
+	 * Tries to drop the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
     abstract public function Drop (  );
-    // Mode d'emploi :
-    //Supprime la table courante de la base de données
-	//passés
-	//
-    // Contrat :
-    //
+
+//---------------------------------------------------------------- PRIVATE 
     
-//-------------------------------------------- Constructeurs - destructeur
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------ Méthodes Magiques
-
-//------------------------------------------------------------------ PRIVE 
-    
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <BDDTableInterface>
+//------------------------------------------------------ other definitions
 
 ?>

@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |MySQLTableGroup.php|  -  description
+                           |MySQLTableGroup.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLTableGroup> (fichier MySQLTableGroup.php) --------------
-if (defined('MYSQLTABLEGROUP_H'))
+//---------- Class <MySQLTableGroup> (file MySQLTableGroup.php) --------------
+/*if (defined('MYSQLTABLEGROUP_H'))
 {
     return;
 }
@@ -17,34 +17,28 @@ else
 {
 
 }
-define('MYSQLTABLEGROUP_H',1);
+define('MYSQLTABLEGROUP_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <MySQLTableGroup>
-//
-//
+/*!
+ * Provides specific methods for operations on Group Table for MySQL 
+ * Database.
+ */
 //------------------------------------------------------------------------ 
 
-class MySQLTableGroup extends MySQLTable
+class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function SaveGroups ( Groups $groups )
     // Mode d'emploi :
@@ -83,7 +77,7 @@ class MySQLTableGroup extends MySQLTable
 		}
 		
 		return NULL;
-	} //---- Fin de SaveGroups
+	} //---- End of SaveGroups
 
 	public function SelectGroups ()
     // Mode d'emploi :
@@ -106,7 +100,7 @@ class MySQLTableGroup extends MySQLTable
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de SelectGroups
+	} //---- End of SelectGroups
 	
 	
 	public function SelectGroupByIdGroup ( $idGroup )
@@ -133,7 +127,7 @@ class MySQLTableGroup extends MySQLTable
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de SelectGroupByIdGroup
+	} //---- End of SelectGroupByIdGroup
 	
 	
 	public function SelectGroupsByIdSite ( $idSite )
@@ -160,7 +154,7 @@ class MySQLTableGroup extends MySQLTable
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de SelectGroupsByIdSite
+	} //---- End of SelectGroupsByIdSite
 	
 	public function FindGroupsByName ( $groupName )
     // Mode d'emploi :
@@ -188,7 +182,7 @@ class MySQLTableGroup extends MySQLTable
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de FindGroupsByName
+	} //---- End of FindGroupsByName
 	
 	public function UpdateGroupByIdGroup ( Group $new )
     // Mode d'emploi :
@@ -221,7 +215,7 @@ class MySQLTableGroup extends MySQLTable
 		}
 		
 		return $this->Update( $new, $clauses );
-	} //---- Fin de UpdateGroupByIdGroup
+	} //---- End of UpdateGroupByIdGroup
 	
 	public function InsertGroup ( Group $group )
     // Mode d'emploi :
@@ -235,7 +229,7 @@ class MySQLTableGroup extends MySQLTable
 	// Contrat :
 	{
 		return $this->Insert ( $group );
-	} //---- Fin de InsertGroup
+	} //---- End of InsertGroup
 	
 	public function IdGroupExists ( $idGroup )
     // Mode d'emploi :
@@ -254,23 +248,18 @@ class MySQLTableGroup extends MySQLTable
 		return (! ($res InstanceOf Errors || $res->GetCount() == 0 ) );
 	}
 	
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
+
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <MySQLTableGroup>
+//------------------------------------------------------ other definitions
 
 ?>

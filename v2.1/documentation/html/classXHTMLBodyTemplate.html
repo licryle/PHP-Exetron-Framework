@@ -45,6 +45,10 @@ Inheritance diagram for XHTMLBodyTemplate:<p><center><img src="classXHTMLBodyTem
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLBodyTemplate.html#423b63e1cf9a2d5e6cf7b12b01c73288">__construct</a> ()</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLBodyTemplate.html#f50650bbe18ce9c661a7cd678143a17e">__destruct</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLBodyTemplate.html#bd0e450c7069f6691dd52a73155a86a0">__ToString</a> ()</td></tr>
+
 <tr><td colspan="2"><br><h2>Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLBodyTemplate.html#55ed59904a8a946770199b75efd65972">TAG_CONTENT</a> = 'CONTENT'</td></tr>
 
@@ -52,11 +56,11 @@ Inheritance diagram for XHTMLBodyTemplate:<p><center><img src="classXHTMLBodyTem
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+<a class="el" href="classXHTMLTemplate.html">XHTMLTemplate</a> extention. Representents the Body tag of an XHTMLPage with its contents and its parameters. 
 <p>
 
 <p>
-Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00038">38</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00037">37</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="423b63e1cf9a2d5e6cf7b12b01c73288"></a><!-- doxytag: member="XHTMLBodyTemplate::__construct" ref="423b63e1cf9a2d5e6cf7b12b01c73288" args="()" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -81,13 +85,80 @@ Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00038
     <td>
 
 <p>
+instanciates a <a class="el" href="classXHTMLBodyTemplate.html">XHTMLBodyTemplate</a>. Sets a default skeleton and initialises XHTMLTemplates for tags named TAG_CONTENT and TAG_PARAMS 
+<p>
+Reimplemented from <a class="el" href="classXHTMLTemplate.html#a9e339053f4fdb3680be768b7709fc6f">XHTMLTemplate</a>.
+<p>
+Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00111">111</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
+<p>
+References <a class="el" href="Template_8php-source.html#l00056">Template::BuildTag()</a>, <a class="el" href="Template_8php-source.html#l00068">Template::SetSkeleton()</a>, and <a class="el" href="Template_8php-source.html#l00092">Template::SetTag()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="f50650bbe18ce9c661a7cd678143a17e"></a><!-- doxytag: member="XHTMLBodyTemplate::__destruct" ref="f50650bbe18ce9c661a7cd678143a17e" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">XHTMLBodyTemplate::__destruct           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
 
 <p>
-Reimplemented from <a class="el" href="classTemplate.html#8ec2b97fe1bacf9b31f56e5e4c40c3e2">Template</a>.
+Destructs ressources allocated 
 <p>
-Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00103">103</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
+Reimplemented from <a class="el" href="classXHTMLTemplate.html#a203cda3a1f2ca76850f37fe646794eb">XHTMLTemplate</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00052">Template::BuildTag()</a>, and <a class="el" href="Template_8php-source.html#l00088">Template::SetTag()</a>.    </td>
+Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00131">131</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="bd0e450c7069f6691dd52a73155a86a0"></a><!-- doxytag: member="XHTMLBodyTemplate::__ToString" ref="bd0e450c7069f6691dd52a73155a86a0" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">XHTMLBodyTemplate::__ToString           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Returns a printable version of object for final print out.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>String printable on screen</dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classTemplate.html#10efb5fbb001719b7329164fe29097f2">Template::Generate()</a> </dd></dl>
+
+<p>
+Reimplemented from <a class="el" href="classXHTMLTemplate.html#a8656f08bc9b5f9a79c7ba26978ae184">XHTMLTemplate</a>.
+<p>
+Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00140">140</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
+<p>
+References <a class="el" href="Template_8php-source.html#l00177">Template::Generate()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="27a9d3c9e41a01b41c299abca09747c7"></a><!-- doxytag: member="XHTMLBodyTemplate::AddContent" ref="27a9d3c9e41a01b41c299abca09747c7" args="($content)" --><p>
@@ -115,11 +186,18 @@ References <a class="el" href="Template_8php-source.html#l00052">Template::Build
     <td>
 
 <p>
+Adds raw XHTML $content to the current content of the body. Content of the page is value associated to the tag named TAG_CONTENT.<p>
+Raw XHML $content may be valid.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$content</em>&nbsp;</td><td>the raw XHTML to be added </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00052">52</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
+Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00048">48</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00129">Template::AddToTag()</a>.    </td>
+References <a class="el" href="Template_8php-source.html#l00132">Template::AddToTag()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="1a1615f2b84c908a5fce3323ae57d60a"></a><!-- doxytag: member="XHTMLBodyTemplate::AddParams" ref="1a1615f2b84c908a5fce3323ae57d60a" args="($params)" --><p>
@@ -147,11 +225,18 @@ References <a class="el" href="Template_8php-source.html#l00129">Template::AddTo
     <td>
 
 <p>
+Adds raw XHTML $params to the current parameters of the body XHTML tag. Parameters of the body tag is value associated to the tag named TAG_PARAMS.<p>
+Raw XHML $params may be valid.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$params</em>&nbsp;</td><td>the raw XHTML to be added </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00078">78</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
+Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00079">79</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00129">Template::AddToTag()</a>.    </td>
+References <a class="el" href="Template_8php-source.html#l00132">Template::AddToTag()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="c6e21eb99e0261b3a7e3365c79bc8868"></a><!-- doxytag: member="XHTMLBodyTemplate::SetContent" ref="c6e21eb99e0261b3a7e3365c79bc8868" args="($content)" --><p>
@@ -179,11 +264,18 @@ References <a class="el" href="Template_8php-source.html#l00129">Template::AddTo
     <td>
 
 <p>
+Sets raw XHTML $content as the current content of the body. Content of the page is value associated to the tag named TAG_CONTENT.<p>
+Raw XHML $content may be valid.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$content</em>&nbsp;</td><td>the raw XHTML to be set </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00063">63</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
+Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00062">62</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00088">Template::SetTag()</a>.    </td>
+References <a class="el" href="Template_8php-source.html#l00092">Template::SetTag()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="cee279c65bd0a63a8147addccfe64bd5"></a><!-- doxytag: member="XHTMLBodyTemplate::SetParams" ref="cee279c65bd0a63a8147addccfe64bd5" args="($params)" --><p>
@@ -211,11 +303,18 @@ References <a class="el" href="Template_8php-source.html#l00088">Template::SetTa
     <td>
 
 <p>
+Sets raw XHTML $params as the current parameters of the body XHTML tag. Parameters of the body tag is value associated to the tag named TAG_PARAMS.<p>
+Raw XHML $params may be valid.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$params</em>&nbsp;</td><td>the raw XHTML to be set </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00089">89</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
+Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00093">93</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00088">Template::SetTag()</a>.    </td>
+References <a class="el" href="Template_8php-source.html#l00092">Template::SetTag()</a>.    </td>
   </tr>
 </table>
 <hr><h2>Member Data Documentation</h2>
@@ -239,9 +338,9 @@ References <a class="el" href="Template_8php-source.html#l00088">Template::SetTa
     <td>
 
 <p>
-
+Page Content Tag Name 
 <p>
-Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00042">42</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.    </td>
+Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00041">41</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="2f3fe5539729da703ec5eea42262192e"></a><!-- doxytag: member="XHTMLBodyTemplate::TAG_PARAMS" ref="2f3fe5539729da703ec5eea42262192e" args="" --><p>
@@ -264,14 +363,14 @@ Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00042
     <td>
 
 <p>
-
+Param Page Body Tag Name 
 <p>
-Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00043">43</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.    </td>
+Definition at line <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00044">44</a> of file <a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Templates/XHTMLTemplates/XHTMLBodyTemplate/<a class="el" href="XHTMLBodyTemplate_8php-source.html">XHTMLBodyTemplate.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:57 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:27:12 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

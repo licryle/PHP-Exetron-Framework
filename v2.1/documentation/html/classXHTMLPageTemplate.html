@@ -43,6 +43,10 @@ Inheritance diagram for XHTMLPageTemplate:<p><center><img src="classXHTMLPageTem
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLPageTemplate.html#f2f64d1d81be506d5a3b309f6a7677cc">__construct</a> ()</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLPageTemplate.html#b3601a8c4bb24a27be5b0bd5c4777186">__destruct</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLPageTemplate.html#020c032595867cecf0c0d324917d6bda">__ToString</a> ()</td></tr>
+
 <tr><td colspan="2"><br><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLPageTemplate.html#e2594c3b047fb871c053c8dcfdc6aa47">ConvertIntoSGML</a> ($source)</td></tr>
 
@@ -53,11 +57,11 @@ Inheritance diagram for XHTMLPageTemplate:<p><center><img src="classXHTMLPageTem
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+<a class="el" href="classXHTMLTemplate.html">XHTMLTemplate</a> extention. Representents a XHTML Page with its body and its headers. 
 <p>
 
 <p>
-Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00038">38</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00039">39</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="f2f64d1d81be506d5a3b309f6a7677cc"></a><!-- doxytag: member="XHTMLPageTemplate::__construct" ref="f2f64d1d81be506d5a3b309f6a7677cc" args="()" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -82,13 +86,78 @@ Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00038
     <td>
 
 <p>
+instanciates a <a class="el" href="classXHTMLPageTemplate.html">XHTMLPageTemplate</a>. Sets a default skeleton for valid XHTML1.1. Initialises <a class="el" href="classXHTMLBodyTemplate.html">XHTMLBodyTemplate</a> for the body tag named TAG_BODY Initialises <a class="el" href="classXHTMLHeadersTemplate.html">XHTMLHeadersTemplate</a> for the head tag named TAG_HEADERS 
+<p>
+Reimplemented from <a class="el" href="classXHTMLTemplate.html#a9e339053f4fdb3680be768b7709fc6f">XHTMLTemplate</a>.
+<p>
+Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00116">116</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.
+<p>
+References <a class="el" href="Template_8php-source.html#l00056">Template::BuildTag()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="b3601a8c4bb24a27be5b0bd5c4777186"></a><!-- doxytag: member="XHTMLPageTemplate::__destruct" ref="b3601a8c4bb24a27be5b0bd5c4777186" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">XHTMLPageTemplate::__destruct           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
 
 <p>
-Reimplemented from <a class="el" href="classTemplate.html#8ec2b97fe1bacf9b31f56e5e4c40c3e2">Template</a>.
+Destructs ressources allocated 
 <p>
-Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00132">132</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.
+Reimplemented from <a class="el" href="classXHTMLTemplate.html#a203cda3a1f2ca76850f37fe646794eb">XHTMLTemplate</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00052">Template::BuildTag()</a>.    </td>
+Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00152">152</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="020c032595867cecf0c0d324917d6bda"></a><!-- doxytag: member="XHTMLPageTemplate::__ToString" ref="020c032595867cecf0c0d324917d6bda" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">XHTMLPageTemplate::__ToString           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Returns a printable version of object for final print out.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>String printable on screen</dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classTemplate.html#10efb5fbb001719b7329164fe29097f2">Template::Generate()</a> </dd></dl>
+
+<p>
+Reimplemented from <a class="el" href="classXHTMLTemplate.html#a8656f08bc9b5f9a79c7ba26978ae184">XHTMLTemplate</a>.
+<p>
+Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00161">161</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="e2594c3b047fb871c053c8dcfdc6aa47"></a><!-- doxytag: member="XHTMLPageTemplate::ConvertIntoSGML" ref="e2594c3b047fb871c053c8dcfdc6aa47" args="($source)" --><p>
@@ -116,9 +185,16 @@ References <a class="el" href="Template_8php-source.html#l00052">Template::Build
     <td>
 
 <p>
+Converts $source string into valid SGML string char by char.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$source</em>&nbsp;</td><td>The source string to be converted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>the valid SGML string that correspond to $source string </dd></dl>
 
 <p>
-Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00052">52</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
+Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00051">51</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="7035d59c790739206d873a8b6c815717"></a><!-- doxytag: member="XHTMLPageTemplate::Generate" ref="7035d59c790739206d873a8b6c815717" args="()" --><p>
@@ -145,11 +221,16 @@ Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00052
     <td>
 
 <p>
+Generates a printable version of object for final print out. It replaces each tag by it's <a class="el" href="classTemplate.html">Template</a> Generated value. So it generate final document by hierarchy.<p>
+The final document's characters are converted into valid SGML ones.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>printable version of document with valid SGML characters.</dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classTemplate.html#10efb5fbb001719b7329164fe29097f2">Template::Generate()</a> <p>
+<a class="el" href="classXHTMLPageTemplate.html#e2594c3b047fb871c053c8dcfdc6aa47">XHTMLPageTemplate::ConvertIntoSGML()</a>; </dd></dl>
 
 <p>
 Reimplemented from <a class="el" href="classTemplate.html#10efb5fbb001719b7329164fe29097f2">Template</a>.
 <p>
-Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00117">117</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
+Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00097">97</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="38a87978c779f7dbd809de728aeea9c3"></a><!-- doxytag: member="XHTMLPageTemplate::GetBody" ref="38a87978c779f7dbd809de728aeea9c3" args="()" --><p>
@@ -176,9 +257,11 @@ Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00117
     <td>
 
 <p>
+Gets the <a class="el" href="classXHTMLHeadersTemplate.html">XHTMLHeadersTemplate</a> that corresponds to body tag named TAG_BODY.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>the <a class="el" href="classXHTMLHeadersTemplate.html">XHTMLHeadersTemplate</a> object that corresponds to head tag named TAG_HEADERS. </dd></dl>
 
 <p>
-Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00089">89</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
+Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00072">72</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="9de0c180c5314a61893db76ebeb97391"></a><!-- doxytag: member="XHTMLPageTemplate::GetHeaders" ref="9de0c180c5314a61893db76ebeb97391" args="()" --><p>
@@ -205,9 +288,11 @@ Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00089
     <td>
 
 <p>
+Gets the <a class="el" href="classXHTMLHeadersTemplate.html">XHTMLHeadersTemplate</a> that corresponds to TAG_HEADERS tag of the page.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>the <a class="el" href="classXHTMLHeadersTemplate.html">XHTMLHeadersTemplate</a> object that corresponds to TAG_HEADERS tag of the page. </dd></dl>
 
 <p>
-Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00102">102</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
+Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00085">85</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
   </tr>
 </table>
 <hr><h2>Member Data Documentation</h2>
@@ -231,9 +316,9 @@ Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00102
     <td>
 
 <p>
-
+Page Body Tag Name 
 <p>
-Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00042">42</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
+Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00044">44</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="d1a397a574dcbb0721f8f98cedd12c24"></a><!-- doxytag: member="XHTMLPageTemplate::TAG_HEADERS" ref="d1a397a574dcbb0721f8f98cedd12c24" args="" --><p>
@@ -256,14 +341,14 @@ Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00042
     <td>
 
 <p>
-
+Page Headers Tag Name 
 <p>
-Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00043">43</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
+Definition at line <a class="el" href="XHTMLPageTemplate_8php-source.html#l00047">47</a> of file <a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Templates/XHTMLTemplates/XHTMLPageTemplate/<a class="el" href="XHTMLPageTemplate_8php-source.html">XHTMLPageTemplate.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:59 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:27:14 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

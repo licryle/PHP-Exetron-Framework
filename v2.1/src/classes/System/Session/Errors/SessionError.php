@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |SessionError.php|  -  description
+                           |SessionError.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <SessionError> (fichier SessionError.php) --------------
-if (defined('SESSIONERROR_H'))
+//---------- Classe <SessionError> (file SessionError.php) --------------
+/*if (defined('SESSIONERROR_H'))
 {
     return;
 }
@@ -17,22 +17,20 @@ else
 {
 
 }
-define('SESSIONERROR_H',1);
+define('SESSIONERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <SessionError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs Session
-//
+/*!
+ * Provides specific constants for Session's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class SessionError extends Error
@@ -40,32 +38,23 @@ class SessionError extends Error
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------- Constantes
+	/** This session_variable has not been set and cannot be read */
     const SESSION_VARIABLE_NOT_SET = 'SESSION_VARIABLE_NOT_SET';
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <SessionError>
+//------------------------------------------------------ other definitions
 
 ?>

@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |UserError.php|  -  description
+                           |UserError.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <UserError> (fichier UserError.php) --------------
-if (defined('USERERROR_H'))
+//---------- Class <UserError> (file UserError.php) --------------
+/*if (defined('USERERROR_H'))
 {
     return;
 }
@@ -17,58 +17,51 @@ else
 {
 
 }
-define('USERERROR_H',1);
+define('USERERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <UserError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs User
-//
+/*!
+ * Provides specific constants for User's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class UserError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
-
-//------------------------------------------------------------- Constantes
+	/**
+	 * Requested User has not been loaded from database or does not
+	 * exist
+	 */
     const USER_NOT_LOADED = 'USER_NOT_LOADED';
 
-    const USER_IDGROUP_INEXISTANT = 'USER_IDGROUP_INEXISTANT'; // référent IdGroup inexistant
-	const USER_LOGIN_EMPTY = 'USER_LOGIN_EMPTY'; // login vide
+	/** Requested Group has a non valid idGroup referrent */
+    const USER_IDGROUP_INEXISTANT = 'USER_IDGROUP_INEXISTANT';
 	
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/** The User has a an empty name/login */
+	const USER_LOGIN_EMPTY = 'USER_LOGIN_EMPTY';
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <UserError>
+//------------------------------------------------------ other definitions
 
 ?>

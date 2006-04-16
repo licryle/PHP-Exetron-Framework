@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |BDDRecordSet.php|  -  description
+                           |BDDRecordSet.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <BDDRecordSet> (fichier BDDRecordSet.php) --------------
-if (defined('BDDRECORDSET_H'))
+//---------- Class <BDDRecordSet> (file BDDRecordSet.php) --------------
+/*if (defined('BDDRECORDSET_H'))
 {
     return;
 }
@@ -17,149 +17,160 @@ else
 {
 
 }
-define('BDDRECORDSET_H',1);
+define('BDDRECORDSET_H',1);*/
 
-//-------------------------------------------------------- Include système
 
-//------------------------------------------------------ Include personnel
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <BDDRecordSet>
-//Itérateur qui gère une liste d'erreurs de type Error ou descendant
-//
+/*!
+ * Basic Iterator for BDDRecord-s
+ */
 //------------------------------------------------------------------------ 
 
 class BDDRecordSet extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //  
+//--------------------------------------------------------- public methods
 
-    public function Add( BDDRecord $item )
-    // Mode d'emploi :
-    //Ajoute un item à la liste
-    //
+    public function Add( BDDRecord & $item )
+    /**
+	 * Adds a BDDRecord to the Iterator.
+     *
+     * @param $item the BDDRecord to add
+     *
+     */
     {
-        $this->items[ $this->GetCount() ] = $item;
-    } //---- Fin de Add
+        $this->items[ ] = $item;
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des items
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->items);
         
         $this->items = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre d'items contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'items contenus
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->items );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//---------------------------------------------- Iterator's Implementation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->items );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return @current( $this->items );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le n° d'enregistrement pointé par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return key( $this->items );
-    } //---- Fin de Key
+    } //---- End of  Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->items );
-    } //---- Fin de Next
+    } //---- End of  Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
-//---------------------------------------------Fin implémentation Iterator
-    
-//-------------------------------------------- Constructeurs - destructeur
+    } //---- End of  Valid
+//--------------------------------------- End of Iterator's implementation
+
+//---------------------------------------------- Constructors - destructor
     function __construct( )
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
+    /**
+	 * Initialises BDDRecordSet.
+	 *
+     */
     {
-    	$this->items = array( );
-    } //---- Fin du constructeur
+		parent::__construct();
+		
+		$this->items = array();
+    } //---- End of constructor
+	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
 
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-    public function __ToString ()
-    // Mode d'emploi :
-    //Réalise une conversion des erreurs en String
-    //
-    // Algorithme : 
-    //foreach( $this )
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
         return $this->GetCount().' entrées'.var_dump($this->items);
-    }
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
+	/** Array of items : BDDRecord-s */
     protected $items;
 }
 
-//-------------------------------- Autres définitions dépendantes de <BDDRecordSet>
+//------------------------------------------------------ other definitions
 
 ?>

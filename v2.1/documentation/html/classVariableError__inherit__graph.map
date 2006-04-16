@@ -1,11 +1,11 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,212,352"];
+	graph [bb="0,0,212,364"];
 	Node1 [label="{VariableError\n|+ VARIABLE_NOT_LOADED\l+ VARIABLE_NAME_EMPTY\l+ VARIABLE_SCOPE_INCORRECT\l+ VARIABLE_ACCESS_INCORRECT\l+ VARIAB\
 LE_IDSITE_INEXISTANT\l|}", height="1.33", width="2.94", color=white, fillcolor=black, style=filled, fontcolor=white, pos="106,56", rects="0,88,213,104 0,24,213,88 0,8,213,24"];
-	Node2 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __ToString()\l}", height="1.33", width="1.19", color=black, fillcolor=white, style=filled, URL="$classError.html", pos="106,188", rects="63,220,149,236 63,192,149,220 63,140,149,192"];
-	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="106,308", rects="63,328,149,344 63,312,149,328 63,272,149,312"];
+	Node2 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.50", width="1.19", color=black, fillcolor=white, style=filled, URL="$classError.html", pos="106,194", rects="63,232,149,248 63,204,149,232 63,140,149,204"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="106,320", rects="63,340,149,356 63,324,149,340 63,284,149,324"];
 	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,106,140 106,130 106,121 106,113 106,104"];
-	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,106,272 106,261 106,253 106,244 106,236"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,106,284 106,273 106,265 106,256 106,248"];
 }

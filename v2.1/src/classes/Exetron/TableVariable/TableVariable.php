@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |TableVariable.php|  -  description
+                           |TableVariable.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableVariable> (fichier TableVariable.php) --------------
-if (defined('TABLEVARIABLE_H'))
+//---------- Class <TableVariable> (file TableVariable.php) --------------
+/*if (defined('TABLEVARIABLE_H'))
 {
     return;
 }
@@ -17,95 +17,78 @@ else
 {
 
 }
-define('TABLEVARIABLE_H',1);
+define('TABLEVARIABLE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableVariable>
-//
-//
+/*!
+ * Provides constants for Variable table fields name
+ */
 //------------------------------------------------------------------------ 
 
 class TableVariable
 {
 //----------------------------------------------------------------- PUBLIC
 
+	/** Primary key field of the Variable table */
 	const TABLE_COLUMN_IDVARIABLE = 'idvariable';
-	// clef primaire identifiant de la var
 	
+	/** Variable scope field */
 	const TABLE_COLUMN_SCOPE = 'scope';
-	// portée de la donnée. portées possibles : TABLE_COLUMN_SCOPE_SITE ou
-	//	TABLE_COLUMN_SCOPE_SERVER
 	
-	// énumération TABLE_COLUMN_SCOPE
+	// TABLE_COLUMN_SCOPE's enum
 	
+		/** The variable just concerns current site */
 		const TABLE_COLUMN_SCOPE_SITE = 'SITE';
-		// la donnée ne concernera que le site en question.
-		// cette portée prévalue sur l'autre.
 		
+		/** The variable concerns all sites */
 		const TABLE_COLUMN_SCOPE_SERVER = 'SERVER';
-		// la donnée concernera tous les sites hébergés.
 		
-	// fin de l'énumération TABLE_COLUMN_SCOPE
+	// end of TABLE_COLUMN_SCOPE's enum
 	
-	
+	/** Variable Accesses field : defines who can modify it */
 	const TABLE_COLUMN_ACCESS = 'access';
-	// défini quels sont les personnes qui peuvent modifier la donnée
 
-	// énumération TABLE_COLUMN_ACCESS
+	// TABLE_COLUMN_ACCESS's enum
 	
+		/** The variable can only be modified by Global Admins */
 		const TABLE_COLUMN_ACCESS_ROOT = 'ROOT';
-		// la donnée ne pourra être modifiée que par les 
-		//administrateurs des sites
 		
+		/** The variable can be modified by Site Admins (or globals)*/
 		const TABLE_COLUMN_ACCESS_ADMIN = 'ADMIN';
-		// la donnée pourra être modifiée par les administrateur du site
 		
-	// fin de l'énumération TABLE_COLUMN_ACCESS
+	// end of TABLE_COLUMN_ACCESS's enum
 	
+	/** Variable Name field */
 	const TABLE_COLUMN_NAME = 'name';
-	// nom de la donnée
 	
+	/** Variable Data field */
 	const TABLE_COLUMN_DATA = 'data';
-	// donnée stockée échapée en addslashes().
 	
+	/** Foreign key that refers to Site Table */
 	const TABLE_COLUMN_IDSITE = 'idsite';
-	// clef étrangère définissant le site auquel la donnée est rattachée
-	
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-	
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableVariable>
+//------------------------------------------------------ other definitions
 
 ?>

@@ -1,9 +1,9 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,132,304"];
+	graph [bb="0,0,132,316"];
 	Node1 [label="{Variables\n|# $variables\l|+ GetVariableByName()\l+ SetVariable()\l+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l\
-+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __destruct()\l}", height="2.50", width="1.83", color=white, fillcolor=black, style=filled, fontcolor=white, pos="66,98", rects="0,172,132,188 0,156,132,172 0,8,132,156"];
-	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="66,260", rects="23,280,109,296 23,264,109,280 23,224,109,264"];
-	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,66,224 66,214 66,206 66,197 66,188"];
++ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="2.67", width="1.83", color=white, fillcolor=black, style=filled, fontcolor=white, pos="66,104", rects="0,184,132,200 0,168,132,184 0,8,132,168"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="66,272", rects="23,292,109,308 23,276,109,292 23,236,109,276"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,66,236 66,226 66,218 66,209 66,200"];
 }

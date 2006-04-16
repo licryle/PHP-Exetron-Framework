@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |WebSitePage.php|  -  description
+                           |WebSitePage.php|
                              -------------------
-    start                : |10.02.2006|
+    start                : |10.04.2006|
     copyright            : (C) 2006 by BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <WebSitePage> class (file WebSitePage.php) -----------------
-if (defined('WEBSITEPAGE_H'))
+//-------------- Class <WebSitePage>  (file WebSitePage.php) -----------------
+/*if (defined('WEBSITEPAGE_H'))
 {
     return;
 }
@@ -17,11 +17,9 @@ else
 {
 
 }
-define('WEBSITEPAGE_H',1);
+define('WEBSITEPAGE_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -30,9 +28,12 @@ define('WEBSITEPAGE_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <WebSitePage> class
-//
-//
+/*!
+ * Web Extension of XHTMLSitePage. It includes a BDDConnection for
+ * configuration loading.
+ *
+ * This class 
+ */
 //------------------------------------------------------------------------ 
 
 class WebSitePage extends XHTMLSitePage
@@ -71,7 +72,7 @@ class WebSitePage extends XHTMLSitePage
 		$DBVars = & $appl->GetVariables[ DB_ARRAY_INDEX ];
 		
 		// set up all 'always' needed connections
-		foreach ( $GLOBALS[ DB_ARRAY_INDEX ] as $key => $db )
+		foreach ( $DBVars as $key => $db )
 		{
 			if ( $db['alwaysUse'] && ! isset ( $DBVars[ $key ] ) )
 			{
@@ -89,7 +90,7 @@ class WebSitePage extends XHTMLSitePage
 			}
 		}
 		
-		$className = $GLOBALS[ DB_ARRAY_INDEX ][ MYSQL_CONF_BASE ][ 'type' ].'TableVariable';
+		$className = $DBVars[ MYSQL_CONF_BASE ][ 'type' ].'TableVariable';
 		$configuration = new $className ( CONFIGURATION_TABLE_NAME, $DBVars[ MYSQL_CONF_BASE ], $errors );
 
 		$servConf = $configuration->SelectServerVariables();

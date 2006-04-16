@@ -1,0 +1,8 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,96,268"];
+	Node1 [label="{AbstractSitePage\n||+ OnLoad()\l+ Process()\l+ OnUnLoad()\l+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l}", height="1.67", width="1.28", color=white, fillcolor=black, style=filled, fontcolor=white, pos="48,68", rects="2,112,94,128 2,96,94,112 2,8,94,96"];
+	Node2 [label="{AbstractSingleton\n|# $instance\l|+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# getThis()\l}", height="1.33", width="1.33", color=black, fillcolor=white, style=filled, URL="$classAbstractSingleton.html", pos="48,212", rects="0,244,97,260 0,228,97,244 0,164,97,228"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,48,164 48,153 48,145 48,136 48,128"];
+}

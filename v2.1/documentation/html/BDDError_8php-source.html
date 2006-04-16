@@ -32,88 +32,78 @@
 <h1>BDDError.php</h1><a href="BDDError_8php.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 <span class="comment">/*************************************************************************</span>
-<a name="l00004"></a>00004 <span class="comment">                           |BDDError.php|  -  description</span>
+<a name="l00004"></a>00004 <span class="comment">                           |BDDError.php|</span>
 <a name="l00005"></a>00005 <span class="comment">                             -------------------</span>
 <a name="l00006"></a>00006 <span class="comment">    début                : |DATE|</span>
 <a name="l00007"></a>00007 <span class="comment">    copyright            : (C) 2005 par BERLIAT Cyrille</span>
-<a name="l00008"></a>00008 <span class="comment">    e-mail               : cyrille.berliat@free.fr</span>
+<a name="l00008"></a>00008 <span class="comment">    e-mail               : cyrille.berliat@gmail.com</span>
 <a name="l00009"></a>00009 <span class="comment">*************************************************************************/</span>
 <a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <span class="comment">//---------- Interface de la classe &lt;BDDError&gt; (fichier BDDError.php) --------------</span>
-<a name="l00012"></a>00012 <span class="keywordflow">if</span> (defined('BDDERROR_H'))
-<a name="l00013"></a>00013 {
-<a name="l00014"></a>00014     <span class="keywordflow">return</span>;
-<a name="l00015"></a>00015 }
-<a name="l00016"></a>00016 <span class="keywordflow">else</span>
-<a name="l00017"></a>00017 {
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019 }
-<a name="l00020"></a>00020 define('BDDERROR_H',1);
+<a name="l00011"></a>00011 <span class="comment">//---------- Class &lt;BDDError&gt; (file BDDError.php) --------------</span>
+<a name="l00012"></a>00012 <span class="comment">/*if (defined('BDDERROR_H'))</span>
+<a name="l00013"></a>00013 <span class="comment">{</span>
+<a name="l00014"></a>00014 <span class="comment">    return;</span>
+<a name="l00015"></a>00015 <span class="comment">}</span>
+<a name="l00016"></a>00016 <span class="comment">else</span>
+<a name="l00017"></a>00017 <span class="comment">{</span>
+<a name="l00018"></a>00018 <span class="comment"></span>
+<a name="l00019"></a>00019 <span class="comment">}</span>
+<a name="l00020"></a>00020 <span class="comment">define('BDDERROR_H',1);*/</span>
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="comment">//-------------------------------------------------------- Include système</span>
+<a name="l00022"></a>00022 <span class="comment">//--------------------------------------------------------------- Includes </span>
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="comment">//------------------------------------------------------ Include personnel</span>
+<a name="l00024"></a>00024 <span class="comment">//-------------------------------------------------------------- Constants</span>
 <a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="comment">//------------------------------------------------------------- Constantes</span>
+<a name="l00026"></a>00026 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
 <a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
+<a name="l00028"></a>00028 <span class="comment">//------------------------------------------------------------------ Types </span>
 <a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="comment">//------------------------------------------------------------------ Types </span>
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="comment">//------------------------------------------------------------------------ </span>
-<a name="l00033"></a>00033 <span class="comment">// Rôle de la classe &lt;BDDError&gt;</span>
-<a name="l00034"></a>00034 <span class="comment">// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs bdd</span>
-<a name="l00035"></a>00035 <span class="comment">//</span>
-<a name="l00036"></a>00036 <span class="comment">//------------------------------------------------------------------------ </span>
-<a name="l00037"></a>00037 
-<a name="l00038"></a><a class="code" href="classBDDError.html">00038</a> <span class="keyword">class </span><a class="code" href="classBDDError.html">BDDError</a> <span class="keyword">extends</span> <a class="code" href="classError.html">Error</a>
-<a name="l00039"></a>00039 {
-<a name="l00040"></a>00040 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="comment">//------------------------------------------------------------- Constantes</span>
-<a name="l00043"></a><a class="code" href="classBDDError.html#7cbace17e290a7aeb7baac248c4b200f">00043</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#7cbace17e290a7aeb7baac248c4b200f">CONNECTION_NOT_CLOSED</a> = '<a class="code" href="classBDDError.html#7cbace17e290a7aeb7baac248c4b200f">CONNECTION_NOT_CLOSED</a>';
-<a name="l00044"></a><a class="code" href="classBDDError.html#e2b22f9ace8a6e233a284f29f36207ef">00044</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#e2b22f9ace8a6e233a284f29f36207ef">CONNECTION_CLOSED</a> = '<a class="code" href="classBDDError.html#e2b22f9ace8a6e233a284f29f36207ef">CONNECTION_CLOSED</a>';
-<a name="l00045"></a><a class="code" href="classBDDError.html#d7b8edfdbcdf99b24c98f3cb68fd4b36">00045</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#d7b8edfdbcdf99b24c98f3cb68fd4b36">CONNECTION_ALREADY_OPENED</a> = '<a class="code" href="classBDDError.html#d7b8edfdbcdf99b24c98f3cb68fd4b36">CONNECTION_ALREADY_OPENED</a>';
-<a name="l00046"></a><a class="code" href="classBDDError.html#ece74bdbc7de1854656227337f5c20eb">00046</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#ece74bdbc7de1854656227337f5c20eb">CONNECTION_CANNOT_OPEN</a> = '<a class="code" href="classBDDError.html#ece74bdbc7de1854656227337f5c20eb">CONNECTION_CANNOT_OPEN</a>';
-<a name="l00047"></a><a class="code" href="classBDDError.html#644235150bd420ccfbcd655d1115d7af">00047</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#644235150bd420ccfbcd655d1115d7af">CONNECTION_CANNOT_CHANGE_DB</a> = '<a class="code" href="classBDDError.html#644235150bd420ccfbcd655d1115d7af">CONNECTION_CANNOT_CHANGE_DB</a>';
-<a name="l00048"></a><a class="code" href="classBDDError.html#f248463c365a0d0c654c20e9b0fdd928">00048</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#f248463c365a0d0c654c20e9b0fdd928">CONNECTION_QUERY_FAILED</a> = '<a class="code" href="classBDDError.html#f248463c365a0d0c654c20e9b0fdd928">CONNECTION_QUERY_FAILED</a>';
-<a name="l00049"></a><a class="code" href="classBDDError.html#d6c7db60f07deb6b2b5fefc771603f61">00049</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#d6c7db60f07deb6b2b5fefc771603f61">CONNECTION_TABLE_INEXISTANT</a> = '<a class="code" href="classBDDError.html#d6c7db60f07deb6b2b5fefc771603f61">CONNECTION_TABLE_INEXISTANT</a>';
+<a name="l00030"></a>00030 <span class="comment">//------------------------------------------------------------------------ </span>
+<a name="l00034"></a>00034 <span class="comment"></span><span class="comment">//------------------------------------------------------------------------ </span>
+<a name="l00035"></a>00035 
+<a name="l00036"></a><a class="code" href="classBDDError.html">00036</a> <span class="keyword">class </span><a class="code" href="classBDDError.html">BDDError</a> <span class="keyword">extends</span> <a class="code" href="classError.html">Error</a>
+<a name="l00037"></a>00037 {
+<a name="l00038"></a>00038 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
+<a name="l00040"></a><a class="code" href="classBDDError.html#7cbace17e290a7aeb7baac248c4b200f">00040</a> <span class="comment"></span>    <span class="keyword">const</span> <a class="code" href="classBDDError.html#7cbace17e290a7aeb7baac248c4b200f">CONNECTION_NOT_CLOSED</a> = '<a class="code" href="classBDDError.html#7cbace17e290a7aeb7baac248c4b200f">CONNECTION_NOT_CLOSED</a>';
+<a name="l00041"></a>00041         
+<a name="l00043"></a><a class="code" href="classBDDError.html#e2b22f9ace8a6e233a284f29f36207ef">00043</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#e2b22f9ace8a6e233a284f29f36207ef">CONNECTION_CLOSED</a> = '<a class="code" href="classBDDError.html#e2b22f9ace8a6e233a284f29f36207ef">CONNECTION_CLOSED</a>';
+<a name="l00044"></a>00044         
+<a name="l00046"></a><a class="code" href="classBDDError.html#d7b8edfdbcdf99b24c98f3cb68fd4b36">00046</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#d7b8edfdbcdf99b24c98f3cb68fd4b36">CONNECTION_ALREADY_OPENED</a> = '<a class="code" href="classBDDError.html#d7b8edfdbcdf99b24c98f3cb68fd4b36">CONNECTION_ALREADY_OPENED</a>';
+<a name="l00047"></a>00047         
+<a name="l00049"></a><a class="code" href="classBDDError.html#ece74bdbc7de1854656227337f5c20eb">00049</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#ece74bdbc7de1854656227337f5c20eb">CONNECTION_CANNOT_OPEN</a> = '<a class="code" href="classBDDError.html#ece74bdbc7de1854656227337f5c20eb">CONNECTION_CANNOT_OPEN</a>';
 <a name="l00050"></a>00050         
-<a name="l00051"></a><a class="code" href="classBDDError.html#417fd6b12b8df29eeb4fa2302c0233c4">00051</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#417fd6b12b8df29eeb4fa2302c0233c4">CONNECTION_COLUMN_INEXISTANT</a> = '<a class="code" href="classBDDError.html#417fd6b12b8df29eeb4fa2302c0233c4">CONNECTION_COLUMN_INEXISTANT</a>';
-<a name="l00052"></a>00052         
-<a name="l00053"></a><a class="code" href="classBDDError.html#fda90cdc42742507614afa12a9baab5c">00053</a>         <span class="keyword">const</span> <a class="code" href="classBDDError.html#fda90cdc42742507614afa12a9baab5c">TABLE_CLASS_INCORRECT</a> = '<a class="code" href="classBDDError.html#fda90cdc42742507614afa12a9baab5c">TABLE_CLASS_INCORRECT</a>';
-<a name="l00054"></a>00054         
-<a name="l00055"></a><a class="code" href="classBDDError.html#26b30821decfbf3edf2ee60135ca8d67">00055</a>         <span class="keyword">const</span> <a class="code" href="classBDDError.html#26b30821decfbf3edf2ee60135ca8d67">RECORD_NOT_VALID</a> = '<a class="code" href="classBDDError.html#26b30821decfbf3edf2ee60135ca8d67">RECORD_NOT_VALID</a>';
-<a name="l00056"></a><a class="code" href="classBDDError.html#051271e96623e0647fa7ed5301c17b43">00056</a>         <span class="keyword">const</span> <a class="code" href="classBDDError.html#051271e96623e0647fa7ed5301c17b43">RECORD_UPDATE_DOESNT_EXIST</a> = '<a class="code" href="classBDDError.html#051271e96623e0647fa7ed5301c17b43">RECORD_UPDATE_DOESNT_EXIST</a>';
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058 <span class="comment">//----------------------------------------------------- Méthodes publiques</span>
-<a name="l00059"></a>00059     <span class="comment">// public type Méthode ( liste des paramètres );</span>
-<a name="l00060"></a>00060     <span class="comment">// Mode d'emploi :</span>
-<a name="l00061"></a>00061     <span class="comment">//</span>
-<a name="l00062"></a>00062     <span class="comment">// Contrat :</span>
-<a name="l00063"></a>00063     <span class="comment">//</span>
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 <span class="comment">//-------------------------------------------- Constructeurs - destructeur</span>
-<a name="l00066"></a>00066     
-<a name="l00067"></a>00067 <span class="comment">//------------------------------------------------------ Méthodes Magiques</span>
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="comment">//------------------------------------------------------------------ PRIVE </span>
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071 <span class="comment">//----------------------------------------------------- Méthodes protégées</span>
-<a name="l00072"></a>00072     <span class="comment">// protected type Méthode ( liste des paramètres );</span>
-<a name="l00073"></a>00073     <span class="comment">// Mode d'emploi :</span>
-<a name="l00074"></a>00074     <span class="comment">//</span>
-<a name="l00075"></a>00075     <span class="comment">// Contrat :</span>
-<a name="l00076"></a>00076     <span class="comment">//</span>
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078 <span class="comment">//----------------------------------------------------- Attributs protégés</span>
-<a name="l00079"></a>00079 
-<a name="l00080"></a>00080 }
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082 <span class="comment">//-------------------------------- Autres définitions dépendantes de &lt;BDDError&gt;</span>
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:31:24 2006 for Exetron by&nbsp;
+<a name="l00052"></a><a class="code" href="classBDDError.html#644235150bd420ccfbcd655d1115d7af">00052</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#644235150bd420ccfbcd655d1115d7af">CONNECTION_CANNOT_CHANGE_DB</a> = '<a class="code" href="classBDDError.html#644235150bd420ccfbcd655d1115d7af">CONNECTION_CANNOT_CHANGE_DB</a>';
+<a name="l00053"></a>00053         
+<a name="l00055"></a><a class="code" href="classBDDError.html#f248463c365a0d0c654c20e9b0fdd928">00055</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#f248463c365a0d0c654c20e9b0fdd928">CONNECTION_QUERY_FAILED</a> = '<a class="code" href="classBDDError.html#f248463c365a0d0c654c20e9b0fdd928">CONNECTION_QUERY_FAILED</a>';
+<a name="l00056"></a>00056         
+<a name="l00058"></a><a class="code" href="classBDDError.html#d6c7db60f07deb6b2b5fefc771603f61">00058</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#d6c7db60f07deb6b2b5fefc771603f61">CONNECTION_TABLE_INEXISTANT</a> = '<a class="code" href="classBDDError.html#d6c7db60f07deb6b2b5fefc771603f61">CONNECTION_TABLE_INEXISTANT</a>';
+<a name="l00059"></a>00059         
+<a name="l00061"></a><a class="code" href="classBDDError.html#417fd6b12b8df29eeb4fa2302c0233c4">00061</a>     <span class="keyword">const</span> <a class="code" href="classBDDError.html#417fd6b12b8df29eeb4fa2302c0233c4">CONNECTION_COLUMN_INEXISTANT</a> = '<a class="code" href="classBDDError.html#417fd6b12b8df29eeb4fa2302c0233c4">CONNECTION_COLUMN_INEXISTANT</a>';
+<a name="l00062"></a>00062         
+<a name="l00067"></a><a class="code" href="classBDDError.html#fda90cdc42742507614afa12a9baab5c">00067</a>         <span class="keyword">const</span> <a class="code" href="classBDDError.html#fda90cdc42742507614afa12a9baab5c">TABLE_CLASS_INCORRECT</a> = '<a class="code" href="classBDDError.html#fda90cdc42742507614afa12a9baab5c">TABLE_CLASS_INCORRECT</a>';
+<a name="l00068"></a>00068         
+<a name="l00070"></a><a class="code" href="classBDDError.html#26b30821decfbf3edf2ee60135ca8d67">00070</a>         <span class="keyword">const</span> <a class="code" href="classBDDError.html#26b30821decfbf3edf2ee60135ca8d67">RECORD_NOT_VALID</a> = '<a class="code" href="classBDDError.html#26b30821decfbf3edf2ee60135ca8d67">RECORD_NOT_VALID</a>';
+<a name="l00071"></a>00071         
+<a name="l00073"></a><a class="code" href="classBDDError.html#051271e96623e0647fa7ed5301c17b43">00073</a>         <span class="keyword">const</span> <a class="code" href="classBDDError.html#051271e96623e0647fa7ed5301c17b43">RECORD_UPDATE_DOESNT_EXIST</a> = '<a class="code" href="classBDDError.html#051271e96623e0647fa7ed5301c17b43">RECORD_UPDATE_DOESNT_EXIST</a>';
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="comment">//--------------------------------------------------------- public methods</span>
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
+<a name="l00078"></a>00078     
+<a name="l00079"></a>00079 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
+<a name="l00082"></a>00082     
+<a name="l00083"></a>00083 <span class="comment">//------------------------------------------------------ protected methods</span>
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="comment">//------------------------------------------------------ protected members</span>
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 }
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 <span class="comment">//------------------------------------------------------ other definitions</span>
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 ?&gt;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:25:42 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

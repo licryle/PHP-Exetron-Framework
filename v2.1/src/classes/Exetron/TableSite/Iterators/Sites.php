@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |Sites.php|  -  description
+                           |Sites.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Sites> (fichier Sites.php) --------------
-if (defined('SITES_H'))
+//---------- Classe <Sites> (file Sites.php) --------------
+/*if (defined('SITES_H'))
 {
     return;
 }
@@ -17,47 +17,43 @@ else
 {
 
 }
-define('SITES_H',1);
+define('SITES_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Sites>
-//
-//
+/*!
+ * Provides specific methods for Iterator of Site-s
+ */
 //------------------------------------------------------------------------ 
 
 class Sites extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
 	public function GetSiteByIdSite ( $idSite )
-	// Mode d'emploi :
-	//permet de récupérer le site d'id $idSite.
-	//
-	// Renvoie :
-	//- un objet de type Site en cas de réussite
-	//- un objet de type Errors si la site n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the Site which property TableSite::TABLE_COLUMN_IDSITE
+	 * has the value $idSite
+     *
+     * @param $idSite the id of the Site to be looked for
+	 *
+     * @return - the Site object which property
+	 * TableSite::TABLE_COLUMN_IDSITE has the value $idSite
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return SiteError::SITE_NOT_LOADED if Site has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		if ( isset ( $this->sites [ $idSite ] ) )
 		{
@@ -66,23 +62,27 @@ class Sites extends AbstractClass implements Iterator
 		else
 		{
 			$errors = new Errors ( );
-			$errors->Add ( new SiteError ( SiteError::SITE_NOT_LOADED, 'Site non chargé ou inexistant.' ) );
+			$errors->Add ( new SiteError ( SiteError::SITE_NOT_LOADED, 'Site not loaded from database or not existant.' ) );
 			
 			return $errors;
 		}
-	} //---- Fin de GetSiteByIdSite
+	} //---- End of GetSiteByIdSite
 	
 	public function GetSiteByName ( $nameSite )
-	// Mode d'emploi :
-	//permet de récupérer le site de nom $nameSite.
-	//
-	// Renvoie :
-	//- un objet de type Site en cas de réussite
-	//- un objet de type Errors si la site n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the Site which property TableSite::TABLE_COLUMN_NAME
+	 * has the value $nameSite
+     *
+     * @param $nameSite the name of the Site to be looked for
+	 *
+     * @return - the Site object which property TableSite::TABLE_COLUMN_NAME
+	 * has the value $nameSite
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return SiteError::USER_NOT_LOADED if Site has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		foreach ( $this->sites as $site ) 
 		{
@@ -93,155 +93,178 @@ class Sites extends AbstractClass implements Iterator
 		}
 		
 		$errors = new Errors ( );
-		$errors->Add ( new SiteError ( SiteError::SITE_NOT_LOADED, 'Site non chargé ou inexistant.' ) );
+		$errors->Add ( new SiteError ( SiteError::SITE_NOT_LOADED, 'Site not loaded from database or not existant.' ) );
 			
 		return $errors;
-	} //---- Fin de GetSiteByName
+	} //---- End of GetSiteByName
 	
 	public function SetSite ( Site $site )
-	// Mode d'emploi :
-	//permet de mettre en mémoire dans l'objet la site $site.
-	//
-	//Afin de la sauver dans la base de donnée, il est nécessaire d'appeler SaveSites().
-	//
-	// Algorithme :
+    /**
+	 * Adds a Site to the Sites if it is different than NULL.
+	 * Alias of Site::Add()
+     *
+     * @param $site the Site to add
+     *
+     */
 	{
 		$this->Add ( $site );
-	} //---- Fin de SetSite
+	} //---- End of SetSite
 	
 //------------------------------------------- Implémentation de MyIterator
 
-    public function Add( Site $newVar )
-    // Mode d'emploi :
-    //Ajoute un site à la liste
-    //
+    public function Add( Site $item )
+    /**
+	 * Adds a Site to the Sites if it is different than NULL.
+	 * Site-s are indexed by TableSite::TABLE_COLUMN_IDSITE if possible.
+     *
+     * @param $item the Site to add
+     *
+     */
     {
-		$key = $newVar->GetProperty ( TableSite::TABLE_COLUMN_IDSITE );
+		$key = $item->GetProperty ( TableSite::TABLE_COLUMN_IDSITE );
 	
 		if ( empty ( $key ) )
 		{
-			$this->sites [] = $newVar;		
+			$this->sites [] = $item;		
 		}
 		else
 		{
-			$this->sites [ $key ] = $newVar;
+			$this->sites [ $key ] = $item;
 		}
-    } //---- Fin de Add
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des sites
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->sites);
         
         $this->sites = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre de sites contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->sites );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//----------------------------------------------- Iterator's implementation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->sites );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->sites );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'id du site pointé par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return Key ( $this->sites );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->sites );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
+    } //---- End of Valid
 
-//---------------------------------- Fin de l'implémentation de MyIterator
+//--------------------------------------- End of Iterator's implementation
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( BDDRecordSet $sites )
-    // Mode d'emploi (constructeur) :
-    //instancie des Sites à partir d'un BDDRecordSet
-	//
-    // Contrat :
-    //
+    /**
+	 * Initialises Sites from a BDDRecordSet.
+	 *
+     */
     {
+		parent::__construct();
+	
 		$this->sites = array();
 		
 		foreach ( $sites as $site )
 		{
 			$this->Add( new Site ( $site ) );
 		}		
-    } //---- Fin du constructeur
+    } //---- End of constructor
 
 
     public function __destruct ( )
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/**
+	 * Destructs ressources allocated
+	 */
     {
-    } //---- Fin du destructeur
+		parent::__destruct();
+    } //---- End of destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
-	protected $sites; // contient les sites de site
-	// sous forme de BDDRecord indexées par leur nom
+//------------------------------------------------------ protected members
+	
+	/** 
+	 * Array of Site-s indexed by TableSite::TABLE_COLUMN_IDSITE if 
+	 * possible
+	 */
+	protected $sites;
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <Sites>
+//------------------------------------------------------ other definitions
 
 ?>

@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |Variables.php|  -  description
+                           |Variables.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Variables> (fichier Variables.php) --------------
-if (defined('VARIABLES_H'))
+//---------- Class <Variables> (file Variables.php) --------------
+/*if (defined('VARIABLES_H'))
 {
     return;
 }
@@ -17,47 +17,43 @@ else
 {
 
 }
-define('VARIABLES_H',1);
+define('VARIABLES_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Variables>
-//
-//
+/*!
+ * Provides specific methods for Iterator of Variable-s
+ */
 //------------------------------------------------------------------------ 
 
 class Variables extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
 	public function GetVariableByName ( $varName )
-	// Mode d'emploi :
-	//permet de récupérer la variable de configuration nommée $varName.
-	//
-	// Renvoie :
-	//- un objet de type Variable en cas de réussite
-	//- un objet de type Errors si la variable n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the Variable which property TableVariable::TABLE_COLUMN_NAME
+	 * has the value $varName
+     *
+     * @param $varName the name of the Group to be looked for
+	 *
+     * @return - the Group object which property TableVariable::TABLE_COLUMN_NAME
+	 * has the value $varName
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return VariableError::VARIABLE_NOT_LOADED if Variable has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		if ( isset ( $this->variables [ $varName ] ) )
 		{
@@ -66,159 +62,181 @@ class Variables extends AbstractClass implements Iterator
 		else
 		{
 			$errors = new Errors ( );
-			$errors->Add ( new VariableError ( VariableError::VARIABLE_NOT_LOADED, 'Variable non chargée ou inexistante.' ) );
+			$errors->Add ( new VariableError ( VariableError::VARIABLE_NOT_LOADED, 'Variable not loaded from database not existant.' ) );
 			
 			return $errors;
 		}
-	} //---- Fin de GetVariableByName
+	} //---- End of GetVariableByName
 	
 	public function SetVariable ( Variable $variable )
-	// Mode d'emploi :
-	//permet de mettre en mémoire dans l'objet la variable de configuration $variable.
-	//
-	//Afin de la sauver dans la base de donnée, il est nécessaire d'appeler SaveVariables() de BDDTableVariable.
-	//
-	// Algorithme :
+    /**
+	 * Adds a Variable to the Variables if it is different than NULL.
+	 * Alias of Variables::Add()
+     *
+     * @param $variable the Variable to add
+     *
+     */
 	{
-
 		$this->Add ( $variable );
-
-	} //---- Fin de SetVariable
+	} //---- End of SetVariable
 	
 //------------------------------------------- Implémentation de MyIterator
 
-    public function Add( Variable $newVar )
-    // Mode d'emploi :
-    //Ajoute une variable à la liste
-    //
+    public function Add( Variable $item )
+    /**
+	 * Adds a Variable to the Variables if it is different than NULL.
+	 * Variable-s are indexed by TableVariable::TABLE_COLUMN_NAME if possible.
+     *
+     * @param $item the Variable to add
+     *
+     */
     {
-		$key = $newVar->GetProperty ( TableVariable::TABLE_COLUMN_NAME );
+		if ( $item == NULL ) return;
+		
+		$key = $item->GetProperty ( TableVariable::TABLE_COLUMN_NAME );
 	
 		if ( empty ( $key ) )
 		{
-			$this->variables [] = $newVar;		
+			$this->variables [] = $item;		
 		}
 		else
 		{
-			$this->variables [ $key ] = $newVar;
+			$this->variables [ $key ] = $item;
 		}
-    } //---- Fin de Add
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des variables
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->variables);
         
         $this->variables = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre de variables contenues dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->variables );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//---------------------------------------------- Iterator's Implementation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->variables );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->variables );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le nom de la variable pointée par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return Key ( $this->variables );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->variables );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
+    } //---- End of Valid
 
-//---------------------------------- Fin de l'implémentation de MyIterator
+//--------------------------------------- End of Iterator's implementation
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( BDDRecordSet $variables )
-    // Mode d'emploi (constructeur) :
-    //instancie des Variables à partir d'un BDDRecordSet
-	//
-    // Contrat :
-    //
+    /**
+	 * Initialises Variables from a BDDRecordSet.
+	 *
+     */
     {
+		parent::__construct();
+		
 		$this->variables = array();
 		
 		foreach ( $variables as $variable )
 		{
 			$this->Add( new Variable ( $variable ) );
 		}		
-    } //---- Fin du constructeur
+    } //---- End of constructor
 
 
     public function __destruct ( )
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/**
+	 * Destructs ressources allocated
+	 */
     {
-    } //---- Fin du destructeur
+		parent::__destruct();
+    } //---- End of destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 	
-	protected $variables; // contient les variables de variable
-	// sous forme de BDDRecord indexées par leur nom
+	/** 
+	 * Array of Variable-s indexed by TableVariable::TABLE_COLUMN_NAME if 
+	 * possible
+	 */
+	protected $variables;
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <Variables>
+//------------------------------------------------------ other definitions
 
 ?>

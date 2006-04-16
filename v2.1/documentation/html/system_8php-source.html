@@ -39,42 +39,42 @@
 <a name="l00008"></a>00008 <span class="comment">    e-mail               : cyrille.berliat@free.fr</span>
 <a name="l00009"></a>00009 <span class="comment">*************************************************************************/</span>
 <a name="l00010"></a>00010 
-<a name="l00025"></a>00025 require_once( 'conf.php' );
-<a name="l00026"></a>00026 require_once( <a class="code" href="conf_8php.html#0d036bd05c297490faa073be2e921441">LIBRAIRIES</a> );
-<a name="l00027"></a>00027 
-<a name="l00028"></a><a class="code" href="system_8php.html#541d85d04890ac8e96ab238b3ae16d2c">00028</a> function <a class="code" href="system_8php.html#541d85d04890ac8e96ab238b3ae16d2c">AutoLaunch</a> ( $str )
-<a name="l00029"></a>00029 <span class="comment">// User's manual :</span>
-<a name="l00030"></a>00030 <span class="comment">//Launch Web generation at the end of the page load</span>
-<a name="l00031"></a>00031 <span class="comment">//If DEBUG_MODE is set to true, the content of</span>
-<a name="l00032"></a>00032 <span class="comment">//$str will be displayed</span>
-<a name="l00033"></a>00033 <span class="comment">//</span>
-<a name="l00034"></a>00034 <span class="comment">// Contract :</span>
+<a name="l00027"></a>00027 require_once( 'conf.php' );
+<a name="l00028"></a>00028 require_once( <a class="code" href="conf_8php.html#0d036bd05c297490faa073be2e921441">LIBRAIRIES</a> );
+<a name="l00029"></a>00029 
+<a name="l00030"></a><a class="code" href="system_8php.html#541d85d04890ac8e96ab238b3ae16d2c">00030</a> function <a class="code" href="system_8php.html#541d85d04890ac8e96ab238b3ae16d2c">AutoLaunch</a> ( $str )
+<a name="l00031"></a>00031 <span class="comment">// User's manual :</span>
+<a name="l00032"></a>00032 <span class="comment">//Launch Web generation at the end of the page load</span>
+<a name="l00033"></a>00033 <span class="comment">//If DEBUG_MODE is set to true, the content of</span>
+<a name="l00034"></a>00034 <span class="comment">//$str will be displayed</span>
 <a name="l00035"></a>00035 <span class="comment">//</span>
-<a name="l00036"></a>00036 {
-<a name="l00037"></a>00037         <span class="keywordflow">if</span> ( class_exists ( 'CurrentPage' ) &amp;&amp; is_subclass_of ( CurrentPage, '<a class="code" href="classAbstractSingleton.html">AbstractSingleton</a>' ) )
-<a name="l00038"></a>00038         {
-<a name="l00039"></a>00039                 CurrentPage::GetInstance();
-<a name="l00040"></a>00040                 $str = '[DEBUG='.$str.<span class="charliteral">']'</span>;
-<a name="l00041"></a>00041         }
-<a name="l00042"></a>00042         
-<a name="l00043"></a>00043         <span class="keywordflow">if</span> ( ! <a class="code" href="conf_8php.html#84cb21ca8841a588311a03bd9c054d76">DEBUG_MODE</a> )
-<a name="l00044"></a>00044         {
-<a name="l00045"></a>00045                 $str = '';
-<a name="l00046"></a>00046         }
-<a name="l00047"></a>00047         
-<a name="l00048"></a>00048         <span class="keywordflow">return</span> $str;
-<a name="l00049"></a>00049 }
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 <span class="comment">// Start Application</span>
+<a name="l00036"></a>00036 <span class="comment">// Contract :</span>
+<a name="l00037"></a>00037 <span class="comment">//</span>
+<a name="l00038"></a>00038 {
+<a name="l00039"></a>00039         <span class="keywordflow">if</span> ( class_exists ( 'CurrentPage' ) &amp;&amp; is_subclass_of ( CurrentPage, '<a class="code" href="classAbstractSingleton.html">AbstractSingleton</a>' ) )
+<a name="l00040"></a>00040         {
+<a name="l00041"></a>00041                 CurrentPage::GetInstance();
+<a name="l00042"></a>00042                 $str = '[DEBUG='.$str.<span class="charliteral">']'</span>;
+<a name="l00043"></a>00043         }
+<a name="l00044"></a>00044         
+<a name="l00045"></a>00045         <span class="keywordflow">if</span> ( ! <a class="code" href="conf_8php.html#84cb21ca8841a588311a03bd9c054d76">DEBUG_MODE</a> )
+<a name="l00046"></a>00046         {
+<a name="l00047"></a>00047                 $str = '';
+<a name="l00048"></a>00048         }
+<a name="l00049"></a>00049         
+<a name="l00050"></a>00050         <span class="keywordflow">return</span> $str;
+<a name="l00051"></a>00051 }
 <a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="comment">// connection n° MYSQL_CONF_BASE must be alwaysuse</span>
-<a name="l00054"></a><a class="code" href="system_8php.html#e98db1803d33b208387ee676f5a5eba8">00054</a> <a class="code" href="conf_8php.html#5fd4e20fea686727d97d3800ca5958ab">$GLOBALS</a>[ <a class="code" href="conf_8php.html#7ab2d87839c1f7947c7fafc5329e2be4">DB_ARRAY_INDEX</a> ][ <a class="code" href="conf_8php.html#bd5b6e44bd62cbae816f98e7e3a7d2d9">MYSQL_CONF_BASE</a> ]['alwaysUse'] = 1;
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="comment">//ob_start ( 'AutoLaunch' );</span>
-<a name="l00057"></a>00057 <span class="comment">//CurrentPage::GetInstance();</span>
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:31:53 2006 for Exetron by&nbsp;
+<a name="l00053"></a>00053 <span class="comment">// Start Application</span>
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="comment">// connection n° MYSQL_CONF_BASE must be alwaysuse</span>
+<a name="l00056"></a><a class="code" href="system_8php.html#e98db1803d33b208387ee676f5a5eba8">00056</a> <a class="code" href="conf_8php.html#5fd4e20fea686727d97d3800ca5958ab">$GLOBALS</a>[ <a class="code" href="conf_8php.html#7ab2d87839c1f7947c7fafc5329e2be4">DB_ARRAY_INDEX</a> ][ <a class="code" href="conf_8php.html#bd5b6e44bd62cbae816f98e7e3a7d2d9">MYSQL_CONF_BASE</a> ]['alwaysUse'] = 1;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 <span class="comment">//ob_start ( 'AutoLaunch' );</span>
+<a name="l00059"></a>00059 <span class="comment">//CurrentPage::GetInstance();</span>
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 ?&gt;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:10 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

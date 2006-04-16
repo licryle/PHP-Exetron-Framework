@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |TableGroup.php|  -  description
+                           |TableGroup.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableGroup> (fichier TableGroup.php) --------------
-if (defined('TABLEGROUP_H'))
+//---------- Class <TableGroup> (file TableGroup.php) --------------
+/*if (defined('TABLEGROUP_H'))
 {
     return;
 }
@@ -17,64 +17,52 @@ else
 {
 
 }
-define('TABLEGROUP_H',1);
+define('TABLEGROUP_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableGroup>
-//
-//
+/*!
+ * Provides constants for Group table fields name
+ */
 //------------------------------------------------------------------------ 
 
 class TableGroup
 {
 //----------------------------------------------------------------- PUBLIC
 
+	/** Primary key field of the Group table */
 	const TABLE_COLUMN_IDGROUP = 'idgroup';
-	// clef primaire d'un utilisateur
 	
+	/** Group name field */
 	const TABLE_COLUMN_NAME = 'name';
-	// nom de l'utilisateur
 	
+	/** Group accesses field  : is this Group the most powerful ? */
 	const TABLE_COLUMN_OVERRIDE = 'override';
-	// ce groupe est-il omniscient et omnipotent
 	
+	/** Foreign key that refers to Site Table */
 	const TABLE_COLUMN_IDSITE = 'idsite';
-	// clef étrangère du site
-	
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableGroup>
+//------------------------------------------------------ other definitions
 
 ?>

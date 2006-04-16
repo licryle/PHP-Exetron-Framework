@@ -41,7 +41,7 @@ Inheritance diagram for Groups:<p><center><img src="classGroups__inherit__graph.
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroups.html#6a74c7faa2114fae393468d5b71b817d">SetGroup</a> (<a class="el" href="classGroup.html">Group</a> $group)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroups.html#b5ac3c111c3d431568fdbd610cb4d348">Add</a> (<a class="el" href="classGroup.html">Group</a> $newVar)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroups.html#74b71f060612f58714c8f3f2e84954ce">Add</a> (<a class="el" href="classGroup.html">Group</a> $item)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroups.html#10dc50eafac09a310e4c7dea7bb7cd93">DelAll</a> ()</td></tr>
 
@@ -61,16 +61,18 @@ Inheritance diagram for Groups:<p><center><img src="classGroups__inherit__graph.
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroups.html#792c632ebbd1a09294d7641af9dfb872">__destruct</a> ()</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroups.html#43ce45ddd11128c776af752f23a0b0c7">__ToString</a> ()</td></tr>
+
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroups.html#69ed070c1f1b9679f558fedf64acf89e">$groups</a></td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides specific methods for Iterator of Group-s 
 <p>
 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00038">38</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="Groups_8php-source.html#l00036">36</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="33eb6ad724fee8d3c1f5ff0fc397a459"></a><!-- doxytag: member="Groups::__construct" ref="33eb6ad724fee8d3c1f5ff0fc397a459" args="(BDDRecordSet $groups)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -96,11 +98,11 @@ Definition at line <a class="el" href="Groups_8php-source.html#l00038">38</a> of
     <td>
 
 <p>
-
+Initialises <a class="el" href="classGroups.html">Groups</a> from a <a class="el" href="classBDDRecordSet.html">BDDRecordSet</a>. 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00206">206</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
+Definition at line <a class="el" href="Groups_8php-source.html#l00220">220</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
 <p>
-References <a class="el" href="Groups_8php-source.html#l00243">$groups</a>, and <a class="el" href="Groups_8php-source.html#l00116">Add()</a>.    </td>
+References <a class="el" href="Groups_8php-source.html#l00268">$groups</a>, and <a class="el" href="Groups_8php-source.html#l00117">Add()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="792c632ebbd1a09294d7641af9dfb872"></a><!-- doxytag: member="Groups::__destruct" ref="792c632ebbd1a09294d7641af9dfb872" args="()" --><p>
@@ -127,23 +129,22 @@ References <a class="el" href="Groups_8php-source.html#l00243">$groups</a>, and 
     <td>
 
 <p>
-
+Destructs ressources allocated 
 <p>
 Reimplemented from <a class="el" href="classAbstractClass.html#97843d1029084c62a26fe60b1709bdb4">AbstractClass</a>.
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00222">222</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
+Definition at line <a class="el" href="Groups_8php-source.html#l00237">237</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="b5ac3c111c3d431568fdbd610cb4d348"></a><!-- doxytag: member="Groups::Add" ref="b5ac3c111c3d431568fdbd610cb4d348" args="(Group $newVar)" --><p>
+<a class="anchor" name="43ce45ddd11128c776af752f23a0b0c7"></a><!-- doxytag: member="Groups::__ToString" ref="43ce45ddd11128c776af752f23a0b0c7" args="()" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td class="md" nowrap valign="top">Groups::Add           </td>
+          <td class="md" nowrap valign="top">Groups::__ToString           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top"><a class="el" href="classGroup.html">Group</a> $&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>newVar</em>          </td>
+          <td class="mdname1" valign="top" nowrap>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -159,13 +160,53 @@ Definition at line <a class="el" href="Groups_8php-source.html#l00222">222</a> o
     <td>
 
 <p>
+Returns a printable version of object for debugging.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>String printable on screen </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00116">116</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
+Reimplemented from <a class="el" href="classAbstractClass.html#1e51d9ae9242be960663e150807bdc8b">AbstractClass</a>.
 <p>
-References <a class="el" href="BDDRecord_8php-source.html#l00092">BDDRecord::GetProperty()</a>, and <a class="el" href="TableGroup_8php-source.html#l00042">TableGroup::TABLE_COLUMN_IDGROUP</a>.
+Definition at line <a class="el" href="Groups_8php-source.html#l00247">247</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="74b71f060612f58714c8f3f2e84954ce"></a><!-- doxytag: member="Groups::Add" ref="74b71f060612f58714c8f3f2e84954ce" args="(Group $item)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">Groups::Add           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGroup.html">Group</a> $&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>item</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
 <p>
-Referenced by <a class="el" href="Groups_8php-source.html#l00206">__construct()</a>, and <a class="el" href="Groups_8php-source.html#l00101">SetGroup()</a>.    </td>
+Adds a <a class="el" href="classGroup.html">Group</a> to the <a class="el" href="classGroups.html">Groups</a> if it is different than NULL. Group-s are indexed by <a class="el" href="classTableGroup.html#9c4e6f29029930675887f59ab80eb482">TableGroup::TABLE_COLUMN_IDGROUP</a> if possible.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$item</em>&nbsp;</td><td>the <a class="el" href="classGroup.html">Group</a> to add </td></tr>
+  </table>
+</dl>
+
+<p>
+Definition at line <a class="el" href="Groups_8php-source.html#l00117">117</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
+<p>
+References <a class="el" href="BDDRecord_8php-source.html#l00085">BDDRecord::GetProperty()</a>, and <a class="el" href="TableGroup_8php-source.html#l00041">TableGroup::TABLE_COLUMN_IDGROUP</a>.
+<p>
+Referenced by <a class="el" href="Groups_8php-source.html#l00220">__construct()</a>, and <a class="el" href="Groups_8php-source.html#l00101">SetGroup()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="fd23378caba92c68afcf9ffe7eb7ffe5"></a><!-- doxytag: member="Groups::Current" ref="fd23378caba92c68afcf9ffe7eb7ffe5" args="()" --><p>
@@ -192,9 +233,11 @@ Referenced by <a class="el" href="Groups_8php-source.html#l00206">__construct()<
     <td>
 
 <p>
+Gets the current element of the array.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>the current element of array </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00162">162</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
+Definition at line <a class="el" href="Groups_8php-source.html#l00172">172</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="10dc50eafac09a310e4c7dea7bb7cd93"></a><!-- doxytag: member="Groups::DelAll" ref="10dc50eafac09a310e4c7dea7bb7cd93" args="()" --><p>
@@ -221,9 +264,9 @@ Definition at line <a class="el" href="Groups_8php-source.html#l00162">162</a> o
     <td>
 
 <p>
-
+Clears the Iterator. 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00133">133</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
+Definition at line <a class="el" href="Groups_8php-source.html#l00140">140</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="43f661bdddf810b2d7808c521ffe72f6"></a><!-- doxytag: member="Groups::GetCount" ref="43f661bdddf810b2d7808c521ffe72f6" args="()" --><p>
@@ -250,9 +293,11 @@ Definition at line <a class="el" href="Groups_8php-source.html#l00133">133</a> o
     <td>
 
 <p>
+Gets the number of items it contains.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>the number of items it contains </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00143">143</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
+Definition at line <a class="el" href="Groups_8php-source.html#l00151">151</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="6b2b50381d94eba2fb8c2e733afea9f5"></a><!-- doxytag: member="Groups::GetGroupByIdGroup" ref="6b2b50381d94eba2fb8c2e733afea9f5" args="($idGroup)" --><p>
@@ -280,9 +325,18 @@ Definition at line <a class="el" href="Groups_8php-source.html#l00143">143</a> o
     <td>
 
 <p>
+Gets the <a class="el" href="classGroup.html">Group</a> which property <a class="el" href="classTableGroup.html#9c4e6f29029930675887f59ab80eb482">TableGroup::TABLE_COLUMN_IDGROUP</a> has the value $idGroup<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$idGroup</em>&nbsp;</td><td>the id of the <a class="el" href="classGroup.html">Group</a> to be looked for</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- the <a class="el" href="classGroup.html">Group</a> object which property <a class="el" href="classTableGroup.html#9c4e6f29029930675887f59ab80eb482">TableGroup::TABLE_COLUMN_IDGROUP</a> has the value $idGroup <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+<a class="el" href="classGroupError.html#836d29354231736b636e54ce3e548224">GroupError::GROUP_NOT_LOADED</a> if <a class="el" href="classGroup.html">Group</a> has not been loaded from the database or doesn't exist </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00050">50</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
+Definition at line <a class="el" href="Groups_8php-source.html#l00042">42</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
 <p>
 References <a class="el" href="GroupError_8php-source.html#l00043">GroupError::GROUP_NOT_LOADED</a>.    </td>
   </tr>
@@ -312,11 +366,20 @@ References <a class="el" href="GroupError_8php-source.html#l00043">GroupError::G
     <td>
 
 <p>
+Gets the <a class="el" href="classGroup.html">Group</a> which property <a class="el" href="classTableGroup.html#5c5015b74f005ef730d1ef3f06b62379">TableGroup::TABLE_COLUMN_NAME</a> has the value $nameGroup<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$nameGroup</em>&nbsp;</td><td>the name of the <a class="el" href="classGroup.html">Group</a> to be looked for</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- the <a class="el" href="classGroup.html">Group</a> object which property <a class="el" href="classTableGroup.html#5c5015b74f005ef730d1ef3f06b62379">TableGroup::TABLE_COLUMN_NAME</a> has the value $nameGroup <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+<a class="el" href="classGroupError.html#836d29354231736b636e54ce3e548224">GroupError::GROUP_NOT_LOADED</a> if <a class="el" href="classGroup.html">Group</a> has not been loaded from the database or doesn't exist </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00075">75</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
+Definition at line <a class="el" href="Groups_8php-source.html#l00071">71</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
 <p>
-References <a class="el" href="GroupError_8php-source.html#l00043">GroupError::GROUP_NOT_LOADED</a>, and <a class="el" href="TableGroup_8php-source.html#l00045">TableGroup::TABLE_COLUMN_NAME</a>.    </td>
+References <a class="el" href="GroupError_8php-source.html#l00043">GroupError::GROUP_NOT_LOADED</a>, and <a class="el" href="TableGroup_8php-source.html#l00044">TableGroup::TABLE_COLUMN_NAME</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="dff6f953d7c9534184d3ebc92609dbf8"></a><!-- doxytag: member="Groups::Key" ref="dff6f953d7c9534184d3ebc92609dbf8" args="()" --><p>
@@ -343,9 +406,11 @@ References <a class="el" href="GroupError_8php-source.html#l00043">GroupError::G
     <td>
 
 <p>
+Gets the key of the current element of the array.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>the key of the current element of array </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00172">172</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
+Definition at line <a class="el" href="Groups_8php-source.html#l00183">183</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="0976e31beab76ba58d8b7a9bcc915a0f"></a><!-- doxytag: member="Groups::Next" ref="0976e31beab76ba58d8b7a9bcc915a0f" args="()" --><p>
@@ -372,9 +437,11 @@ Definition at line <a class="el" href="Groups_8php-source.html#l00172">172</a> o
     <td>
 
 <p>
+Goes to the next element of array.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>next element of array </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00182">182</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
+Definition at line <a class="el" href="Groups_8php-source.html#l00194">194</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="6d1a22fb368a56f63288af8e6f50a7a5"></a><!-- doxytag: member="Groups::Rewind" ref="6d1a22fb368a56f63288af8e6f50a7a5" args="()" --><p>
@@ -401,9 +468,9 @@ Definition at line <a class="el" href="Groups_8php-source.html#l00182">182</a> o
     <td>
 
 <p>
-
+Gets back to the start of array. 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00154">154</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
+Definition at line <a class="el" href="Groups_8php-source.html#l00163">163</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="6a74c7faa2114fae393468d5b71b817d"></a><!-- doxytag: member="Groups::SetGroup" ref="6a74c7faa2114fae393468d5b71b817d" args="(Group $group)" --><p>
@@ -431,11 +498,17 @@ Definition at line <a class="el" href="Groups_8php-source.html#l00154">154</a> o
     <td>
 
 <p>
+Adds a <a class="el" href="classGroup.html">Group</a> to the <a class="el" href="classGroups.html">Groups</a> if it is different than NULL. Alias of <a class="el" href="classGroups.html#74b71f060612f58714c8f3f2e84954ce">Groups::Add()</a><p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$group</em>&nbsp;</td><td>the <a class="el" href="classGroup.html">Group</a> to add </td></tr>
+  </table>
+</dl>
 
 <p>
 Definition at line <a class="el" href="Groups_8php-source.html#l00101">101</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
 <p>
-References <a class="el" href="Groups_8php-source.html#l00116">Add()</a>.    </td>
+References <a class="el" href="Groups_8php-source.html#l00117">Add()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="c4b1750c8e95254670faa88990e3fbfd"></a><!-- doxytag: member="Groups::Valid" ref="c4b1750c8e95254670faa88990e3fbfd" args="()" --><p>
@@ -462,9 +535,12 @@ References <a class="el" href="Groups_8php-source.html#l00116">Add()</a>.    </t
     <td>
 
 <p>
+Checks if array's element is valid or not.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>- true if element is valid <p>
+- false otherwise </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00193">193</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
+Definition at line <a class="el" href="Groups_8php-source.html#l00205">205</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.    </td>
   </tr>
 </table>
 <hr><h2>Member Data Documentation</h2>
@@ -488,16 +564,16 @@ Definition at line <a class="el" href="Groups_8php-source.html#l00193">193</a> o
     <td>
 
 <p>
-
+Array of Group-s indexed by <a class="el" href="classTableGroup.html#9c4e6f29029930675887f59ab80eb482">TableGroup::TABLE_COLUMN_IDGROUP</a> if possible 
 <p>
-Definition at line <a class="el" href="Groups_8php-source.html#l00243">243</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
+Definition at line <a class="el" href="Groups_8php-source.html#l00268">268</a> of file <a class="el" href="Groups_8php-source.html">Groups.php</a>.
 <p>
-Referenced by <a class="el" href="Groups_8php-source.html#l00206">__construct()</a>.    </td>
+Referenced by <a class="el" href="Groups_8php-source.html#l00220">__construct()</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableGroup/Iterators/<a class="el" href="Groups_8php-source.html">Groups.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:33 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:50 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

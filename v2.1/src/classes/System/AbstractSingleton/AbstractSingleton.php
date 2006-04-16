@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |AbstractSingleton.php|  -  description
+                           |AbstractSingleton.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <AbstractSingleton> (fichier AbstractSingleton.php) --------------
-if (defined('ABSTRACTSINGLETON_H'))
+//---------- Class <AbstractSingleton> (file AbstractSingleton.php) --------------
+/*if (defined('ABSTRACTSINGLETON_H'))
 {
     return;
 }
@@ -17,102 +17,89 @@ else
 {
 
 }
-define('ABSTRACTSINGLETON_H',1);
+define('ABSTRACTSINGLETON_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <AbstractSingleton>
-//
-//
+/*!
+ * Provides generic methods for singleton classes.
+ * A singleton class can only have 1 instance running at a time.
+ */
 //------------------------------------------------------------------------ 
 
 abstract class AbstractSingleton
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
 	abstract public static function GetInstance ( );
-	// User's manual :
-    //Getter of the unique instance. Create this if doesn't exist
-	//Must call parent::getInstance( ) in the code with the given name
-	//of the class : __CLASS__
-	//
-	//Must appears in all children.
-	//
-    // Contract :
-    //
 	//{
 	//	return parent::getThis ( __CLASS__ );
 	//}
 
 //-------------------------------------------- Constructeurs - destructeur
     protected function __construct()
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
-	{		
-	} // End of __construct
-
-    public function __destruct ( )
-    // Mode d'emploi :
-    //Libère l'espace mémoire des variables de la classe
-    // Contrat :
-    //
+	/**
+	 * instanciates an AbstractSingleton (for overwriting only).
+	 *
+	 */
     {
-        /*$vars = get_object_vars($this);
-        
-        foreach($vars as $key => $var)
-        {
-          //  unset($this->{$key});
-        }
-        
-        unset($vars);   */     
-    } //---- Fin du destructeur
+    } //---- End of __construct
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+	} //----- End of Destructor
 
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
     public function __ToString ( )
-    // Mode d'emploi :
-    //Si non redéfinie, imprime un etat de l'objet
-    //
-    // Contrat :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
-        return (string)var_export($this);
-    } // End of __ToString
-	
-//------------------------------------------------------------------ PRIVE 
+		return parrent::__ToString();
+    } //----- End of __ToString
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 	
     protected static function getThis ( $class )
-    // User's manual :
-    //Getter of the unique instance of the class named $class. 
-	//Create this if doesn't exist
-	//
-    // Contract :
-    //
+	/**
+	 * Gets a unique instance of class $class.
+	 * Create it if it doesn't exist.
+	 *
+	 * @param $class the name of the class to be instancied or gotten
+	 *
+	 * @return unique instance of class $class
+	 *
+	 */
 	{
 		if ( !IsSet ( self::$instance ) || ! IsSet ( self::$instance[ $class ] ) )
 		// instance creation
@@ -121,12 +108,14 @@ abstract class AbstractSingleton
 		}
 
 		return self::$instance[ $class ];
-	} // End of getThis
+	} //----- End of getThis
 
-//----------------------------------------------------- Attributs protégés
-	protected static $instance; // handler of instances
+
+//------------------------------------------------------ protected members
+	/** Array of handlers indexed by classname */
+	protected static $instance;
 }
 
-//-------------------------------- Autres définitions dépendantes de <AbstractSingleton>
+//------------------------------------------------------ other definitions
 
 ?>

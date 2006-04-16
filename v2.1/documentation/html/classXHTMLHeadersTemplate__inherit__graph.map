@@ -1,13 +1,13 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,140,508"];
-	Node1 [label="{XHTMLHeadersTemplate\n|+ TAG_HEADERS\l|+ AddHeaders()\l+ SetHeaders()\l+ __construct()\l}", height="1.00", width="1.94", color=white, fillcolor=black, style=filled, fontcolor=white, pos="70,44", rects="0,64,140,80 0,48,140,64 0,8,140,48"];
-	Node2 [label="{XHTMLTemplate\n||}", height="0.67", width="1.39", color=black, fillcolor=white, style=filled, URL="$classXHTMLTemplate.html", pos="70,140", rects="20,148,121,164 20,132,121,148 20,116,121,132"];
-	Node3 [label="{Template\n|+ TAG_OPEN\l+ TAG_CLOSE\l+ NEWLINE\l# $maquette\l# $tags\l|+ SetMaquette()\l+ SetTag()\l+ GetTag()\l+ AddToTag()\l+ \
-TagExists()\l+ Generate()\l+ __construct()\l+ __ToString()\l+ BuildTag()\l}", height="2.67", width="1.25", color=black, fillcolor=white, style=filled, URL="$classTemplate.html", pos="70,296", rects="25,376,115,392 25,312,115,376 25,200,115,312"];
-	Node4 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="70,464", rects="27,484,113,500 27,468,113,484 27,428,113,468"];
-	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,70,116 70,105 70,97 70,88 70,80"];
-	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,70,200 70,189 70,180 70,171 70,164"];
-	Node4 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,70,428 70,418 70,410 70,401 70,392"];
+	graph [bb="0,0,140,568"];
+	Node1 [label="{XHTMLHeadersTemplate\n|+ TAG_HEADERS\l|+ AddHeaders()\l+ SetHeaders()\l+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.33", width="1.94", color=white, fillcolor=black, style=filled, fontcolor=white, pos="70,56", rects="0,88,140,104 0,72,140,88 0,8,140,72"];
+	Node2 [label="{XHTMLTemplate\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.39", color=black, fillcolor=white, style=filled, URL="$classXHTMLTemplate.html", pos="70,176", rects="20,196,121,212 20,180,121,196 20,140,121,180"];
+	Node3 [label="{Template\n|+ TAG_OPEN\l+ TAG_CLOSE\l+ NEWLINE\l# $skeleton\l# $tags\l|+ SetSkeleton()\l+ SetTag()\l+ GetTag()\l+ AddToTag()\l+ \
+TagExists()\l+ Generate()\l+ __construct()\l+ __destruct()\l+ __ToString()\l+ BuildTag()\l}", height="2.83", width="1.25", color=black, fillcolor=white, style=filled, URL="$classTemplate.html", pos="70,350", rects="25,436,115,452 25,372,115,436 25,248,115,372"];
+	Node4 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="70,524", rects="27,544,113,560 27,528,113,544 27,488,113,528"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,70,140 70,129 70,121 70,112 70,104"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,70,248 70,238 70,228 70,220 70,212"];
+	Node4 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,70,488 70,478 70,470 70,461 70,452"];
 }

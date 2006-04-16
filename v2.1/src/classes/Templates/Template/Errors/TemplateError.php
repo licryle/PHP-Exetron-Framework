@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |TemplateError.php|  -  description
+                           |TemplateError.php|
                              -------------------
     start                : |11.02.2006|
-    copyright            : (C) 2006 by BERLIAT Cyrille
+    copyright            : (C) 2006 par BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <TemplateError> class (file TemplateError.php) -----------------
-if (defined('TEMPLATEERROR_H'))
+//-------------- class <TemplateError> (file TemplateError.php) -----------------
+/*if (defined('TEMPLATEERROR_H'))
 {
     return;
 }
@@ -17,11 +17,9 @@ else
 {
 
 }
-define('TEMPLATEERROR_H',1);
+define('TEMPLATEERROR_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -30,37 +28,31 @@ define('TEMPLATEERROR_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <TemplateError> class
-//Extension of the Error class, implements constants for specific
-//Template errors
-//
+/*!
+ * Provides specific constants for Template's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class TemplateError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
+	/** Tag does not exists */
     const TEMPLATE_TAG_INEXISTANT = 'TEMPLATE_TAG_INEXISTANT';
-    const TEMPLATE_MAQUETTE_INEXISTANT = 'TEMPLATE_MAQUETTE_INEXISTANT';
 
-//--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
+//--------------------------------------------------------- public methods
 
 //---------------------------------------------- Constructors - destructor
     
 //---------------------------------------------------------- Magic Methods
 
 //---------------------------------------------------------------- PRIVATE 
-
+    
 //------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//----------------------------------------------------- Others definitions
+//------------------------------------------------------ other definitions
 
 ?>

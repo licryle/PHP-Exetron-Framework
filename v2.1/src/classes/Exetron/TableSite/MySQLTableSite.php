@@ -35,7 +35,7 @@ define('MYSQLTABLESITE_H',1);
 //
 //------------------------------------------------------------------------ 
 
-class MySQLTableSite extends MySQLTable
+class MySQLTableSite extends MySQLTable implements TableSiteInterface
 {
 //----------------------------------------------------------------- PUBLIC
 

@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |XHTMLPageTemplate.php|  -  description
+                           |XHTMLPageTemplate.php|
                              -------------------
     début                : |11.02.2006|
     copyright            : (C) 2006 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <XHTMLPageTemplate> class (file XHTMLPageTemplate.php) -----------------
-if (defined('XHTMLPAGETEMPLATE_H'))
+//-------------- Class <XHTMLPageTemplate> (file XHTMLPageTemplate.php) -----------------
+/*if (defined('XHTMLPAGETEMPLATE_H'))
 {
     return;
 }
@@ -17,7 +17,7 @@ else
 {
 
 }
-define('XHTMLPAGETEMPLATE_H',1);
+define('XHTMLPAGETEMPLATE_H',1);*/
 
 //-------------------------------------------------------- system Includes
 
@@ -29,36 +29,34 @@ define('XHTMLPAGETEMPLATE_H',1);
 
 //------------------------------------------------------------------ Types 
 
-//------------------------------------------------------------------------  
-// Role of <XHTMLPageTemplate> class
-//
-//
+//------------------------------------------------------------------------ 
+/*!
+ * XHTMLTemplate extention. Representents a XHTML Page with its body and
+ * its headers.
+ */
 //------------------------------------------------------------------------ 
 
 class XHTMLPageTemplate extends XHTMLTemplate
 {
 //----------------------------------------------------------------- PUBLIC
 	
+	/** Page Body Tag Name */
 	const TAG_BODY = 'BODY';
+	
+	/** Page Headers Tag Name */
 	const TAG_HEADERS = 'HEAD';
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
     
-    public static function ConvertIntoSGML($source)
-    // Mode d'emploi :
-    //convert the string $source into a valid SGML string
-    //
-    // Renvoie :
-    //the cleaned string
-    //
-    // Algorithme :
-	//parse char by char of the string. If an ASCII char is > 127
-	//it will ve converted as &#asciicode;
+    public static function ConvertIntoSGML( $source )
+    /**
+     * Converts $source string into valid SGML string char by char.
+	 *
+	 * @param $source The source string to be converted
+	 *
+	 * @return the valid SGML string that correspond to $source string
+	 *
+	 */
     {
         $newString = '';
         
@@ -70,75 +68,64 @@ class XHTMLPageTemplate extends XHTMLTemplate
         
         return $newString;
     } //----- End of ConvertIntoSGML
-
-
-	
-    /*public function GetLocator ( )
-    // Mode d'emploi :
-    //get the Locator menu
-	//
-	// Returns :
-	//- the locator menu of the XHTML page
-	//
-    // Contrat :
-    //
-    {
-        return $this->menuLocator;
-    } //----- End of GetLocator*/
 	
     public function GetBody ( )
-    // Mode d'emploi :
-    //get the Body of the XHTML Page
-	//
-	// Returns :
-	//- the Body as an XHTMLBodyTemplate
-	//
-    // Contrat :
-    //
+    /**
+     * Gets the XHTMLHeadersTemplate that corresponds to body tag named 
+	 * TAG_BODY.
+	 *
+	 * @return the XHTMLHeadersTemplate object that corresponds to head 
+	 * tag named TAG_HEADERS.
+	 *
+	 */
     {
         return $this->GetTag ( self::TAG_BODY );
     } //----- End of GetBody
 	
     public function GetHeaders ( )
-    // Mode d'emploi :
-    //get the Headers of the XHTML Page
-	//
-	// Returns :
-	//- the Headers as an XHTMLHeadersTemplate
-	//
-    // Contrat :
-    //
+    /**
+     * Gets the XHTMLHeadersTemplate that corresponds to TAG_HEADERS tag of the page.
+	 *
+	 * @return the XHTMLHeadersTemplate object that corresponds to TAG_HEADERS tag of the page.
+	 *
+	 */
     {
         return $this->GetTag ( self::TAG_HEADERS );
     } //----- End of GetHeaders
 
-
 	
 	public function Generate ( )
-	// Mode d'emploi :
-	//génère une page XHTML en convertissant les caractères non SGML en 
-	//SGML
-	//
-	// Renvoie :
-	//la page générée en XHTML
-	//
-	// Contrat :
-	//
+    /**
+     * Generates a printable version of object for final print out.
+	 * It replaces each tag by it's Template Generated value.
+	 * So it generate final document by hierarchy.
+	 *
+	 * The final document's characters are converted into valid SGML ones.
+	 *
+	 * @return printable version of document with valid SGML characters.
+	 *
+	 * @see Template::Generate()
+	 * @see XHTMLPageTemplate::ConvertIntoSGML();
+	 *
+	 */
 	{
 		return self::ConvertIntoSGML ( parent::Generate() );
 	} //------ End of Generate
 
 //-------------------------------------------- Constructeurs - destructeur
 	function __construct () 
-    // User's manual :
-    //
-    // Contract :
-	//
+	/**
+	 * instanciates a XHTMLPageTemplate.
+	 * Sets a default skeleton for valid XHTML1.1.
+	 * Initialises XHTMLBodyTemplate for the body tag named TAG_BODY
+	 * Initialises XHTMLHeadersTemplate for the head tag named TAG_HEADERS
+	 *
+	 */
 	{
 		parent::__construct();
 
 		//default skeleton for XHTML1.1
-		$this->maquette = 
+		$this->SetSkeleton ( 
 '<?xml version="1.1" encoding="iso-8859-1" standalone="no" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -155,23 +142,40 @@ class XHTMLPageTemplate extends XHTMLTemplate
 <!-- End of Body -->
 
 </html>
-<!-- End of XHTML Page -->';
+<!-- End of XHTML Page -->' );
 		
 		
 		$this->SetTag ( self::TAG_BODY, new XHTMLBodyTemplate() );
 		$this->SetTag ( self::TAG_HEADERS, new XHTMLHeadersTemplate() );
-
-		$this->menuLocator = new Locator ();
-	} // end of __construct
+	} //---- End of __construct
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
+		parent::__destruct();
+	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
+	public function __ToString ()
+    /**
+	 * Returns a printable version of object for final print out.
+	 *
+	 * @return String printable on screen
+	 *
+	 * @see Template::Generate()
+	 * 
+	 */
+	{
+		return $this->Generate ( );
+	} // End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
 //------------------------------------------------------ protected methods
 
 //--------------------------------------------------- protected properties
-    //protected $menuLocator;
 
 }
 

@@ -39,7 +39,7 @@ Inheritance diagram for Variables:<p><center><img src="classVariables__inherit__
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariables.html#3d564a2baacc1ca9117acb9547687fd2">SetVariable</a> (<a class="el" href="classVariable.html">Variable</a> $variable)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariables.html#c95baa9deb21db8438e3272126483528">Add</a> (<a class="el" href="classVariable.html">Variable</a> $newVar)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariables.html#b1f00b0512734f1961e8517bb423a739">Add</a> (<a class="el" href="classVariable.html">Variable</a> $item)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariables.html#669815ceaaf98f03f4a4cab4ff7a0285">DelAll</a> ()</td></tr>
 
@@ -59,16 +59,18 @@ Inheritance diagram for Variables:<p><center><img src="classVariables__inherit__
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariables.html#3dbc2794bbe7f276413b4b826137a768">__destruct</a> ()</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariables.html#7b9fa5ca402c8c6e4d1c2cda38a00f05">__ToString</a> ()</td></tr>
+
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariables.html#b5f9a7225888099b8486f21f4208382c">$variables</a></td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides specific methods for Iterator of Variable-s 
 <p>
 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00038">38</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="Variables_8php-source.html#l00036">36</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="a538a37c5ddcb5401143e42adfb57710"></a><!-- doxytag: member="Variables::__construct" ref="a538a37c5ddcb5401143e42adfb57710" args="(BDDRecordSet $variables)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -94,11 +96,11 @@ Definition at line <a class="el" href="Variables_8php-source.html#l00038">38</a>
     <td>
 
 <p>
-
+Initialises <a class="el" href="classVariables.html">Variables</a> from a <a class="el" href="classBDDRecordSet.html">BDDRecordSet</a>. 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00180">180</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.
+Definition at line <a class="el" href="Variables_8php-source.html#l00188">188</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.
 <p>
-References <a class="el" href="Variables_8php-source.html#l00217">$variables</a>, and <a class="el" href="Variables_8php-source.html#l00090">Add()</a>.    </td>
+References <a class="el" href="Variables_8php-source.html#l00236">$variables</a>, and <a class="el" href="Variables_8php-source.html#l00085">Add()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="3dbc2794bbe7f276413b4b826137a768"></a><!-- doxytag: member="Variables::__destruct" ref="3dbc2794bbe7f276413b4b826137a768" args="()" --><p>
@@ -125,23 +127,22 @@ References <a class="el" href="Variables_8php-source.html#l00217">$variables</a>
     <td>
 
 <p>
-
+Destructs ressources allocated 
 <p>
 Reimplemented from <a class="el" href="classAbstractClass.html#97843d1029084c62a26fe60b1709bdb4">AbstractClass</a>.
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00196">196</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
+Definition at line <a class="el" href="Variables_8php-source.html#l00205">205</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="c95baa9deb21db8438e3272126483528"></a><!-- doxytag: member="Variables::Add" ref="c95baa9deb21db8438e3272126483528" args="(Variable $newVar)" --><p>
+<a class="anchor" name="7b9fa5ca402c8c6e4d1c2cda38a00f05"></a><!-- doxytag: member="Variables::__ToString" ref="7b9fa5ca402c8c6e4d1c2cda38a00f05" args="()" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td class="md" nowrap valign="top">Variables::Add           </td>
+          <td class="md" nowrap valign="top">Variables::__ToString           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top"><a class="el" href="classVariable.html">Variable</a> $&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>newVar</em>          </td>
+          <td class="mdname1" valign="top" nowrap>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -157,13 +158,53 @@ Definition at line <a class="el" href="Variables_8php-source.html#l00196">196</a
     <td>
 
 <p>
+Returns a printable version of object for debugging.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>String printable on screen </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00090">90</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.
+Reimplemented from <a class="el" href="classAbstractClass.html#1e51d9ae9242be960663e150807bdc8b">AbstractClass</a>.
 <p>
-References <a class="el" href="BDDRecord_8php-source.html#l00092">BDDRecord::GetProperty()</a>, and <a class="el" href="TableVariable_8php-source.html#l00075">TableVariable::TABLE_COLUMN_NAME</a>.
+Definition at line <a class="el" href="Variables_8php-source.html#l00215">215</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="b1f00b0512734f1961e8517bb423a739"></a><!-- doxytag: member="Variables::Add" ref="b1f00b0512734f1961e8517bb423a739" args="(Variable $item)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">Variables::Add           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classVariable.html">Variable</a> $&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>item</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
 <p>
-Referenced by <a class="el" href="Variables_8php-source.html#l00180">__construct()</a>, and <a class="el" href="Variables_8php-source.html#l00075">SetVariable()</a>.    </td>
+Adds a <a class="el" href="classVariable.html">Variable</a> to the <a class="el" href="classVariables.html">Variables</a> if it is different than NULL. Variable-s are indexed by <a class="el" href="classTableVariable.html#3ac8b797b2cf77a0fb81205afd88ec23">TableVariable::TABLE_COLUMN_NAME</a> if possible.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$item</em>&nbsp;</td><td>the <a class="el" href="classVariable.html">Variable</a> to add </td></tr>
+  </table>
+</dl>
+
+<p>
+Definition at line <a class="el" href="Variables_8php-source.html#l00085">85</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.
+<p>
+References <a class="el" href="BDDRecord_8php-source.html#l00085">BDDRecord::GetProperty()</a>, and <a class="el" href="TableVariable_8php-source.html#l00070">TableVariable::TABLE_COLUMN_NAME</a>.
+<p>
+Referenced by <a class="el" href="Variables_8php-source.html#l00188">__construct()</a>, and <a class="el" href="Variables_8php-source.html#l00071">SetVariable()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="fc59bc603194b4b68a45649e70cc1170"></a><!-- doxytag: member="Variables::Current" ref="fc59bc603194b4b68a45649e70cc1170" args="()" --><p>
@@ -190,9 +231,11 @@ Referenced by <a class="el" href="Variables_8php-source.html#l00180">__construct
     <td>
 
 <p>
+Gets the current element of the array.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>the current element of array </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00136">136</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
+Definition at line <a class="el" href="Variables_8php-source.html#l00140">140</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="669815ceaaf98f03f4a4cab4ff7a0285"></a><!-- doxytag: member="Variables::DelAll" ref="669815ceaaf98f03f4a4cab4ff7a0285" args="()" --><p>
@@ -219,9 +262,9 @@ Definition at line <a class="el" href="Variables_8php-source.html#l00136">136</a
     <td>
 
 <p>
-
+Clears the Iterator. 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00107">107</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
+Definition at line <a class="el" href="Variables_8php-source.html#l00108">108</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="b264d1f684b056db121ec8e4c42c7db7"></a><!-- doxytag: member="Variables::GetCount" ref="b264d1f684b056db121ec8e4c42c7db7" args="()" --><p>
@@ -248,9 +291,11 @@ Definition at line <a class="el" href="Variables_8php-source.html#l00107">107</a
     <td>
 
 <p>
+Gets the number of items it contains.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>the number of items it contains </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00117">117</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
+Definition at line <a class="el" href="Variables_8php-source.html#l00119">119</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="3c6cf0b36aa4276eba9791f6f8adcbf2"></a><!-- doxytag: member="Variables::GetVariableByName" ref="3c6cf0b36aa4276eba9791f6f8adcbf2" args="($varName)" --><p>
@@ -278,9 +323,18 @@ Definition at line <a class="el" href="Variables_8php-source.html#l00117">117</a
     <td>
 
 <p>
+Gets the <a class="el" href="classVariable.html">Variable</a> which property <a class="el" href="classTableVariable.html#3ac8b797b2cf77a0fb81205afd88ec23">TableVariable::TABLE_COLUMN_NAME</a> has the value $varName<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$varName</em>&nbsp;</td><td>the name of the <a class="el" href="classGroup.html">Group</a> to be looked for</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- the <a class="el" href="classGroup.html">Group</a> object which property <a class="el" href="classTableVariable.html#3ac8b797b2cf77a0fb81205afd88ec23">TableVariable::TABLE_COLUMN_NAME</a> has the value $varName <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+<a class="el" href="classVariableError.html#677f30b18e9e504a029206581bcd2f8e">VariableError::VARIABLE_NOT_LOADED</a> if <a class="el" href="classVariable.html">Variable</a> has not been loaded from the database or doesn't exist </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00050">50</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.
+Definition at line <a class="el" href="Variables_8php-source.html#l00042">42</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.
 <p>
 References <a class="el" href="VariableError_8php-source.html#l00043">VariableError::VARIABLE_NOT_LOADED</a>.    </td>
   </tr>
@@ -309,9 +363,11 @@ References <a class="el" href="VariableError_8php-source.html#l00043">VariableEr
     <td>
 
 <p>
+Gets the key of the current element of the array.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>the key of the current element of array </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00146">146</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
+Definition at line <a class="el" href="Variables_8php-source.html#l00151">151</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="59bac67d8a20175d1b871618ac1a3a14"></a><!-- doxytag: member="Variables::Next" ref="59bac67d8a20175d1b871618ac1a3a14" args="()" --><p>
@@ -338,9 +394,11 @@ Definition at line <a class="el" href="Variables_8php-source.html#l00146">146</a
     <td>
 
 <p>
+Goes to the next element of array.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>next element of array </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00156">156</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
+Definition at line <a class="el" href="Variables_8php-source.html#l00162">162</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="5f0b223edb4c082f2c03d0fc749746b9"></a><!-- doxytag: member="Variables::Rewind" ref="5f0b223edb4c082f2c03d0fc749746b9" args="()" --><p>
@@ -367,9 +425,9 @@ Definition at line <a class="el" href="Variables_8php-source.html#l00156">156</a
     <td>
 
 <p>
-
+Gets back to the start of array. 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00128">128</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
+Definition at line <a class="el" href="Variables_8php-source.html#l00131">131</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="3d564a2baacc1ca9117acb9547687fd2"></a><!-- doxytag: member="Variables::SetVariable" ref="3d564a2baacc1ca9117acb9547687fd2" args="(Variable $variable)" --><p>
@@ -397,11 +455,17 @@ Definition at line <a class="el" href="Variables_8php-source.html#l00128">128</a
     <td>
 
 <p>
+Adds a <a class="el" href="classVariable.html">Variable</a> to the <a class="el" href="classVariables.html">Variables</a> if it is different than NULL. Alias of <a class="el" href="classVariables.html#b1f00b0512734f1961e8517bb423a739">Variables::Add()</a><p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$variable</em>&nbsp;</td><td>the <a class="el" href="classVariable.html">Variable</a> to add </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00075">75</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.
+Definition at line <a class="el" href="Variables_8php-source.html#l00071">71</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.
 <p>
-References <a class="el" href="Variables_8php-source.html#l00090">Add()</a>.    </td>
+References <a class="el" href="Variables_8php-source.html#l00085">Add()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="850276f137b4121e9d9d210eeb3e210d"></a><!-- doxytag: member="Variables::Valid" ref="850276f137b4121e9d9d210eeb3e210d" args="()" --><p>
@@ -428,9 +492,12 @@ References <a class="el" href="Variables_8php-source.html#l00090">Add()</a>.    
     <td>
 
 <p>
+Checks if array's element is valid or not.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>- true if element is valid <p>
+- false otherwise </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00167">167</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
+Definition at line <a class="el" href="Variables_8php-source.html#l00173">173</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.    </td>
   </tr>
 </table>
 <hr><h2>Member Data Documentation</h2>
@@ -454,16 +521,16 @@ Definition at line <a class="el" href="Variables_8php-source.html#l00167">167</a
     <td>
 
 <p>
-
+Array of Variable-s indexed by <a class="el" href="classTableVariable.html#3ac8b797b2cf77a0fb81205afd88ec23">TableVariable::TABLE_COLUMN_NAME</a> if possible 
 <p>
-Definition at line <a class="el" href="Variables_8php-source.html#l00217">217</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.
+Definition at line <a class="el" href="Variables_8php-source.html#l00236">236</a> of file <a class="el" href="Variables_8php-source.html">Variables.php</a>.
 <p>
-Referenced by <a class="el" href="Variables_8php-source.html#l00180">__construct()</a>.    </td>
+Referenced by <a class="el" href="Variables_8php-source.html#l00188">__construct()</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableVariable/Iterators/<a class="el" href="Variables_8php-source.html">Variables.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:56 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:27:10 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

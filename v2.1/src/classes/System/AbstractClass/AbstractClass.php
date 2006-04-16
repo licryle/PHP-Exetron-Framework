@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |AbstractClass.php|  -  description
+                           |AbstractClass.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <AbstractClass> (fichier AbstractClass.php) --------------
-if (defined('ABSTRACTCLASS_H'))
+//---------- Class <AbstractClass> (file AbstractClass.php) --------------
+/*if (defined('ABSTRACTCLASS_H'))
 {
     return;
 }
@@ -17,48 +17,41 @@ else
 {
 
 }
-define('ABSTRACTCLASS_H',1);
+define('ABSTRACTCLASS_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <AbstractClass>
-//
-//
+/*!
+ * Provides generic methods for all classes possible
+ */
 //------------------------------------------------------------------------ 
 
 abstract class AbstractClass
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
 //-------------------------------------------- Constructeurs - destructeur
-    abstract public function __construct();
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
-
-    public function __destruct ( )
-    // Mode d'emploi :
-    //Libère l'espace mémoire des variables de la classe
-    // Contrat :
-    //
-    {
+    public function __construct()
+    /**
+	 * Initialises object
+     */
+	{
+	} //---- End of constructor
+	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
         /*$vars = get_object_vars($this);
         
         foreach($vars as $key => $var)
@@ -66,34 +59,26 @@ abstract class AbstractClass
           //  unset($this->{$key});
         }
         
-        unset($vars);   */     
-    } //---- Fin du destructeur
-
-//------------------------------------------------------ Méthodes Magiques
+        unset($vars);   */    
+	} //----- End of Destructor
+    
+//---------------------------------------------------------- Magic Methods
 
     public function __ToString ( )
-    // Mode d'emploi :
-    //Si non redéfinie, imprime un etat de l'objet
-    //
-    // Contrat :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 */
     {
         return (string)var_export($this);
-    } // ENd of __ToString
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
-
+//------------------------------------------------------ protected members
 }
 
-//-------------------------------- Autres définitions dépendantes de <AbstractClass>
+//------------------------------------------------------ other definitions
 
 ?>

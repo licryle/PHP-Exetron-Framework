@@ -1,11 +1,11 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,192,280"];
+	graph [bb="0,0,192,292"];
 	Node1 [label="{Errors\n|# $errors\l|+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\\
-l+ __ToString()\l}", height="2.17", width="1.19", color=white, fillcolor=black, style=filled, fontcolor=white, pos="95,86", rects="52,148,138,164 52,132,138,148 52,8,138,132"];
-	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="43,236", rects="0,256,86,272 0,240,86,256 0,200,86,240"];
-	Node3 [label="{AbstractIterator\n||+ DelAll()\l+ GetCount()\l}", height="0.83", width="1.22", color=black, fillcolor=white, style=filled, URL="$interfaceAbstractIterator.html", pos="148,236", rects="104,250,192,266 104,234,192,250 104,206,192,234"];
-	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,56,200 59,190 62,182 65,173 68,164"];
-	Node3 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,137,206 134,197 131,187 127,175 123,164"];
+l+ __destruct()\l+ __ToString()\l}", height="2.33", width="1.19", color=white, fillcolor=black, style=filled, fontcolor=white, pos="95,92", rects="52,160,138,176 52,144,138,160 52,8,138,144"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="43,248", rects="0,268,86,284 0,252,86,268 0,212,86,252"];
+	Node3 [label="{AbstractIterator\n||+ DelAll()\l+ GetCount()\l}", height="0.83", width="1.22", color=black, fillcolor=white, style=filled, URL="$interfaceAbstractIterator.html", pos="148,248", rects="104,262,192,278 104,246,192,262 104,218,192,246"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,55,212 58,202 61,194 64,185 67,176"];
+	Node3 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,138,218 135,209 131,199 128,187 123,176"];
 }

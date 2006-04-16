@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |BDDRessourceItem.php|  -  description
+                           |BDDRecord.php|
                              -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    start                : |DATE|
+    copyright            : (C) 2005 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <BDDRecord> (fichier BDDRecord.php) --------------
-if (defined('BDDRECORD_H'))
+//---------- Class <BDDRecord> (file BDDRecord.php) --------------
+/*if (defined('BDDRECORD_H'))
 {
     return;
 }
@@ -17,88 +17,82 @@ else
 {
 
 }
-define('BDDRECORD_H',1);
+define('BDDRECORD_H',1);*/
 
-//-------------------------------------------------------- Include système
 
-//------------------------------------------------------ Include personnel
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <BDDRecord>
-//Gestion d'une entrée de table BDD
-//
+/*!
+ * This class is a generic BDD Row and it provides basic methods to act on
+ * it.
+ */
 //------------------------------------------------------------------------ 
 
 class BDDRecord extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function IsValid (  )
-    // Mode d'emploi :
-    //permettra de connaitre si l'objet a été validé, en vue d'être sauvegardé
-	//en base de données
-	//
-	// Renvoie :
-	//- vrai ou faux selon si l'objet est valide et prêt pour une sauvegarde.
-	//
-    // Contrat :
-    //
+    /**
+	 * Checks if the BDDRecord is ready to be saved into DataBase.
+	 * Uses the method Validate() to make the racord valid.
+     *
+     * @return - true if record is ready to be saved
+	 * @return - false otherwise
+     *
+     */
 	{
 		return true;
-	}
+	} //----- End of IsValid
 	
     public function Validate (  )
-    // Mode d'emploi :
-    //permettra de valider l'objet courant en vue d'une sauvegarde dans la base
-	//de données
-	//
-	// Renvoie :
-	//- NULL si l'objet est validé. Il sera alors prêt pour une sauvegarde
-	//- un objet de type Errors contenant les erreurs qui empêchent la validation
-	//
-    // Contrat :
-    //
+    /**
+	 * Tries to validate the BDDRecord in order to save it into DataBase.
+     *
+     * @return - NULL if object has been validated
+	 * @return - an Errors object in case of error(s)
+     *
+     */
     {
+		$this->isValid = true;
+	
 		return NULL;
-	}
+	} //----- End of Validate
 	
     public function PropertyExists( $propertyName )
-    // Mode d'emploi :
-    //Retourne si la propriété existe ou non
-    //
-	// Renvoie :
-	//- vrai si la propriété existe
-	//- faux sinon
-	//
-    // Algorithme : 
-    //trivial
+    /**
+	 * Checks if the property $propertyName exists into the BDDRecord.
+     *
+	 * @param $propertyName the property name to check
+	 *
+     * @return - true if the property exists
+	 * @return - false otherwise
+     *
+     */
     {
 		return ( isset ( $this->row[ $propertyName ] ) );
-    } //----- Fin de PropertyExists
+    } //----- End of PropertyExists
 	
     public function GetProperty( $propertyName )
-    // Mode d'emploi :
-    //Retourne la valeur de la propriété
-    //
-	// Renvoie :
-	//- la valeur associée à la propriété si elle existe
-	//- un objet de type Errors en cas d'échec
-	//
-    // Algorithme : 
-    //trivial
+    /**
+	 * Returns the value associated to property $propertyName.
+     *
+	 * @param $propertyName the property name to get value
+	 *
+     * @return - NULL if object has been validated
+	 * @return - an Errors object in case of error(s) :
+	 * @return 		BDDError::CONNECTION_COLUMN_INEXISTANT if property doesn't exist.
+     *
+     */
     {
 		if ( $this->PropertyExists( $propertyName ) )
 		{
@@ -108,98 +102,106 @@ class BDDRecord extends AbstractClass implements Iterator
 		{
 			$errs = new Errors ( );
 			
-			$errs->Add ( new BDDError ( BDDError::CONNECTION_COLUMN_INEXISTANT , 'Propriété inexistante' ) );
+			$errs->Add ( new BDDError ( BDDError::CONNECTION_COLUMN_INEXISTANT , 'Property '.$propertyName.' does not exist.' ) );
 			
 			return $errs;
 		}
-    } //----- Fin de GetProperty
+    } //----- End of GetProperty
 	
     public function SetProperty( $propertyName , $propertyValue )
-    // Mode d'emploi :
-    //Affecte la valeur passée en paramètre à la propriété.
-	//Celle-ci est créée automatiquement en cas de non existance
-    //
-	// Renvoie :
-	//
-    // Algorithme : 
-    //trivial
+    /**
+	 * Sets the property named $propertyName with value $propertyValue.
+	 * If property doesn't exists, it is created.
+     *
+	 * @param $propertyName the property name to set value
+	 * @param $propertyValue value to associate to property
+     *
+     */
     {
 		$this->row [ $propertyName ] = $propertyValue;
 		
 		$this->isValid = false;
-    } //----- Fin de SetProperty
+    } //----- End of SetProperty
 	
 	public function GetPropertyCount ( )
-	// Mode d'emploi :
-	//permet de connaitre le nombre de propriétés stockées dans l'objet
-	//
-	// Renvoie :
-	//- le nombre de propriétés stockés
-	//- le nombre de propriétés stockés
-	//
-	//
+    /**
+	 * Gets the number of properties of the object.
+     *
+	 * @return the number of properties of the object
+     *
+     */
 	{
 			return count ( $this->row );
-	} //----- Fin de getPropertyCount
+	} //----- End of GetPropertyCount
 	
-//-----------------------------------------------Implémentation Iterator
+//------------------------------------------- Implementation's of Iterator
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->row );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->row );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le code de l'erreur pointée par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return key( $this->row );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->row );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
-//---------------------------------------------Fin implémentation Iterator
+    } //---- End of Valid
+//--------------------------------------- End of Iterator's implementation
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     function __construct( $row = NULL )
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
+    /**
+	 * Initialises BDDRecord from an array $row.
+	 * Sets IsValid to false.
+	 *
+	 * @param $row a database row array
+	 *
+     */
     {
+		parent::__construct();
+		
 		if ( is_array( $row ) )
 		{
 			$this->row = $row;
@@ -210,34 +212,43 @@ class BDDRecord extends AbstractClass implements Iterator
 		}
 		
 		$this->isValid = false;
-    } //---- Fin du constructeur
+    } //---- End of constructor
+	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
     function __ToString ( )
-    // Mode d'emploi :
-    // permet l'affichage d l'item locator
-    // Contrat :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
         return (String)var_export( $this->row );
-    } // Fin de __ToString
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
+	/** Array of data : database row */
     protected $row;
 	
-	protected $isValid; // contient true ou false selon si l'objet a été validé.
-	//protected $hasBeenModified; // contient true ou false selon si l'objet a été modifié.
+	/**
+	 * validation flag : contains true of false whether it has been 
+	 * validated or not.
+	*/
+	protected $isValid;
 }
 
-//-------------------------------- Autres définitions dépendantes de <BDDRecord>
+//------------------------------------------------------ other definitions
 
 ?>

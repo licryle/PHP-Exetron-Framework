@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |TableSite.php|  -  description
+                           |TableSite.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableSite> (fichier TableSite.php) --------------
-if (defined('TABLESITE_H'))
+//---------- Class <TableSite> (file TableSite.php) --------------
+/*if (defined('TABLESITE_H'))
 {
     return;
 }
@@ -17,58 +17,46 @@ else
 {
 
 }
-define('TABLESITE_H',1);
+define('TABLESITE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableSite>
-//
-//
+/*!
+ * Provides constants for Site table fields name
+ */
 //------------------------------------------------------------------------ 
 
 class TableSite
 {
 //----------------------------------------------------------------- PUBLIC
 
+	/** Primary key field of the Site table */
 	const TABLE_COLUMN_IDSITE = 'idsite';
-	// identifiant d'un site
 	
+	/** Site name field */
 	const TABLE_COLUMN_NAME = 'name';
-	// nom du site
-	
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableSite>
+//------------------------------------------------------ other definitions
 
 ?>

@@ -2,15 +2,15 @@
 
 
 /*************************************************************************
-                           |AbstractIterator.php|  -  description
+                           |AbstractIterator.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <AbstractIterator> (fichier AbstractIterator.php) --------------
-if (defined('ABSTRACTITERATOR_H'))
+//---------- Interface <AbstractIterator> (file AbstractIterator.php) --------------
+/*if (defined('ABSTRACTITERATOR_H'))
 {
     return;
 }
@@ -18,82 +18,76 @@ else
 {
 
 }
-define('ABSTRACTITERATOR_H',1);
+define('ABSTRACTITERATOR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <AbstractIterator>
-// Ajoute les méthodes nécessaires à l'itération
-//
+/*!
+ * Provides generic methods for ESP's Iterator.
+ */
 //------------------------------------------------------------------------ 
 
 interface AbstractIterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
     
+    /*
+	 * Adds a BDDRecord to the Iterator.
+     *
+     * @param $item the BDDRecord to add
+     *
+     */
     //public function Add( AbstractClass $item );
-    // Mode d'emploi :
-    //Ajoute un ancrage locator à la liste
 
+    /**
+	 * Clears the Iterator.
+     *
+     */
     public function DelAll( );
-    // Mode d'emploi :
-    //Remet à zero la liste des items
-    //
 
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     public function GetCount( );
-    // Mode d'emploi :
-    //retourne le nombre d'items contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'items contenus
     
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
 
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
     
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <AbstractIterator>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |AbstractClass.php|  -  description
+                           |AbstractClass.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <AbstractClass> (fichier AbstractClass.php) --------------
-if (defined('ABSTRACTCLASS_H'))
+//---------- Class <AbstractClass> (file AbstractClass.php) --------------
+/*if (defined('ABSTRACTCLASS_H'))
 {
     return;
 }
@@ -101,48 +95,41 @@ else
 {
 
 }
-define('ABSTRACTCLASS_H',1);
+define('ABSTRACTCLASS_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <AbstractClass>
-//
-//
+/*!
+ * Provides generic methods for all classes possible
+ */
 //------------------------------------------------------------------------ 
 
 abstract class AbstractClass
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
 //-------------------------------------------- Constructeurs - destructeur
-    abstract public function __construct();
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
-
-    public function __destruct ( )
-    // Mode d'emploi :
-    //Libère l'espace mémoire des variables de la classe
-    // Contrat :
-    //
-    {
+    public function __construct()
+    /**
+	 * Initialises object
+     */
+	{
+	} //---- End of constructor
+	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
         /*$vars = get_object_vars($this);
         
         foreach($vars as $key => $var)
@@ -150,48 +137,40 @@ abstract class AbstractClass
           //  unset($this->{$key});
         }
         
-        unset($vars);   */     
-    } //---- Fin du destructeur
-
-//------------------------------------------------------ Méthodes Magiques
+        unset($vars);   */    
+	} //----- End of Destructor
+    
+//---------------------------------------------------------- Magic Methods
 
     public function __ToString ( )
-    // Mode d'emploi :
-    //Si non redéfinie, imprime un etat de l'objet
-    //
-    // Contrat :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 */
     {
         return (string)var_export($this);
-    } // ENd of __ToString
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
-
+//------------------------------------------------------ protected members
 }
 
-//-------------------------------- Autres définitions dépendantes de <AbstractClass>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |AbstractSingleton.php|  -  description
+                           |AbstractSingleton.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <AbstractSingleton> (fichier AbstractSingleton.php) --------------
-if (defined('ABSTRACTSINGLETON_H'))
+//---------- Class <AbstractSingleton> (file AbstractSingleton.php) --------------
+/*if (defined('ABSTRACTSINGLETON_H'))
 {
     return;
 }
@@ -199,102 +178,89 @@ else
 {
 
 }
-define('ABSTRACTSINGLETON_H',1);
+define('ABSTRACTSINGLETON_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <AbstractSingleton>
-//
-//
+/*!
+ * Provides generic methods for singleton classes.
+ * A singleton class can only have 1 instance running at a time.
+ */
 //------------------------------------------------------------------------ 
 
 abstract class AbstractSingleton
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
 	abstract public static function GetInstance ( );
-	// User's manual :
-    //Getter of the unique instance. Create this if doesn't exist
-	//Must call parent::getInstance( ) in the code with the given name
-	//of the class : __CLASS__
-	//
-	//Must appears in all children.
-	//
-    // Contract :
-    //
 	//{
 	//	return parent::getThis ( __CLASS__ );
 	//}
 
 //-------------------------------------------- Constructeurs - destructeur
     protected function __construct()
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
-	{		
-	} // End of __construct
-
-    public function __destruct ( )
-    // Mode d'emploi :
-    //Libère l'espace mémoire des variables de la classe
-    // Contrat :
-    //
+	/**
+	 * instanciates an AbstractSingleton (for overwriting only).
+	 *
+	 */
     {
-        /*$vars = get_object_vars($this);
-        
-        foreach($vars as $key => $var)
-        {
-          //  unset($this->{$key});
-        }
-        
-        unset($vars);   */     
-    } //---- Fin du destructeur
+    } //---- End of __construct
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+	} //----- End of Destructor
 
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
     public function __ToString ( )
-    // Mode d'emploi :
-    //Si non redéfinie, imprime un etat de l'objet
-    //
-    // Contrat :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
-        return (string)var_export($this);
-    } // End of __ToString
-	
-//------------------------------------------------------------------ PRIVE 
+		return parrent::__ToString();
+    }
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 	
     protected static function getThis ( $class )
-    // User's manual :
-    //Getter of the unique instance of the class named $class. 
-	//Create this if doesn't exist
-	//
-    // Contract :
-    //
+	/**
+	 * Gets a unique instance of class $class.
+	 * Create it if it doesn't exist.
+	 *
+	 * @param $class the name of the class to be instancied or gotten
+	 *
+	 * @return unique instance of class $class
+	 *
+	 */
 	{
 		if ( !IsSet ( self::$instance ) || ! IsSet ( self::$instance[ $class ] ) )
 		// instance creation
@@ -303,26 +269,28 @@ abstract class AbstractSingleton
 		}
 
 		return self::$instance[ $class ];
-	} // End of getThis
+	} //----- End of getThis
 
-//----------------------------------------------------- Attributs protégés
-	protected static $instance; // handler of instances
+
+//------------------------------------------------------ protected members
+	/** Array of handlers indexed by classname */
+	protected static $instance;
 }
 
-//-------------------------------- Autres définitions dépendantes de <AbstractSingleton>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |Error.php|  -  description
+                           |Error.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Error> (fichier Error.php) --------------
-if (defined('ERROR_H'))
+//---------- Class <Error> (file Error.php) --------------
+/*if (defined('ERROR_H'))
 {
     return;
 }
@@ -330,104 +298,113 @@ else
 {
 
 }
-define('ERROR_H',1);
+define('ERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Error>
-//Gestion d'une erreur avec un code et un message d'erreur associé
-//
+/*!
+ * Provides Error management. An error is composed by an error code and a
+ * message.
+ */
 //------------------------------------------------------------------------ 
 
 class Error extends AbstractClass
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
     
     public function GetMessage( )
-    // Mode d'emploi :
-    //Retourne le message associé à l'erreur
-    //
-    // Algorithme : 
-    //trivial
+	/**
+	 * Gets message associated to the error.
+	 *
+	 * @return The message associated to the error
+	 *
+     */
     {
         return $this->erreurString;
     }
     
     public function GetCode( )
-    // Mode d'emploi :
-    //Retourne le code associé à l'erreur
-    //
-    // Algorithme : 
-    //trivial
+	/**
+	 * Gets code associated to the error.
+	 *
+	 * @return The code associated to the error
+	 *
+     */
     {
         return $this->erreurCode;
     }
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( $code, $str )
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
+    /**
+	 * Initialises an Error object from a $code and a message $str.
+	 *
+	 * @param $code The error code
+	 * @param $str The message associated to the error
+	 *
+     */
     {
+		parent::__construct();
+	
         $this->erreurCode = $code;
         $this->erreurString = $str;
-    } //---- Fin du constructeur
+    } //---- End of constructor
+	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
     public function __ToString ( )
-    // Mode d'emploi :
-    // permet l'affichage de l'erreur contenue.
-    // Contrat :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
         return $this->erreurString;
-    } // Fin de __ToString
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
+	/** the code of the error */
     protected $erreurCode;
+	
+	/** the message of the error */
     protected $erreurString;
 }
 
-//-------------------------------- Autres définitions dépendantes de <Error>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |Errors.php|  -  description
+                           |Errors.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Errors> (fichier Errors.php) --------------
-if (defined('ERRORS_H'))
+//---------- Class <Errors> (file Errors.php) --------------
+/*if (defined('ERRORS_H'))
 {
     return;
 }
@@ -435,132 +412,151 @@ else
 {
 
 }
-define('ERRORS_H',1);
+define('ERRORS_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Errors>
-//Itérateur qui gère une liste d'erreurs de type Error ou descendant
-//
+/*!
+ * Manages a list of Error-s (or children objects).
+ * Provides basic methods for this management.
+ */
 //------------------------------------------------------------------------ 
 
 class Errors extends AbstractClass implements Iterator, AbstractIterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //  
-
-    public function Add( Error $newErr )
-    // Mode d'emploi :
-    //Ajoute une erreur à la liste
-    //
+//--------------------------------------------------------- public methods
+    public function Add( Error $item )
+    /**
+	 * Adds an Error to the Sites if it is different than NULL.
+	 * Error-s are indexed by their code.
+     *
+     * @param $item the Error to add 
+     *
+     */
     {
-        $this->errors[ $newErr->getCode( ) ] = $newErr;
-    } //---- Fin de Add
+		if ( $item == NULL ) return;
+		
+        $this->errors[ $item->getCode( ) ] = $item;
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des erreurs
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->errors);
         
         $this->errors = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre d'erreurs contenues dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->errors );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//--------------------------------------------- Iterator's implementation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->errors );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->errors );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le code de l'erreur pointée par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return $this->current( )->getCode( );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->errors );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
-//---------------------------------------------Fin implémentation Iterator
-    
-//-------------------------------------------- Constructeurs - destructeur
-    function __construct( )
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
+    } //---- End of Valid
+
+//--------------------------------------- End of Iterator's implementation
+
+//---------------------------------------------- Constructors - destructor
+    public function __construct( )
+    /**
+	 * Initialises Errors.
+	 *
+     */
     {
+		parent::__construct();
+	
     	$this->errors = array( );
-    } //---- Fin du constructeur
+    } //---- End of constructor
 
-//------------------------------------------------------ Méthodes Magiques
 
-    public function __ToString ()
-    // Mode d'emploi :
-    //Réalise une conversion des erreurs en String
-    //
-    // Algorithme : 
-    //foreach( $this )
+    public function __destruct ( )
+	/**
+	 * Destructs ressources allocated
+	 */
+    {
+		parent::__destruct();
+    } //---- End of destructor
+    
+//---------------------------------------------------------- Magic Methods
+
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
         $str = '';
         
@@ -570,35 +566,33 @@ class Errors extends AbstractClass implements Iterator, AbstractIterator
         }
         
         return $str;
-    }
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//------------------------------------------------------ protected members
+	
+	/** Array of Error-s indexed by Error's code */
+	protected $errors;
 
-//----------------------------------------------------- Attributs protégés
-    protected $errors;
 }
 
-//-------------------------------- Autres définitions dépendantes de <Errors>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |ApplicationError.php|  -  description
+                           |ApplicationError.php|
                              -------------------
     start                : |10.02.2006|
     copyright            : (C) 2006 by BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <ApplicationError> class (file ApplicationError.php) -----------------
-if (defined('APPLICATIONERROR_H'))
+//-------------- Class <ApplicationError>  (file ApplicationError.php) -----------------
+/*if (defined('APPLICATIONERROR_H'))
 {
     return;
 }
@@ -606,11 +600,9 @@ else
 {
 
 }
-define('APPLICATIONERROR_H',1);
+define('APPLICATIONERROR_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -619,55 +611,61 @@ define('APPLICATIONERROR_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <ApplicationError> class
-//Extension of the Error class, implements constants for specific
-//Application errors
-//
+/*!
+ * Provides specific constants for Application's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class ApplicationError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
 
+	/**
+	 * The given function does not have suffisant scope to be called
+	 * or does not exists
+	 */
 	const FUNCTION_NOT_CALLABLE = 'FUNCTION_NOT_CALLABLE';
+	
+	/** Parameters of function must be an array */
 	const FUNCTION_PARAM_NOT_ARRAY = 'FUNCTION_PARAM_NOT_ARRAY';
+	
+	/** The given callback does not exists and cannot be set */
 	const CALLBACK_NOT_EXISTS = 'CALLBACK_NOT_EXISTS';
+
+	/** Callback has not been set and cannot be launched */
 	const CALLBACK_NOT_SET = 'CALLBACK_NOT_SET';
+	
+	/** Application has already been started */
 	const ALREADY_STARTED = 'ALREADY_STARTED';
 
-//--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
+//--------------------------------------------------------- public methods
 
 //---------------------------------------------- Constructors - destructor
     
 //---------------------------------------------------------- Magic Methods
 
 //---------------------------------------------------------------- PRIVATE 
-
+    
 //------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//----------------------------------------------------- Others definitions
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |Application.php|  -  description
+                           |Application.php|
                              -------------------
     start                : |10.02.2006|
     copyright            : (C) 2006 by BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <Application> class (file Application.php) -----------------
-if (defined('APPLICATION_H'))
+//-------------- Class <Application> (file Application.php) -----------------
+/*if (defined('APPLICATION_H'))
 {
     return;
 }
@@ -675,11 +673,9 @@ else
 {
 
 }
-define('APPLICATION_H',1);
+define('APPLICATION_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -688,9 +684,9 @@ define('APPLICATION_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <Application> class
-//
-//
+/*!
+ *
+ */
 //------------------------------------------------------------------------ 
 
 class Application extends AbstractSingleton
@@ -1068,15 +1064,15 @@ class Application extends AbstractSingleton
 
 
 /*************************************************************************
-                           |AbstractSitePageError.php|  -  description
+                           |AbstractSitePageError.php|
                              -------------------
     start                : |10.02.2006|
-    copyright            : (C) 2006 by BERLIAT Cyrille
+    copyright            : (C) 2005 par BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <AbstractSitePageError> class (file AbstractSitePageError.php) -----------------
-if (defined('ABSTRACTSITEPAGEERROR_H'))
+//-------------- Class <AbstractSitePageError> (file AbstractSitePageError.php) -----------------
+/*if (defined('ABSTRACTSITEPAGEERROR_H'))
 {
     return;
 }
@@ -1084,11 +1080,9 @@ else
 {
 
 }
-define('ABSTRACTSITEPAGEERROR_H',1);
+define('ABSTRACTSITEPAGEERROR_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -1097,53 +1091,43 @@ define('ABSTRACTSITEPAGEERROR_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <AbstractSitePageError> class
-//Extension of the Error class, implements constants for specific
-//Application errors
-//
+/*!
+ * Provides specific constants for AbstractSitePage's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class AbstractSitePageError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
 
-	const FUNCTION_NOT_CALLABLE = 'FUNCTION_NOT_CALLABLE';
-	const FUNCTION_PARAM_NOT_ARRAY = 'FUNCTION_PARAM_NOT_ARRAY';
-	const CALLBACK_NOT_EXISTS = 'CALLBACK_NOT_EXISTS';
-
-//--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
+//--------------------------------------------------------- public methods
 
 //---------------------------------------------- Constructors - destructor
     
 //---------------------------------------------------------- Magic Methods
 
 //---------------------------------------------------------------- PRIVATE 
-
+    
 //------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//----------------------------------------------------- Others definitions
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |AbstractSitePage.php|  -  description
+                           |AbstractSitePage.php|
                              -------------------
     start                : |10.02.2006|
     copyright            : (C) 2006 by BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <AbstractSitePage> class (file AbstractSitePage.php) -----------------
-if (defined('ABSTRACTSITEPAGE_H'))
+//-------------- Class <AbstractSitePage> (file AbstractSitePage.php) -----------------
+/*if (defined('ABSTRACTSITEPAGE_H'))
 {
     return;
 }
@@ -1151,11 +1135,9 @@ else
 {
 
 }
-define('ABSTRACTSITEPAGE_H',1);
+define('ABSTRACTSITEPAGE_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -1164,9 +1146,17 @@ define('ABSTRACTSITEPAGE_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <AbstractSitePage> class
-//
-//
+/*!
+ * Provides generic methods for SitePages for WebApplications.
+ * It is a "call back" class that auto sets itself into Application unique
+ * instance.
+ *
+ * It sets ApplicationStart /ApplicationEnd with respectively OnLoad / 
+ * OnUnLoad and Launch Process()
+ *
+ * All the processing of children will be in Process() method.
+ *
+ */
 //------------------------------------------------------------------------ 
 
 abstract class AbstractSitePage extends AbstractSingleton
@@ -1174,51 +1164,62 @@ abstract class AbstractSitePage extends AbstractSingleton
 //----------------------------------------------------------------- PUBLIC
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
 	
     public static function GetInstance ( )
-    // User's manual :
-    //Getter of the unique instance. Create this if doesn't exist
-	//Must appears in all children.
-	//
-    // Contract :
-    //
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
 	{	
 		return parent::getThis( __CLASS__ );
 	} // End of GetInstance
 	
+	
+	/**
+	 * callback function to be called by Application on ApplicationStart
+	 *
+	 * @see Application class
+	 *
+	 */
     abstract public function OnLoad ( );
-    // User's manual :
-    //function to be called on ApplicationStart
-	//
-    // Contract :
-    //
 	
+	
+	/**
+	 * Function called after OnLoad and before OnUnLoad.
+	 * Here is all the process of the page.
+	 *
+	 */
     abstract public function Process ( );
-    // User's manual :
-    //all processes of the page.
-	//called after ApplicationStart / OnStart.
-	//
-    // Contract :
-    //
 	
+	/**
+	 * callback function to be called by Application on ApplicationEnd
+	 *
+	 * @param $applicationVars arguments passed by Application on function
+	 * call - see Application class
+	 *
+	 * @see Application class
+	 *
+	 */
     abstract public function OnUnLoad ( $applicationVars );
-    // User's manual :
-    //function to be called on ApplicationEnd
-	//
-    // Contract :
-    //
 
 //---------------------------------------------- Constructors - destructor
     protected function __construct()
-    // User's manual :
-    //Internal constructor that disable instanciation
-    // Contract :
-    //
+	/**
+	 * instanciates an AbstractSitePage (for overwriting only).
+	 *
+	 * ALL children MUST call parent::__construct()
+	 *
+	 * It initialises application for running as Web application on the base
+	 * of this class child.
+	 */
     {
 		parent::__construct();
 		
@@ -1233,54 +1234,51 @@ abstract class AbstractSitePage extends AbstractSingleton
 		
 		$this->Process();
     } //---- End of __construct
-
-
-    public function __destruct ( )
-    // User's manual :
-    //
-    // Contract :
-    //
-    {
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
 		parent::__destruct();
-    } //---- End of __destruct
+	} //----- End of Destructor
 
 //---------------------------------------------------------- Magic Methods
 
     public function __ToString ( )
-    // User's manual :
-    //
-    // Contract :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
-		return '';
-    } //---- End of __ToString
+		return parrent::__ToString();
+    }
 
 //---------------------------------------------------------------- PRIVATE 
 
 //------------------------------------------------------ protected methods
-    // protected type Méthode ( );
-    // User's manual :
-    //
-    // Contract :
-    //
 
-//--------------------------------------------------- protected properties
+//------------------------------------------------------ protected members
+
 }
 
-//----------------------------------------------------- Others definitions
+//------------------------------------------------------ other definitions
+
 
 
 
 /*************************************************************************
-                           |SessionError.php|  -  description
+                           |SessionError.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <SessionError> (fichier SessionError.php) --------------
-if (defined('SESSIONERROR_H'))
+//---------- Classe <SessionError> (file SessionError.php) --------------
+/*if (defined('SESSIONERROR_H'))
 {
     return;
 }
@@ -1288,22 +1286,20 @@ else
 {
 
 }
-define('SESSIONERROR_H',1);
+define('SESSIONERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <SessionError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs Session
-//
+/*!
+ * Provides specific constants for Session's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class SessionError extends Error
@@ -1311,33 +1307,24 @@ class SessionError extends Error
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------- Constantes
+	/** This session_variable has not been set and cannot be read */
     const SESSION_VARIABLE_NOT_SET = 'SESSION_VARIABLE_NOT_SET';
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <SessionError>
+//------------------------------------------------------ other definitions
 
 
 
@@ -1630,15 +1617,15 @@ class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 
 
 /*************************************************************************
-                           |BDDError.php|  -  description
+                           |BDDError.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <BDDError> (fichier BDDError.php) --------------
-if (defined('BDDERROR_H'))
+//---------- Class <BDDError> (file BDDError.php) --------------
+/*if (defined('BDDERROR_H'))
 {
     return;
 }
@@ -1646,82 +1633,89 @@ else
 {
 
 }
-define('BDDERROR_H',1);
+define('BDDERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <BDDError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs bdd
-//
+/*!
+ * Provides specific constants for Database's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class BDDError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
-
-//------------------------------------------------------------- Constantes
+	/** Connection is currently not closed */
     const CONNECTION_NOT_CLOSED = 'CONNECTION_NOT_CLOSED';
+	
+	/** Connection is currently closed */
     const CONNECTION_CLOSED = 'CONNECTION_CLOSED';
+	
+	/** Connection is already opened */
     const CONNECTION_ALREADY_OPENED = 'CONNECTION_ALREADY_OPENED';
+	
+	/** Connection cannot be made */
     const CONNECTION_CANNOT_OPEN = 'CONNECTION_CANNOT_OPEN';
+	
+	/** Database cannot be changed for current connection */
     const CONNECTION_CANNOT_CHANGE_DB = 'CONNECTION_CANNOT_CHANGE_DB';
+	
+	/** Query failed */
     const CONNECTION_QUERY_FAILED = 'CONNECTION_QUERY_FAILED';
+	
+	/** Requested table does not exists in database */
     const CONNECTION_TABLE_INEXISTANT = 'CONNECTION_TABLE_INEXISTANT';
 	
+	/** Requested field does not exists in table */
     const CONNECTION_COLUMN_INEXISTANT = 'CONNECTION_COLUMN_INEXISTANT';
 	
+	/**
+	 * TableClass given does not implement valid interface or does not
+	 * herit from BDDTable
+	*/
 	const TABLE_CLASS_INCORRECT = 'TABLE_CLASS_INCORRECT';
 	
+	/** BDDRecord is not valid */
 	const RECORD_NOT_VALID = 'RECORD_NOT_VALID';
+	
+	/** Cannot update an inexistant record */
 	const RECORD_UPDATE_DOESNT_EXIST = 'RECORD_UPDATE_DOESNT_EXIST';
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <BDDError>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |BDDRessourceItem.php|  -  description
+                           |BDDRecord.php|
                              -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    start                : |DATE|
+    copyright            : (C) 2005 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <BDDRecord> (fichier BDDRecord.php) --------------
-if (defined('BDDRECORD_H'))
+//---------- Class <BDDRecord> (file BDDRecord.php) --------------
+/*if (defined('BDDRECORD_H'))
 {
     return;
 }
@@ -1729,88 +1723,82 @@ else
 {
 
 }
-define('BDDRECORD_H',1);
+define('BDDRECORD_H',1);*/
 
-//-------------------------------------------------------- Include système
 
-//------------------------------------------------------ Include personnel
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <BDDRecord>
-//Gestion d'une entrée de table BDD
-//
+/*!
+ * This class is a generic BDD Row and it provides basic methods to act on
+ * it.
+ */
 //------------------------------------------------------------------------ 
 
 class BDDRecord extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function IsValid (  )
-    // Mode d'emploi :
-    //permettra de connaitre si l'objet a été validé, en vue d'être sauvegardé
-	//en base de données
-	//
-	// Renvoie :
-	//- vrai ou faux selon si l'objet est valide et prêt pour une sauvegarde.
-	//
-    // Contrat :
-    //
+    /**
+	 * Checks if the BDDRecord is ready to be saved into DataBase.
+	 * Uses the method Validate() to make the racord valid.
+     *
+     * @return - true if record is ready to be saved
+	 * @return - false otherwise
+     *
+     */
 	{
 		return true;
-	}
+	} //----- End of IsValid
 	
     public function Validate (  )
-    // Mode d'emploi :
-    //permettra de valider l'objet courant en vue d'une sauvegarde dans la base
-	//de données
-	//
-	// Renvoie :
-	//- NULL si l'objet est validé. Il sera alors prêt pour une sauvegarde
-	//- un objet de type Errors contenant les erreurs qui empêchent la validation
-	//
-    // Contrat :
-    //
+    /**
+	 * Tries to validate the BDDRecord in order to save it into DataBase.
+     *
+     * @return - NULL if object has been validated
+	 * @return - an Errors object in case of error(s)
+     *
+     */
     {
+		$this->isValid = true;
+	
 		return NULL;
-	}
+	} //----- End of Validate
 	
     public function PropertyExists( $propertyName )
-    // Mode d'emploi :
-    //Retourne si la propriété existe ou non
-    //
-	// Renvoie :
-	//- vrai si la propriété existe
-	//- faux sinon
-	//
-    // Algorithme : 
-    //trivial
+    /**
+	 * Checks if the property $propertyName exists into the BDDRecord.
+     *
+	 * @param $propertyName the property name to check
+	 *
+     * @return - true if the property exists
+	 * @return - false otherwise
+     *
+     */
     {
 		return ( isset ( $this->row[ $propertyName ] ) );
-    } //----- Fin de PropertyExists
+    } //----- End of PropertyExists
 	
     public function GetProperty( $propertyName )
-    // Mode d'emploi :
-    //Retourne la valeur de la propriété
-    //
-	// Renvoie :
-	//- la valeur associée à la propriété si elle existe
-	//- un objet de type Errors en cas d'échec
-	//
-    // Algorithme : 
-    //trivial
+    /**
+	 * Returns the value associated to property $propertyName.
+     *
+	 * @param $propertyName the property name to get value
+	 *
+     * @return - NULL if object has been validated
+	 * @return - an Errors object in case of error(s) :
+	 * @return 		BDDError::CONNECTION_COLUMN_INEXISTANT if property doesn't exist.
+     *
+     */
     {
 		if ( $this->PropertyExists( $propertyName ) )
 		{
@@ -1820,98 +1808,106 @@ class BDDRecord extends AbstractClass implements Iterator
 		{
 			$errs = new Errors ( );
 			
-			$errs->Add ( new BDDError ( BDDError::CONNECTION_COLUMN_INEXISTANT , 'Propriété inexistante' ) );
+			$errs->Add ( new BDDError ( BDDError::CONNECTION_COLUMN_INEXISTANT , 'Property '.$propertyName.' does not exist.' ) );
 			
 			return $errs;
 		}
-    } //----- Fin de GetProperty
+    } //----- End of GetProperty
 	
     public function SetProperty( $propertyName , $propertyValue )
-    // Mode d'emploi :
-    //Affecte la valeur passée en paramètre à la propriété.
-	//Celle-ci est créée automatiquement en cas de non existance
-    //
-	// Renvoie :
-	//
-    // Algorithme : 
-    //trivial
+    /**
+	 * Sets the property named $propertyName with value $propertyValue.
+	 * If property doesn't exists, it is created.
+     *
+	 * @param $propertyName the property name to set value
+	 * @param $propertyValue value to associate to property
+     *
+     */
     {
 		$this->row [ $propertyName ] = $propertyValue;
 		
 		$this->isValid = false;
-    } //----- Fin de SetProperty
+    } //----- End of SetProperty
 	
 	public function GetPropertyCount ( )
-	// Mode d'emploi :
-	//permet de connaitre le nombre de propriétés stockées dans l'objet
-	//
-	// Renvoie :
-	//- le nombre de propriétés stockés
-	//- le nombre de propriétés stockés
-	//
-	//
+    /**
+	 * Gets the number of properties of the object.
+     *
+	 * @return the number of properties of the object
+     *
+     */
 	{
 			return count ( $this->row );
-	} //----- Fin de getPropertyCount
+	} //----- End of GetPropertyCount
 	
-//-----------------------------------------------Implémentation Iterator
+//------------------------------------------- Implementation's of Iterator
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->row );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->row );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le code de l'erreur pointée par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return key( $this->row );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->row );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
-//---------------------------------------------Fin implémentation Iterator
+    } //---- End of Valid
+//--------------------------------------- End of Iterator's implementation
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     function __construct( $row = NULL )
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
+    /**
+	 * Initialises BDDRecord from an array $row.
+	 * Sets IsValid to false.
+	 *
+	 * @param $row a database row array
+	 *
+     */
     {
+		parent::__construct();
+		
 		if ( is_array( $row ) )
 		{
 			$this->row = $row;
@@ -1922,48 +1918,57 @@ class BDDRecord extends AbstractClass implements Iterator
 		}
 		
 		$this->isValid = false;
-    } //---- Fin du constructeur
+    } //---- End of constructor
+	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
     function __ToString ( )
-    // Mode d'emploi :
-    // permet l'affichage d l'item locator
-    // Contrat :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
         return (String)var_export( $this->row );
-    } // Fin de __ToString
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
+	/** Array of data : database row */
     protected $row;
 	
-	protected $isValid; // contient true ou false selon si l'objet a été validé.
-	//protected $hasBeenModified; // contient true ou false selon si l'objet a été modifié.
+	/**
+	 * validation flag : contains true of false whether it has been 
+	 * validated or not.
+	*/
+	protected $isValid;
 }
 
-//-------------------------------- Autres définitions dépendantes de <BDDRecord>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |BDDRecordSet.php|  -  description
+                           |BDDRecordSet.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <BDDRecordSet> (fichier BDDRecordSet.php) --------------
-if (defined('BDDRECORDSET_H'))
+//---------- Class <BDDRecordSet> (file BDDRecordSet.php) --------------
+/*if (defined('BDDRECORDSET_H'))
 {
     return;
 }
@@ -1971,162 +1976,173 @@ else
 {
 
 }
-define('BDDRECORDSET_H',1);
+define('BDDRECORDSET_H',1);*/
 
-//-------------------------------------------------------- Include système
 
-//------------------------------------------------------ Include personnel
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <BDDRecordSet>
-//Itérateur qui gère une liste d'erreurs de type Error ou descendant
-//
+/*!
+ * Basic Iterator for BDDRecord-s
+ */
 //------------------------------------------------------------------------ 
 
 class BDDRecordSet extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //  
+//--------------------------------------------------------- public methods
 
-    public function Add( BDDRecord $item )
-    // Mode d'emploi :
-    //Ajoute un item à la liste
-    //
+    public function Add( BDDRecord & $item )
+    /**
+	 * Adds a BDDRecord to the Iterator.
+     *
+     * @param $item the BDDRecord to add
+     *
+     */
     {
-        $this->items[ $this->GetCount() ] = $item;
-    } //---- Fin de Add
+        $this->items[ ] = $item;
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des items
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->items);
         
         $this->items = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre d'items contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'items contenus
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->items );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//---------------------------------------------- Iterator's Implementation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->items );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return @current( $this->items );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le n° d'enregistrement pointé par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return key( $this->items );
-    } //---- Fin de Key
+    } //---- End of  Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->items );
-    } //---- Fin de Next
+    } //---- End of  Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
-//---------------------------------------------Fin implémentation Iterator
-    
-//-------------------------------------------- Constructeurs - destructeur
+    } //---- End of  Valid
+//--------------------------------------- End of Iterator's implementation
+
+//---------------------------------------------- Constructors - destructor
     function __construct( )
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
+    /**
+	 * Initialises BDDRecordSet.
+	 *
+     */
     {
-    	$this->items = array( );
-    } //---- Fin du constructeur
+		parent::__construct();
+		
+		$this->items = array();
+    } //---- End of constructor
+	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
 
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-    public function __ToString ()
-    // Mode d'emploi :
-    //Réalise une conversion des erreurs en String
-    //
-    // Algorithme : 
-    //foreach( $this )
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
         return $this->GetCount().' entrées'.var_dump($this->items);
-    }
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
+	/** Array of items : BDDRecord-s */
     protected $items;
 }
 
-//-------------------------------- Autres définitions dépendantes de <BDDRecordSet>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
                            |BDDConnectionInterface.php|
                              -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    start                : |DATE|
+    copyright            : (C) 2005 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface of class <MySQLConnection> (file BDDConnectionInterface.php) --------------
+//---------- Interface <MySQLConnection> (file BDDConnectionInterface.php) --------------
 /*if (defined('BDDCONNECTIONINTERFACE_H'))
 {
     return;
@@ -2158,7 +2174,7 @@ interface BDDConnectionInterface
 //--------------------------------------------------------- public methods
     
     /**
-	 * Search for table named $table in database.
+	 * Searchs for table named $table in database.
 	 * Connection may be opened.
 	 *
 	 * @param $table the tablename to be checked
@@ -2264,7 +2280,7 @@ interface BDDConnectionInterface
     public function SetDatabase( $database );
     
     /**
-     * try to send a query to DB server
+     * tries to send a query to DB server
 	 * Connection may be opened.
      *
 	 * @param $query the query to be done
@@ -2284,7 +2300,7 @@ interface BDDConnectionInterface
     public function GetQueriesCount ( );
     
     /**
-     * Try to close the connection
+     * Tries to close the connection
      *
      * @return - an Errors object in case of error(s)
      * @return - NULL if operation was successful
@@ -2293,7 +2309,7 @@ interface BDDConnectionInterface
     public function Close( );
     
     /**
-     * Check whether connection is opened or closed
+     * Checks whether connection is opened or closed
      *
      * @return - true if connection is active
      * @return - false if connection is closed
@@ -2318,15 +2334,15 @@ interface BDDConnectionInterface
 
 
 /*************************************************************************
-                           |BDDTableInterface.php|  -  description
+                           |BDDTableInterface.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLConnection> (fichier BDDTableInterface.php) --------------
-if (defined('BDDTABLEINTERFACE_H'))
+//---------- Interface <BDDTableInterface> (file BDDTableInterface.php) --------------
+/*if (defined('BDDTABLEINTERFACE_H'))
 {
     return;
 }
@@ -2334,117 +2350,115 @@ else
 {
 
 }
-define('BDDTABLEINTERFACE_H',1);
+define('BDDTABLEINTERFACE_H',1);*/
 
-//-------------------------------------------------------- Include système
 
-//------------------------------------------------------ Include personnel
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <BDDTableInterface>
-// Fournir des méthodes de base d'accès à une base
-// Connexion + requetes
-//
+/*!
+ * Interface that provides generic methods for Database Tables
+ */
 //------------------------------------------------------------------------ 
 
 interface BDDTableInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
     
-    abstract public function Select ( $champs, $options );
-    // Mode d'emploi :
-    //permet de récuperer le contenu d'une table selon différents paramètres
-	//sous forme d'un BDDRecordSet
-	//
-	//
-	//$champs est un tableau ou une chaine de caractères représentant les champs
-	//à selectionner.
-	//$options contient les "where" "order" "limit" et autres sous forme de chaine...
-	//
-    // Contrat :
-    //
+	/**
+	 * Computes a selection of $fields on entries that correspond to 
+	 * $options
+     *
+     * @param $fields array of string that reprensents fields' name to select
+	 * @param $options string that contains various select options like 
+	 * "where", "order", "limit", ...
+     *
+	 * @return - a BDDRecordSet that contains BDDRecord-s ( Database entries)
+	 * if select was successful
+	 * @return - an Errors object in case of error(s) : see BDDConnectionInterface::Query 
+	 *
+     */
+    abstract public function Select ( $fields, $options );
 	
+	/**
+	 * Tries to insert the given $record into database
+	 *
+	 * @param $record BDDRecord to be inserted
+	 *
+	 * @return - see BDDConnectionInterface::Query 
+	 *
+     */
     abstract public function Insert ( BDDRecord $record );
-    // Mode d'emploi :
-    //permet d'insérer de nouveaux enregistrements dans la table
-	//
-    // Contrat :
-    //
 	
+	/**
+	 * Tries to update with the given $updatedRec into database in function
+	 * of $clause parameter.
+	 *
+	 * @param $updatedRec the BDDRecord updated
+	 * @param $clause clause constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which record has to be updated
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
     abstract public function Update ( BDDRecord $updatedRec, $clause );
-    // Mode d'emploi :
-    //permet de mettre à jour le contenu de la table en mettant à jour
-	//$updateRec en fonction des $clause à construire en MySQL
-	//
-    // Contrat :
-    //
 	
+	/**
+	 * Tries to delete entries that correpond to $clauses
+	 *
+	 * @param $clauses clauses constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which records have to be deleted
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
     abstract public function Delete ( $clauses );
-    // Mode d'emploi :
-    //permet d'effacer une partie du contenu de la table en fonction des $clauses
-	//passées
-	//
-    // Contrat :
-    //
 	
+	/**
+	 * Tries to delete all entries of the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
     abstract public function Clear (  );
-    // Mode d'emploi :
-    //Efface la totalité du contenu de la table courante.
-	//
-    // Contrat :
-    //
 	
+	/**
+	 * Tries to drop the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
     abstract public function Drop (  );
-    // Mode d'emploi :
-    //Supprime la table courante de la base de données
-	//passés
-	//
-    // Contrat :
-    //
+
+//---------------------------------------------------------------- PRIVATE 
     
-//-------------------------------------------- Constructeurs - destructeur
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------ Méthodes Magiques
-
-//------------------------------------------------------------------ PRIVE 
-    
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <BDDTableInterface>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
                            |BDDConnection.php|
                              -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    start                : |DATE|
+    copyright            : (C) 2005 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface of class <BDDConnection> (file BDDConnection.php) --------------
+//---------- Class <BDDConnection> (file BDDConnection.php) --------------
 /*if (defined('BDDCONNECTION_H'))
 {
     return;
@@ -2483,7 +2497,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 
     //public function TableExists ( $table );
     /*
-	 * Search for table named $table in database.
+	 * Searchs for table named $table in database.
 	 * Connection may be opened.
 	 *
 	 * @param $table the tablename to be checked
@@ -2625,7 +2639,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
     
     //public function Open( $isPersistent );
 	/*
-	 * Try to open connection.
+	 * Tries to open connection.
 	 *
 	 * @param $isPersistent specifies if connection may be persistent or not = { CONNECTION_PERSISTENT | CONNECTION_NOT_PERSISTENT }
 	 *
@@ -2649,7 +2663,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
     
     //public function Query( $query );
     /**
-     * try to send a query to DB server
+     * tries to send a query to DB server
 	 * Connection may be opened.
      *
 	 * @param $query the query to be done
@@ -2672,7 +2686,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
     
     //public function Close( );
     /**
-     * Try to close the connection
+     * Tries to close the connection
      *
      * @return - an Errors object in case of error(s)
      * @return - NULL if operation was successful
@@ -2681,7 +2695,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
     
     //public function isConnected ( );
     /**
-     * Check whether connection is opened or closed
+     * Checks whether connection is opened or closed
      *
      * @return - true if connection is active
      * @return - false if connection is closed
@@ -2689,9 +2703,9 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      */
     
 //---------------------------------------------- Constructors - destructor
-    //abstract function __construct( $server = '' , $username = '' , $password = '' );
+    function __construct( $server = '' , $username = '' , $password = '' )
 	/*
-	 * initialise members of the object.
+	 * initialises members of the object.
 	 * interrupts script if DataBase is not supported.
 	 *
 	 * @param $server the host address
@@ -2699,12 +2713,36 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 	 * @param $password the password associated to the login
 	 *
 	 */
+	{
+		parent::__construct( );	
+            
+		$this->connection = NULL;
+		
+		$this->server = $server;
+		$this->username = $username;
+		$this->password = $password;
+		
+		$this->database = '';
+		
+		$this->nombreRequetes = 0;
+	}
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
     
-//---------------------------------------------------------- Magic methods
+//---------------------------------------------------------- Magic Methods
 
     public function __ToString ( )
     /**
-	 * Returns a printable version of objet for debugging.
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
 	 */
     {
 		return parrent::__ToString();
@@ -2742,15 +2780,15 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 
 
 /*************************************************************************
-                           |BDDTable.php|  -  description
+                           |BDDTable.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <BDDTable> (fichier BDDTable.php) --------------
-if (defined('BDDTABLE_H'))
+//---------- Class <BDDTable> (file BDDTable.php) --------------
+/*if (defined('BDDTABLE_H'))
 {
     return;
 }
@@ -2758,98 +2796,113 @@ else
 {
 
 }
-define('BDDTABLE_H',1);
+define('BDDTABLE_H',1);*/
 
-//-------------------------------------------------------- Include système
 
-//------------------------------------------------------ Include personnel
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <BDDTable>
-//
-//
+/*!
+ * Abstract class that provides generic methods for Database Tables
+ */
 //------------------------------------------------------------------------ 
 
 abstract class BDDTable extends AbstractClass implements BDDTableInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
-    //abstract public function Select (  );
-    // Mode d'emploi :
-    //permet de récuperer le contenu d'une table selon différents paramètres
-	//sous forme d'un BDDRecordSet
-	//
-    // Contrat :
-    //
-	
-    //abstract public function Insert (  );
-    // Mode d'emploi :
-    //permet d'insérer de nouveaux enregistrements dans la table
-	//
-    // Contrat :
-    //
-	
-    //abstract public function Update (  );
-    // Mode d'emploi :
-    //permet de mettre à jour le contenu de la table
-	//
-    // Contrat :
-    //
-	
-    //abstract public function Delete (  );
-    // Mode d'emploi :
-    //permet d'effacer une partie du contenu de la table en fonction des paramètres
-	//passés
-	//
-    // Contrat :
-    //
-	
-    //abstract public function Clear (  );
-    // Mode d'emploi :
-    //Efface la totalité du contenu de la table courante.
-	//
-    // Contrat :
-    //
-	
-    //abstract public function Drop (  );
-    // Mode d'emploi :
-    //Supprime la table courante de la base de données
-	//passés
-	//
-    // Contrat :
-    //
+    
+	/*
+	 * Computes a selection of $fields on entries that correspond to 
+	 * $options
+     *
+     * @param $fields array of string that reprensents fields' name to select
+	 * @param $options string that contains various select options like 
+	 * "where", "order", "limit", ...
+     *
+	 * @return - a BDDRecordSet that contains BDDRecord-s ( Database entries)
+	 * if select was successful
+	 * @return - an Errors object in case of error(s) : see BDDConnectionInterface::Query 
+	 *
+     */
+    //public function Select ( $fields, $options );
 
-//-------------------------------------------- Constructeurs - destructeur
+	
+	/*
+	 * Tries to insert the given $record into database
+	 *
+	 * @param $record BDDRecord to be inserted
+	 *
+	 * @return - see BDDConnectionInterface::Query 
+	 *
+     */
+    //public function Insert ( BDDRecord $record );
+	
+	/*
+	 * Tries to update with the given $updatedRec into database in function
+	 * of $clause parameter.
+	 *
+	 * @param $updatedRec the BDDRecord updated
+	 * @param $clause clause constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which record has to be updated
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
+    //public function Update ( BDDRecord $updatedRec, $clause );
+	
+	/*
+	 * Tries to delete entries that correpond to $clauses
+	 *
+	 * @param $clauses clauses constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which records have to be deleted
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
+    //public function Delete ( $clauses );
+	
+	/*
+	 * Tries to delete all entries of the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
+    //public function Clear (  );
+	
+	/*
+	 * Tries to drop the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
+    //public function Drop (  );
+
+//---------------------------------------------- Constructors - destructor
     public function __construct( $table, BDDConnection $connection, & $errors )
-    // Mode d'emploi (constructeur) :
-    //instancie un objet de type BDDTable sur la table $table de la base
-	//de $connection
-	//
-	// Renvoie par référence dans $errors :
-	//- NULL si aucune erreur n'est intervenue
-	//- un objet de type errors en cas d'erreur;
-	//
-    // Contrat :
-	//- la connexion doit rester valable tout le temps de opérations sur la table
-    //
-	// Algorithme :
-	//* vérification de la connexion
-	//* vérification de la table
-	//* chargement de la structure de la table
+    /**
+	 * Initialises BDDTable for the table named $table on the given 
+	 * $connection.
+	 *
+	 * @param $table name of the table
+	 * @param $connection BDDConnection for all table operations. This must
+	 * be a valid and connected BDDConnection unless it will cause an Error.
+	 * @param $errors reference to an Errors object. It will be set if an
+	 * error occurs during instanciation. If operation was successful, it
+	 * equals NULL
+	 *
+     */
     {
+		parent::__construct();
+	
 		$errors = NULL;
 		
     	if ( ! $connection->isConnected ( ) )
@@ -2872,38 +2925,57 @@ abstract class BDDTable extends AbstractClass implements BDDTableInterface
 		$this->structure = & $connection->TableDescription ( $table );
 		$this->bDDConnection = $connection;
 		$this->tableName = $table;
-    } //---- Fin du constructeur
+    } //---- End of constructor
+	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+    public function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+		return parrent::__ToString();
+    }
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
-	protected $tableName; // nom de la table gérée
-	protected $bDDConnection; // class ressource connexion
-	protected $structure; // contiendra la structure de la table
+//------------------------------------------------------ protected members
+	/** Name of the current table */
+	protected $tableName;
+	
+	/** BDDConnection object for database connection */
+	protected $bDDConnection;
+	
+	/** contains table structure */
+	protected $structure;
 }
 
-//-------------------------------- Autres définitions dépendantes de <BDDTable>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
                            |MySQLConnection.php|
                              -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    start                : |DATE|
+    copyright            : (C) 2005 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface of class <MySQLConnection> (file MySQLConnection.php) --------------
+//---------- Class <MySQLConnection> (file MySQLConnection.php) --------------
 /*if (defined('MYSQLCONNECTION_H'))
 {
     return;
@@ -2943,7 +3015,13 @@ class MySQLConnection extends BDDConnection
 	 * @param $table the tablename to be checked
      *
      * @return - true if table exists
-	 * @return - an Errors object in case of error(s)
+	 * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_NO_DB_SELECTED if No database is selected
+	 * @return see BDDConnection::Query
+	 * @return BDDError::CONNECTION_TABLE_INEXISTANT if table named $table
+	 * does not exist.
+	 *
      *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/show-tables.html
 	 *
@@ -2993,7 +3071,10 @@ class MySQLConnection extends BDDConnection
 	 * @param $table the name of the table to be describe
 	 *
      * @return - a BDDRecordSet if table exists wich BDDRecord s describe a field of the table
-	 * @return - an Errors object in case of error(s)
+	 * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_NO_DB_SELECTED if No database is selected
+	 * @return see MySQLConnection::Query
 	 *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/describe.html
 	 *
@@ -3102,8 +3183,12 @@ class MySQLConnection extends BDDConnection
 	 * @param $isPersistent specifies if connection may be persistent or not = { CONNECTION_PERSISTENT | CONNECTION_NOT_PERSISTENT }
 	 *
 	 *
-     * @return - an Errors object in case of error(s)
      * @return - NULL if operation was successful
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_CANNOT_OPEN if connection can not be established
+	 * please have a look on host/login/password
+	 * @return BDDError::CONNECTION_ALREADY_OPENED if connection is already opened 
 	 *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-pconnect.html
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-connect.html
@@ -3153,8 +3238,11 @@ class MySQLConnection extends BDDConnection
      *
 	 * @param $database the name of the database to be used
      *
-     * @return - an Errors object in case of error(s)
      * @return - NULL if operation was successful
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_CLOSED if connection is closed
+	 * @return BDDError::CONNECTION_CANNOT_CHANGE_DB if database cannot be changed
 	 *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-select-db.html
      *
@@ -3191,13 +3279,17 @@ class MySQLConnection extends BDDConnection
     
     public function Query( $query )
     /**
-     * try to send a query to DB server
+     * tries to send a query to DB server
 	 * Connection may be opened.
      *
 	 * @param $query the query to be done
      *
-     * @return - an Errors object in case of error(s)
-     * @return - a BDDRecord object which contains entries as BDDRecordItem s
+     * @return - a BDDRecord object which contains entries as BDDRecordItem-s
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_NO_DB_SELECTED if no database has been 
+	 * selected before query
+	 * @return BDDError::CONNECTION_QUERY_FAILED if query failed
      *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-query.html
 	 *
@@ -3256,10 +3348,12 @@ class MySQLConnection extends BDDConnection
     
     public function Close( )
     /**
-     * Try to close the connection
+     * Tries to close the connection
      *
-     * @return - an Errors object in case of error(s)
      * @return - NULL if operation was successful
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return BDDError::CONNECTION_CLOSED is connection is already closed
      *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-close.html
      */
@@ -3269,7 +3363,7 @@ class MySQLConnection extends BDDConnection
             // no connection
             $errs = new Errors();
 
-            $errs->Add ( new BDDError ( BDDError::CONNECTION_CLOSED , 'Connexion déjà fermée' ) );
+            $errs->Add ( new BDDError ( BDDError::CONNECTION_CLOSED , 'Connection already closed' ) );
             
             return $errs;
         }
@@ -3283,7 +3377,7 @@ class MySQLConnection extends BDDConnection
     
     public function isConnected ( )
     /**
-     * Check whether connection is opened or closed
+     * Checks whether connection is opened or closed
      *
      * @return - true if connection is active
      * @return - false if connection is closed
@@ -3292,11 +3386,11 @@ class MySQLConnection extends BDDConnection
     {
         return ( $this->connection !== NULL && @mysql_stat ( $this->connection ) !== NULL );
     } //----- End of isConnected
-    
-//-------------------------------------------- Constructeurs - destructeur
+
+//---------------------------------------------- Constructors - destructor
     public function __construct( $server = '' , $username = '' , $password = '' )
 	/**
-	 * initialise members of the object.
+	 * initialises members of the object.
 	 * interrupts script if DataBase is not supported.
 	 *
 	 * @param $server the host address
@@ -3305,27 +3399,32 @@ class MySQLConnection extends BDDConnection
 	 *
 	 */
     {
+		parent::__construct( $server, $username, $password );
+
             if ( ! function_exists( 'mysql_connect' ) )
             {
                 die('PHP does not support MySQL');
             }
-            
-            $this->connection = NULL;
-            
-            $this->server = $server;
-            $this->username = $username;
-            $this->password = $password;
-            
-            $this->database = '';
-            
-            $this->nombreRequetes = 0;
     } //----- End of contructor
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		$this->Close();
+	
+		parent::__destruct();
+	} //----- End of Destructor
     
 //---------------------------------------------------------- Magic methods
 
     public function __ToString ( )
     /**
-	 * Returns a printable version of objet for debugging.
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
 	 */
     {
 		return parrent::__ToString();
@@ -3344,15 +3443,15 @@ class MySQLConnection extends BDDConnection
 
 
 /*************************************************************************
-                           |MySQLTable.php|  -  description
+                           |MySQLTable.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLTable> (fichier MySQLTable.php) --------------
-if (defined('MYSQLTABLE_H'))
+//---------- Class <MySQLTable> (file MySQLTable.php) --------------
+/*if (defined('MYSQLTABLE_H'))
 {
     return;
 }
@@ -3360,106 +3459,128 @@ else
 {
 
 }
-define('MYSQLTABLE_H',1);
+define('MYSQLTABLE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <MySQLTable>
-//
-//
+/*!
+ * Provides Methods and constants for operations on MySQL Tables
+ */
 //------------------------------------------------------------------------ 
 
 class MySQLTable extends BDDTable
 {
 //----------------------------------------------------------------- PUBLIC
 
-	const TABLE_COLUMN_ALL = '*'; 
-	// représente l'ensemble des colonnes
+	/** represents the whole list of columns */
+	const TABLE_COLUMN_ALL = '*';
 	
+	/** MySQL 'where' clause */
 	const MYSQL_CLAUSE_WHERE = ' WHERE ';
+	
+	/** MySQL 'limit' clause */
 	const MYSQL_CLAUSE_LIMIT = ' LIMIT ';
 	
+	/** MySQL 'and' operator */
 	const MYSQL_CLAUSE_AND = ' AND ';
+	
+	/** MySQL 'or' operator */
 	const MYSQL_CLAUSE_OR = ' OR ';
 	
+	/** MySQL 'order' clause */
 	const MYSQL_CLAUSE_ORDER = ' ORDER BY ';
-	const MYSQL_CLAUSE_ORDER_ASCENDANT = ' ASC ';
-	const MYSQL_CLAUSE_ORDER_DESCENDANT = ' DESC ';
 	
+		/** MySQL 'order' parameter for ascending sort */
+		const MYSQL_CLAUSE_ORDER_ASCENDANT = ' ASC ';
+		
+		/** MySQL 'order' parameter for descending sort */
+		const MYSQL_CLAUSE_ORDER_DESCENDANT = ' DESC ';
+	
+	/** MySQL 'group by' clause */
 	const MYSQL_CLAUSE_GROUP = ' GROUP BY ';
+	
+	/** MySQL 'having' clause */
 	const MYSQL_CLAUSE_HAVING = ' HAVING ';
 	
-	const MYSQL_SEEK_REGEX = ' LIKE '; // utilisation de LIKE
+	/** MySQL regex operator */
+	const MYSQL_SEEK_REGEX = ' LIKE ';
 	
-	// caractères magiques REGEX
-		const MYSQL_SEEK_MULTICHARS = '%'; // remplace X chars différents
-		const MYSQL_SEEK_ANYCHAR = '_'; // remplace un char
-	// fin des caractères magiques REGEX
+		/** Magic char for multichars replacement */
+		const MYSQL_SEEK_MULTICHARS = '%';
+		
+		/** Magic char for unique char replacement */
+		const MYSQL_SEEK_ANYCHAR = '_';
 	
-	const MYSQL_SEEK_STRICT = ' = ';// recherche stricte =
-	const MYSQL_SEEK_SEPARATOR = '"';// char de séparation
-	// paramètre de recherche
+	/** MySQL equals operator */
+	const MYSQL_SEEK_STRICT = ' = ';
 	
-	const MYSQL_STRUCTURE_FIELD_NAME = 'Field'; 
-	// champ contenant le nom du champ dans le structure
+	/** MySQL not equals operator */
+	const MYSQL_SEEK_STRICT = ' <> ';
+	
+	/** MySQL separator operator */
+	const MYSQL_SEEK_SEPARATOR = '"';
+	
+	/** MySQL field name for fields' name in table description */
+	const MYSQL_STRUCTURE_FIELD_NAME = 'Field';
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
-    public function Select ( $champs, $options )
-    // Mode d'emploi :
-    //permet de récuperer le contenu d'une table selon différents paramètres
-	//sous forme d'un BDDRecordSet
-	//
-	//les données sont décodées de la base pour etre exploitables.
-	//
-	//$champs est un tableau ou une chaine de caractères représentant les champs
-	//à selectionner.
-	//$options contient les "where" "order" "limit" et autres sous forme de chaine...
-	//
-    // Contrat :
-    //
+    public function Select ( $fields, $options )
+	/**
+	 * Computes a selection of $fields on entries that correspond to 
+	 * $options
+     *
+     * @param $fields array of string that reprensents fields' name to select
+	 * @param $options string that contains various select options like 
+	 * "where", "order", "limit", ...
+     *
+	 * @return - a BDDRecordSet that contains BDDRecord-s ( Database entries)
+	 * if select was successful
+	 * @return - an Errors object in case of error(s) : see BDDConnectionInterface::Query 
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/select.html
+	 *
+     */
 	{
 		$selectQuery = 'SELECT ';
 		
-		if ( is_array( $champs ) ) 
+		if ( is_array( $fields ) ) 
 		{
-			foreach( $champs as $champ ) 
+			foreach( $fields as $field ) 
 			{
-				$selectQuery .= $champ;
+				$selectQuery .= $field;
 			}
 			
 			$selectQuery = substr( $selectQuery, 0, -1 ) ;
 		}
 		else
 		{
-			$selectQuery .= $champs;
+			$selectQuery .= $fields;
 		}
 		
 		$selectQuery .= ' FROM `'.$this->tableName.'` '.$options;
 		
 		return $this->bDDConnection->Query ( $selectQuery ) ;
-	} //---- Fin de Select
+	} //---- End of Select
 	
     public function Insert ( BDDRecord $record )
-    // Mode d'emploi :
-    //permet d'insérer de nouveaux enregistrements dans la table
-	//
-    // Contrat :
-    //
+	/**
+	 * Tries to insert the given $record into database
+	 *
+	 * @param $record BDDRecord to be inserted
+	 *
+	 * @return - see BDDConnectionInterface::Query 
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/insert.html
+	 *
+     */
 	{
 		$newRecord = $this->bDDRecordToTableRecord ( $record );
 		unset( $record );
@@ -3474,15 +3595,22 @@ class MySQLTable extends BDDTable
 		$insertQuery = substr ( $insertQuery , 0 , -2 );
 		
 		return $this->bDDConnection->Query ( $insertQuery ) ;
-	} //---- Fin de Insert
+	} //---- End of Insert
 	
     public function Update ( BDDRecord $updatedRec, $clause )
-    // Mode d'emploi :
-    //permet de mettre à jour le contenu de la table en mettant à jour
-	//$updateRec en fonction des $clause
-	//
-    // Contrat :
-    //
+	/**
+	 * Tries to update with the given $updatedRec into database in function
+	 * of $clause parameter.
+	 *
+	 * @param $updatedRec the BDDRecord updated
+	 * @param $clause clause constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which record has to be updated
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/update.html
+	 *
+     */
 	{
 		$newRecord = $this->bDDRecordToTableRecord ( $updatedRec );
 		unset( $updatedRec );
@@ -3498,76 +3626,91 @@ class MySQLTable extends BDDTable
 		
 		return $this->bDDConnection->Query ( $updateQuery ) ;
 	
-	} //---- Fin de Update
+	} //---- End of Update
 	
-    public function Delete ( $clause )
-    // Mode d'emploi :
-    //permet d'effacer une partie du contenu de la table en fonction des paramètres
-	//passés
-	//
-    // Contrat :
-    //
+    public function Delete ( $clauses )
+	/**
+	 * Tries to delete entries that correpond to $clauses
+	 *
+	 * @param $clauses clauses constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which records have to be deleted
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/delete.html
+	 *
+     */
 	{
 		return $this->bDDConnection->Query ( 'DELETE FROM `'.$this->tableName.'` WHERE '.$clause );
-	} //---- Fin de Delete
+	} //---- End of Delete
 
     public function Clear (  )
-    // Mode d'emploi :
-    //Efface la totalité du contenu de la table courante.
-	//
-    // Contrat :
-    //
+	/**
+	 * Tries to delete all entries of the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/delete.html
+	 *
+     */
 	{
 		return $this->bDDConnection->Query ( 'DELETE FROM `'.$this->tableName.'`' );
-	} //---- Fin de Clear
+	} //---- End of Clear
 	
     public function Drop (  )
-    // Mode d'emploi :
-    //Supprime la table courante de la base de données
-	//passés
-	//
-    // Contrat :
-	//
+	/**
+	 * Tries to drop the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+	 * @see http://dev.mysql.com/doc/refman/5.0/en/drop-table.html
+	 *
+     */
 	{
 		return $this->bDDConnection->Query ( 'DROP TABLE `'.$this->tableName.'`' );
-	} //---- Fin de Drop
+	} //---- End of Drop
     
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( $table, MySQLConnection $connection, & $errors )
-    // Mode d'emploi (constructeur) :
-    //instancie un objet de type BDDTable sur la table $table de la base
-	//de $connection
-	//
-	// Renvoie par référence dans $errors :
-	//- NULL si aucune erreur n'est intervenue
-	//- un objet de type errors en cas d'erreur;
-	//
-    // Contrat :
-	//- la connexion doit rester valable tout le temps de opérations sur la table
+    /**
+	 * Initialises MySQLTable for the table named $table on the given 
+	 * $connection.
+	 *
+	 * @param $table name of the table
+	 * @param $connection BDDConnection for all table operations. This must
+	 * be a valid and connected BDDConnection unless it will cause an Error.
+	 * @param $errors reference to an Errors object. It will be set if an
+	 * error occurs during instanciation. If operation was successful, it
+	 * equals NULL
+	 *
+     */
 	{
 		parent::__construct ( $table, $connection, $errors );
-	}
-//------------------------------------------------------ Méthodes Magiques
-
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	} //---- End of constructor
 	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
+	
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
+
 	protected function isValidProperty ( $property )
-	// Mode d'emploi :
-	//vérifie dans la structure de la table si la propriété existe ou non
-	//
-	// Renvoie : 
-	//- vrai si tel est le cas;
-	//- faux sinon
-	//
-	// Contrat :
-	//
+	/**
+	 * Checks into table description if the property named $property
+	 * exists as a field in table
+	 *
+	 * @return true if property exists
+	 * @return false otherwise
+	 *
+     */
 	{
 		foreach ( $this->structure as $champ )
 		{
@@ -3578,22 +3721,17 @@ class MySQLTable extends BDDTable
 		}
 		
 		return false;
-	}
+	} //----- End of isValidProperty
 	
 	protected function bDDRecordToTableRecord ( BDDRecord $record )
-    // Mode d'emploi :
-    //transforme l'enregistrement fourni en paramètre en un enregistrement
-	//valable pour cette table. Cette fonction fait une intersection de l'
-	//enregistrement et de la structure de la table.
-	//
-	//Chaque donnée est par la meme encodée de facon sure pour les requetes
-	//
-	// Renvoie : 
-	//un objet de type BDDRecord contenant un enregistrement correspondant
-	//a la table
-	//
-    // Contrat :
-    //
+	/**
+	 * Computes conversion from a standard BDDRecord to a safe BDDRecord
+	 * for MySQL queries. It also computes an intersection between 
+	 * table fields and BDDRecord properties.
+	 *
+	 * @return a BDDRecord ready to be saved/updated into table
+	 *
+     */
 	{
 		$tableRecord = new BDDRecord();
 		
@@ -3606,25 +3744,25 @@ class MySQLTable extends BDDTable
 		}
 		
 		return $tableRecord;
-	}
+	} //----- End of bDDRecordToTableRecord
+//------------------------------------------------------ protected members
 
-//----------------------------------------------------- Attributs protégés
 }
 
-//-------------------------------- Autres définitions dépendantes de <MySQLTable>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |TemplateError.php|  -  description
+                           |TemplateError.php|
                              -------------------
     start                : |11.02.2006|
-    copyright            : (C) 2006 by BERLIAT Cyrille
+    copyright            : (C) 2006 par BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <TemplateError> class (file TemplateError.php) -----------------
-if (defined('TEMPLATEERROR_H'))
+//-------------- class <TemplateError> (file TemplateError.php) -----------------
+/*if (defined('TEMPLATEERROR_H'))
 {
     return;
 }
@@ -3632,11 +3770,9 @@ else
 {
 
 }
-define('TEMPLATEERROR_H',1);
+define('TEMPLATEERROR_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -3645,51 +3781,45 @@ define('TEMPLATEERROR_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <TemplateError> class
-//Extension of the Error class, implements constants for specific
-//Template errors
-//
+/*!
+ * Provides specific constants for Template's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class TemplateError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
+	/** Tag does not exists */
     const TEMPLATE_TAG_INEXISTANT = 'TEMPLATE_TAG_INEXISTANT';
-    const TEMPLATE_MAQUETTE_INEXISTANT = 'TEMPLATE_MAQUETTE_INEXISTANT';
 
-//--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
+//--------------------------------------------------------- public methods
 
 //---------------------------------------------- Constructors - destructor
     
 //---------------------------------------------------------- Magic Methods
 
 //---------------------------------------------------------------- PRIVATE 
-
+    
 //------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//----------------------------------------------------- Others definitions
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |Template.php|  -  description
+                           |Template.php|
                              -------------------
-    début                : |11.02.2006|
+    start                : |11.02.2006|
     copyright            : (C) 2006 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <Template> class (file Template.php) -----------------
-if (defined('TEMPLATE_H'))
+//-------------- Class <Template> (file Template.php) -----------------
+/*if (defined('TEMPLATE_H'))
 {
     return;
 }
@@ -3697,11 +3827,9 @@ else
 {
 
 }
-define('TEMPLATE_H',1);
+define('TEMPLATE_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -3709,51 +3837,57 @@ define('TEMPLATE_H',1);
 
 //------------------------------------------------------------------ Types 
 
-//------------------------------------------------------------------------  
-// Role of <Template> class
-//
-//
+//------------------------------------------------------------------------ 
+/*!
+ * A template is an object that refers to child objects, templates also.
+ * It uses a skeleton to place subTemplates.
+ * By recurrent generation of content, it lets us create many documents
+ * like WebPages.
+ *
+ * This class implements basic methods and constants for Template-s.
+ */
 //------------------------------------------------------------------------ 
 
 class Template extends AbstractClass
 {
 //----------------------------------------------------------------- PUBLIC
+
+	/** Char for opening Tags */
 	const TAG_OPEN = '[';
+	
+	/** Char for closing Tags */
 	const TAG_CLOSE = ']';
+	
+	/** new line char */
 	const NEWLINE = "\n";
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
-    
+
     public static function BuildTag ( $tagName )
-    // User's manual :
-    //builds a Tag from TAG_OPEN $tagName and TAG_CLOSE
-    //
-    // Returns :
-    //
-    // Contrat :
-    //tagName must not contain TAG_OPEN or TAG_CLOSE value.
+    /**
+     * builds a Tag from TAG_OPEN, $tagName and TAG_CLOSE
+     *
+	 * @param $tagName the name of the tag to be generated
+	 *
+     * @return the valid tag built for $tagName with TAG_OPEN and TAG_CLOSE chars
+	 */
     {
         return self::TAG_OPEN. $tagName. self::TAG_CLOSE;
-    } //----- Fin de BuildTag
+    } //----- End of BuildTag
     
-    public function SetMaquette ( $maquette )
-    // User's manual :
-    //assign $maquette to page skeleton
-    //
-    // Returns :
-    //
-    // Contrat :
-    //the skeleton may has the [TAG] you'll set
+    public function SetSkeleton ( $skeleton )
+    /**
+     * Sets page skeleton to $skeleton.
+     * the skeleton may has the [TAG] you'll set.
+	 *
+	 * @param $skeleton the skeleton to be set
+	 *
+	 */
     {
-        $this->maquette = $maquette;
-    } //----- Fin de SetMaquette
+        $this->skeleton = $skeleton;
+    } //----- End of SetSkeleton
     
-    /*public function GetMaquette ( )
+    /*public function GetSkeleton ( )
     // User's manual :
     //get the skeleton of the page.
     //
@@ -3762,67 +3896,67 @@ class Template extends AbstractClass
 	//
     // Contrat :
     {
-        return $this->maquette;
-    } //----- Fin de SetMaquette*/
+        return $this->skeleton;
+    } //----- End of SetSkeleton*/
     
-    public function SetTag ( $tag , Template $value )
-    // User's manual :
-    //assign a template $value to a [TAG] 
-	//$tag IS NOT [TAG] but only TAG, without the []
-    //
-    // Contract :
-    //the skeleton you've set may contain the [$tag]
-	//$value must be != than null
+    public function SetTag ( $tagName , Template & $value )
+    /**
+     * Assigns sub-Template $value to the tag named $tagName.
+     * The skeleton you've set may contain the tag named $tag
+	 *
+	 * @param $tagName the name of the tag to be set
+	 * @param $value the sub-Template to assign to tag
+	 *
+	 */
     {
-        $this->tags[ self::TAG_OPEN.$tag. self::TAG_CLOSE ] = $value;
-    } //----- Fin de SetTag
+        $this->tags[ $this->BuildTag ( $tagName ) ] = $value;
+    } //----- End of SetTag
     
-    public function GetTag ( $tag )
-    // User's manual :
-    //get the Template object assigned to a [$tag]
-    //
-    // Returns :
-    //- an object of type Errors if an error has been met
-    //- an object of type Template.
-	//
-	// Errors :
-	//- TemplateError::TEMPLATE_TAG_INEXISTANT, the tag has neve
-	//been assigned
-    //
-    // Contrat :
-    //the skeleton you've set may contain the [$tag]
+    public function GetTag ( $tagName )
+    /**
+     * Gets sub-Template assigned to tag named $tagName.
+     * The skeleton you've set may contain the tag named $tag.
+	 *
+	 * @param $tagName the name of the tag to be gotten
+	 *
+	 * @return The Template object assigned to the tag named $tagName if it exists.
+	 * @return TemplateError::TEMPLATE_TAG_INEXISTANT if tag named $tagName
+	 * doesn't exist.
+	 *
+	 */
     {
-        if ( $this->TagExists( $tag ) )
+        if ( $this->TagExists( $tagName ) )
         {
-            return $this->tags[  self::TAG_OPEN.$tag. self::TAG_CLOSE ];
+            return $this->tags[  $this->BuildTag ( $tagName ) ];
         }
         else
         {
             $errs = new Errors ( );
             
-            $errs->Add( new TemplateError( TemplateError::TEMPLATE_TAG_INEXISTANT , 'The tag '. self::BuildTag( $tag ) . ' doesn\'t exist.' ) );
+            $errs->Add( new TemplateError( TemplateError::TEMPLATE_TAG_INEXISTANT , 'The tag named '. $tag  . ' doesn\'t exist.' ) );
             
             return $errs;
         }
-    } //----- Fin de GetTag
+    } //----- End of GetTag
     
-    public function AddToTag ( $tag, $value )
-    // User's manual :
-    //add the $value to the skeleton of the object specified by his $tag
-    //
-    // Returns :
-    //- an object of type Errors if an error has been met
-    //- null instead.
-	//
-	// Errors :
-	//- TemplateError::TEMPLATE_TAG_INEXISTANT, the tag has neve
-	//been assigned
-    //
-    // Contrat :
+    public function AddToTag ( $tagName, $value )
+    /**
+     * Adds $value to the Template's skeleton associated to the tag named $tagName
+     * The skeleton you've set may contain the tag named $tag.
+	 *
+	 * @param $tagName the name of the tag to be gotten for update
+	 * @param $value the string to be added to skeleton of Template associated to tag
+	 * named $tagName
+	 *
+	 * @return NULL if operation was successful
+	 * @return TemplateError::TEMPLATE_TAG_INEXISTANT if tag named $tagName
+	 * doesn't exist.
+	 *
+	 */
     {
-        if ( $this->TagExists( $tag ) )
+        if ( $this->TagExists( $tagName ) )
         {
-			$this->GetTag ( $tag )->maquette .= $value;
+			$this->GetTag ( $tagName )->skeleton .= $value;
 
 			return null;
         }
@@ -3830,34 +3964,37 @@ class Template extends AbstractClass
         {
             $errs = new Errors ( );
             
-            $errs->Add( new TemplateError( TemplateError::TEMPLATE_TAG_INEXISTANT , 'The tag '. Template::BuildTag( $tag ) . ' doesn\'t exist.' ) );
+            $errs->Add( new TemplateError( TemplateError::TEMPLATE_TAG_INEXISTANT , 'The tag named '. $tag . ' doesn\'t exist.' ) );
             
             return $errs;
         }
-    } //----- Fin de AddToTag
+    } //----- End of AddToTag
     
-    public function TagExists ( $tag )
-    // User's manual :
-    //returns whether the tag [$tag] exists
-    //
-    // Returns :
-    //- true if [$tag] exists,
-	//- false else
-	//
-    // Contrat :
+    public function TagExists ( $tagName )
+    /**
+     * Checks if the tag named $tagName exist or not.
+	 *
+	 * @param $tagName the name of the tag to be checked
+	 *
+	 * @return true if tag exists
+	 * @return false otherwise
+	 *
+	 */
     {
-        return isset ( $this->tags[ Template::BuildTag( $tag ) ] );
+        return isset ( $this->tags[ Template::BuildTag( $tagName ) ] );
     } //----- End of TagExists
     
     public function Generate( )
-    // User's manual :
-    //Use the template to generate a child of model
-    //
-    // Returns :
-    //a string that contains the generated contents
-    //
+    /**
+     * Generates a printable version of object for final print out.
+	 * It replaces each tag by it's Template Generated value.
+	 * So it generate final document by hierarchy.
+	 *
+	 * @return printable version of document
+	 *
+	 */
     {
-		$generated = $this->maquette;
+		$generated = $this->skeleton;
 
 		foreach ( $this->tags as $tag => $value )
 		// replace tags by value, generated by subtemplates...
@@ -3871,23 +4008,34 @@ class Template extends AbstractClass
     
 //-------------------------------------------- Constructors - destructors
     public function __construct( )
-    // User's manual :
-	//instanciate an object of type Template
-    //
-    // Contrat :
-    //
+	/**
+	 * instanciates a Template.
+	 *
+	 */
     {
+		parent::__construct();
+	
         $this->tags = array();
     } //---- End of __construct
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
+		parent::__destruct();
+	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
 	public function __ToString ()
-    // User's manual :
-    //
-    // Returns :
-	//
-    // Contrat :
-    //
+    /**
+	 * Returns a printable version of object for final print out.
+	 *
+	 * @return String printable on screen
+	 *
+	 * @see Template::Generate()
+	 * 
+	 */
 	{
 		return $this->Generate ( );
 	} // End of __ToString
@@ -3898,8 +4046,11 @@ class Template extends AbstractClass
 
 //--------------------------------------------------- protected properties
 
-    protected $maquette;
-    protected $tags; // tags de remplacement
+	/** Skeleton of the page, places sub-Template-s by [tags-name] */
+    protected $skeleton;
+	
+	/** Array of Template-s indexed by tag name */
+    protected $tags;
 }
 
 //----------------------------------------------------- Others definitions
@@ -3907,15 +4058,15 @@ class Template extends AbstractClass
 
 
 /*************************************************************************
-                           |XHTMLTemplate.php|  -  description
+                           |XHTMLTemplate.php|
                              -------------------
     début                : |11.02.2006|
     copyright            : (C) 2006 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <XHTMLTemplate> class (file XHTMLTemplate.php) -----------------
-if (defined('XHTMLTemplate_H'))
+//-------------- Class <XHTMLTemplate>  (file XHTMLTemplate.php) -----------------
+/*if (defined('XHTMLTemplate_H'))
 {
     return;
 }
@@ -3923,11 +4074,9 @@ else
 {
 
 }
-define('XHTMLTemplate_H',1);
+define('XHTMLTemplate_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -3935,10 +4084,10 @@ define('XHTMLTemplate_H',1);
 
 //------------------------------------------------------------------ Types 
 
-//------------------------------------------------------------------------  
-// Role of <XHTMLTemplate> class
-//
-//
+//------------------------------------------------------------------------ 
+/*!
+ * Basic XHTMLTemplate.
+ */
 //------------------------------------------------------------------------ 
 
 class XHTMLTemplate extends Template
@@ -3946,15 +4095,38 @@ class XHTMLTemplate extends Template
 //----------------------------------------------------------------- PUBLIC
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
+    public function __construct( )
+	/**
+	 * instanciates a Template.
+	 *
+	 */
+    {
+		parent::__construct();
+    } //---- End of __construct
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
+		parent::__destruct();
+	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
+	public function __ToString ()
+    /**
+	 * Returns a printable version of object for final print out.
+	 *
+	 * @return String printable on screen
+	 *
+	 * @see Template::Generate()
+	 * 
+	 */
+	{
+		return $this->Generate ( );
+	} // End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
@@ -3969,15 +4141,15 @@ class XHTMLTemplate extends Template
 
 
 /*************************************************************************
-                           |XHTMLBodyTemplate.php|  -  description
+                           |XHTMLBodyTemplate.php|
                              -------------------
-    début                : |11.02.2006|
+    start                : |11.02.2006|
     copyright            : (C) 2006 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <XHTMLBodyTemplate> class (file XHTMLBodyTemplate.php) -----------------
-if (defined('XHTMLBODYTEMPLATE_H'))
+//-------------- Class <XHTMLBodyTemplate> (file XHTMLBodyTemplate.php) -----------------
+/*if (defined('XHTMLBODYTEMPLATE_H'))
 {
     return;
 }
@@ -3985,11 +4157,9 @@ else
 {
 
 }
-define('XHTMLBODYTEMPLATE_H',1);
+define('XHTMLBODYTEMPLATE_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -3997,96 +4167,128 @@ define('XHTMLBODYTEMPLATE_H',1);
 
 //------------------------------------------------------------------ Types 
 
-//------------------------------------------------------------------------  
-// Role of <XHTMLBodyTemplate> class
-//
-//
+//------------------------------------------------------------------------ 
+/*!
+ * XHTMLTemplate extention. Representents the Body tag of an XHTMLPage
+ * with its contents and its parameters.
+ */
 //------------------------------------------------------------------------ 
 
 class XHTMLBodyTemplate extends XHTMLTemplate
 {
 //----------------------------------------------------------------- PUBLIC
-	
+	/** Page Content Tag Name */
 	const TAG_CONTENT = 'CONTENT';
+	
+	/** Param Page Body Tag Name */
 	const TAG_PARAMS = 'PARAMS';
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
 	
     public function AddContent ( $content )
-    // Mode d'emploi :
-    //add raw XHTML $content to the current content of the body.
-	// content of the page is value associated to the tag TAG_CONTENT
-	//
-    // Contrat :
-    //raw XHTML must be correct
+    /**
+     * Adds raw XHTML $content to the current content of the body.
+	 * Content of the page is value associated to the tag named TAG_CONTENT.
+	 *
+	 * Raw XHML $content may be valid.
+     *
+	 * @param $content the raw XHTML to be added
+	 *
+	 */
     {
 		$this->AddToTag ( self::TAG_CONTENT, $content );
     } //----- End of AddContent
 	
     public function SetContent ( $content )
-    // Mode d'emploi :
-    //set the content of the page with the given $content
-	//
-	// Returns :
-	//
-    // Contrat :
-    //raw XHTML must be correct
+    /**
+     * Sets raw XHTML $content as the current content of the body.
+	 * Content of the page is value associated to the tag named TAG_CONTENT.
+	 *
+	 * Raw XHML $content may be valid.
+     *
+	 * @param $content the raw XHTML to be set
+	 *
+	 */
     {
 		$temp = new Template ();
-		$temp->SetMaquette ( $content );
+		$temp->SetSkeleton ( $content );
 		
         $this->SetTag ( self::TAG_CONTENT, $temp );
     } //----- End of SetContent
 	
     public function AddParams ( $params )
-    // Mode d'emploi :
-    //add raw XHTML $params to the current parameters of the body.
-	// params of the body is value associated to the tag TAG_PARAMS
-	//
-    // Contrat :
-    //raw XHTML must be correct
+    /**
+     * Adds raw XHTML $params to the current parameters of the body XHTML tag.
+	 * Parameters of the body tag is value associated to the tag named TAG_PARAMS.
+	 *
+	 * Raw XHML $params may be valid.
+     *
+	 * @param $params the raw XHTML to be added
+	 *
+	 */
     {
 		$this->AddToTag ( self::TAG_PARAMS, $params );
     } //----- End of AddParams
 	
     public function SetParams ( $params )
-    // Mode d'emploi :
-    //set the parameters of the page with the given $params
-	//
-    // Contrat :
-    //raw XHTML must be correct
+    /**
+     * Sets raw XHTML $params as the current parameters of the body XHTML tag.
+	 * Parameters of the body tag is value associated to the tag named TAG_PARAMS.
+	 *
+	 * Raw XHML $params may be valid.
+     *
+	 * @param $params the raw XHTML to be set
+	 *
+	 */
     {
 		$temp = new Template ();
-		$temp->SetMaquette ( $content );
+		$temp->SetSkeleton ( $content );
 		
         $this->SetTag ( self::TAG_PARAMS, $temp );
     } //----- End of SetParams
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
 	function __construct () 
-    // User's manual :
-    //
-    // Contract :
-	//
+	/**
+	 * instanciates a XHTMLBodyTemplate.
+	 * Sets a default skeleton and initialises XHTMLTemplates for tags
+	 * named TAG_CONTENT and TAG_PARAMS
+	 *
+	 */
 	{
 		parent::__construct();
 		
-		$this->maquette =
+		$this->SetSkeleton(
 '<body '. Template::BuildTag( self::TAG_PARAMS ) .'>
 '. Template::BuildTag( self::TAG_CONTENT ).'
-</body>';
+</body>');
 
 		$this->SetTag ( self::TAG_CONTENT, new XHTMLTemplate() ); 
 		$this->SetTag ( self::TAG_PARAMS, new XHTMLTemplate() ); 
 
-	} // end of __construct
+	} //---- End of __construct
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
+		parent::__destruct();
+	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
+	public function __ToString ()
+    /**
+	 * Returns a printable version of object for final print out.
+	 *
+	 * @return String printable on screen
+	 *
+	 * @see Template::Generate()
+	 * 
+	 */
+	{
+		return $this->Generate ( );
+	} // End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
@@ -4101,15 +4303,15 @@ class XHTMLBodyTemplate extends XHTMLTemplate
 
 
 /*************************************************************************
-                           |XHTMLHeadersTemplate.php|  -  description
+                           |XHTMLHeadersTemplate.php|
                              -------------------
     début                : |11.02.2006|
     copyright            : (C) 2006 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <XHTMLHeadersTemplate> class (file XHTMLHeadersTemplate.php) -----------------
-if (defined('XHTMLHEADERSTEMPLATE_H'))
+//-------------- Class <XHTMLHeadersTemplate> (file XHTMLHeadersTemplate.php) -----------------
+/*if (defined('XHTMLHEADERSTEMPLATE_H'))
 {
     return;
 }
@@ -4117,7 +4319,7 @@ else
 {
 
 }
-define('XHTMLHEADERSTEMPLATE_H',1);
+define('XHTMLHEADERSTEMPLATE_H',1);*/
 
 //-------------------------------------------------------- system Includes
 
@@ -4129,73 +4331,94 @@ define('XHTMLHEADERSTEMPLATE_H',1);
 
 //------------------------------------------------------------------ Types 
 
-//------------------------------------------------------------------------  
-// Role of <XHTMLHeadersTemplate> class
-//
-//
+//------------------------------------------------------------------------ 
+/*!
+ * XHTMLTemplate extention. Representents the Headers tag of an XHTMLPage.
+ * Headers are managed with raw XHTML for more simplicity.
+ */
 //------------------------------------------------------------------------ 
 
 class XHTMLHeadersTemplate extends XHTMLTemplate
 {
 //----------------------------------------------------------------- PUBLIC
-	
+	/** Headers Content Tag Name */
 	const TAG_HEADERS = 'HEADERS';
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
 	
     public function AddHeaders ( $headers )
-    // Mode d'emploi :
-    //add raw XHTML $headers to the current headers of the head.
-	// heades of the heads is value associated to the tag TAG_HEADERS
-	//
-	//it automatiquely adds a NEWLINE to the $headers
-	// 
-    // Contrat :
-    //raw XHTML must be correct
+	/**
+     * Adds raw XHTML $headers to the current headers.
+	 * Headers of the heads is value associated to the tag TAG_HEADERS.
+	 *
+	 * It automatiquely adds a NEWLINE to the $headers.
+	 *
+	 * Raw XHTML may be correct.
+	 *
+	 * @param $headers The raw XHTML header(s) to be added.
+	 */
     {
-		$this->AddToTag ( self::TAG_HEADERS, $headers.self::NEWLINE );
+		$this->AddToTag ( self::TAG_HEADERS, $headers . self::NEWLINE );
     } //----- End of AddHeaders
 	
     public function SetHeaders ( $headers )
-    // Mode d'emploi :
-    //set the headers of the head with the given $headers
-	//
-	// Returns :
-	//
-    // Contrat :
-    //raw XHTML must be correct
+	/**
+     * Sets raw XHTML $headers as the current headers.
+	 * Headers of the heads is value associated to the tag TAG_HEADERS.
+	 *
+	 * Raw XHTML may be correct.
+	 *
+	 * @param $headers The raw XHTML header(s) to be set.
+	 */
     {
 		$temp = new Template ();
-		$temp->SetMaquette ( $headers );
+		$temp->SetSkeleton ( $headers );
 		
         $this->SetTag ( self::TAG_HEADERS, $temp );
     } //----- End of SetHeaders
 
 //-------------------------------------------- Constructeurs - destructeur
 	function __construct () 
-    // User's manual :
-    //
-    // Contract :
-	//
+	/**
+	 * instanciates a XHTMLHeadersTemplate.
+	 * Sets a default skeleton for head tag.
+	 * Initialises XHTMLTemplate for the raw headers.
+	 *
+	 */
 	{
 		parent::__construct();
 		
-		$this->maquette = 
+		$this->SetSkeleton ( 
 '<head>
 
 '. Template::BuildTag( self::TAG_HEADERS ) .'
-</head>';
+</head>'	);
 
 		$this->SetTag ( self::TAG_HEADERS, new XHTMLTemplate() ); 
 
-	} // end of __construct
+	} //---- End of __construct
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
+		parent::__destruct();
+	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
+	public function __ToString ()
+    /**
+	 * Returns a printable version of object for final print out.
+	 *
+	 * @return String printable on screen
+	 *
+	 * @see Template::Generate()
+	 * 
+	 */
+	{
+		return $this->Generate ( );
+	} // End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
@@ -4210,305 +4433,15 @@ class XHTMLHeadersTemplate extends XHTMLTemplate
 
 
 /*************************************************************************
-                           |LocatorItem.php|  -  description
-                             -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
-*************************************************************************/
-
-//---------- Interface de la classe <LocatorItem> (fichier LocatorItem.php) --------------
-if (defined('LOCATORITEM_H'))
-{
-    return;
-}
-else
-{
-
-}
-define('LOCATORITEM_H',1);
-
-//-------------------------------------------------------- Include système
-
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
-
-//----------------------------------------------------------------- PUBLIC
-
-//------------------------------------------------------------------ Types 
-
-//------------------------------------------------------------------------ 
-// Rôle de la classe <LocatorItem>
-//Gestion d'une partie de localisation à l'aide d'un label et d'une url
-//associée
-//
-//------------------------------------------------------------------------ 
-
-class LocatorItem extends AbstractClass
-{
-//----------------------------------------------------------------- PUBLIC
-
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
-    public function GetLabel( )
-    // Mode d'emploi :
-    //Retourne le label de l'item
-    //
-    // Algorithme : 
-    //trivial
-    {
-        return $this->label;
-    }
-    
-    public function GetURL( )
-    // Mode d'emploi :
-    //Retourne l'URL associée au label
-    //
-    // Algorithme : 
-    //trivial
-    {
-        return $this->url;
-    }
-
-//-------------------------------------------- Constructeurs - destructeur
-    public function __construct( $label , $url )
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
-    {
-        $this->label = $label;
-        $this->url = $url;
-    } //---- Fin du constructeur
-    
-//------------------------------------------------------ Méthodes Magiques
-    public function __ToString ( )
-    // Mode d'emploi :
-    // permet l'affichage d l'item locator
-    // Contrat :
-    //
-    {
-        return '<a href="'.$this->url.'">'.$this->label.'</a>';
-    } // Fin de __ToString
-
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
-    protected $label;
-    protected $url;
-}
-
-//-------------------------------- Autres définitions dépendantes de <LocatorItem>
-
-
-
-/*************************************************************************
-                           |Locator.php|  -  description
-                             -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
-*************************************************************************/
-
-//---------- Interface de la classe <Locator> (fichier Locator.php) --------------
-if (defined('LOCATOR_H'))
-{
-    return;
-}
-else
-{
-
-}
-define('LOCATOR_H',1);
-
-//-------------------------------------------------------- Include système
-
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
-
-//----------------------------------------------------------------- PUBLIC
-
-//------------------------------------------------------------------ Types 
-
-//------------------------------------------------------------------------ 
-// Rôle de la classe <Locator>
-//Itérateur qui gère une liste d'erreurs de type Error ou descendant
-//
-//------------------------------------------------------------------------ 
-
-class Locator extends AbstractClass implements Iterator, AbstractIterator
-{
-//----------------------------------------------------------------- PUBLIC
-
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //  
-
-    public function Add( AbstractClass $item )
-    // Mode d'emploi :
-    //Ajoute un ancrage locator à la liste
-    //
-    {
-        $this->items[ $this->GetCount() ] = $item;
-    } //---- Fin de AddError
-
-    public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des items
-    //
-    {
-        unset($this->items);
-        
-        $this->items = array();
-    } //---- Fin de DelAll
-
-    public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre d'items contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'items contenus
-    {
-        return count( $this->items );
-    } //---- Fin de GetCount
-    
-//-----------------------------------------------Implémentation Iterator
-    public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
-    {
-        reset( $this->items );
-    } //--- Fin de Rewind
-
-    public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
-    {
-        return current( $this->items );
-    } //---- fin de Current
-    
-    public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le code de l'erreur pointée par la liste
-    //
-    {
-        return $this->current( )->getCode( );
-    } //---- Fin de Key
-    
-    public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
-    {
-        return next( $this->items );
-    } //---- Fin de Next
-    
-    public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
-    {
-        return $this->current( ) !== false;
-    } //---- Fin de Valid
-//---------------------------------------------Fin implémentation Iterator
-    
-//-------------------------------------------- Constructeurs - destructeur
-    public function __construct( )
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
-    {
-    	$this->items = array( );
-    } //---- Fin du constructeur
-
-//------------------------------------------------------ Méthodes Magiques
-
-    public function __ToString ()
-    // Mode d'emploi :
-    //Réalise une conversion des erreurs en String
-    //
-    // Algorithme : 
-    //foreach( $this )
-    {
-        $count = $this->getCount( );
-        
-        if ( $count == 0 ) 
-        {
-            unset( $count );
-        
-            return '';
-        }
-        else
-        {
-            $str = '<a href="'.$this->items[0]->getURL().'">'.$this->items[0]->getLabel().'</a> ';
-            
-            for ( $i = 1; $i < $count; $i++ )
-            {
-                $str .= ' &gt; <a href="'.$this->items[$i]->getURL().'">'.$this->items[$i]->getLabel().'</a> ';
-            }
-            
-            unset( $count );
-            
-            return $str;
-        }        
-    }
-
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
-    protected $items;
-}
-
-//-------------------------------- Autres définitions dépendantes de <Locator>
-
-
-
-/*************************************************************************
-                           |XHTMLPageTemplate.php|  -  description
+                           |XHTMLPageTemplate.php|
                              -------------------
     début                : |11.02.2006|
     copyright            : (C) 2006 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <XHTMLPageTemplate> class (file XHTMLPageTemplate.php) -----------------
-if (defined('XHTMLPAGETEMPLATE_H'))
+//-------------- Class <XHTMLPageTemplate> (file XHTMLPageTemplate.php) -----------------
+/*if (defined('XHTMLPAGETEMPLATE_H'))
 {
     return;
 }
@@ -4516,7 +4449,7 @@ else
 {
 
 }
-define('XHTMLPAGETEMPLATE_H',1);
+define('XHTMLPAGETEMPLATE_H',1);*/
 
 //-------------------------------------------------------- system Includes
 
@@ -4528,36 +4461,34 @@ define('XHTMLPAGETEMPLATE_H',1);
 
 //------------------------------------------------------------------ Types 
 
-//------------------------------------------------------------------------  
-// Role of <XHTMLPageTemplate> class
-//
-//
+//------------------------------------------------------------------------ 
+/*!
+ * XHTMLTemplate extention. Representents a XHTML Page with its body and
+ * its headers.
+ */
 //------------------------------------------------------------------------ 
 
 class XHTMLPageTemplate extends XHTMLTemplate
 {
 //----------------------------------------------------------------- PUBLIC
 	
+	/** Page Body Tag Name */
 	const TAG_BODY = 'BODY';
+	
+	/** Page Headers Tag Name */
 	const TAG_HEADERS = 'HEAD';
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
     
-    public static function ConvertIntoSGML($source)
-    // Mode d'emploi :
-    //convert the string $source into a valid SGML string
-    //
-    // Renvoie :
-    //the cleaned string
-    //
-    // Algorithme :
-	//parse char by char of the string. If an ASCII char is > 127
-	//it will ve converted as &#asciicode;
+    public static function ConvertIntoSGML( $source )
+    /**
+     * Converts $source string into valid SGML string char by char.
+	 *
+	 * @param $source The source string to be converted
+	 *
+	 * @return the valid SGML string that correspond to $source string
+	 *
+	 */
     {
         $newString = '';
         
@@ -4569,75 +4500,64 @@ class XHTMLPageTemplate extends XHTMLTemplate
         
         return $newString;
     } //----- End of ConvertIntoSGML
-
-
-	
-    /*public function GetLocator ( )
-    // Mode d'emploi :
-    //get the Locator menu
-	//
-	// Returns :
-	//- the locator menu of the XHTML page
-	//
-    // Contrat :
-    //
-    {
-        return $this->menuLocator;
-    } //----- End of GetLocator*/
 	
     public function GetBody ( )
-    // Mode d'emploi :
-    //get the Body of the XHTML Page
-	//
-	// Returns :
-	//- the Body as an XHTMLBodyTemplate
-	//
-    // Contrat :
-    //
+    /**
+     * Gets the XHTMLHeadersTemplate that corresponds to body tag named 
+	 * TAG_BODY.
+	 *
+	 * @return the XHTMLHeadersTemplate object that corresponds to head 
+	 * tag named TAG_HEADERS.
+	 *
+	 */
     {
         return $this->GetTag ( self::TAG_BODY );
     } //----- End of GetBody
 	
     public function GetHeaders ( )
-    // Mode d'emploi :
-    //get the Headers of the XHTML Page
-	//
-	// Returns :
-	//- the Headers as an XHTMLHeadersTemplate
-	//
-    // Contrat :
-    //
+    /**
+     * Gets the XHTMLHeadersTemplate that corresponds to TAG_HEADERS tag of the page.
+	 *
+	 * @return the XHTMLHeadersTemplate object that corresponds to TAG_HEADERS tag of the page.
+	 *
+	 */
     {
         return $this->GetTag ( self::TAG_HEADERS );
     } //----- End of GetHeaders
 
-
 	
 	public function Generate ( )
-	// Mode d'emploi :
-	//génère une page XHTML en convertissant les caractères non SGML en 
-	//SGML
-	//
-	// Renvoie :
-	//la page générée en XHTML
-	//
-	// Contrat :
-	//
+    /**
+     * Generates a printable version of object for final print out.
+	 * It replaces each tag by it's Template Generated value.
+	 * So it generate final document by hierarchy.
+	 *
+	 * The final document's characters are converted into valid SGML ones.
+	 *
+	 * @return printable version of document with valid SGML characters.
+	 *
+	 * @see Template::Generate()
+	 * @see XHTMLPageTemplate::ConvertIntoSGML();
+	 *
+	 */
 	{
 		return self::ConvertIntoSGML ( parent::Generate() );
 	} //------ End of Generate
 
 //-------------------------------------------- Constructeurs - destructeur
 	function __construct () 
-    // User's manual :
-    //
-    // Contract :
-	//
+	/**
+	 * instanciates a XHTMLPageTemplate.
+	 * Sets a default skeleton for valid XHTML1.1.
+	 * Initialises XHTMLBodyTemplate for the body tag named TAG_BODY
+	 * Initialises XHTMLHeadersTemplate for the head tag named TAG_HEADERS
+	 *
+	 */
 	{
 		parent::__construct();
 
 		//default skeleton for XHTML1.1
-		$this->maquette = 
+		$this->SetSkeleton ( 
 '<?xml version="1.1" encoding="iso-8859-1" standalone="no" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -4654,23 +4574,40 @@ class XHTMLPageTemplate extends XHTMLTemplate
 <!-- End of Body -->
 
 </html>
-<!-- End of XHTML Page -->';
+<!-- End of XHTML Page -->' );
 		
 		
 		$this->SetTag ( self::TAG_BODY, new XHTMLBodyTemplate() );
 		$this->SetTag ( self::TAG_HEADERS, new XHTMLHeadersTemplate() );
-
-		$this->menuLocator = new Locator ();
-	} // end of __construct
+	} //---- End of __construct
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
+		parent::__destruct();
+	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
+	public function __ToString ()
+    /**
+	 * Returns a printable version of object for final print out.
+	 *
+	 * @return String printable on screen
+	 *
+	 * @see Template::Generate()
+	 * 
+	 */
+	{
+		return $this->Generate ( );
+	} // End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
 //------------------------------------------------------ protected methods
 
 //--------------------------------------------------- protected properties
-    //protected $menuLocator;
 
 }
 
@@ -4765,7 +4702,7 @@ class XHTMLSitePage extends AbstractSitePage
     //
 	{
 		$exectime = new Template();
-		$exectime->SetMaquette ( round( microtime(true) - $applicationVars[ Application::SYSTEM_START_TIME ], 4 ) );
+		$exectime->SetSkeleton ( round( microtime(true) - $applicationVars[ Application::SYSTEM_START_TIME ], 4 ) );
 
 		$this->pageTemplate->GetBody()->SetTag( self::TAG_EXECUTION_TIME, $exectime );
 			
@@ -5021,15 +4958,15 @@ class WebSitePage extends XHTMLSitePage
 
 
 /*************************************************************************
-                           |GroupError.php|  -  description
+                           |GroupError.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <GroupError> (fichier GroupError.php) --------------
-if (defined('GROUPERROR_H'))
+//---------- Class <GroupError> (file GroupError.php) --------------
+/*if (defined('GROUPERROR_H'))
 {
     return;
 }
@@ -5037,66 +4974,59 @@ else
 {
 
 }
-define('GROUPERROR_H',1);
+define('GROUPERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <GroupError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs Group
-//
+/*!
+ * Provides specific constants for Group's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class GroupError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
-
-//------------------------------------------------------------- Constantes
+	/**
+	 * Requested Group has not been loaded from database or does not
+	 * exist
+	 */
     const GROUP_NOT_LOADED = 'GROUP_NOT_LOADED';
 
-    const GROUP_IDSITE_INEXISTANT = 'GROUP_IDSITE_INEXISTANT'; // référent IdSite inexistant
-	const GROUP_NAME_EMPTY = 'GROUP_NAME_EMPTY'; // nom de groupe vide
+	/** Requested Group has a non valid idSite referrent */
+    const GROUP_IDSITE_INEXISTANT = 'GROUP_IDSITE_INEXISTANT';
 	
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/** The Group has a an empty name */
+	const GROUP_NAME_EMPTY = 'GROUP_NAME_EMPTY';
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <GroupError>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
                            |TableGroupInterface.php|  -  description
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
     e-mail               : cyrille.berliat@free.fr
 *************************************************************************/
@@ -5229,15 +5159,15 @@ interface TableGroupInterface
 
 
 /*************************************************************************
-                           |Group.php|  -  description
+                           |Group.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Group> (fichier Group.php) --------------
-if (defined('GROUP_H'))
+//---------- Classe <Group> (file Group.php) --------------
+/*if (defined('GROUP_H'))
 {
     return;
 }
@@ -5245,72 +5175,72 @@ else
 {
 
 }
-define('GROUP_H',1);
+define('GROUP_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Group>
-//Gestion d'une entrée de table Group
-//
+/*!
+ * Provides specific methods for Group table entries
+ */
 //------------------------------------------------------------------------ 
 
 class Group extends BDDRecord
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function Validate ( $siteTable )
-    // Mode d'emploi :
-    //permettra de valider l'objet courant en vue d'une sauvegarde dans la base
-	//de données
-	//
-	//$siteTable doit etre une instance valide d'un BDDSiteGroup.
-	//Les classes candidates implémentes l'interface TableGroupInterface.
-	//
-	// Renvoie :
-	//- NULL si l'objet est validé. Il sera alors prêt pour une sauvegarde
-	//- un objet de type Errors contenant les erreurs qui empêchent la validation
-	//
-    // Contrat :
-    //
+    /**
+	 * Tries to validate the Site in order to save it into DataBase.
+     *
+	 * @param $siteTable a BDDTableSite object (where BDD should be
+	 * replaced by your current Database : eg. MySQLTableSite). A valid 
+	 * BDDTableSite implements TableSiteInterface
+	 *
+     * @return - NULL if object has been validated
+	 * @return - an Errors object in case of error(s) :
+	 *
+	 * @return GroupError::GROUP_NAME_EMPTY if property 
+	 * TableGroup::TABLE_COLUMN_NAME is empty
+	 *
+	 * @return BDDError::TABLE_CLASS_INCORRECT if $groupTable is not a 
+	 * valid instance
+     *
+	 * @return GroupError::GROUP_IDSITE_INEXISTANT if property 
+	 * TableSite::TABLE_COLUMN_IDSITE refers to a non existant site
+	 *
+     */
 	{
 		$errors = new Errors ();
 	
 		// login
 			if ( empty( $this->row[ TableGroup::TABLE_COLUMN_NAME ] ) )
 			{
-				$errors->Add ( new GroupError ( GroupError::GROUP_NAME_EMPTY, 'Veuillez saisir un nom d\'utilisateur.') );
+				$errors->Add ( new GroupError ( GroupError::GROUP_NAME_EMPTY, 'Please fill in group name.') );
 			}
 	
 		// referent IdSite
 			if ( ! @in_array( 'TableSiteInterface', class_implements ( $siteTable ) ) )
 			{
-				$errors->Add( new BDDError ( BDDError::TABLE_CLASS_INCORRECT , 'Cet objet n\'est pas une instance de Table Site correcte.' ) );
+				$errors->Add( new BDDError ( BDDError::TABLE_CLASS_INCORRECT , 'Parameter is not a valid instance of BDDTableSite' ) );
 			} 
 			else
 			{
 				if ( ! $siteTable->IdSiteExists( $this->row[ TableSite::TABLE_COLUMN_IDSITE ]  ) )
 				{
-					$errors->Add ( new GroupError ( GroupError::GROUP_IDSITE_INEXISTANT, 'Le groupe n\'appartient à aucun site valide.') );
+					$errors->Add ( new GroupError ( GroupError::GROUP_IDSITE_INEXISTANT, 'Group does not refer to any site.') );
 				}
 			}
 			
-		// résultat
+		// result
 		if ( $errors->GetCount() == 0 )
 		{
 			$this->isValid = true;
@@ -5320,23 +5250,23 @@ class Group extends BDDRecord
 		
 		$this->isValid = false;
 		return $errors;
-	}
-	
-//-----------------------------------------------Implémentation Iterator
+	} //----- End of Validate
 
-//---------------------------------------------Fin implémentation Iterator
+//---------------------------------------------- Constructors - destructor
 
-//-------------------------------------------- Constructeurs - destructeur
-
-    function __construct( BDDRecord & $newRec )
-    // Mode d'emploi (constructeur) :
-    //instancie un objet de type Group à partir d'un objet de
-	//type BDDRecord en faisant une copie en profondeur.
-	//
-    // Contrat :
-    //
+    function __construct( BDDRecord $newRec )
+    /**
+	 * Initialises Site from the BDDRecord $newRec.
+	 * If $newRec is NULL, Group is empty.
+	 * Sets IsValid to false.
+	 *
+	 * @param $newRec a BDDRecord to copy/cast or NULL
+	 *
+     */
     {
-		// initialisation
+		parent::__construct( NULL );
+	
+		// initialization
 		$this->SetProperty ( TableGroup::TABLE_COLUMN_IDGROUP , '' );
 		$this->SetProperty ( TableGroup::TABLE_COLUMN_NAME , '' );
 		$this->SetProperty ( TableGroup::TABLE_COLUMN_OVERRIDE , '' );
@@ -5346,28 +5276,38 @@ class Group extends BDDRecord
 		{
 			$obj = (array)( $newRec);
 			
-			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] ); // hack php pour acceder
-			// a la prop protected $newRec->row
+			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] );
+			// php hack to access protected property $newRec->row
 		}
 		
 		$this->isValid = false;
-    } //---- Fin du constructeur
+    } //---- End of constructor
 	
-//------------------------------------------------------ Méthodes Magiques
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
+    
+//---------------------------------------------------------- Magic Methods
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 }
 
-//-------------------------------- Autres définitions dépendantes de <Group>
+//------------------------------------------------------ other definitions
 
 
 
@@ -5376,11 +5316,11 @@ class Group extends BDDRecord
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Groups> (fichier Groups.php) --------------
-if (defined('GROUPS_H'))
+//---------- Class <Groups> (file Groups.php) --------------
+/*if (defined('GROUPS_H'))
 {
     return;
 }
@@ -5388,47 +5328,43 @@ else
 {
 
 }
-define('GROUPS_H',1);
+define('GROUPS_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Groups>
-//
-//
+/*!
+ * Provides specific methods for Iterator of Group-s
+ */
 //------------------------------------------------------------------------ 
 
 class Groups extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
 	public function GetGroupByIdGroup ( $idGroup )
-	// Mode d'emploi :
-	//permet de récupérer le groupe d'id $idGroup.
-	//
-	// Renvoie :
-	//- un objet de type Group en cas de réussite
-	//- un objet de type Errors si la group n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the Group which property TableGroup::TABLE_COLUMN_IDGROUP
+	 * has the value $idGroup
+     *
+     * @param $idGroup the id of the Group to be looked for
+	 *
+     * @return - the Group object which property
+	 * TableGroup::TABLE_COLUMN_IDGROUP has the value $idGroup
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return GroupError::GROUP_NOT_LOADED if Group has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		if ( isset ( $this->groups [ $idGroup ] ) )
 		{
@@ -5437,23 +5373,27 @@ class Groups extends AbstractClass implements Iterator
 		else
 		{
 			$errors = new Errors ( );
-			$errors->Add ( new GroupError ( GroupError::GROUP_NOT_LOADED, 'Group non chargé ou inexistant.' ) );
+			$errors->Add ( new GroupError ( GroupError::GROUP_NOT_LOADED, 'Group not loaded from database or not existant.' ) );
 			
 			return $errors;
 		}
-	} //---- Fin de GetGroupByIdGroup
+	} //---- End of GetGroupByIdGroup
 	
 	public function GetGroupByName ( $nameGroup )
-	// Mode d'emploi :
-	//permet de récupérer le group de nom $nameGroup.
-	//
-	// Renvoie :
-	//- un objet de type Group en cas de réussite
-	//- un objet de type Errors si la group n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the Group which property TableGroup::TABLE_COLUMN_NAME
+	 * has the value $nameGroup
+     *
+     * @param $nameGroup the name of the Group to be looked for
+	 *
+     * @return - the Group object which property TableGroup::TABLE_COLUMN_NAME
+	 * has the value $nameGroup
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return GroupError::GROUP_NOT_LOADED if Group has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		foreach ( $this->groups as $group ) 
 		{
@@ -5464,172 +5404,196 @@ class Groups extends AbstractClass implements Iterator
 		}
 		
 		$errors = new Errors ( );
-		$errors->Add ( new GroupError ( GroupError::GROUP_NOT_LOADED, 'Group non chargé ou inexistant.' ) );
+		$errors->Add ( new GroupError ( GroupError::GROUP_NOT_LOADED, 'Group not loaded from database or not existant.' ) );
 			
 		return $errors;
-	} //---- Fin de GetGroupByName
+	} //---- End of GetGroupByName
 	
 	public function SetGroup ( Group $group )
-	// Mode d'emploi :
-	//permet de mettre en mémoire dans l'objet le groupe $group.
-	//
-	//Afin de la sauver dans la base de donnée, il est nécessaire d'appeler SaveGroups().
-	//
-	// Algorithme :
+    /**
+	 * Adds a Group to the Groups if it is different than NULL.
+	 * Alias of Groups::Add()
+     *
+     * @param $group the Group to add
+     *
+     */
 	{
 
 		$this->Add ( $group );
 
-	} //---- Fin de SetGroup
+	} //---- End of SetGroup
 	
-//------------------------------------------- Implémentation de MyIterator
+//---------------------------------------------- Iterator's Implementation
 
-    public function Add( Group $newVar )
-    // Mode d'emploi :
-    //Ajoute un group à la liste
-    //
+    public function Add( Group $item )
+    /**
+	 * Adds a Group to the Groups if it is different than NULL.
+	 * Group-s are indexed by TableGroup::TABLE_COLUMN_IDGROUP if possible.
+     *
+     * @param $item the Group to add
+     *
+     */
     {
-		$key = $newVar->GetProperty ( TableGroup::TABLE_COLUMN_IDGROUP );
+		if ( $item == NULL ) return;
+	
+		$key = $item->GetProperty ( TableGroup::TABLE_COLUMN_IDGROUP );
 	
 		if ( empty ( $key ) )
 		{
-			$this->groups [] = $newVar;		
+			$this->groups [] = $item;		
 		}
 		else
 		{
-			$this->groups [ $key ] = $newVar;
+			$this->groups [ $key ] = $item;
 		}
-    } //---- Fin de Add
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des groupes
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->groups);
         
         $this->groups = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre de groupes contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->groups );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//---------------------------------------------- Iterator's Implementation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->groups );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->groups );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'id du groupe pointé par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return Key ( $this->groups );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->groups );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
+    } //---- End of Valid
 
-//---------------------------------- Fin de l'implémentation de MyIterator
+//--------------------------------------- End of Iterator's implementation
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( BDDRecordSet $groups )
-    // Mode d'emploi (constructeur) :
-    //instancie des Groups à partir d'un BDDRecordSet
-	//
-    // Contrat :
-    //
+    /**
+	 * Initialises Groups from a BDDRecordSet.
+	 *
+     */
     {
+		parent::__construct();
+	
 		$this->groups = array();
 		
 		foreach ( $groups as $group )
 		{
 			$this->Add( new Group ( $group ) );
 		}		
-    } //---- Fin du constructeur
+    } //---- End of constructor
 
 
     public function __destruct ( )
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/**
+	 * Destructs ressources allocated
+	 */
     {
-    } //---- Fin du destructeur
+		parent::__destruct();
+    } //---- End of destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 	
-	protected $groups; // contient les groups de group
-	// sous forme de BDDRecord indexées par leur nom
+	/** 
+	 * Array of Group-s indexed by TableGroup::TABLE_COLUMN_IDGROUP if 
+	 * possible
+	 */
+	protected $groups;
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <Groups>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |MySQLTableGroup.php|  -  description
+                           |MySQLTableGroup.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLTableGroup> (fichier MySQLTableGroup.php) --------------
-if (defined('MYSQLTABLEGROUP_H'))
+//---------- Class <MySQLTableGroup> (file MySQLTableGroup.php) --------------
+/*if (defined('MYSQLTABLEGROUP_H'))
 {
     return;
 }
@@ -5637,34 +5601,28 @@ else
 {
 
 }
-define('MYSQLTABLEGROUP_H',1);
+define('MYSQLTABLEGROUP_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <MySQLTableGroup>
-//
-//
+/*!
+ * Provides specific methods for operations on Group Table for MySQL 
+ * Database.
+ */
 //------------------------------------------------------------------------ 
 
-class MySQLTableGroup extends MySQLTable
+class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function SaveGroups ( Groups $groups )
     // Mode d'emploi :
@@ -5703,7 +5661,7 @@ class MySQLTableGroup extends MySQLTable
 		}
 		
 		return NULL;
-	} //---- Fin de SaveGroups
+	} //---- End of SaveGroups
 
 	public function SelectGroups ()
     // Mode d'emploi :
@@ -5726,7 +5684,7 @@ class MySQLTableGroup extends MySQLTable
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de SelectGroups
+	} //---- End of SelectGroups
 	
 	
 	public function SelectGroupByIdGroup ( $idGroup )
@@ -5753,7 +5711,7 @@ class MySQLTableGroup extends MySQLTable
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de SelectGroupByIdGroup
+	} //---- End of SelectGroupByIdGroup
 	
 	
 	public function SelectGroupsByIdSite ( $idSite )
@@ -5780,7 +5738,7 @@ class MySQLTableGroup extends MySQLTable
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de SelectGroupsByIdSite
+	} //---- End of SelectGroupsByIdSite
 	
 	public function FindGroupsByName ( $groupName )
     // Mode d'emploi :
@@ -5808,7 +5766,7 @@ class MySQLTableGroup extends MySQLTable
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de FindGroupsByName
+	} //---- End of FindGroupsByName
 	
 	public function UpdateGroupByIdGroup ( Group $new )
     // Mode d'emploi :
@@ -5841,7 +5799,7 @@ class MySQLTableGroup extends MySQLTable
 		}
 		
 		return $this->Update( $new, $clauses );
-	} //---- Fin de UpdateGroupByIdGroup
+	} //---- End of UpdateGroupByIdGroup
 	
 	public function InsertGroup ( Group $group )
     // Mode d'emploi :
@@ -5855,7 +5813,7 @@ class MySQLTableGroup extends MySQLTable
 	// Contrat :
 	{
 		return $this->Insert ( $group );
-	} //---- Fin de InsertGroup
+	} //---- End of InsertGroup
 	
 	public function IdGroupExists ( $idGroup )
     // Mode d'emploi :
@@ -5874,37 +5832,32 @@ class MySQLTableGroup extends MySQLTable
 		return (! ($res InstanceOf Errors || $res->GetCount() == 0 ) );
 	}
 	
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
+
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <MySQLTableGroup>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |TableGroup.php|  -  description
+                           |TableGroup.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableGroup> (fichier TableGroup.php) --------------
-if (defined('TABLEGROUP_H'))
+//---------- Class <TableGroup> (file TableGroup.php) --------------
+/*if (defined('TABLEGROUP_H'))
 {
     return;
 }
@@ -5912,78 +5865,66 @@ else
 {
 
 }
-define('TABLEGROUP_H',1);
+define('TABLEGROUP_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableGroup>
-//
-//
+/*!
+ * Provides constants for Group table fields name
+ */
 //------------------------------------------------------------------------ 
 
 class TableGroup
 {
 //----------------------------------------------------------------- PUBLIC
 
+	/** Primary key field of the Group table */
 	const TABLE_COLUMN_IDGROUP = 'idgroup';
-	// clef primaire d'un utilisateur
 	
+	/** Group name field */
 	const TABLE_COLUMN_NAME = 'name';
-	// nom de l'utilisateur
 	
+	/** Group accesses field  : is this Group the most powerful ? */
 	const TABLE_COLUMN_OVERRIDE = 'override';
-	// ce groupe est-il omniscient et omnipotent
 	
+	/** Foreign key that refers to Site Table */
 	const TABLE_COLUMN_IDSITE = 'idsite';
-	// clef étrangère du site
-	
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableGroup>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |UserError.php|  -  description
+                           |UserError.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <UserError> (fichier UserError.php) --------------
-if (defined('USERERROR_H'))
+//---------- Class <UserError> (file UserError.php) --------------
+/*if (defined('USERERROR_H'))
 {
     return;
 }
@@ -5991,59 +5932,52 @@ else
 {
 
 }
-define('USERERROR_H',1);
+define('USERERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <UserError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs User
-//
+/*!
+ * Provides specific constants for User's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class UserError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
-
-//------------------------------------------------------------- Constantes
+	/**
+	 * Requested User has not been loaded from database or does not
+	 * exist
+	 */
     const USER_NOT_LOADED = 'USER_NOT_LOADED';
 
-    const USER_IDGROUP_INEXISTANT = 'USER_IDGROUP_INEXISTANT'; // référent IdGroup inexistant
-	const USER_LOGIN_EMPTY = 'USER_LOGIN_EMPTY'; // login vide
+	/** Requested Group has a non valid idGroup referrent */
+    const USER_IDGROUP_INEXISTANT = 'USER_IDGROUP_INEXISTANT';
 	
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/** The User has a an empty name/login */
+	const USER_LOGIN_EMPTY = 'USER_LOGIN_EMPTY';
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <UserError>
+//------------------------------------------------------ other definitions
 
 
 
@@ -6196,15 +6130,15 @@ interface TableUserInterface
 
 
 /*************************************************************************
-                           |User.php|  -  description
+                           |User.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <User> (fichier User.php) --------------
-if (defined('USER_H'))
+//---------- Classe <User> (file User.php) --------------
+/*if (defined('USER_H'))
 {
     return;
 }
@@ -6212,72 +6146,72 @@ else
 {
 
 }
-define('USER_H',1);
+define('USER_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <User>
-//Gestion d'une entrée de table User
-//
+/*!
+ * Provides specific methods for User table  entries
+ */
 //------------------------------------------------------------------------ 
 
 class User extends BDDRecord
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function Validate ( $groupTable )
-    // Mode d'emploi :
-    //permettra de valider l'objet courant en vue d'une sauvegarde dans la base
-	//de données
-	//
-	//$groupTable doit etre une instance valide d'un BDDTableGroup.
-	//Les classes candidates implémentes l'interface TableGroupInterface.
-	//
-	// Renvoie :
-	//- NULL si l'objet est validé. Il sera alors prêt pour une sauvegarde
-	//- un objet de type Errors contenant les erreurs qui empêchent la validation
-	//
-    // Contrat :
-    //
+    /**
+	 * Tries to validate the User in order to save it into DataBase.
+     *
+	 * @param $groupTable a BDDTableGroup object (where BDD should be
+	 * replaced by your current Database : eg. MySQLTableGroup). A valid 
+	 * BDDTableGroup implements TableGroupInterface
+	 *
+     * @return - NULL if object has been validated
+	 * @return - an Errors object in case of error(s) :
+	 *
+	 * @return UserError::USER_LOGIN_EMPTY if property 
+	 * TableUser::TABLE_COLUMN_NAME is empty
+	 *
+	 * @return BDDError::TABLE_CLASS_INCORRECT if $groupTable is not a 
+	 * valid instance
+	 *
+	 * @return UserError::USER_IDGROUP_INEXISTANT if User's group (property 
+	 * TableGroup::TABLE_COLUMN_IDGROUP) doesn't exists
+     *
+     */
 	{
 		$errors = new Errors ();
 	
 		// login
 			if ( empty( $this->row[ TableUser::TABLE_COLUMN_NAME ] ) )
 			{
-				$errors->Add ( new UserError ( UserError::USER_LOGIN_EMPTY, 'Veuillez saisir un nom d\'utilisateur.') );
+				$errors->Add ( new UserError ( UserError::USER_LOGIN_EMPTY, 'Please fill in login.') );
 			}
 	
 		// referent IdGroup
 			if ( ! @in_array( 'TableGroupInterface', class_implements ( $groupTable ) ) )
 			{
-				$errors->Add( new BDDError ( BDDError::TABLE_CLASS_INCORRECT , 'Cet objet n\'est pas une instance de Table Group correcte.' ) );
+				$errors->Add( new BDDError ( BDDError::TABLE_CLASS_INCORRECT , 'Parameter is not a good instance of BDDTableGroup.' ) );
 			} 
 			else
 			{
 				if ( ! $groupTable->IdGroupExists( $this->row[ TableGroup::TABLE_COLUMN_IDGROUP ]  ) )
 				{
-					$errors->Add ( new GroupError ( UserError::USER_IDGROUP_INEXISTANT, 'L\'utilisateur n\'appartient à aucun groupe valide.') );
+					$errors->Add ( new GroupError ( UserError::USER_IDGROUP_INEXISTANT, 'User does not refer to any a group.') );
 				}
 			}
 			
-		// résultat
+		// result
 		if ( $errors->GetCount() == 0 )
 		{
 			$this->isValid = true;
@@ -6287,67 +6221,75 @@ class User extends BDDRecord
 		
 		$this->isValid = false;
 		return $errors;
-	}
-	
-//-----------------------------------------------Implémentation Iterator
+	} //----- End of Validate
 
-//---------------------------------------------Fin implémentation Iterator
+//---------------------------------------------- Constructors - destructor
 
-//-------------------------------------------- Constructeurs - destructeur
-
-    function __construct( BDDRecord & $newRec )
-    // Mode d'emploi (constructeur) :
-    //instancie un objet de type User à partir d'un objet de
-	//type BDDRecord en faisant une copie en profondeur.
-	//
-    // Contrat :
-    //
-    {	
-		// initialisation
+    function __construct( BDDRecord $newRec )
+    /**
+	 * Initialises User from the BDDRecord $newRec.
+	 * If $newRec is NULL, User is empty.
+	 * Sets IsValid to false.
+	 *
+	 * @param $newRec a BDDRecord to copy/cast or NULL
+	 *
+     */
+    {
+		parent::__construct( NULL );
+		
+		// initialization		
 		$this->SetProperty ( TableUser::TABLE_COLUMN_IDUSER , '' );
 		$this->SetProperty ( TableUser::TABLE_COLUMN_NAME , '' );
 		$this->SetProperty ( TableUser::TABLE_COLUMN_PASSWORD , '' );
 		$this->SetProperty ( TableUser::TABLE_COLUMN_IDGROUP , '' );
-		
+
 		if ( $newRec != NULL )
 		{
 			$obj = (array)( $newRec);
 			
-			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] ); // hack php pour acceder
-			// a la prop protected $newRec->row
+			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] );
+			// php hack to access protected property $newRec->row
 		}
-		
-		$this->isValid = false;
-    } //---- Fin du constructeur
+    } //---- End of constructor
 	
-//------------------------------------------------------ Méthodes Magiques
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
+    
+//---------------------------------------------------------- Magic Methods
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 }
 
-//-------------------------------- Autres définitions dépendantes de <User>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |Users.php|  -  description
+                           |Users.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Users> (fichier Users.php) --------------
-if (defined('USERS_H'))
+//---------- Class <Users> (file Users.php) --------------
+/*if (defined('USERS_H'))
 {
     return;
 }
@@ -6355,47 +6297,43 @@ else
 {
 
 }
-define('USERS_H',1);
+define('USERS_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Users>
-//
-//
+/*!
+ * Provides specific methods for Iterator of User-s
+ */
 //------------------------------------------------------------------------ 
 
 class Users extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
 	public function GetUserByIdUser ( $idUser )
-	// Mode d'emploi :
-	//permet de récupérer le user d'id $idUser.
-	//
-	// Renvoie :
-	//- un objet de type User en cas de réussite
-	//- un objet de type Errors si la user n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the User which property TableUser::TABLE_COLUMN_IDUSER
+	 * has the value $idUser
+     *
+     * @param $idUser the id of the User to be looked for
+	 *
+     * @return - the User object which property
+	 * TableUser::TABLE_COLUMN_IDUSER has the value $idUser
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return UserError::USER_NOT_LOADED if User has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		if ( isset ( $this->users [ $idUser ] ) )
 		{
@@ -6404,23 +6342,27 @@ class Users extends AbstractClass implements Iterator
 		else
 		{
 			$errors = new Errors ( );
-			$errors->Add ( new UserError ( UserError::USER_NOT_LOADED, 'Utilisateur non chargé ou inexistant.' ) );
+			$errors->Add ( new UserError ( UserError::USER_NOT_LOADED, 'User not loaded from database or not existant.' ) );
 			
 			return $errors;
 		}
-	} //---- Fin de GetUserByIdUser
+	} //---- End of GetUserByIdUser
 	
 	public function GetUserByName ( $nameUser )
-	// Mode d'emploi :
-	//permet de récupérer le user de nom $nameUser.
-	//
-	// Renvoie :
-	//- un objet de type User en cas de réussite
-	//- un objet de type Errors si la user n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the User which property TableUser::TABLE_COLUMN_NAME
+	 * has the value $nameUser
+     *
+     * @param $nameUser the name of the User to be looked for
+	 *
+     * @return - the User object which property TableUser::TABLE_COLUMN_NAME
+	 * has the value $nameUser
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return UserError::USER_NOT_LOADED if User has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		foreach ( $this->users as $user ) 
 		{
@@ -6431,159 +6373,183 @@ class Users extends AbstractClass implements Iterator
 		}
 		
 		$errors = new Errors ( );
-		$errors->Add ( new UserError ( UserError::USER_NOT_LOADED, 'User non chargé ou inexistant.' ) );
+		$errors->Add ( new UserError ( UserError::USER_NOT_LOADED, 'User not loaded from database or not existant.' ) );
 			
 		return $errors;
-	} //---- Fin de GetUserByName
+	} //---- End of GetUserByName
 	
 	public function SetUser ( User $user )
-	// Mode d'emploi :
-	//permet de mettre en mémoire dans l'objet la user $user.
-	//
-	//Afin de la sauver dans la base de donnée, il est nécessaire d'appeler SaveUsers().
-	//
-	// Algorithme :
+    /**
+	 * Adds a User to the Users if it is different than NULL.
+	 * Alias of User::Add()
+     *
+     * @param $user the User to add
+     *
+     */
 	{
 
 		$this->Add ( $user );
 
-	} //---- Fin de SetUser
+	} //---- End of SetUser
 	
 //------------------------------------------- Implémentation de MyIterator
 
-    public function Add( User $newVar )
-    // Mode d'emploi :
-    //Ajoute un utilisateurs à la liste
-    //
+    public function Add( User $item )
+    /**
+	 * Adds a User to the Users if it is different than NULL.
+	 * User-s are indexed by TableUser::TABLE_COLUMN_IDUSER if possible.
+     *
+     * @param $item the User to add
+     *
+     */
     {
-		$key = $newVar->GetProperty ( TableUser::TABLE_COLUMN_IDUSER );
+		if ( $item == NULL ) return;
+		
+		$key = $item->GetProperty ( TableUser::TABLE_COLUMN_IDUSER );
 	
 		if ( empty ( $key ) )
 		{
-			$this->users [] = $newVar;		
+			$this->users [] = $item;		
 		}
 		else
 		{
-			$this->users [ $key ] = $newVar;
+			$this->users [ $key ] = $item;
 		}
-    } //---- Fin de Add
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des users
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->users);
         
         $this->users = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre de users contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->users );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
 //-----------------------------------------------Implémentation Iterator
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->users );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->users );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'id du user pointé par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return Key ( $this->users );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->users );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
+    } //---- End of Valid
 
-//---------------------------------- Fin de l'implémentation de MyIterator
+//--------------------------------------- End of Iterator's implementation
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( BDDRecordSet $users )
-    // Mode d'emploi (constructeur) :
-    //instancie des Users à partir d'un BDDRecordSet
-	//
-    // Contrat :
-    //
+    /**
+	 * Initialises Users from a BDDRecordSet.
+	 *
+     */
     {
+		parent::__construct();
+		
 		$this->users = array();
 		
 		foreach ( $users as $user )
 		{
 			$this->Add( new User ( $user ) );
 		}		
-    } //---- Fin du constructeur
+    } //---- End of constructor
 
 
     public function __destruct ( )
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/**
+	 * Destructs ressources allocated
+	 */
     {
-    } //---- Fin du destructeur
+		parent::__destruct();
+    } //---- End of destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 	
-	protected $users; // contient les users de user
-	// sous forme de BDDRecord indexées par leur nom
+	/** 
+	 * Array of User-s indexed by TableUser::TABLE_COLUMN_IDUSER if 
+	 * possible
+	 */
+	protected $users;
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <Users>
+//------------------------------------------------------ other definitions
 
 
 
@@ -6622,7 +6588,7 @@ define('MYSQLTABLEUSER_H',1);
 //
 //------------------------------------------------------------------------ 
 
-class MySQLTableUser extends MySQLTable
+class MySQLTableUser extends MySQLTable implements TableUserInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -6863,15 +6829,15 @@ class MySQLTableUser extends MySQLTable
 
 
 /*************************************************************************
-                           |TableUser.php|  -  description
+                           |TableUser.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableUser> (fichier TableUser.php) --------------
-if (defined('TABLEUSER_H'))
+//---------- Class <TableUser> (file TableUser.php) --------------
+/*if (defined('TABLEUSER_H'))
 {
     return;
 }
@@ -6879,78 +6845,66 @@ else
 {
 
 }
-define('TABLEUSER_H',1);
+define('TABLEUSER_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableUser>
-//
-//
+/*!
+ * Provides constants for User table fields name
+ */
 //------------------------------------------------------------------------ 
 
 class TableUser
 {
 //----------------------------------------------------------------- PUBLIC
 
+	/** Primary key field of the User table */
 	const TABLE_COLUMN_IDUSER = 'iduser';
-	// clef primaire d'un utilisateur
 	
+	/** User name/login field */
 	const TABLE_COLUMN_NAME = 'name';
-	// nom de l'utilisateur
 	
+	/** User password field */
 	const TABLE_COLUMN_PASSWORD = 'pass';
-	// mot de passe de l'utilisateur
 	
+	/** Foreign key that refers to Group Table */
 	const TABLE_COLUMN_IDGROUP = 'idgroup';
-	// clef étrangère du groupe
-	
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableUser>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |VariableError.php|  -  description
+                           |VariableError.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <VariableError> (fichier VariableError.php) --------------
-if (defined('VARIABLEERROR_H'))
+//---------- Class <VariableError> (file VariableError.php) --------------
+/*if (defined('VARIABLEERROR_H'))
 {
     return;
 }
@@ -6958,62 +6912,58 @@ else
 {
 
 }
-define('VARIABLEERROR_H',1);
+define('VARIABLEERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <VariableError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs bdd
-//
+/*!
+ * Provides specific constants for Variable's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class VariableError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
-
-//------------------------------------------------------------- Constantes
-    const VARIABLE_NOT_LOADED = 'VARIABLE_NOT_LOADED'; // variable recherchée inexistante
+	/**
+	 * Requested Variable has not been loaded from database or does not
+	 * exist
+	 */
+    const VARIABLE_NOT_LOADED = 'VARIABLE_NOT_LOADED';
 	
+	/** The Variable has a an empty name */
+    const VARIABLE_NAME_EMPTY = 'VARIABLE_NAME_EMPTY';
 	
-    const VARIABLE_NAME_EMPTY = 'VARIABLE_NAME_EMPTY'; // nom de variable inexistant
-    const VARIABLE_SCOPE_INCORRECT = 'VARIABLE_SCOPE_INCORRECT'; // scope en dehors de l'énumeration
-    const VARIABLE_ACCESS_INCORRECT = 'VARIABLE_ACCESS_INCORRECT'; // access en dehors de l'énumeration
-    const VARIABLE_IDSITE_INEXISTANT = 'VARIABLE_IDSITE_INEXISTANT'; // référent IdSite inexistant
+	/** The scope of the variable is not valid */
+    const VARIABLE_SCOPE_INCORRECT = 'VARIABLE_SCOPE_INCORRECT';
+	
+	/** The access of the variable is not valid */
+    const VARIABLE_ACCESS_INCORRECT = 'VARIABLE_ACCESS_INCORRECT';
+	
+	/** Requested Group has a non valid idSite referrent */
+    const VARIABLE_IDSITE_INEXISTANT = 'VARIABLE_IDSITE_INEXISTANT';
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <VariableError>
+//------------------------------------------------------ other definitions
 
 
 
@@ -7154,15 +7104,15 @@ interface TableVariableInterface
 
 
 /*************************************************************************
-                           |Variable.php|  -  description
+                           |Variable.php|
                              -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    start                : |DATE|
+    copyright            : (C) 2005 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Variable> (fichier Variable.php) --------------
-if (defined('VARIABLE_H'))
+//---------- Class <Variable> (file Variable.php) --------------
+/*if (defined('VARIABLE_H'))
 {
     return;
 }
@@ -7170,84 +7120,88 @@ else
 {
 
 }
-define('VARIABLE_H',1);
+define('VARIABLE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Variable>
-//Gestion d'une entrée de table BDD
-//
+/*!
+ * Provides specific methods for Variable table entries
+ */
 //------------------------------------------------------------------------ 
 
 class Variable extends BDDRecord
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
+//--------------------------------------------------------- public methods
     public function Validate ( $siteTable )
-    // Mode d'emploi :
-    //permettra de valider l'objet courant en vue d'une sauvegarde dans la base
-	//de données
-	//
-	//$siteTable doit etre une instance valide d'un BDDTableSite.
-	//Les classes candidates implémentes l'interface TableSiteInterface.
-	//
-	// Renvoie :
-	//- NULL si l'objet est validé. Il sera alors prêt pour une sauvegarde
-	//- un objet de type Errors contenant les erreurs qui empêchent la validation
-	//
-    // Contrat :
-    //
+    /**
+	 * Tries to validate the Variable in order to save it into DataBase.
+     *
+	 * @param $siteTable a BDDTableSite object (where BDD should be
+	 * replaced by your current Database : eg. MySQLTableSite). A valid 
+	 * BDDTableSite implements TableSiteInterface
+	 *
+     * @return - NULL if object has been validated
+	 * @return - an Errors object in case of error(s) :
+	 *
+	 * @return VariableError::VARIABLE_NAME_EMPTY if property 
+	 * TableVariable::TABLE_COLUMN_NAME is empty
+	 *
+	 * @return BDDError::TABLE_CLASS_INCORRECT if $groupTable is not a 
+	 * valid instance
+	 *
+	 * @return VariableError::VARIABLE_SCOPE_INCORRECT if property
+	 * TableVariable::TABLE_COLUMN_SCOPE is incorrect
+	 *
+	 * @return VariableError::VARIABLE_ACCESS_INCORRECT if property
+	 * TableVariable::TABLE_COLUMN_ACCESS is incorrect
+     *
+	 * @return VariableError::VARIABLE_IDSITE_INEXISTANT if property 
+	 * TableVariable::TABLE_COLUMN_IDSITE refers to a non existant site
+     */
 	{
 		$errors = new Errors ();
 	
-		// nom de variable
+		// variable name
 			if ( empty( $this->row[ TableVariable::TABLE_COLUMN_NAME ] ) )
 			{
-				$errors->Add ( new VariableError ( VariableError::VARIABLE_NAME_EMPTY, 'Veuillez saisir un nom de variable.') );
+				$errors->Add ( new VariableError ( VariableError::VARIABLE_NAME_EMPTY, 'Please fill in variable name.') );
 			}
 	
 		// scope
 			if ( $this->row[ TableVariable::TABLE_COLUMN_SCOPE ] != TableVariable::TABLE_COLUMN_SCOPE_SERVER && $this->row[ TableVariable::TABLE_COLUMN_SCOPE ] != TableVariable::TABLE_COLUMN_SCOPE_SITE  )
 			{
-				$errors->Add ( new VariableError ( VariableError::VARIABLE_SCOPE_INCORRECT, 'La portée de la variable n\'est pas définie correctement.') );
+				$errors->Add ( new VariableError ( VariableError::VARIABLE_SCOPE_INCORRECT, 'Variable scope is incorrect.') );
 			}
 		
 		// access
 			if ( $this->row[ TableVariable::TABLE_COLUMN_ACCESS ] != TableVariable::TABLE_COLUMN_ACCESS_ROOT && $this->row[ TableVariable::TABLE_COLUMN_ACCESS ] != TableVariable::TABLE_COLUMN_ACCESS_ADMIN )
 			{
-				$errors->Add ( new VariableError ( VariableError::VARIABLE_ACCESS_INCORRECT, 'Les accès de la variables ne sont pas définis correctement.') );
+				$errors->Add ( new VariableError ( VariableError::VARIABLE_ACCESS_INCORRECT, 'Variable access are not correctly defined.') );
 			}
 		
 		// referent IdSite
 			if ( ! @in_array( 'TableSiteInterface', class_implements ( $siteTable ) ) )
 			{
-				$errors->Add( new BDDError ( BDDError::TABLE_CLASS_INCORRECT , 'Cet objet n\'est pas une instance de Table Site correcte.' ) );
+				$errors->Add( new BDDError ( BDDError::TABLE_CLASS_INCORRECT , 'Parameter is not a good instance of BDDTableSite.' ) );
 			} 
 			else
 			{	
 				if ( ! $siteTable->IdSiteExists( $this->row[ TableVariable::TABLE_COLUMN_IDSITE ]  ) )
 				{
-					$errors->Add ( new VariableError ( VariableError::VARIABLE_IDSITE_INEXISTANT, 'La variable n\'appartient à aucun site valide.') );
+					$errors->Add ( new VariableError ( VariableError::VARIABLE_IDSITE_INEXISTANT, 'Variable does not refer to any site.') );
 				}
 			}
 		
-		// résultat
+		// result
 		if ( $errors->GetCount() == 0 )
 		{
 			$this->isValid = true;
@@ -7257,23 +7211,24 @@ class Variable extends BDDRecord
 		
 		$this->isValid = false;
 		return $errors;
-	} //---- Fin de Validate
+	} //---- End of Validate
 	
-//-----------------------------------------------Implémentation Iterator
 
-//---------------------------------------------Fin implémentation Iterator
+//---------------------------------------------- Constructors - destructor
 
-//-------------------------------------------- Constructeurs - destructeur
-
-    function __construct( BDDRecord & $newRec )
-    // Mode d'emploi (constructeur) :
-    //instancie un objet de type Variable à partir d'un objet de
-	//type BDDRecord en faisant une copie en profondeur.
-	//
-    // Contrat :
-    //
+    function __construct( BDDRecord $newRec )
+    /**
+	 * Initialises Variable from the BDDRecord $newRec.
+	 * If $newRec is NULL, Variable is empty.
+	 * Sets IsValid to false.
+	 *
+	 * @param $newRec a BDDRecord to copy/cast or NULL
+	 *
+     */
     {
-		// initialisation
+		parent::__construct( NULL );
+		
+		// initialization
 		$this->SetProperty ( TableVariable::TABLE_COLUMN_IDVARIABLE , NULL );
 		$this->SetProperty ( TableVariable::TABLE_COLUMN_NAME , NULL );
 		$this->SetProperty ( TableVariable::TABLE_COLUMN_DATA , NULL );
@@ -7286,41 +7241,49 @@ class Variable extends BDDRecord
 		{
 			$obj = (array)( $newRec);
 			
-			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] ); // hack php pour acceder
-			// a la prop protected $newRec->row
+			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] );
+			// php hack to access protected property $newRec->row
 		}
-		
-		$this->isValid = false;
-    } //---- Fin du constructeur
+    } //---- End of constructor
 	
-//------------------------------------------------------ Méthodes Magiques
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
+    
+//---------------------------------------------------------- Magic Methods
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 }
 
-//-------------------------------- Autres définitions dépendantes de <Variable>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |Variables.php|  -  description
+                           |Variables.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Variables> (fichier Variables.php) --------------
-if (defined('VARIABLES_H'))
+//---------- Class <Variables> (file Variables.php) --------------
+/*if (defined('VARIABLES_H'))
 {
     return;
 }
@@ -7328,47 +7291,43 @@ else
 {
 
 }
-define('VARIABLES_H',1);
+define('VARIABLES_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Variables>
-//
-//
+/*!
+ * Provides specific methods for Iterator of Variable-s
+ */
 //------------------------------------------------------------------------ 
 
 class Variables extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
 	public function GetVariableByName ( $varName )
-	// Mode d'emploi :
-	//permet de récupérer la variable de configuration nommée $varName.
-	//
-	// Renvoie :
-	//- un objet de type Variable en cas de réussite
-	//- un objet de type Errors si la variable n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the Variable which property TableVariable::TABLE_COLUMN_NAME
+	 * has the value $varName
+     *
+     * @param $varName the name of the Group to be looked for
+	 *
+     * @return - the Group object which property TableVariable::TABLE_COLUMN_NAME
+	 * has the value $varName
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return VariableError::VARIABLE_NOT_LOADED if Variable has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		if ( isset ( $this->variables [ $varName ] ) )
 		{
@@ -7377,160 +7336,182 @@ class Variables extends AbstractClass implements Iterator
 		else
 		{
 			$errors = new Errors ( );
-			$errors->Add ( new VariableError ( VariableError::VARIABLE_NOT_LOADED, 'Variable non chargée ou inexistante.' ) );
+			$errors->Add ( new VariableError ( VariableError::VARIABLE_NOT_LOADED, 'Variable not loaded from database not existant.' ) );
 			
 			return $errors;
 		}
-	} //---- Fin de GetVariableByName
+	} //---- End of GetVariableByName
 	
 	public function SetVariable ( Variable $variable )
-	// Mode d'emploi :
-	//permet de mettre en mémoire dans l'objet la variable de configuration $variable.
-	//
-	//Afin de la sauver dans la base de donnée, il est nécessaire d'appeler SaveVariables() de BDDTableVariable.
-	//
-	// Algorithme :
+    /**
+	 * Adds a Variable to the Variables if it is different than NULL.
+	 * Alias of Variables::Add()
+     *
+     * @param $variable the Variable to add
+     *
+     */
 	{
-
 		$this->Add ( $variable );
-
-	} //---- Fin de SetVariable
+	} //---- End of SetVariable
 	
 //------------------------------------------- Implémentation de MyIterator
 
-    public function Add( Variable $newVar )
-    // Mode d'emploi :
-    //Ajoute une variable à la liste
-    //
+    public function Add( Variable $item )
+    /**
+	 * Adds a Variable to the Variables if it is different than NULL.
+	 * Variable-s are indexed by TableVariable::TABLE_COLUMN_NAME if possible.
+     *
+     * @param $item the Variable to add
+     *
+     */
     {
-		$key = $newVar->GetProperty ( TableVariable::TABLE_COLUMN_NAME );
+		if ( $item == NULL ) return;
+		
+		$key = $item->GetProperty ( TableVariable::TABLE_COLUMN_NAME );
 	
 		if ( empty ( $key ) )
 		{
-			$this->variables [] = $newVar;		
+			$this->variables [] = $item;		
 		}
 		else
 		{
-			$this->variables [ $key ] = $newVar;
+			$this->variables [ $key ] = $item;
 		}
-    } //---- Fin de Add
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des variables
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->variables);
         
         $this->variables = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre de variables contenues dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->variables );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//---------------------------------------------- Iterator's Implementation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->variables );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->variables );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le nom de la variable pointée par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return Key ( $this->variables );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->variables );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
+    } //---- End of Valid
 
-//---------------------------------- Fin de l'implémentation de MyIterator
+//--------------------------------------- End of Iterator's implementation
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( BDDRecordSet $variables )
-    // Mode d'emploi (constructeur) :
-    //instancie des Variables à partir d'un BDDRecordSet
-	//
-    // Contrat :
-    //
+    /**
+	 * Initialises Variables from a BDDRecordSet.
+	 *
+     */
     {
+		parent::__construct();
+		
 		$this->variables = array();
 		
 		foreach ( $variables as $variable )
 		{
 			$this->Add( new Variable ( $variable ) );
 		}		
-    } //---- Fin du constructeur
+    } //---- End of constructor
 
 
     public function __destruct ( )
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/**
+	 * Destructs ressources allocated
+	 */
     {
-    } //---- Fin du destructeur
+		parent::__destruct();
+    } //---- End of destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 	
-	protected $variables; // contient les variables de variable
-	// sous forme de BDDRecord indexées par leur nom
+	/** 
+	 * Array of Variable-s indexed by TableVariable::TABLE_COLUMN_NAME if 
+	 * possible
+	 */
+	protected $variables;
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <Variables>
+//------------------------------------------------------ other definitions
 
 
 
@@ -7788,15 +7769,15 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 
 
 /*************************************************************************
-                           |TableVariable.php|  -  description
+                           |TableVariable.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableVariable> (fichier TableVariable.php) --------------
-if (defined('TABLEVARIABLE_H'))
+//---------- Class <TableVariable> (file TableVariable.php) --------------
+/*if (defined('TABLEVARIABLE_H'))
 {
     return;
 }
@@ -7804,109 +7785,92 @@ else
 {
 
 }
-define('TABLEVARIABLE_H',1);
+define('TABLEVARIABLE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableVariable>
-//
-//
+/*!
+ * Provides constants for Variable table fields name
+ */
 //------------------------------------------------------------------------ 
 
 class TableVariable
 {
 //----------------------------------------------------------------- PUBLIC
 
+	/** Primary key field of the Variable table */
 	const TABLE_COLUMN_IDVARIABLE = 'idvariable';
-	// clef primaire identifiant de la var
 	
+	/** Variable scope field */
 	const TABLE_COLUMN_SCOPE = 'scope';
-	// portée de la donnée. portées possibles : TABLE_COLUMN_SCOPE_SITE ou
-	//	TABLE_COLUMN_SCOPE_SERVER
 	
-	// énumération TABLE_COLUMN_SCOPE
+	// TABLE_COLUMN_SCOPE's enum
 	
+		/** The variable just concerns current site */
 		const TABLE_COLUMN_SCOPE_SITE = 'SITE';
-		// la donnée ne concernera que le site en question.
-		// cette portée prévalue sur l'autre.
 		
+		/** The variable concerns all sites */
 		const TABLE_COLUMN_SCOPE_SERVER = 'SERVER';
-		// la donnée concernera tous les sites hébergés.
 		
-	// fin de l'énumération TABLE_COLUMN_SCOPE
+	// end of TABLE_COLUMN_SCOPE's enum
 	
-	
+	/** Variable Accesses field : defines who can modify it */
 	const TABLE_COLUMN_ACCESS = 'access';
-	// défini quels sont les personnes qui peuvent modifier la donnée
 
-	// énumération TABLE_COLUMN_ACCESS
+	// TABLE_COLUMN_ACCESS's enum
 	
+		/** The variable can only be modified by Global Admins */
 		const TABLE_COLUMN_ACCESS_ROOT = 'ROOT';
-		// la donnée ne pourra être modifiée que par les 
-		//administrateurs des sites
 		
+		/** The variable can be modified by Site Admins (or globals)*/
 		const TABLE_COLUMN_ACCESS_ADMIN = 'ADMIN';
-		// la donnée pourra être modifiée par les administrateur du site
 		
-	// fin de l'énumération TABLE_COLUMN_ACCESS
+	// end of TABLE_COLUMN_ACCESS's enum
 	
+	/** Variable Name field */
 	const TABLE_COLUMN_NAME = 'name';
-	// nom de la donnée
 	
+	/** Variable Data field */
 	const TABLE_COLUMN_DATA = 'data';
-	// donnée stockée échapée en addslashes().
 	
+	/** Foreign key that refers to Site Table */
 	const TABLE_COLUMN_IDSITE = 'idsite';
-	// clef étrangère définissant le site auquel la donnée est rattachée
-	
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-	
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableVariable>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |SiteError.php|  -  description
+                           |SiteError.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <SiteError> (fichier SiteError.php) --------------
-if (defined('SITEERROR_H'))
+//---------- Class <SiteError> (file SiteError.php) --------------
+/*if (defined('SITEERROR_H'))
 {
     return;
 }
@@ -7914,56 +7878,49 @@ else
 {
 
 }
-define('SITEERROR_H',1);
+define('SITEERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <SiteError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs Site
-//
+/*!
+ * Provides specific constants for Site's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class SiteError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
+	/**
+	 * Requested Site has not been loaded from database or does not
+	 * exist
+	 */
+	const SITE_NOT_LOADED = 'SITE_NOT_LOADED';
+	
+	/** The Site has a an empty name */
+    const SITE_NAME_EMPTY = 'SITE_NAME_EMPTY';
 
-//------------------------------------------------------------- Constantes
-    const SITE_NOT_LOADED = 'SITE_NOT_LOADED';
+//--------------------------------------------------------- public methods
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <SiteError>
+//------------------------------------------------------ other definitions
 
 
 
@@ -8103,15 +8060,15 @@ interface TableSiteInterface
 
 
 /*************************************************************************
-                           |Site.php|  -  description
+                           |Site.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Site> (fichier Site.php) --------------
-if (defined('SITE_H'))
+//---------- Class <Site> (file Site.php) --------------
+/*if (defined('SITE_H'))
 {
     return;
 }
@@ -8119,67 +8076,74 @@ else
 {
 
 }
-define('SITE_H',1);
+define('SITE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Site>
-//Gestion d'une entrée de table Site
-//
+/*!
+ * Provides specific methods for Site table entries
+ */
 //------------------------------------------------------------------------ 
 
 class Site extends BDDRecord
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function Validate (  )
-    // Mode d'emploi :
-    //permettra de valider l'objet courant en vue d'une sauvegarde dans la base
-	//de données
-	//
-	// Renvoie :
-	//- NULL si l'objet est validé. Il sera alors prêt pour une sauvegarde
-	//- un objet de type Errors contenant les erreurs qui empêchent la validation
-	//
-    // Contrat :
-    //
+    /**
+	 * Tries to validate the Site in order to save it into DataBase.
+	 *
+     * @return - NULL if object has been validated
+	 * @return - an Errors object in case of error(s) :
+	 *
+	 * @return SiteError::SITE_NAME_EMPTY if property 
+	 * TableSite::TABLE_COLUMN_NAME is empty
+     */
 	{
-		$this->isValid = ! empty( $this->row[ TableSite::TABLE_COLUMN_NAME ] );
-		
-		return NULL;
-	}
+		$errors = new Errors ();
 	
-//-----------------------------------------------Implémentation Iterator
+		// variable name
+			if ( empty( $this->row[ TableSite::TABLE_COLUMN_NAME ] ) )
+			{
+				$errors->Add ( new VariableError ( SiteError::SITE_NAME_EMPTY, 'Please fill in site name.') );
+			}
+		
+		// result
+		if ( $errors->GetCount() == 0 )
+		{
+			$this->isValid = true;
+			return NULL;		
+		}
+		
+		
+		$this->isValid = false;
+		return $errors;
+	} //----- End of Validate
 
-//---------------------------------------------Fin implémentation Iterator
+//---------------------------------------------- Constructors - destructor
 
-//-------------------------------------------- Constructeurs - destructeur
-
-    function __construct( BDDRecord & $newRec )
-    // Mode d'emploi (constructeur) :
-    //instancie un objet de type Site à partir d'un objet de
-	//type BDDRecord en faisant une copie en profondeur.
-	//
-    // Contrat :
-    //
+    function __construct( BDDRecord $newRec )
+    /**
+	 * Initialises Site from the BDDRecord $newRec.
+	 * If $newRec is NULL, Variable is empty.
+	 * Sets IsValid to false.
+	 *
+	 * @param $newRec a BDDRecord to copy/cast or NULL
+	 *
+     */
     {
-		// initialisation
+		parent::__construct( NULL );
+	
+		// initialization
 		$this->SetProperty ( TableSite::TABLE_COLUMN_IDSITE , '' );
 		$this->SetProperty ( TableSite::TABLE_COLUMN_NAME , '' );
 
@@ -8187,41 +8151,49 @@ class Site extends BDDRecord
 		{
 			$obj = (array)( $newRec);
 			
-			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] ); // hack php pour acceder
-			// a la prop protected $newRec->row
+			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] );
+			// php hack to access protected property $newRec->row
 		}
-		
-		$this->isValid = false;
-    } //---- Fin du constructeur
+    } //---- End of constructor
 	
-//------------------------------------------------------ Méthodes Magiques
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
+    
+//---------------------------------------------------------- Magic Methods
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 }
 
-//-------------------------------- Autres définitions dépendantes de <Site>
+//------------------------------------------------------ other definitions
 
 
 
 /*************************************************************************
-                           |Sites.php|  -  description
+                           |Sites.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Sites> (fichier Sites.php) --------------
-if (defined('SITES_H'))
+//---------- Classe <Sites> (file Sites.php) --------------
+/*if (defined('SITES_H'))
 {
     return;
 }
@@ -8229,47 +8201,43 @@ else
 {
 
 }
-define('SITES_H',1);
+define('SITES_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Sites>
-//
-//
+/*!
+ * Provides specific methods for Iterator of Site-s
+ */
 //------------------------------------------------------------------------ 
 
 class Sites extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
 	public function GetSiteByIdSite ( $idSite )
-	// Mode d'emploi :
-	//permet de récupérer le site d'id $idSite.
-	//
-	// Renvoie :
-	//- un objet de type Site en cas de réussite
-	//- un objet de type Errors si la site n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the Site which property TableSite::TABLE_COLUMN_IDSITE
+	 * has the value $idSite
+     *
+     * @param $idSite the id of the Site to be looked for
+	 *
+     * @return - the Site object which property
+	 * TableSite::TABLE_COLUMN_IDSITE has the value $idSite
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return SiteError::SITE_NOT_LOADED if Site has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		if ( isset ( $this->sites [ $idSite ] ) )
 		{
@@ -8278,23 +8246,27 @@ class Sites extends AbstractClass implements Iterator
 		else
 		{
 			$errors = new Errors ( );
-			$errors->Add ( new SiteError ( SiteError::SITE_NOT_LOADED, 'Site non chargé ou inexistant.' ) );
+			$errors->Add ( new SiteError ( SiteError::SITE_NOT_LOADED, 'Site not loaded from database or not existant.' ) );
 			
 			return $errors;
 		}
-	} //---- Fin de GetSiteByIdSite
+	} //---- End of GetSiteByIdSite
 	
 	public function GetSiteByName ( $nameSite )
-	// Mode d'emploi :
-	//permet de récupérer le site de nom $nameSite.
-	//
-	// Renvoie :
-	//- un objet de type Site en cas de réussite
-	//- un objet de type Errors si la site n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the Site which property TableSite::TABLE_COLUMN_NAME
+	 * has the value $nameSite
+     *
+     * @param $nameSite the name of the Site to be looked for
+	 *
+     * @return - the Site object which property TableSite::TABLE_COLUMN_NAME
+	 * has the value $nameSite
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return SiteError::USER_NOT_LOADED if Site has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		foreach ( $this->sites as $site ) 
 		{
@@ -8305,156 +8277,179 @@ class Sites extends AbstractClass implements Iterator
 		}
 		
 		$errors = new Errors ( );
-		$errors->Add ( new SiteError ( SiteError::SITE_NOT_LOADED, 'Site non chargé ou inexistant.' ) );
+		$errors->Add ( new SiteError ( SiteError::SITE_NOT_LOADED, 'Site not loaded from database or not existant.' ) );
 			
 		return $errors;
-	} //---- Fin de GetSiteByName
+	} //---- End of GetSiteByName
 	
 	public function SetSite ( Site $site )
-	// Mode d'emploi :
-	//permet de mettre en mémoire dans l'objet la site $site.
-	//
-	//Afin de la sauver dans la base de donnée, il est nécessaire d'appeler SaveSites().
-	//
-	// Algorithme :
+    /**
+	 * Adds a Site to the Sites if it is different than NULL.
+	 * Alias of Site::Add()
+     *
+     * @param $site the Site to add
+     *
+     */
 	{
 		$this->Add ( $site );
-	} //---- Fin de SetSite
+	} //---- End of SetSite
 	
 //------------------------------------------- Implémentation de MyIterator
 
-    public function Add( Site $newVar )
-    // Mode d'emploi :
-    //Ajoute un site à la liste
-    //
+    public function Add( Site $item )
+    /**
+	 * Adds a Site to the Sites if it is different than NULL.
+	 * Site-s are indexed by TableSite::TABLE_COLUMN_IDSITE if possible.
+     *
+     * @param $item the Site to add
+     *
+     */
     {
-		$key = $newVar->GetProperty ( TableSite::TABLE_COLUMN_IDSITE );
+		$key = $item->GetProperty ( TableSite::TABLE_COLUMN_IDSITE );
 	
 		if ( empty ( $key ) )
 		{
-			$this->sites [] = $newVar;		
+			$this->sites [] = $item;		
 		}
 		else
 		{
-			$this->sites [ $key ] = $newVar;
+			$this->sites [ $key ] = $item;
 		}
-    } //---- Fin de Add
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des sites
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->sites);
         
         $this->sites = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre de sites contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->sites );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//----------------------------------------------- Iterator's implementation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->sites );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->sites );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'id du site pointé par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return Key ( $this->sites );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->sites );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
+    } //---- End of Valid
 
-//---------------------------------- Fin de l'implémentation de MyIterator
+//--------------------------------------- End of Iterator's implementation
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( BDDRecordSet $sites )
-    // Mode d'emploi (constructeur) :
-    //instancie des Sites à partir d'un BDDRecordSet
-	//
-    // Contrat :
-    //
+    /**
+	 * Initialises Sites from a BDDRecordSet.
+	 *
+     */
     {
+		parent::__construct();
+	
 		$this->sites = array();
 		
 		foreach ( $sites as $site )
 		{
 			$this->Add( new Site ( $site ) );
 		}		
-    } //---- Fin du constructeur
+    } //---- End of constructor
 
 
     public function __destruct ( )
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/**
+	 * Destructs ressources allocated
+	 */
     {
-    } //---- Fin du destructeur
+		parent::__destruct();
+    } //---- End of destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
-	protected $sites; // contient les sites de site
-	// sous forme de BDDRecord indexées par leur nom
+//------------------------------------------------------ protected members
+	
+	/** 
+	 * Array of Site-s indexed by TableSite::TABLE_COLUMN_IDSITE if 
+	 * possible
+	 */
+	protected $sites;
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <Sites>
+//------------------------------------------------------ other definitions
 
 
 
@@ -8493,7 +8488,7 @@ define('MYSQLTABLESITE_H',1);
 //
 //------------------------------------------------------------------------ 
 
-class MySQLTableSite extends MySQLTable
+class MySQLTableSite extends MySQLTable implements TableSiteInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -8707,15 +8702,15 @@ class MySQLTableSite extends MySQLTable
 
 
 /*************************************************************************
-                           |TableSite.php|  -  description
+                           |TableSite.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableSite> (fichier TableSite.php) --------------
-if (defined('TABLESITE_H'))
+//---------- Class <TableSite> (file TableSite.php) --------------
+/*if (defined('TABLESITE_H'))
 {
     return;
 }
@@ -8723,59 +8718,47 @@ else
 {
 
 }
-define('TABLESITE_H',1);
+define('TABLESITE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableSite>
-//
-//
+/*!
+ * Provides constants for Site table fields name
+ */
 //------------------------------------------------------------------------ 
 
 class TableSite
 {
 //----------------------------------------------------------------- PUBLIC
 
+	/** Primary key field of the Site table */
 	const TABLE_COLUMN_IDSITE = 'idsite';
-	// identifiant d'un site
 	
+	/** Site name field */
 	const TABLE_COLUMN_NAME = 'name';
-	// nom du site
-	
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableSite>
+//------------------------------------------------------ other definitions
 
 
 ?>

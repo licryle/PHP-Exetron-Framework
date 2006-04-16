@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |SiteError.php|  -  description
+                           |SiteError.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <SiteError> (fichier SiteError.php) --------------
-if (defined('SITEERROR_H'))
+//---------- Class <SiteError> (file SiteError.php) --------------
+/*if (defined('SITEERROR_H'))
 {
     return;
 }
@@ -17,55 +17,48 @@ else
 {
 
 }
-define('SITEERROR_H',1);
+define('SITEERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <SiteError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs Site
-//
+/*!
+ * Provides specific constants for Site's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class SiteError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
+	/**
+	 * Requested Site has not been loaded from database or does not
+	 * exist
+	 */
+	const SITE_NOT_LOADED = 'SITE_NOT_LOADED';
+	
+	/** The Site has a an empty name */
+    const SITE_NAME_EMPTY = 'SITE_NAME_EMPTY';
 
-//------------------------------------------------------------- Constantes
-    const SITE_NOT_LOADED = 'SITE_NOT_LOADED';
+//--------------------------------------------------------- public methods
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <SiteError>
+//------------------------------------------------------ other definitions
 
 ?>

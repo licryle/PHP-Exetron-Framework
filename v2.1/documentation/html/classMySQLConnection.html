@@ -65,6 +65,8 @@ Inheritance diagram for MySQLConnection:<p><center><img src="classMySQLConnectio
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLConnection.html#fdcfe7cee0c00ebc401ef042294e80c1">__construct</a> ($server= '', $username= '', $password= '')</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLConnection.html#8f865ae7ade75b2bfe774ab5975e8c36">__destruct</a> ()</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLConnection.html#a412b80237e1180d312241cd32ee3765">__ToString</a> ()</td></tr>
 
 </table>
@@ -114,7 +116,7 @@ Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00037">
     <td>
 
 <p>
-initialise members of the object. interrupts script if DataBase is not supported.<p>
+initialises members of the object. interrupts script if DataBase is not supported.<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>$server</em>&nbsp;</td><td>the host address </td></tr>
@@ -124,9 +126,44 @@ initialise members of the object. interrupts script if DataBase is not supported
 </dl>
 
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00402">402</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+Reimplemented from <a class="el" href="classBDDConnection.html#a25094851b4974b3608428586d1f69d5">BDDConnection</a>.
 <p>
-References <a class="el" href="BDDConnection_8php-source.html#l00289">BDDConnection::$password</a>, <a class="el" href="BDDConnection_8php-source.html#l00283">BDDConnection::$server</a>, and <a class="el" href="BDDConnection_8php-source.html#l00286">BDDConnection::$username</a>.    </td>
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00424">424</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+<p>
+References <a class="el" href="BDDConnection_8php-source.html#l00313">BDDConnection::$password</a>, <a class="el" href="BDDConnection_8php-source.html#l00307">BDDConnection::$server</a>, and <a class="el" href="BDDConnection_8php-source.html#l00310">BDDConnection::$username</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="8f865ae7ade75b2bfe774ab5975e8c36"></a><!-- doxytag: member="MySQLConnection::__destruct" ref="8f865ae7ade75b2bfe774ab5975e8c36" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">MySQLConnection::__destruct           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Destructs ressources allocated 
+<p>
+Reimplemented from <a class="el" href="classBDDConnection.html#6a351b96438000d3286daaa9f1e40b04">BDDConnection</a>.
+<p>
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00443">443</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+<p>
+References <a class="el" href="MySQLConnection_8php-source.html#l00382">Close()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="a412b80237e1180d312241cd32ee3765"></a><!-- doxytag: member="MySQLConnection::__ToString" ref="a412b80237e1180d312241cd32ee3765" args="()" --><p>
@@ -153,11 +190,13 @@ References <a class="el" href="BDDConnection_8php-source.html#l00289">BDDConnect
     <td>
 
 <p>
-Returns a printable version of objet for debugging. 
+Returns a printable version of object for debugging.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>String printable on screen </dd></dl>
+
 <p>
 Reimplemented from <a class="el" href="classBDDConnection.html#508f3f754f752f8931b0ee7c3d3c4e64">BDDConnection</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00431">431</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.    </td>
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00455">455</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="181648a5ce653d7e61d918eadb89a297"></a><!-- doxytag: member="MySQLConnection::Close" ref="181648a5ce653d7e61d918eadb89a297" args="()" --><p>
@@ -184,17 +223,20 @@ Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00431">
     <td>
 
 <p>
-Try to close the connection<p>
-<dl compact><dt><b>Returns:</b></dt><dd>- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) <p>
-- NULL if operation was successful</dd></dl>
+Tries to close the connection<p>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if operation was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+<a class="el" href="classBDDError.html#e2b22f9ace8a6e233a284f29f36207ef">BDDError::CONNECTION_CLOSED</a> is connection is already closed</dd></dl>
 <dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/mysql-close.html">http://dev.mysql.com/doc/refman/5.0/en/mysql-close.html</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDConnectionInterface.html#6fc2cc77deb53adef9bb2759382c6594">BDDConnectionInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00362">362</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00382">382</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
 <p>
-References <a class="el" href="BDDError_8php-source.html#l00044">BDDError::CONNECTION_CLOSED</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00389">isConnected()</a>.    </td>
+References <a class="el" href="BDDError_8php-source.html#l00043">BDDError::CONNECTION_CLOSED</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00411">isConnected()</a>.
+<p>
+Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00443">__destruct()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="7c04bdad17e25ea2f64773d5d9685f21"></a><!-- doxytag: member="MySQLConnection::GetPassword" ref="7c04bdad17e25ea2f64773d5d9685f21" args="()" --><p>
@@ -227,7 +269,7 @@ Gets the password associated to the login used for connection.<p>
 <p>
 Reimplemented from <a class="el" href="classBDDConnection.html#ae01723ace9186f7a55bef5060772bfe">BDDConnection</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00192">192</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.    </td>
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00201">201</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="fcd6ba3db63ad356f76b621fff6155c1"></a><!-- doxytag: member="MySQLConnection::GetQueriesCount" ref="fcd6ba3db63ad356f76b621fff6155c1" args="()" --><p>
@@ -260,7 +302,7 @@ Gets the number of queries that has been successfully sent.<p>
 <p>
 Reimplemented from <a class="el" href="classBDDConnection.html#498860fbd121c6ba56df80974a17d92d">BDDConnection</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00351">351</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.    </td>
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00371">371</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="f8ac0212474df8c37abc54900e1a26d4"></a><!-- doxytag: member="MySQLConnection::GetServer" ref="f8ac0212474df8c37abc54900e1a26d4" args="()" --><p>
@@ -293,7 +335,7 @@ Gets host address for connection.<p>
 <p>
 Reimplemented from <a class="el" href="classBDDConnection.html#869b6a7bf492930c836c1112ef520452">BDDConnection</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00140">140</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.    </td>
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00149">149</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="4374f24fbde6ca9a3312d458ca659a1e"></a><!-- doxytag: member="MySQLConnection::GetUsername" ref="4374f24fbde6ca9a3312d458ca659a1e" args="()" --><p>
@@ -326,7 +368,7 @@ Gets the login used for connection.<p>
 <p>
 Reimplemented from <a class="el" href="classBDDConnection.html#a8786293c81021368c8e40c05b63f578">BDDConnection</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00166">166</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.    </td>
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00175">175</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="5bad3dd9022d6a02dde99d1df10793f0"></a><!-- doxytag: member="MySQLConnection::isConnected" ref="5bad3dd9022d6a02dde99d1df10793f0" args="()" --><p>
@@ -353,16 +395,16 @@ Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00166">
     <td>
 
 <p>
-Check whether connection is opened or closed<p>
+Checks whether connection is opened or closed<p>
 <dl compact><dt><b>Returns:</b></dt><dd>- true if connection is active <p>
 - false if connection is closed </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDConnectionInterface.html#97254d5810413cf8ecf7cea9d0848d87">BDDConnectionInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00389">389</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00411">411</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00362">Close()</a>, <a class="el" href="MySQLConnection_8php-source.html#l00203">Open()</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00254">SetDatabase()</a>.    </td>
+Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00382">Close()</a>, <a class="el" href="MySQLConnection_8php-source.html#l00212">Open()</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00267">SetDatabase()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="546927da9d56a34d1e9163118894cd33"></a><!-- doxytag: member="MySQLConnection::Open" ref="546927da9d56a34d1e9163118894cd33" args="($isPersistent)" --><p>
@@ -396,17 +438,19 @@ Try to open connection.<p>
     <tr><td valign="top"></td><td valign="top"><em>$isPersistent</em>&nbsp;</td><td>specifies if connection may be persistent or not = { CONNECTION_PERSISTENT | CONNECTION_NOT_PERSISTENT }</td></tr>
   </table>
 </dl>
-<dl compact><dt><b>Returns:</b></dt><dd>- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) <p>
-- NULL if operation was successful</dd></dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if operation was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+<a class="el" href="classBDDError.html#ece74bdbc7de1854656227337f5c20eb">BDDError::CONNECTION_CANNOT_OPEN</a> if connection can not be established please have a look on host/login/password <p>
+<a class="el" href="classBDDError.html#d7b8edfdbcdf99b24c98f3cb68fd4b36">BDDError::CONNECTION_ALREADY_OPENED</a> if connection is already opened</dd></dl>
 <dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/mysql-pconnect.html">http://dev.mysql.com/doc/refman/5.0/en/mysql-pconnect.html</a> <p>
 <a href="http://dev.mysql.com/doc/refman/5.0/en/mysql-connect.html">http://dev.mysql.com/doc/refman/5.0/en/mysql-connect.html</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDConnectionInterface.html#d01f77c4450c8f71bcff35ff1a60cfc8">BDDConnectionInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00203">203</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00212">212</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
 <p>
-References <a class="el" href="BDDError_8php-source.html#l00045">BDDError::CONNECTION_ALREADY_OPENED</a>, <a class="el" href="BDDError_8php-source.html#l00046">BDDError::CONNECTION_CANNOT_OPEN</a>, <a class="el" href="BDDConnection_8php-source.html#l00041">BDDConnection::CONNECTION_PERSISTENT</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00389">isConnected()</a>.    </td>
+References <a class="el" href="BDDError_8php-source.html#l00046">BDDError::CONNECTION_ALREADY_OPENED</a>, <a class="el" href="BDDError_8php-source.html#l00049">BDDError::CONNECTION_CANNOT_OPEN</a>, <a class="el" href="BDDConnection_8php-source.html#l00041">BDDConnection::CONNECTION_PERSISTENT</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00411">isConnected()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="5a91f25271718a34c6d81bd0fa8c5e67"></a><!-- doxytag: member="MySQLConnection::Query" ref="5a91f25271718a34c6d81bd0fa8c5e67" args="($query)" --><p>
@@ -434,24 +478,26 @@ References <a class="el" href="BDDError_8php-source.html#l00045">BDDError::CONNE
     <td>
 
 <p>
-try to send a query to DB server Connection may be opened.<p>
+tries to send a query to DB server Connection may be opened.<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>$query</em>&nbsp;</td><td>the query to be done</td></tr>
   </table>
 </dl>
-<dl compact><dt><b>Returns:</b></dt><dd>- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) <p>
-- a <a class="el" href="classBDDRecord.html">BDDRecord</a> object which contains entries as BDDRecordItem s</dd></dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- a <a class="el" href="classBDDRecord.html">BDDRecord</a> object which contains entries as BDDRecordItem-s <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+BDDError::CONNECTION_NO_DB_SELECTED if no database has been selected before query <p>
+<a class="el" href="classBDDError.html#f248463c365a0d0c654c20e9b0fdd928">BDDError::CONNECTION_QUERY_FAILED</a> if query failed</dd></dl>
 <dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/mysql-query.html">http://dev.mysql.com/doc/refman/5.0/en/mysql-query.html</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00297">297</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00313">313</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
 <p>
-References <a class="el" href="BDDError_8php-source.html#l00048">BDDError::CONNECTION_QUERY_FAILED</a>.
+References <a class="el" href="BDDError_8php-source.html#l00055">BDDError::CONNECTION_QUERY_FAILED</a>.
 <p>
-Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00094">TableDescription()</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00043">TableExists()</a>.    </td>
+Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00100">TableDescription()</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00043">TableExists()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="89e8fad3d1313b9205237d70ed1c3462"></a><!-- doxytag: member="MySQLConnection::SetDatabase" ref="89e8fad3d1313b9205237d70ed1c3462" args="($database)" --><p>
@@ -485,16 +531,18 @@ Sets the database to be used. Connection may be opened.<p>
     <tr><td valign="top"></td><td valign="top"><em>$database</em>&nbsp;</td><td>the name of the database to be used</td></tr>
   </table>
 </dl>
-<dl compact><dt><b>Returns:</b></dt><dd>- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) <p>
-- NULL if operation was successful</dd></dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if operation was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+<a class="el" href="classBDDError.html#e2b22f9ace8a6e233a284f29f36207ef">BDDError::CONNECTION_CLOSED</a> if connection is closed <p>
+<a class="el" href="classBDDError.html#644235150bd420ccfbcd655d1115d7af">BDDError::CONNECTION_CANNOT_CHANGE_DB</a> if database cannot be changed</dd></dl>
 <dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/mysql-select-db.html">http://dev.mysql.com/doc/refman/5.0/en/mysql-select-db.html</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDConnectionInterface.html#71c8bdb98bfffc01020e3f4020143330">BDDConnectionInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00254">254</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00267">267</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
 <p>
-References <a class="el" href="BDDConnection_8php-source.html#l00297">BDDConnection::$database</a>, <a class="el" href="BDDError_8php-source.html#l00047">BDDError::CONNECTION_CANNOT_CHANGE_DB</a>, <a class="el" href="BDDError_8php-source.html#l00044">BDDError::CONNECTION_CLOSED</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00389">isConnected()</a>.    </td>
+References <a class="el" href="BDDConnection_8php-source.html#l00321">BDDConnection::$database</a>, <a class="el" href="BDDError_8php-source.html#l00052">BDDError::CONNECTION_CANNOT_CHANGE_DB</a>, <a class="el" href="BDDError_8php-source.html#l00043">BDDError::CONNECTION_CLOSED</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00411">isConnected()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="a55da146e6f84db9834381d72ca3d630"></a><!-- doxytag: member="MySQLConnection::SetPassword" ref="a55da146e6f84db9834381d72ca3d630" args="($password)" --><p>
@@ -534,9 +582,9 @@ Sets the password associated to the given username for connection. Connection ma
 <p>
 Reimplemented from <a class="el" href="classBDDConnection.html#37212fabc8ae1a0dd68f0e6efb8997dc">BDDConnection</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00177">177</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00186">186</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
 <p>
-References <a class="el" href="BDDConnection_8php-source.html#l00289">BDDConnection::$password</a>.    </td>
+References <a class="el" href="BDDConnection_8php-source.html#l00313">BDDConnection::$password</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="1d8d41b2ae0f09ff73a0d22c56698731"></a><!-- doxytag: member="MySQLConnection::SetServer" ref="1d8d41b2ae0f09ff73a0d22c56698731" args="($server)" --><p>
@@ -576,9 +624,9 @@ Sets host address for connection. Connection may be closed.<p>
 <p>
 Reimplemented from <a class="el" href="classBDDConnection.html#fb2c07288cb13a8d1be908425cba744e">BDDConnection</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00124">124</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00133">133</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
 <p>
-References <a class="el" href="BDDConnection_8php-source.html#l00283">BDDConnection::$server</a>.    </td>
+References <a class="el" href="BDDConnection_8php-source.html#l00307">BDDConnection::$server</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="d4ed29fddd6b7e2372142c95888a7f24"></a><!-- doxytag: member="MySQLConnection::SetUsername" ref="d4ed29fddd6b7e2372142c95888a7f24" args="($username)" --><p>
@@ -618,9 +666,9 @@ Sets the username for connection. Connection may be closed.<p>
 <p>
 Reimplemented from <a class="el" href="classBDDConnection.html#8c44dedaced31dd5d725e84b5a729a9c">BDDConnection</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00151">151</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00160">160</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
 <p>
-References <a class="el" href="BDDConnection_8php-source.html#l00286">BDDConnection::$username</a>.    </td>
+References <a class="el" href="BDDConnection_8php-source.html#l00310">BDDConnection::$username</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="1011f2263045023a662fcd16f580529f"></a><!-- doxytag: member="MySQLConnection::TableDescription" ref="1011f2263045023a662fcd16f580529f" args="($table)" --><p>
@@ -655,15 +703,17 @@ Gets the description of the table named $table<p>
   </table>
 </dl>
 <dl compact><dt><b>Returns:</b></dt><dd>- a <a class="el" href="classBDDRecordSet.html">BDDRecordSet</a> if table exists wich <a class="el" href="classBDDRecord.html">BDDRecord</a> s describe a field of the table <p>
-- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s)</dd></dl>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+BDDError::CONNECTION_NO_DB_SELECTED if No database is selected <p>
+see <a class="el" href="classMySQLConnection.html#5a91f25271718a34c6d81bd0fa8c5e67">MySQLConnection::Query</a></dd></dl>
 <dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/describe.html">http://dev.mysql.com/doc/refman/5.0/en/describe.html</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDConnectionInterface.html#1e018cbb46727851b64922fc04dd6db8">BDDConnectionInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00094">94</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
+Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00100">100</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
 <p>
-References <a class="el" href="MySQLConnection_8php-source.html#l00297">Query()</a>.    </td>
+References <a class="el" href="MySQLConnection_8php-source.html#l00313">Query()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="cac6713c3841770211c3a25d2b7fa4e0"></a><!-- doxytag: member="MySQLConnection::TableExists" ref="cac6713c3841770211c3a25d2b7fa4e0" args="($table)" --><p>
@@ -698,7 +748,10 @@ Search for table named $table in database. Connection may be opened.<p>
   </table>
 </dl>
 <dl compact><dt><b>Returns:</b></dt><dd>- true if table exists <p>
-- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s)</dd></dl>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+BDDError::CONNECTION_NO_DB_SELECTED if No database is selected <p>
+see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> <p>
+<a class="el" href="classBDDError.html#d6c7db60f07deb6b2b5fefc771603f61">BDDError::CONNECTION_TABLE_INEXISTANT</a> if table named $table does not exist.</dd></dl>
 <dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/show-tables.html">http://dev.mysql.com/doc/refman/5.0/en/show-tables.html</a> </dd></dl>
 
 <p>
@@ -706,12 +759,12 @@ Implements <a class="el" href="interfaceBDDConnectionInterface.html#be18752f03b8
 <p>
 Definition at line <a class="el" href="MySQLConnection_8php-source.html#l00043">43</a> of file <a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a>.
 <p>
-References <a class="el" href="BDDError_8php-source.html#l00049">BDDError::CONNECTION_TABLE_INEXISTANT</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00297">Query()</a>.    </td>
+References <a class="el" href="BDDError_8php-source.html#l00058">BDDError::CONNECTION_TABLE_INEXISTANT</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00313">Query()</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/DataBases/MySQLConnection/<a class="el" href="MySQLConnection_8php-source.html">MySQLConnection.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:37 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:51 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

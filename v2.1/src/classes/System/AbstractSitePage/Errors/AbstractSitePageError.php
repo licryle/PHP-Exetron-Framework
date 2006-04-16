@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |AbstractSitePageError.php|  -  description
+                           |AbstractSitePageError.php|
                              -------------------
     start                : |10.02.2006|
-    copyright            : (C) 2006 by BERLIAT Cyrille
+    copyright            : (C) 2005 par BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <AbstractSitePageError> class (file AbstractSitePageError.php) -----------------
-if (defined('ABSTRACTSITEPAGEERROR_H'))
+//-------------- Class <AbstractSitePageError> (file AbstractSitePageError.php) -----------------
+/*if (defined('ABSTRACTSITEPAGEERROR_H'))
 {
     return;
 }
@@ -17,11 +17,9 @@ else
 {
 
 }
-define('ABSTRACTSITEPAGEERROR_H',1);
+define('ABSTRACTSITEPAGEERROR_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -30,39 +28,29 @@ define('ABSTRACTSITEPAGEERROR_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <AbstractSitePageError> class
-//Extension of the Error class, implements constants for specific
-//Application errors
-//
+/*!
+ * Provides specific constants for AbstractSitePage's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class AbstractSitePageError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
 
-	const FUNCTION_NOT_CALLABLE = 'FUNCTION_NOT_CALLABLE';
-	const FUNCTION_PARAM_NOT_ARRAY = 'FUNCTION_PARAM_NOT_ARRAY';
-	const CALLBACK_NOT_EXISTS = 'CALLBACK_NOT_EXISTS';
-
-//--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
+//--------------------------------------------------------- public methods
 
 //---------------------------------------------- Constructors - destructor
     
 //---------------------------------------------------------- Magic Methods
 
 //---------------------------------------------------------------- PRIVATE 
-
+    
 //------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//----------------------------------------------------- Others definitions
+//------------------------------------------------------ other definitions
 
 ?>

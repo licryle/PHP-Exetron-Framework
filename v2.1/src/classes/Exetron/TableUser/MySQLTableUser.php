@@ -35,7 +35,7 @@ define('MYSQLTABLEUSER_H',1);
 //
 //------------------------------------------------------------------------ 
 
-class MySQLTableUser extends MySQLTable
+class MySQLTableUser extends MySQLTable implements TableUserInterface
 {
 //----------------------------------------------------------------- PUBLIC
 

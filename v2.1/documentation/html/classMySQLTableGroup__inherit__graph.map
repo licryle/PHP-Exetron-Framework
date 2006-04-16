@@ -1,19 +1,18 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,258,760"];
+	graph [bb="0,0,428,652"];
 	Node1 [label="{MySQLTableGroup\n||+ SaveGroups()\l+ SelectGroups()\l+ SelectGroupByIdGroup()\l+ SelectGroupsByIdSite()\l+ FindGroupsByName()\l\
-+ UpdateGroupByIdGroup()\l+ InsertGroup()\l+ IdGroupExists()\l}", height="1.83", width="2.11", color=white, fillcolor=black, style=filled, fontcolor=white, pos="129,74", rects="53,124,206,140 53,108,206,124 53,8,206,108"];
++ UpdateGroupByIdGroup()\l+ InsertGroup()\l+ IdGroupExists()\l}", height="1.83", width="2.11", color=white, fillcolor=black, style=filled, fontcolor=white, pos="240,74", rects="164,124,317,140 164,108,317,124 164,8,317,108"];
 	Node2 [label="{MySQLTable\n|+ TABLE_COLUMN_ALL\l+ MYSQL_CLAUSE_WHERE\l+ MYSQL_CLAUSE_LIMIT\l+ MYSQL_CLAUSE_AND\l+ MYSQL_CLAUSE_OR\l+ MYSQL_CLA\
 USE_ORDER\l+ MYSQL_CLAUSE_ORDER_ASCENDANT\l+ MYSQL_CLAUSE_ORDER_DESCENDANT\l+ MYSQL_CLAUSE_GROUP\l+ MYSQL_CLAUSE_HAVING\l+ MYSQL\
 _SEEK_REGEX\l+ MYSQL_SEEK_MULTICHARS\l+ MYSQL_SEEK_ANYCHAR\l+ MYSQL_SEEK_STRICT\l+ MYSQL_SEEK_SEPARATOR\l+ MYSQL_STRUCTURE_FIELD\
-_NAME\l|+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l+ __construct()\l# isValidProperty()\l# bDDRecordTo\
-TableRecord()\l}", height="4.50", width="3.58", color=black, fillcolor=white, style=filled, URL="$classMySQLTable.html", pos="129,338", rects="0,484,258,500 0,288,258,484 0,176,258,288"];
-	Node3 [label="{BDDTable\n|# $tableName\l# $bDDConnection\l# $structure\l|+ __construct()\l}", height="1.00", width="1.44", color=black, fillcolor=white, style=filled, URL="$classBDDTable.html", pos="129,572", rects="77,592,182,608 77,552,182,592 77,536,182,552"];
-	Node4 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="72,698", rects="29,718,115,734 29,702,115,718 29,662,115,702"];
-	Node5 [label="{BDDTableInterface\n||+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l}", height="1.50", width="1.47", color=black, fillcolor=white, style=filled, URL="$interfaceBDDTableInterface.html", pos="186,698", rects="133,736,240,752 133,720,240,736 133,644,240,720"];
-	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,129,176 129,166 129,156 129,148 129,140"];
-	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,129,536 129,526 129,518 129,509 129,500"];
-	Node4 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,88,662 92,653 99,638 106,622 113,608"];
-	Node5 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,161,644 157,635 153,626 149,616 145,608"];
+_NAME\l|+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l+ __construct()\l+ __destruct()\l# isValidProperty(\
+)\l# bDDRecordToTableRecord()\l}", height="4.67", width="3.58", color=black, fillcolor=white, style=filled, URL="$classMySQLTable.html", pos="129,344", rects="0,496,258,512 0,300,258,496 0,176,258,300"];
+	Node3 [label="{BDDTable\n|# $tableName\l# $bDDConnection\l# $structure\l|+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.33", width="1.44", color=red, fillcolor=white, style=filled, URL="$classBDDTable.html", pos="129,596", rects="77,628,182,644 77,588,182,628 77,548,182,588"];
+	Node4 [label="{TableGroupInterface\n||+ SelectGroups()\l+ SelectGroupByIdGroup()\l+ FindGroupsByName()\l+ UpdateGroupByIdGroup()\l+ InsertGrou\
+p()\l+ IdGroupExists()\l}", height="1.50", width="2.11", color=black, fillcolor=white, style=filled, URL="$interfaceTableGroupInterface.html", pos="352,344", rects="276,382,429,398 276,366,429,382 276,290,429,366"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,198,176 202,166 206,157 209,148 213,140"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,129,548 129,538 129,530 129,521 129,512"];
+	Node4 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,329,290 325,280 308,238 286,183 267,140"];
 }

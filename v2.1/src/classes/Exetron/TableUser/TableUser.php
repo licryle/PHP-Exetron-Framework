@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |TableUser.php|  -  description
+                           |TableUser.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableUser> (fichier TableUser.php) --------------
-if (defined('TABLEUSER_H'))
+//---------- Class <TableUser> (file TableUser.php) --------------
+/*if (defined('TABLEUSER_H'))
 {
     return;
 }
@@ -17,64 +17,52 @@ else
 {
 
 }
-define('TABLEUSER_H',1);
+define('TABLEUSER_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableUser>
-//
-//
+/*!
+ * Provides constants for User table fields name
+ */
 //------------------------------------------------------------------------ 
 
 class TableUser
 {
 //----------------------------------------------------------------- PUBLIC
 
+	/** Primary key field of the User table */
 	const TABLE_COLUMN_IDUSER = 'iduser';
-	// clef primaire d'un utilisateur
 	
+	/** User name/login field */
 	const TABLE_COLUMN_NAME = 'name';
-	// nom de l'utilisateur
 	
+	/** User password field */
 	const TABLE_COLUMN_PASSWORD = 'pass';
-	// mot de passe de l'utilisateur
 	
+	/** Foreign key that refers to Group Table */
 	const TABLE_COLUMN_IDGROUP = 'idgroup';
-	// clef étrangère du groupe
-	
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableUser>
+//------------------------------------------------------ other definitions
 
 ?>

@@ -37,16 +37,20 @@ Inheritance diagram for Variable:<p><center><img src="classVariable__inherit__gr
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariable.html#18cf96ad8c0d6a076d2eabda93addba7">Validate</a> ($siteTable)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariable.html#9fb02f3d395768a30a0d9698e77d5b42">__construct</a> (<a class="el" href="classBDDRecord.html">BDDRecord</a> &amp;$newRec)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariable.html#f49f93b8e83eecd211faf8d6b9f68757">__construct</a> (<a class="el" href="classBDDRecord.html">BDDRecord</a> $newRec)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariable.html#699504618ff7025a02e8b50c51feaa09">__destruct</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVariable.html#86ec4036d92a34eaeab0783a9f1f37f0">__ToString</a> ()</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides specific methods for <a class="el" href="classVariable.html">Variable</a> table entries 
 <p>
 
 <p>
-Definition at line <a class="el" href="Variable_8php-source.html#l00038">38</a> of file <a class="el" href="Variable_8php-source.html">Variable.php</a>.<hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="9fb02f3d395768a30a0d9698e77d5b42"></a><!-- doxytag: member="Variable::__construct" ref="9fb02f3d395768a30a0d9698e77d5b42" args="(BDDRecord &amp;$newRec)" --><p>
+Definition at line <a class="el" href="Variable_8php-source.html#l00036">36</a> of file <a class="el" href="Variable_8php-source.html">Variable.php</a>.<hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="f49f93b8e83eecd211faf8d6b9f68757"></a><!-- doxytag: member="Variable::__construct" ref="f49f93b8e83eecd211faf8d6b9f68757" args="(BDDRecord $newRec)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -54,7 +58,7 @@ Definition at line <a class="el" href="Variable_8php-source.html#l00038">38</a> 
         <tr>
           <td class="md" nowrap valign="top">Variable::__construct           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top"><a class="el" href="classBDDRecord.html">BDDRecord</a> &amp;$&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classBDDRecord.html">BDDRecord</a> $&nbsp;</td>
           <td class="mdname1" valign="top" nowrap> <em>newRec</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
@@ -71,11 +75,79 @@ Definition at line <a class="el" href="Variable_8php-source.html#l00038">38</a> 
     <td>
 
 <p>
+Initialises <a class="el" href="classVariable.html">Variable</a> from the <a class="el" href="classBDDRecord.html">BDDRecord</a> $newRec. If $newRec is NULL, <a class="el" href="classVariable.html">Variable</a> is empty. Sets IsValid to false.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$newRec</em>&nbsp;</td><td>a <a class="el" href="classBDDRecord.html">BDDRecord</a> to copy/cast or NULL </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="Variable_8php-source.html#l00115">115</a> of file <a class="el" href="Variable_8php-source.html">Variable.php</a>.
+Definition at line <a class="el" href="Variable_8php-source.html#l00116">116</a> of file <a class="el" href="Variable_8php-source.html">Variable.php</a>.
 <p>
-References <a class="el" href="BDDRecord_8php-source.html#l00117">BDDRecord::SetProperty()</a>, <a class="el" href="TableVariable_8php-source.html#l00061">TableVariable::TABLE_COLUMN_ACCESS</a>, <a class="el" href="TableVariable_8php-source.html#l00070">TableVariable::TABLE_COLUMN_ACCESS_ADMIN</a>, <a class="el" href="TableVariable_8php-source.html#l00078">TableVariable::TABLE_COLUMN_DATA</a>, <a class="el" href="TableVariable_8php-source.html#l00081">TableVariable::TABLE_COLUMN_IDSITE</a>, <a class="el" href="TableVariable_8php-source.html#l00042">TableVariable::TABLE_COLUMN_IDVARIABLE</a>, <a class="el" href="TableVariable_8php-source.html#l00075">TableVariable::TABLE_COLUMN_NAME</a>, <a class="el" href="TableVariable_8php-source.html#l00045">TableVariable::TABLE_COLUMN_SCOPE</a>, and <a class="el" href="TableVariable_8php-source.html#l00051">TableVariable::TABLE_COLUMN_SCOPE_SITE</a>.    </td>
+References <a class="el" href="BDDRecord_8php-source.html#l00111">BDDRecord::SetProperty()</a>, <a class="el" href="TableVariable_8php-source.html#l00057">TableVariable::TABLE_COLUMN_ACCESS</a>, <a class="el" href="TableVariable_8php-source.html#l00065">TableVariable::TABLE_COLUMN_ACCESS_ADMIN</a>, <a class="el" href="TableVariable_8php-source.html#l00073">TableVariable::TABLE_COLUMN_DATA</a>, <a class="el" href="TableVariable_8php-source.html#l00076">TableVariable::TABLE_COLUMN_IDSITE</a>, <a class="el" href="TableVariable_8php-source.html#l00041">TableVariable::TABLE_COLUMN_IDVARIABLE</a>, <a class="el" href="TableVariable_8php-source.html#l00070">TableVariable::TABLE_COLUMN_NAME</a>, <a class="el" href="TableVariable_8php-source.html#l00044">TableVariable::TABLE_COLUMN_SCOPE</a>, and <a class="el" href="TableVariable_8php-source.html#l00049">TableVariable::TABLE_COLUMN_SCOPE_SITE</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="699504618ff7025a02e8b50c51feaa09"></a><!-- doxytag: member="Variable::__destruct" ref="699504618ff7025a02e8b50c51feaa09" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">Variable::__destruct           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Destructs ressources allocated 
+<p>
+Reimplemented from <a class="el" href="classBDDRecord.html#b7cb8fc1ad4977a2133081bb06a5ef24">BDDRecord</a>.
+<p>
+Definition at line <a class="el" href="Variable_8php-source.html#l00146">146</a> of file <a class="el" href="Variable_8php-source.html">Variable.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="86ec4036d92a34eaeab0783a9f1f37f0"></a><!-- doxytag: member="Variable::__ToString" ref="86ec4036d92a34eaeab0783a9f1f37f0" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">Variable::__ToString           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Returns a printable version of object for debugging. 
+<p>
+Reimplemented from <a class="el" href="classBDDRecord.html#ee8deb4c0a66976d8d288e8c3989b1d1">BDDRecord</a>.
+<p>
+Definition at line <a class="el" href="Variable_8php-source.html#l00155">155</a> of file <a class="el" href="Variable_8php-source.html">Variable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="18cf96ad8c0d6a076d2eabda93addba7"></a><!-- doxytag: member="Variable::Validate" ref="18cf96ad8c0d6a076d2eabda93addba7" args="($siteTable)" --><p>
@@ -103,16 +175,29 @@ References <a class="el" href="BDDRecord_8php-source.html#l00117">BDDRecord::Set
     <td>
 
 <p>
+Tries to validate the <a class="el" href="classVariable.html">Variable</a> in order to save it into DataBase.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$siteTable</em>&nbsp;</td><td>a BDDTableSite object (where BDD should be replaced by your current Database : eg. <a class="el" href="classMySQLTableSite.html">MySQLTableSite</a>). A valid BDDTableSite implements <a class="el" href="interfaceTableSiteInterface.html">TableSiteInterface</a></td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if object has been validated <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+<a class="el" href="classVariableError.html#846b538027980f488bd3af84fcb8e96e">VariableError::VARIABLE_NAME_EMPTY</a> if property <a class="el" href="classTableVariable.html#3ac8b797b2cf77a0fb81205afd88ec23">TableVariable::TABLE_COLUMN_NAME</a> is empty<p>
+<a class="el" href="classBDDError.html#fda90cdc42742507614afa12a9baab5c">BDDError::TABLE_CLASS_INCORRECT</a> if $groupTable is not a valid instance<p>
+<a class="el" href="classVariableError.html#0510be7519a0f4577691e54375abf03d">VariableError::VARIABLE_SCOPE_INCORRECT</a> if property <a class="el" href="classTableVariable.html#3e00bfc06e07f3da9bed2b499a6cae3b">TableVariable::TABLE_COLUMN_SCOPE</a> is incorrect<p>
+<a class="el" href="classVariableError.html#3505d8ccc3aec0c3c2085c44a342bca5">VariableError::VARIABLE_ACCESS_INCORRECT</a> if property <a class="el" href="classTableVariable.html#ade2b809689df1813070c870a776846e">TableVariable::TABLE_COLUMN_ACCESS</a> is incorrect<p>
+<a class="el" href="classVariableError.html#9aa45709d0c105c551d47b1684b2db27">VariableError::VARIABLE_IDSITE_INEXISTANT</a> if property <a class="el" href="classTableVariable.html#4dc0ac7ccc2dc543ad4088e0099353fb">TableVariable::TABLE_COLUMN_IDSITE</a> refers to a non existant site </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Variable_8php-source.html#l00049">49</a> of file <a class="el" href="Variable_8php-source.html">Variable.php</a>.
+Definition at line <a class="el" href="Variable_8php-source.html#l00041">41</a> of file <a class="el" href="Variable_8php-source.html">Variable.php</a>.
 <p>
-References <a class="el" href="BDDError_8php-source.html#l00053">BDDError::TABLE_CLASS_INCORRECT</a>, <a class="el" href="TableVariable_8php-source.html#l00061">TableVariable::TABLE_COLUMN_ACCESS</a>, <a class="el" href="TableVariable_8php-source.html#l00070">TableVariable::TABLE_COLUMN_ACCESS_ADMIN</a>, <a class="el" href="TableVariable_8php-source.html#l00066">TableVariable::TABLE_COLUMN_ACCESS_ROOT</a>, <a class="el" href="TableVariable_8php-source.html#l00081">TableVariable::TABLE_COLUMN_IDSITE</a>, <a class="el" href="TableVariable_8php-source.html#l00075">TableVariable::TABLE_COLUMN_NAME</a>, <a class="el" href="TableVariable_8php-source.html#l00045">TableVariable::TABLE_COLUMN_SCOPE</a>, <a class="el" href="TableVariable_8php-source.html#l00055">TableVariable::TABLE_COLUMN_SCOPE_SERVER</a>, <a class="el" href="TableVariable_8php-source.html#l00051">TableVariable::TABLE_COLUMN_SCOPE_SITE</a>, <a class="el" href="VariableError_8php-source.html#l00048">VariableError::VARIABLE_ACCESS_INCORRECT</a>, <a class="el" href="VariableError_8php-source.html#l00049">VariableError::VARIABLE_IDSITE_INEXISTANT</a>, <a class="el" href="VariableError_8php-source.html#l00046">VariableError::VARIABLE_NAME_EMPTY</a>, and <a class="el" href="VariableError_8php-source.html#l00047">VariableError::VARIABLE_SCOPE_INCORRECT</a>.    </td>
+References <a class="el" href="BDDError_8php-source.html#l00067">BDDError::TABLE_CLASS_INCORRECT</a>, <a class="el" href="TableVariable_8php-source.html#l00057">TableVariable::TABLE_COLUMN_ACCESS</a>, <a class="el" href="TableVariable_8php-source.html#l00065">TableVariable::TABLE_COLUMN_ACCESS_ADMIN</a>, <a class="el" href="TableVariable_8php-source.html#l00062">TableVariable::TABLE_COLUMN_ACCESS_ROOT</a>, <a class="el" href="TableVariable_8php-source.html#l00076">TableVariable::TABLE_COLUMN_IDSITE</a>, <a class="el" href="TableVariable_8php-source.html#l00070">TableVariable::TABLE_COLUMN_NAME</a>, <a class="el" href="TableVariable_8php-source.html#l00044">TableVariable::TABLE_COLUMN_SCOPE</a>, <a class="el" href="TableVariable_8php-source.html#l00052">TableVariable::TABLE_COLUMN_SCOPE_SERVER</a>, <a class="el" href="TableVariable_8php-source.html#l00049">TableVariable::TABLE_COLUMN_SCOPE_SITE</a>, <a class="el" href="VariableError_8php-source.html#l00052">VariableError::VARIABLE_ACCESS_INCORRECT</a>, <a class="el" href="VariableError_8php-source.html#l00055">VariableError::VARIABLE_IDSITE_INEXISTANT</a>, <a class="el" href="VariableError_8php-source.html#l00046">VariableError::VARIABLE_NAME_EMPTY</a>, and <a class="el" href="VariableError_8php-source.html#l00049">VariableError::VARIABLE_SCOPE_INCORRECT</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableVariable/Iterators/<a class="el" href="Variable_8php-source.html">Variable.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:54 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:27:08 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

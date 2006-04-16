@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |Site.php|  -  description
+                           |Site.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Site> (fichier Site.php) --------------
-if (defined('SITE_H'))
+//---------- Class <Site> (file Site.php) --------------
+/*if (defined('SITE_H'))
 {
     return;
 }
@@ -17,67 +17,74 @@ else
 {
 
 }
-define('SITE_H',1);
+define('SITE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Site>
-//Gestion d'une entrée de table Site
-//
+/*!
+ * Provides specific methods for Site table entries
+ */
 //------------------------------------------------------------------------ 
 
 class Site extends BDDRecord
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function Validate (  )
-    // Mode d'emploi :
-    //permettra de valider l'objet courant en vue d'une sauvegarde dans la base
-	//de données
-	//
-	// Renvoie :
-	//- NULL si l'objet est validé. Il sera alors prêt pour une sauvegarde
-	//- un objet de type Errors contenant les erreurs qui empêchent la validation
-	//
-    // Contrat :
-    //
+    /**
+	 * Tries to validate the Site in order to save it into DataBase.
+	 *
+     * @return - NULL if object has been validated
+	 * @return - an Errors object in case of error(s) :
+	 *
+	 * @return SiteError::SITE_NAME_EMPTY if property 
+	 * TableSite::TABLE_COLUMN_NAME is empty
+     */
 	{
-		$this->isValid = ! empty( $this->row[ TableSite::TABLE_COLUMN_NAME ] );
-		
-		return NULL;
-	}
+		$errors = new Errors ();
 	
-//-----------------------------------------------Implémentation Iterator
+		// variable name
+			if ( empty( $this->row[ TableSite::TABLE_COLUMN_NAME ] ) )
+			{
+				$errors->Add ( new VariableError ( SiteError::SITE_NAME_EMPTY, 'Please fill in site name.') );
+			}
+		
+		// result
+		if ( $errors->GetCount() == 0 )
+		{
+			$this->isValid = true;
+			return NULL;		
+		}
+		
+		
+		$this->isValid = false;
+		return $errors;
+	} //----- End of Validate
 
-//---------------------------------------------Fin implémentation Iterator
+//---------------------------------------------- Constructors - destructor
 
-//-------------------------------------------- Constructeurs - destructeur
-
-    function __construct( BDDRecord & $newRec )
-    // Mode d'emploi (constructeur) :
-    //instancie un objet de type Site à partir d'un objet de
-	//type BDDRecord en faisant une copie en profondeur.
-	//
-    // Contrat :
-    //
+    function __construct( BDDRecord $newRec )
+    /**
+	 * Initialises Site from the BDDRecord $newRec.
+	 * If $newRec is NULL, Variable is empty.
+	 * Sets IsValid to false.
+	 *
+	 * @param $newRec a BDDRecord to copy/cast or NULL
+	 *
+     */
     {
-		// initialisation
+		parent::__construct( NULL );
+	
+		// initialization
 		$this->SetProperty ( TableSite::TABLE_COLUMN_IDSITE , '' );
 		$this->SetProperty ( TableSite::TABLE_COLUMN_NAME , '' );
 
@@ -85,27 +92,35 @@ class Site extends BDDRecord
 		{
 			$obj = (array)( $newRec);
 			
-			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] ); // hack php pour acceder
-			// a la prop protected $newRec->row
+			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] );
+			// php hack to access protected property $newRec->row
 		}
-		
-		$this->isValid = false;
-    } //---- Fin du constructeur
+    } //---- End of constructor
 	
-//------------------------------------------------------ Méthodes Magiques
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
+    
+//---------------------------------------------------------- Magic Methods
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 }
 
-//-------------------------------- Autres définitions dépendantes de <Site>
+//------------------------------------------------------ other definitions
 
 ?>

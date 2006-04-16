@@ -5,11 +5,11 @@
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Groups> (fichier Groups.php) --------------
-if (defined('GROUPS_H'))
+//---------- Class <Groups> (file Groups.php) --------------
+/*if (defined('GROUPS_H'))
 {
     return;
 }
@@ -17,47 +17,43 @@ else
 {
 
 }
-define('GROUPS_H',1);
+define('GROUPS_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Groups>
-//
-//
+/*!
+ * Provides specific methods for Iterator of Group-s
+ */
 //------------------------------------------------------------------------ 
 
 class Groups extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
 	public function GetGroupByIdGroup ( $idGroup )
-	// Mode d'emploi :
-	//permet de récupérer le groupe d'id $idGroup.
-	//
-	// Renvoie :
-	//- un objet de type Group en cas de réussite
-	//- un objet de type Errors si la group n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the Group which property TableGroup::TABLE_COLUMN_IDGROUP
+	 * has the value $idGroup
+     *
+     * @param $idGroup the id of the Group to be looked for
+	 *
+     * @return - the Group object which property
+	 * TableGroup::TABLE_COLUMN_IDGROUP has the value $idGroup
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return GroupError::GROUP_NOT_LOADED if Group has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		if ( isset ( $this->groups [ $idGroup ] ) )
 		{
@@ -66,23 +62,27 @@ class Groups extends AbstractClass implements Iterator
 		else
 		{
 			$errors = new Errors ( );
-			$errors->Add ( new GroupError ( GroupError::GROUP_NOT_LOADED, 'Group non chargé ou inexistant.' ) );
+			$errors->Add ( new GroupError ( GroupError::GROUP_NOT_LOADED, 'Group not loaded from database or not existant.' ) );
 			
 			return $errors;
 		}
-	} //---- Fin de GetGroupByIdGroup
+	} //---- End of GetGroupByIdGroup
 	
 	public function GetGroupByName ( $nameGroup )
-	// Mode d'emploi :
-	//permet de récupérer le group de nom $nameGroup.
-	//
-	// Renvoie :
-	//- un objet de type Group en cas de réussite
-	//- un objet de type Errors si la group n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the Group which property TableGroup::TABLE_COLUMN_NAME
+	 * has the value $nameGroup
+     *
+     * @param $nameGroup the name of the Group to be looked for
+	 *
+     * @return - the Group object which property TableGroup::TABLE_COLUMN_NAME
+	 * has the value $nameGroup
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return GroupError::GROUP_NOT_LOADED if Group has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		foreach ( $this->groups as $group ) 
 		{
@@ -93,158 +93,182 @@ class Groups extends AbstractClass implements Iterator
 		}
 		
 		$errors = new Errors ( );
-		$errors->Add ( new GroupError ( GroupError::GROUP_NOT_LOADED, 'Group non chargé ou inexistant.' ) );
+		$errors->Add ( new GroupError ( GroupError::GROUP_NOT_LOADED, 'Group not loaded from database or not existant.' ) );
 			
 		return $errors;
-	} //---- Fin de GetGroupByName
+	} //---- End of GetGroupByName
 	
 	public function SetGroup ( Group $group )
-	// Mode d'emploi :
-	//permet de mettre en mémoire dans l'objet le groupe $group.
-	//
-	//Afin de la sauver dans la base de donnée, il est nécessaire d'appeler SaveGroups().
-	//
-	// Algorithme :
+    /**
+	 * Adds a Group to the Groups if it is different than NULL.
+	 * Alias of Groups::Add()
+     *
+     * @param $group the Group to add
+     *
+     */
 	{
 
 		$this->Add ( $group );
 
-	} //---- Fin de SetGroup
+	} //---- End of SetGroup
 	
-//------------------------------------------- Implémentation de MyIterator
+//---------------------------------------------- Iterator's Implementation
 
-    public function Add( Group $newVar )
-    // Mode d'emploi :
-    //Ajoute un group à la liste
-    //
+    public function Add( Group $item )
+    /**
+	 * Adds a Group to the Groups if it is different than NULL.
+	 * Group-s are indexed by TableGroup::TABLE_COLUMN_IDGROUP if possible.
+     *
+     * @param $item the Group to add
+     *
+     */
     {
-		$key = $newVar->GetProperty ( TableGroup::TABLE_COLUMN_IDGROUP );
+		if ( $item == NULL ) return;
+	
+		$key = $item->GetProperty ( TableGroup::TABLE_COLUMN_IDGROUP );
 	
 		if ( empty ( $key ) )
 		{
-			$this->groups [] = $newVar;		
+			$this->groups [] = $item;		
 		}
 		else
 		{
-			$this->groups [ $key ] = $newVar;
+			$this->groups [ $key ] = $item;
 		}
-    } //---- Fin de Add
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des groupes
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->groups);
         
         $this->groups = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre de groupes contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->groups );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//---------------------------------------------- Iterator's Implementation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->groups );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->groups );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'id du groupe pointé par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return Key ( $this->groups );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->groups );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
+    } //---- End of Valid
 
-//---------------------------------- Fin de l'implémentation de MyIterator
+//--------------------------------------- End of Iterator's implementation
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( BDDRecordSet $groups )
-    // Mode d'emploi (constructeur) :
-    //instancie des Groups à partir d'un BDDRecordSet
-	//
-    // Contrat :
-    //
+    /**
+	 * Initialises Groups from a BDDRecordSet.
+	 *
+     */
     {
+		parent::__construct();
+	
 		$this->groups = array();
 		
 		foreach ( $groups as $group )
 		{
 			$this->Add( new Group ( $group ) );
 		}		
-    } //---- Fin du constructeur
+    } //---- End of constructor
 
 
     public function __destruct ( )
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/**
+	 * Destructs ressources allocated
+	 */
     {
-    } //---- Fin du destructeur
+		parent::__destruct();
+    } //---- End of destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 	
-	protected $groups; // contient les groups de group
-	// sous forme de BDDRecord indexées par leur nom
+	/** 
+	 * Array of Group-s indexed by TableGroup::TABLE_COLUMN_IDGROUP if 
+	 * possible
+	 */
+	protected $groups;
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <Groups>
+//------------------------------------------------------ other definitions
 
 ?>

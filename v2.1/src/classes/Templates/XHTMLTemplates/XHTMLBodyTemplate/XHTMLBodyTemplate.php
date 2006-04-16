@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |XHTMLBodyTemplate.php|  -  description
+                           |XHTMLBodyTemplate.php|
                              -------------------
-    début                : |11.02.2006|
+    start                : |11.02.2006|
     copyright            : (C) 2006 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <XHTMLBodyTemplate> class (file XHTMLBodyTemplate.php) -----------------
-if (defined('XHTMLBODYTEMPLATE_H'))
+//-------------- Class <XHTMLBodyTemplate> (file XHTMLBodyTemplate.php) -----------------
+/*if (defined('XHTMLBODYTEMPLATE_H'))
 {
     return;
 }
@@ -17,11 +17,9 @@ else
 {
 
 }
-define('XHTMLBODYTEMPLATE_H',1);
+define('XHTMLBODYTEMPLATE_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -29,96 +27,128 @@ define('XHTMLBODYTEMPLATE_H',1);
 
 //------------------------------------------------------------------ Types 
 
-//------------------------------------------------------------------------  
-// Role of <XHTMLBodyTemplate> class
-//
-//
+//------------------------------------------------------------------------ 
+/*!
+ * XHTMLTemplate extention. Representents the Body tag of an XHTMLPage
+ * with its contents and its parameters.
+ */
 //------------------------------------------------------------------------ 
 
 class XHTMLBodyTemplate extends XHTMLTemplate
 {
 //----------------------------------------------------------------- PUBLIC
-	
+	/** Page Content Tag Name */
 	const TAG_CONTENT = 'CONTENT';
+	
+	/** Param Page Body Tag Name */
 	const TAG_PARAMS = 'PARAMS';
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
 	
     public function AddContent ( $content )
-    // Mode d'emploi :
-    //add raw XHTML $content to the current content of the body.
-	// content of the page is value associated to the tag TAG_CONTENT
-	//
-    // Contrat :
-    //raw XHTML must be correct
+    /**
+     * Adds raw XHTML $content to the current content of the body.
+	 * Content of the page is value associated to the tag named TAG_CONTENT.
+	 *
+	 * Raw XHML $content may be valid.
+     *
+	 * @param $content the raw XHTML to be added
+	 *
+	 */
     {
 		$this->AddToTag ( self::TAG_CONTENT, $content );
     } //----- End of AddContent
 	
     public function SetContent ( $content )
-    // Mode d'emploi :
-    //set the content of the page with the given $content
-	//
-	// Returns :
-	//
-    // Contrat :
-    //raw XHTML must be correct
+    /**
+     * Sets raw XHTML $content as the current content of the body.
+	 * Content of the page is value associated to the tag named TAG_CONTENT.
+	 *
+	 * Raw XHML $content may be valid.
+     *
+	 * @param $content the raw XHTML to be set
+	 *
+	 */
     {
 		$temp = new Template ();
-		$temp->SetMaquette ( $content );
+		$temp->SetSkeleton ( $content );
 		
         $this->SetTag ( self::TAG_CONTENT, $temp );
     } //----- End of SetContent
 	
     public function AddParams ( $params )
-    // Mode d'emploi :
-    //add raw XHTML $params to the current parameters of the body.
-	// params of the body is value associated to the tag TAG_PARAMS
-	//
-    // Contrat :
-    //raw XHTML must be correct
+    /**
+     * Adds raw XHTML $params to the current parameters of the body XHTML tag.
+	 * Parameters of the body tag is value associated to the tag named TAG_PARAMS.
+	 *
+	 * Raw XHML $params may be valid.
+     *
+	 * @param $params the raw XHTML to be added
+	 *
+	 */
     {
 		$this->AddToTag ( self::TAG_PARAMS, $params );
     } //----- End of AddParams
 	
     public function SetParams ( $params )
-    // Mode d'emploi :
-    //set the parameters of the page with the given $params
-	//
-    // Contrat :
-    //raw XHTML must be correct
+    /**
+     * Sets raw XHTML $params as the current parameters of the body XHTML tag.
+	 * Parameters of the body tag is value associated to the tag named TAG_PARAMS.
+	 *
+	 * Raw XHML $params may be valid.
+     *
+	 * @param $params the raw XHTML to be set
+	 *
+	 */
     {
 		$temp = new Template ();
-		$temp->SetMaquette ( $content );
+		$temp->SetSkeleton ( $content );
 		
         $this->SetTag ( self::TAG_PARAMS, $temp );
     } //----- End of SetParams
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
 	function __construct () 
-    // User's manual :
-    //
-    // Contract :
-	//
+	/**
+	 * instanciates a XHTMLBodyTemplate.
+	 * Sets a default skeleton and initialises XHTMLTemplates for tags
+	 * named TAG_CONTENT and TAG_PARAMS
+	 *
+	 */
 	{
 		parent::__construct();
 		
-		$this->maquette =
+		$this->SetSkeleton(
 '<body '. Template::BuildTag( self::TAG_PARAMS ) .'>
 '. Template::BuildTag( self::TAG_CONTENT ).'
-</body>';
+</body>');
 
 		$this->SetTag ( self::TAG_CONTENT, new XHTMLTemplate() ); 
 		$this->SetTag ( self::TAG_PARAMS, new XHTMLTemplate() ); 
 
-	} // end of __construct
+	} //---- End of __construct
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
+		parent::__destruct();
+	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
+	public function __ToString ()
+    /**
+	 * Returns a printable version of object for final print out.
+	 *
+	 * @return String printable on screen
+	 *
+	 * @see Template::Generate()
+	 * 
+	 */
+	{
+		return $this->Generate ( );
+	} // End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 

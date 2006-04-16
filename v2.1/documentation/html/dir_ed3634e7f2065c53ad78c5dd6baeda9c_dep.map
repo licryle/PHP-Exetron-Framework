@@ -2,8 +2,8 @@ digraph G {
 	graph [compound=true];
 	node [label="\N", fontsize=10, fontname=Helvetica];
 	edge [labelfontsize=9, labelfontname=Helvetica];
-	graph [lp="107,0"];
-	graph [bb="0,0,214,100"];
+	graph [lp="63,0"];
+	graph [bb="0,0,126,84"];
 	subgraph clusterdir_c0ec4fc4568a9ea5e79e916ecacab50d {
 		graph [bgcolor="#ddddee"];
 		graph [pencolor=black];
@@ -12,14 +12,7 @@ digraph G {
 		graph [fontsize=10];
 		graph [URL="dir_c0ec4fc4568a9ea5e79e916ecacab50d.html"];
 		graph [lp=""];
-		graph [bb="8,8,206,92"];
-		subgraph clusterdir_ed3634e7f2065c53ad78c5dd6baeda9c {
-			graph [bgcolor="#eeeeff"];
-			graph [label=""];
-			graph [URL="dir_ed3634e7f2065c53ad78c5dd6baeda9c.html"];
-			graph [bb="16,16,198,68"];
-			dir_ed3634e7f2065c53ad78c5dd6baeda9c [label=XHTMLSitePage, shape=plaintext, pos="143,42", width="1.31", height="0.50"];
-			dir_4f2279ff1e56992d5f3c5a11b0e49803 [label=Errors, shape=box, color=black, fillcolor=white, style=filled, URL="dir_4f2279ff1e56992d5f3c5a11b0e49803.html", pos="51,42", width="0.75", height="0.50"];
-		}
+		graph [bb="8,8,118,76"];
+		dir_ed3634e7f2065c53ad78c5dd6baeda9c [label=XHTMLSitePage, shape=box, style=filled, fillcolor="#eeeeff", pencolor=black, URL="dir_ed3634e7f2065c53ad78c5dd6baeda9c.html", pos="63,34", width="1.31", height="0.50"];
 	}
 }

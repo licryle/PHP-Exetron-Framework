@@ -30,7 +30,7 @@
   </ul></div>
 <h1>Error Class Reference</h1><!-- doxytag: class="Error" --><!-- doxytag: inherits="AbstractClass" -->Inherits <a class="el" href="classAbstractClass.html">AbstractClass</a>.
 <p>
-Inherited by <a class="el" href="classAbstractSiteError.html">AbstractSiteError</a>, <a class="el" href="classAbstractSitePageError.html">AbstractSitePageError</a>, <a class="el" href="classAbstractSitePageError.html">AbstractSitePageError</a>, <a class="el" href="classAbstractSitePageError.html">AbstractSitePageError</a>, <a class="el" href="classApplicationError.html">ApplicationError</a>, <a class="el" href="classBDDError.html">BDDError</a>, <a class="el" href="classGroupError.html">GroupError</a>, <a class="el" href="classHTMLPageError.html">HTMLPageError</a>, <a class="el" href="classSessionError.html">SessionError</a>, <a class="el" href="classSiteError.html">SiteError</a>, <a class="el" href="classTemplateError.html">TemplateError</a>, <a class="el" href="classUserError.html">UserError</a>, and <a class="el" href="classVariableError.html">VariableError</a>.
+Inherited by <a class="el" href="classAbstractSitePageError.html">AbstractSitePageError</a>, <a class="el" href="classApplicationError.html">ApplicationError</a>, <a class="el" href="classBDDError.html">BDDError</a>, <a class="el" href="classGroupError.html">GroupError</a>, <a class="el" href="classSessionError.html">SessionError</a>, <a class="el" href="classSiteError.html">SiteError</a>, <a class="el" href="classTemplateError.html">TemplateError</a>, <a class="el" href="classUserError.html">UserError</a>, and <a class="el" href="classVariableError.html">VariableError</a>.
 <p>
 Inheritance diagram for Error:<p><center><img src="classError__inherit__graph.gif" border="0" usemap="#Error__inherit__map" alt="Inheritance graph"></center>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for Error:<p><center><img src="classError__coll__graph.gif" border="0" usemap="#Error__coll__map" alt="Collaboration graph"></center>
@@ -43,6 +43,8 @@ Inheritance diagram for Error:<p><center><img src="classError__inherit__graph.gi
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classError.html#75c6faba582d795c66ba6db68fc9ca05">__construct</a> ($code, $str)</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classError.html#cf34625af8bb15a5519ac9185296345b">__destruct</a> ()</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classError.html#317cdb077b2b6212da3feb700f6af562">__ToString</a> ()</td></tr>
 
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
@@ -52,11 +54,11 @@ Inheritance diagram for Error:<p><center><img src="classError__inherit__graph.gi
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides <a class="el" href="classError.html">Error</a> management. An error is composed by an error code and a message. 
 <p>
 
 <p>
-Definition at line <a class="el" href="Error_8php-source.html#l00038">38</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="Error_8php-source.html#l00037">37</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="75c6faba582d795c66ba6db68fc9ca05"></a><!-- doxytag: member="Error::__construct" ref="75c6faba582d795c66ba6db68fc9ca05" args="($code, $str)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -91,9 +93,47 @@ Definition at line <a class="el" href="Error_8php-source.html#l00038">38</a> of 
     <td>
 
 <p>
+Initialises an <a class="el" href="classError.html">Error</a> object from a $code and a message $str.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$code</em>&nbsp;</td><td>The error code </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$str</em>&nbsp;</td><td>The message associated to the error </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="Error_8php-source.html#l00070">70</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
+Definition at line <a class="el" href="Error_8php-source.html#l00066">66</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="cf34625af8bb15a5519ac9185296345b"></a><!-- doxytag: member="Error::__destruct" ref="cf34625af8bb15a5519ac9185296345b" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">Error::__destruct           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Destructs ressources allocated 
+<p>
+Reimplemented from <a class="el" href="classAbstractClass.html#97843d1029084c62a26fe60b1709bdb4">AbstractClass</a>.
+<p>
+Definition at line <a class="el" href="Error_8php-source.html#l00081">81</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="317cdb077b2b6212da3feb700f6af562"></a><!-- doxytag: member="Error::__ToString" ref="317cdb077b2b6212da3feb700f6af562" args="()" --><p>
@@ -120,11 +160,13 @@ Definition at line <a class="el" href="Error_8php-source.html#l00070">70</a> of 
     <td>
 
 <p>
+Returns a printable version of object for debugging.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>String printable on screen </dd></dl>
 
 <p>
 Reimplemented from <a class="el" href="classAbstractClass.html#1e51d9ae9242be960663e150807bdc8b">AbstractClass</a>.
 <p>
-Definition at line <a class="el" href="Error_8php-source.html#l00081">81</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
+Definition at line <a class="el" href="Error_8php-source.html#l00090">90</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="56b61a842c04387434c6816bc866c247"></a><!-- doxytag: member="Error::GetCode" ref="56b61a842c04387434c6816bc866c247" args="()" --><p>
@@ -151,9 +193,11 @@ Definition at line <a class="el" href="Error_8php-source.html#l00081">81</a> of 
     <td>
 
 <p>
+Gets code associated to the error.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>The code associated to the error </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Error_8php-source.html#l00059">59</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
+Definition at line <a class="el" href="Error_8php-source.html#l00054">54</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="9a0c9dabf6e651deb32ad38995cdd1c2"></a><!-- doxytag: member="Error::GetMessage" ref="9a0c9dabf6e651deb32ad38995cdd1c2" args="()" --><p>
@@ -180,9 +224,11 @@ Definition at line <a class="el" href="Error_8php-source.html#l00059">59</a> of 
     <td>
 
 <p>
+Gets message associated to the error.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>The message associated to the error </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Error_8php-source.html#l00049">49</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
+Definition at line <a class="el" href="Error_8php-source.html#l00043">43</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
   </tr>
 </table>
 <hr><h2>Member Data Documentation</h2>
@@ -206,9 +252,9 @@ Definition at line <a class="el" href="Error_8php-source.html#l00049">49</a> of 
     <td>
 
 <p>
-
+the code of the error 
 <p>
-Definition at line <a class="el" href="Error_8php-source.html#l00100">100</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
+Definition at line <a class="el" href="Error_8php-source.html#l00107">107</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="50dfc07a886130e14e17079b3b1cc77a"></a><!-- doxytag: member="Error::$erreurString" ref="50dfc07a886130e14e17079b3b1cc77a" args="" --><p>
@@ -231,14 +277,14 @@ Definition at line <a class="el" href="Error_8php-source.html#l00100">100</a> of
     <td>
 
 <p>
-
+the message of the error 
 <p>
-Definition at line <a class="el" href="Error_8php-source.html#l00101">101</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
+Definition at line <a class="el" href="Error_8php-source.html#l00110">110</a> of file <a class="el" href="Error_8php-source.html">Error.php</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/System/Errors/Errors/<a class="el" href="Error_8php-source.html">Error.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:31 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:47 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

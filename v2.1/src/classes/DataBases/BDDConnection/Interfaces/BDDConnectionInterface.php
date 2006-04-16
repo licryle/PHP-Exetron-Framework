@@ -3,12 +3,12 @@
 /*************************************************************************
                            |BDDConnectionInterface.php|
                              -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    start                : |DATE|
+    copyright            : (C) 2005 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface of class <MySQLConnection> (file BDDConnectionInterface.php) --------------
+//---------- Interface <MySQLConnection> (file BDDConnectionInterface.php) --------------
 /*if (defined('BDDCONNECTIONINTERFACE_H'))
 {
     return;
@@ -40,7 +40,7 @@ interface BDDConnectionInterface
 //--------------------------------------------------------- public methods
     
     /**
-	 * Search for table named $table in database.
+	 * Searchs for table named $table in database.
 	 * Connection may be opened.
 	 *
 	 * @param $table the tablename to be checked
@@ -146,7 +146,7 @@ interface BDDConnectionInterface
     public function SetDatabase( $database );
     
     /**
-     * try to send a query to DB server
+     * tries to send a query to DB server
 	 * Connection may be opened.
      *
 	 * @param $query the query to be done
@@ -166,7 +166,7 @@ interface BDDConnectionInterface
     public function GetQueriesCount ( );
     
     /**
-     * Try to close the connection
+     * Tries to close the connection
      *
      * @return - an Errors object in case of error(s)
      * @return - NULL if operation was successful
@@ -175,7 +175,7 @@ interface BDDConnectionInterface
     public function Close( );
     
     /**
-     * Check whether connection is opened or closed
+     * Checks whether connection is opened or closed
      *
      * @return - true if connection is active
      * @return - false if connection is closed

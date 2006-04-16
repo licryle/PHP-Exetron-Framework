@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |Application.php|  -  description
+                           |Application.php|
                              -------------------
     start                : |10.02.2006|
     copyright            : (C) 2006 by BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <Application> class (file Application.php) -----------------
-if (defined('APPLICATION_H'))
+//-------------- Class <Application> (file Application.php) -----------------
+/*if (defined('APPLICATION_H'))
 {
     return;
 }
@@ -17,11 +17,9 @@ else
 {
 
 }
-define('APPLICATION_H',1);
+define('APPLICATION_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -30,9 +28,9 @@ define('APPLICATION_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <Application> class
-//
-//
+/*!
+ *
+ */
 //------------------------------------------------------------------------ 
 
 class Application extends AbstractSingleton

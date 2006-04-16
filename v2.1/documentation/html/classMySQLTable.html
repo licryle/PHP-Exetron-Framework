@@ -37,19 +37,21 @@ Inheritance diagram for MySQLTable:<p><center><img src="classMySQLTable__inherit
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classMySQLTable-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#f384718c8a922598d355343683cb4538">Select</a> ($champs, $options)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ($fields, $options)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef99816420">Insert</a> (<a class="el" href="classBDDRecord.html">BDDRecord</a> $record)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#96784244d94a2da7047c24d542a25bc8">Update</a> (<a class="el" href="classBDDRecord.html">BDDRecord</a> $updatedRec, $clause)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#23fbfd2896f49c29ab484c8320780ea4">Delete</a> ($clause)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#309504311d2385a87c0bb634efc394cd">Delete</a> ($clauses)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#6e2df2345cbe92834fd57d02f7d752eb">Clear</a> ()</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#73a7e46a8d266779e95744aa0b0943c5">Drop</a> ()</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#fd100c44d578b4047b49e7836b46e467">__construct</a> ($table, <a class="el" href="classMySQLConnection.html">MySQLConnection</a> $connection, &amp;$errors)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#51bae42880714255caed4fd45177f93e">__destruct</a> ()</td></tr>
 
 <tr><td colspan="2"><br><h2>Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> = '*'</td></tr>
@@ -91,11 +93,11 @@ Inheritance diagram for MySQLTable:<p><center><img src="classMySQLTable__inherit
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides Methods and constants for operations on MySQL Tables 
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00038">38</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00036">36</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="fd100c44d578b4047b49e7836b46e467"></a><!-- doxytag: member="MySQLTable::__construct" ref="fd100c44d578b4047b49e7836b46e467" args="($table, MySQLConnection $connection, &amp;$errors)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -136,9 +138,48 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00038">38</a
     <td>
 
 <p>
+Initialises <a class="el" href="classMySQLTable.html">MySQLTable</a> for the table named $table on the given $connection.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$table</em>&nbsp;</td><td>name of the table </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$connection</em>&nbsp;</td><td><a class="el" href="classBDDConnection.html">BDDConnection</a> for all table operations. This must be a valid and connected <a class="el" href="classBDDConnection.html">BDDConnection</a> unless it will cause an <a class="el" href="classError.html">Error</a>. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$errors</em>&nbsp;</td><td>reference to an <a class="el" href="classErrors.html">Errors</a> object. It will be set if an error occurs during instanciation. If operation was successful, it equals NULL </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00193">193</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00232">232</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="51bae42880714255caed4fd45177f93e"></a><!-- doxytag: member="MySQLTable::__destruct" ref="51bae42880714255caed4fd45177f93e" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">MySQLTable::__destruct           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Destructs ressources allocated 
+<p>
+Reimplemented from <a class="el" href="classBDDTable.html#2c68cc87ed7f9911fef67c8d4c8cd80b">BDDTable</a>.
+<p>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00249">249</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="94777e2e52849c53a18f5a0188dca02d"></a><!-- doxytag: member="MySQLTable::bDDRecordToTableRecord" ref="94777e2e52849c53a18f5a0188dca02d" args="(BDDRecord $record)" --><p>
@@ -166,13 +207,15 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00193">193</
     <td>
 
 <p>
+Computes conversion from a standard <a class="el" href="classBDDRecord.html">BDDRecord</a> to a safe <a class="el" href="classBDDRecord.html">BDDRecord</a> for MySQL queries. It also computes an intersection between table fields and <a class="el" href="classBDDRecord.html">BDDRecord</a> properties.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>a <a class="el" href="classBDDRecord.html">BDDRecord</a> ready to be saved/updated into table </dd></dl>
 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00240">240</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00284">284</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00218">isValidProperty()</a>.
+References <a class="el" href="MySQLTable_8php-source.html#l00263">isValidProperty()</a>.
 <p>
-Referenced by <a class="el" href="MySQLTable_8php-source.html#l00114">Insert()</a>, and <a class="el" href="MySQLTable_8php-source.html#l00136">Update()</a>.    </td>
+Referenced by <a class="el" href="MySQLTable_8php-source.html#l00131">Insert()</a>, and <a class="el" href="MySQLTable_8php-source.html#l00158">Update()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="6e2df2345cbe92834fd57d02f7d752eb"></a><!-- doxytag: member="MySQLTable::Clear" ref="6e2df2345cbe92834fd57d02f7d752eb" args="()" --><p>
@@ -199,14 +242,17 @@ Referenced by <a class="el" href="MySQLTable_8php-source.html#l00114">Insert()</
     <td>
 
 <p>
+Tries to delete all entries of the table<p>
+<dl compact><dt><b>Returns:</b></dt><dd>- see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a></dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/delete.html">http://dev.mysql.com/doc/refman/5.0/en/delete.html</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDTableInterface.html#2a8ea6a2c2e5d16842fe6675af4ee26b">BDDTableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00171">171</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00205">205</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="23fbfd2896f49c29ab484c8320780ea4"></a><!-- doxytag: member="MySQLTable::Delete" ref="23fbfd2896f49c29ab484c8320780ea4" args="($clause)" --><p>
+<a class="anchor" name="309504311d2385a87c0bb634efc394cd"></a><!-- doxytag: member="MySQLTable::Delete" ref="309504311d2385a87c0bb634efc394cd" args="($clauses)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -215,7 +261,7 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00171">171</
           <td class="md" nowrap valign="top">MySQLTable::Delete           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">$&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>clause</em>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>clauses</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -231,11 +277,19 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00171">171</
     <td>
 
 <p>
+Tries to delete entries that correpond to $clauses<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$clauses</em>&nbsp;</td><td>clauses constructed in Data Manipulation Language (eg. SQL) to determine which records have to be deleted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a></dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/delete.html">http://dev.mysql.com/doc/refman/5.0/en/delete.html</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDTableInterface.html#d85de4707f5b1df6e0edae79c04b491e">BDDTableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00160">160</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00189">189</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="73a7e46a8d266779e95744aa0b0943c5"></a><!-- doxytag: member="MySQLTable::Drop" ref="73a7e46a8d266779e95744aa0b0943c5" args="()" --><p>
@@ -262,11 +316,14 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00160">160</
     <td>
 
 <p>
+Tries to drop the table<p>
+<dl compact><dt><b>Returns:</b></dt><dd>- see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a></dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/drop-table.html">http://dev.mysql.com/doc/refman/5.0/en/drop-table.html</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDTableInterface.html#00c43250ef6b56d97e5d7cab3f7c630b">BDDTableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00181">181</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00218">218</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="9f08a55b2946dfc58864f1ef99816420"></a><!-- doxytag: member="MySQLTable::Insert" ref="9f08a55b2946dfc58864f1ef99816420" args="(BDDRecord $record)" --><p>
@@ -294,15 +351,23 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00181">181</
     <td>
 
 <p>
+Tries to insert the given $record into database<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$record</em>&nbsp;</td><td><a class="el" href="classBDDRecord.html">BDDRecord</a> to be inserted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a></dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/insert.html">http://dev.mysql.com/doc/refman/5.0/en/insert.html</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDTableInterface.html#b298e5ed2085cee177aac4a46dc67aa9">BDDTableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00114">114</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00131">131</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00240">bDDRecordToTableRecord()</a>.
+References <a class="el" href="MySQLTable_8php-source.html#l00284">bDDRecordToTableRecord()</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00226">MySQLTableGroup::InsertGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00199">MySQLTableSite::InsertSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00226">MySQLTableUser::InsertUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00204">MySQLTableVariable::InsertVariable()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00220">MySQLTableGroup::InsertGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00199">MySQLTableSite::InsertSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00226">MySQLTableUser::InsertUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00204">MySQLTableVariable::InsertVariable()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="d287c273da5c1b9159a71114944b18c1"></a><!-- doxytag: member="MySQLTable::isValidProperty" ref="d287c273da5c1b9159a71114944b18c1" args="($property)" --><p>
@@ -330,16 +395,19 @@ Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00226">MySQL
     <td>
 
 <p>
+Checks into table description if the property named $property exists as a field in table<p>
+<dl compact><dt><b>Returns:</b></dt><dd>true if property exists <p>
+false otherwise </dd></dl>
 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00218">218</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00263">263</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00069">MYSQL_STRUCTURE_FIELD_NAME</a>.
+References <a class="el" href="MySQLTable_8php-source.html#l00089">MYSQL_STRUCTURE_FIELD_NAME</a>.
 <p>
-Referenced by <a class="el" href="MySQLTable_8php-source.html#l00240">bDDRecordToTableRecord()</a>.    </td>
+Referenced by <a class="el" href="MySQLTable_8php-source.html#l00284">bDDRecordToTableRecord()</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="f384718c8a922598d355343683cb4538"></a><!-- doxytag: member="MySQLTable::Select" ref="f384718c8a922598d355343683cb4538" args="($champs, $options)" --><p>
+<a class="anchor" name="ac4c4928e583451096166dd381ba9ed9"></a><!-- doxytag: member="MySQLTable::Select" ref="ac4c4928e583451096166dd381ba9ed9" args="($fields, $options)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -348,7 +416,7 @@ Referenced by <a class="el" href="MySQLTable_8php-source.html#l00240">bDDRecordT
           <td class="md" nowrap valign="top">MySQLTable::Select           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">$&nbsp;</td>
-          <td class="mdname" nowrap> <em>champs</em>, </td>
+          <td class="mdname" nowrap> <em>fields</em>, </td>
         </tr>
         <tr>
           <td class="md" nowrap align="right"></td>
@@ -373,13 +441,23 @@ Referenced by <a class="el" href="MySQLTable_8php-source.html#l00240">bDDRecordT
     <td>
 
 <p>
+Computes a selection of $fields on entries that correspond to $options<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$fields</em>&nbsp;</td><td>array of string that reprensents fields' name to select </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$options</em>&nbsp;</td><td>string that contains various select options like "where", "order", "limit", ...</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- a <a class="el" href="classBDDRecordSet.html">BDDRecordSet</a> that contains BDDRecord-s ( Database entries) if select was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a></dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/select.html">http://dev.mysql.com/doc/refman/5.0/en/select.html</a> </dd></dl>
 
 <p>
-Implements <a class="el" href="interfaceBDDTableInterface.html#5e7f23cd14a45180342e9c568bbffd83">BDDTableInterface</a>.
+Implements <a class="el" href="interfaceBDDTableInterface.html#1f5004f27b2101141e12f2d924475683">BDDTableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00079">79</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00093">93</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00165">MySQLTableGroup::FindGroupsByName()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00138">MySQLTableSite::FindSitesByName()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00165">MySQLTableUser::FindUsersByName()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00240">MySQLTableGroup::IdGroupExists()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00213">MySQLTableSite::IdSiteExists()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00240">MySQLTableUser::IdUserExists()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00218">MySQLTableVariable::IdVariableExists()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00112">MySQLTableGroup::SelectGroupByIdGroup()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00088">MySQLTableGroup::SelectGroups()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00139">MySQLTableGroup::SelectGroupsByIdSite()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00088">MySQLTableVariable::SelectServerVariables()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00112">MySQLTableSite::SelectSiteByIdSite()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00088">MySQLTableSite::SelectSites()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00115">MySQLTableVariable::SelectSiteVariables()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00112">MySQLTableUser::SelectUserByIdUser()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00088">MySQLTableUser::SelectUsers()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00138">MySQLTableUser::SelectUsersByIdGroup()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00144">MySQLTableVariable::SelectVariablesByName()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00159">MySQLTableGroup::FindGroupsByName()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00138">MySQLTableSite::FindSitesByName()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00165">MySQLTableUser::FindUsersByName()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00234">MySQLTableGroup::IdGroupExists()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00213">MySQLTableSite::IdSiteExists()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00240">MySQLTableUser::IdUserExists()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00218">MySQLTableVariable::IdVariableExists()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00106">MySQLTableGroup::SelectGroupByIdGroup()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00082">MySQLTableGroup::SelectGroups()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00133">MySQLTableGroup::SelectGroupsByIdSite()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00088">MySQLTableVariable::SelectServerVariables()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00112">MySQLTableSite::SelectSiteByIdSite()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00088">MySQLTableSite::SelectSites()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00115">MySQLTableVariable::SelectSiteVariables()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00112">MySQLTableUser::SelectUserByIdUser()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00088">MySQLTableUser::SelectUsers()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00138">MySQLTableUser::SelectUsersByIdGroup()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00144">MySQLTableVariable::SelectVariablesByName()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="96784244d94a2da7047c24d542a25bc8"></a><!-- doxytag: member="MySQLTable::Update" ref="96784244d94a2da7047c24d542a25bc8" args="(BDDRecord $updatedRec, $clause)" --><p>
@@ -416,15 +494,24 @@ Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00165">MySQL
     <td>
 
 <p>
+Tries to update with the given $updatedRec into database in function of $clause parameter.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$updatedRec</em>&nbsp;</td><td>the <a class="el" href="classBDDRecord.html">BDDRecord</a> updated </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$clause</em>&nbsp;</td><td>clause constructed in Data Manipulation Language (eg. SQL) to determine which record has to be updated</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnectionInterface::Query</a></dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a href="http://dev.mysql.com/doc/refman/5.0/en/update.html">http://dev.mysql.com/doc/refman/5.0/en/update.html</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceBDDTableInterface.html#2ffb9ed733a5f1d5ddd11d8763ba4276">BDDTableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00136">136</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00158">158</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00240">bDDRecordToTableRecord()</a>.
+References <a class="el" href="MySQLTable_8php-source.html#l00284">bDDRecordToTableRecord()</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00193">MySQLTableGroup::UpdateGroupByIdGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00166">MySQLTableSite::UpdateSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00193">MySQLTableUser::UpdateUserByIdUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00171">MySQLTableVariable::UpdateVariableByIdVariable()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00187">MySQLTableGroup::UpdateGroupByIdGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00166">MySQLTableSite::UpdateSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00193">MySQLTableUser::UpdateUserByIdUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00171">MySQLTableVariable::UpdateVariableByIdVariable()</a>.    </td>
   </tr>
 </table>
 <hr><h2>Member Data Documentation</h2>
@@ -448,9 +535,9 @@ Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00193">MySQL
     <td>
 
 <p>
-
+MySQL 'and' operator 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00048">48</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00050">50</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="81a48bf462bc7185b90fb1fdca3cae17"></a><!-- doxytag: member="MySQLTable::MYSQL_CLAUSE_GROUP" ref="81a48bf462bc7185b90fb1fdca3cae17" args="" --><p>
@@ -473,9 +560,9 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00048">48</a
     <td>
 
 <p>
-
+MySQL 'group by' clause 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00055">55</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00065">65</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="05b3f4375f263d9bace01e866f3cbd1d"></a><!-- doxytag: member="MySQLTable::MYSQL_CLAUSE_HAVING" ref="05b3f4375f263d9bace01e866f3cbd1d" args="" --><p>
@@ -498,9 +585,9 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00055">55</a
     <td>
 
 <p>
-
+MySQL 'having' clause 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00056">56</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00068">68</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="9d0f9fce2d708258df0e7c0ce5a81c98"></a><!-- doxytag: member="MySQLTable::MYSQL_CLAUSE_LIMIT" ref="9d0f9fce2d708258df0e7c0ce5a81c98" args="" --><p>
@@ -523,9 +610,9 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00056">56</a
     <td>
 
 <p>
-
+MySQL 'limit' clause 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00046">46</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00047">47</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="8aa47d57b85474a024a3afcaf9f4eec5"></a><!-- doxytag: member="MySQLTable::MYSQL_CLAUSE_OR" ref="8aa47d57b85474a024a3afcaf9f4eec5" args="" --><p>
@@ -548,9 +635,9 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00046">46</a
     <td>
 
 <p>
-
+MySQL 'or' operator 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00049">49</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00053">53</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="c760e12fd6e1bf9dfa07172a9bdd257b"></a><!-- doxytag: member="MySQLTable::MYSQL_CLAUSE_ORDER" ref="c760e12fd6e1bf9dfa07172a9bdd257b" args="" --><p>
@@ -573,9 +660,9 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00049">49</a
     <td>
 
 <p>
-
+MySQL 'order' clause 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00051">51</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00056">56</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="c15c6c5a1d67a21ffd505b2fc9973536"></a><!-- doxytag: member="MySQLTable::MYSQL_CLAUSE_ORDER_ASCENDANT" ref="c15c6c5a1d67a21ffd505b2fc9973536" args="" --><p>
@@ -598,9 +685,9 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00051">51</a
     <td>
 
 <p>
-
+MySQL 'order' parameter for ascending sort 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00052">52</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00059">59</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="17b60e8e72edd0e0d4dd4ae79992c100"></a><!-- doxytag: member="MySQLTable::MYSQL_CLAUSE_ORDER_DESCENDANT" ref="17b60e8e72edd0e0d4dd4ae79992c100" args="" --><p>
@@ -623,9 +710,9 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00052">52</a
     <td>
 
 <p>
-
+MySQL 'order' parameter for descending sort 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00053">53</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00062">62</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="8516d74e56fef204aec07eef1176979a"></a><!-- doxytag: member="MySQLTable::MYSQL_CLAUSE_WHERE" ref="8516d74e56fef204aec07eef1176979a" args="" --><p>
@@ -648,11 +735,11 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00053">53</a
     <td>
 
 <p>
-
+MySQL 'where' clause 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00045">45</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00044">44</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00240">MySQLTableGroup::IdGroupExists()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00213">MySQLTableSite::IdSiteExists()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00240">MySQLTableUser::IdUserExists()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00218">MySQLTableVariable::IdVariableExists()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00193">MySQLTableGroup::UpdateGroupByIdGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00166">MySQLTableSite::UpdateSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00193">MySQLTableUser::UpdateUserByIdUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00171">MySQLTableVariable::UpdateVariableByIdVariable()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00234">MySQLTableGroup::IdGroupExists()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00213">MySQLTableSite::IdSiteExists()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00240">MySQLTableUser::IdUserExists()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00218">MySQLTableVariable::IdVariableExists()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00187">MySQLTableGroup::UpdateGroupByIdGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00166">MySQLTableSite::UpdateSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00193">MySQLTableUser::UpdateUserByIdUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00171">MySQLTableVariable::UpdateVariableByIdVariable()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="083c07c23c6e28f01a5c3cad7230bfbb"></a><!-- doxytag: member="MySQLTable::MYSQL_SEEK_ANYCHAR" ref="083c07c23c6e28f01a5c3cad7230bfbb" args="" --><p>
@@ -675,9 +762,9 @@ Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00240">MySQL
     <td>
 
 <p>
-
+Magic char for unique char replacement 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00062">62</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00077">77</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="e320f6804184a78da5a4605c66cde141"></a><!-- doxytag: member="MySQLTable::MYSQL_SEEK_MULTICHARS" ref="e320f6804184a78da5a4605c66cde141" args="" --><p>
@@ -700,9 +787,9 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00062">62</a
     <td>
 
 <p>
-
+Magic char for multichars replacement 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00061">61</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00074">74</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="286778d5ecbea429db5c488e25ec0509"></a><!-- doxytag: member="MySQLTable::MYSQL_SEEK_REGEX" ref="286778d5ecbea429db5c488e25ec0509" args="" --><p>
@@ -725,9 +812,9 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00061">61</a
     <td>
 
 <p>
-
+MySQL regex operator 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00058">58</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00071">71</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="fb2b20838f316987af6e9519b3ec5e69"></a><!-- doxytag: member="MySQLTable::MYSQL_SEEK_SEPARATOR" ref="fb2b20838f316987af6e9519b3ec5e69" args="" --><p>
@@ -750,9 +837,9 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00058">58</a
     <td>
 
 <p>
-
+MySQL separator operator 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00066">66</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00086">86</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="af6ea3dde397f4e780d1a282e80e5f6d"></a><!-- doxytag: member="MySQLTable::MYSQL_SEEK_STRICT" ref="af6ea3dde397f4e780d1a282e80e5f6d" args="" --><p>
@@ -775,11 +862,11 @@ Definition at line <a class="el" href="MySQLTable_8php-source.html#l00066">66</a
     <td>
 
 <p>
-
+MySQL equals operator 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00065">65</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00080">80</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00240">MySQLTableGroup::IdGroupExists()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00213">MySQLTableSite::IdSiteExists()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00240">MySQLTableUser::IdUserExists()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00218">MySQLTableVariable::IdVariableExists()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00193">MySQLTableGroup::UpdateGroupByIdGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00166">MySQLTableSite::UpdateSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00193">MySQLTableUser::UpdateUserByIdUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00171">MySQLTableVariable::UpdateVariableByIdVariable()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00234">MySQLTableGroup::IdGroupExists()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00213">MySQLTableSite::IdSiteExists()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00240">MySQLTableUser::IdUserExists()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00218">MySQLTableVariable::IdVariableExists()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00187">MySQLTableGroup::UpdateGroupByIdGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00166">MySQLTableSite::UpdateSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00193">MySQLTableUser::UpdateUserByIdUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00171">MySQLTableVariable::UpdateVariableByIdVariable()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="34fff19e99689fe4d3c012e0159d6450"></a><!-- doxytag: member="MySQLTable::MYSQL_STRUCTURE_FIELD_NAME" ref="34fff19e99689fe4d3c012e0159d6450" args="" --><p>
@@ -802,11 +889,11 @@ Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00240">MySQL
     <td>
 
 <p>
-
+MySQL field name for fields' name in table description 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00069">69</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00089">89</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLTable_8php-source.html#l00218">isValidProperty()</a>.    </td>
+Referenced by <a class="el" href="MySQLTable_8php-source.html#l00263">isValidProperty()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="5b52e42dbe6f4d82427232d7c75a8e4d"></a><!-- doxytag: member="MySQLTable::TABLE_COLUMN_ALL" ref="5b52e42dbe6f4d82427232d7c75a8e4d" args="" --><p>
@@ -829,16 +916,16 @@ Referenced by <a class="el" href="MySQLTable_8php-source.html#l00218">isValidPro
     <td>
 
 <p>
-
+represents the whole list of columns 
 <p>
-Definition at line <a class="el" href="MySQLTable_8php-source.html#l00042">42</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
+Definition at line <a class="el" href="MySQLTable_8php-source.html#l00041">41</a> of file <a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00165">MySQLTableGroup::FindGroupsByName()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00138">MySQLTableSite::FindSitesByName()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00165">MySQLTableUser::FindUsersByName()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00112">MySQLTableGroup::SelectGroupByIdGroup()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00139">MySQLTableGroup::SelectGroupsByIdSite()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00112">MySQLTableSite::SelectSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00112">MySQLTableUser::SelectUserByIdUser()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00138">MySQLTableUser::SelectUsersByIdGroup()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00144">MySQLTableVariable::SelectVariablesByName()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00159">MySQLTableGroup::FindGroupsByName()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00138">MySQLTableSite::FindSitesByName()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00165">MySQLTableUser::FindUsersByName()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00106">MySQLTableGroup::SelectGroupByIdGroup()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00133">MySQLTableGroup::SelectGroupsByIdSite()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00112">MySQLTableSite::SelectSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00112">MySQLTableUser::SelectUserByIdUser()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00138">MySQLTableUser::SelectUsersByIdGroup()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00144">MySQLTableVariable::SelectVariablesByName()</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/DataBases/MySQLConnection/<a class="el" href="MySQLTable_8php-source.html">MySQLTable.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:38 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:51 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

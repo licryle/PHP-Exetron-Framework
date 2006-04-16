@@ -3,12 +3,12 @@
 /*************************************************************************
                            |BDDConnection.php|
                              -------------------
-    début                : |DATE|
-    copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    start                : |DATE|
+    copyright            : (C) 2005 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface of class <BDDConnection> (file BDDConnection.php) --------------
+//---------- Class <BDDConnection> (file BDDConnection.php) --------------
 /*if (defined('BDDCONNECTION_H'))
 {
     return;
@@ -47,7 +47,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 
     //public function TableExists ( $table );
     /*
-	 * Search for table named $table in database.
+	 * Searchs for table named $table in database.
 	 * Connection may be opened.
 	 *
 	 * @param $table the tablename to be checked
@@ -189,7 +189,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
     
     //public function Open( $isPersistent );
 	/*
-	 * Try to open connection.
+	 * Tries to open connection.
 	 *
 	 * @param $isPersistent specifies if connection may be persistent or not = { CONNECTION_PERSISTENT | CONNECTION_NOT_PERSISTENT }
 	 *
@@ -213,7 +213,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
     
     //public function Query( $query );
     /**
-     * try to send a query to DB server
+     * tries to send a query to DB server
 	 * Connection may be opened.
      *
 	 * @param $query the query to be done
@@ -236,7 +236,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
     
     //public function Close( );
     /**
-     * Try to close the connection
+     * Tries to close the connection
      *
      * @return - an Errors object in case of error(s)
      * @return - NULL if operation was successful
@@ -245,7 +245,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
     
     //public function isConnected ( );
     /**
-     * Check whether connection is opened or closed
+     * Checks whether connection is opened or closed
      *
      * @return - true if connection is active
      * @return - false if connection is closed
@@ -253,9 +253,9 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      */
     
 //---------------------------------------------- Constructors - destructor
-    //abstract function __construct( $server = '' , $username = '' , $password = '' );
+    function __construct( $server = '' , $username = '' , $password = '' )
 	/*
-	 * initialise members of the object.
+	 * initialises members of the object.
 	 * interrupts script if DataBase is not supported.
 	 *
 	 * @param $server the host address
@@ -263,12 +263,36 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 	 * @param $password the password associated to the login
 	 *
 	 */
+	{
+		parent::__construct( );	
+            
+		$this->connection = NULL;
+		
+		$this->server = $server;
+		$this->username = $username;
+		$this->password = $password;
+		
+		$this->database = '';
+		
+		$this->nombreRequetes = 0;
+	}
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
     
-//---------------------------------------------------------- Magic methods
+//---------------------------------------------------------- Magic Methods
 
     public function __ToString ( )
     /**
-	 * Returns a printable version of objet for debugging.
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
 	 */
     {
 		return parrent::__ToString();

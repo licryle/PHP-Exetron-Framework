@@ -128,7 +128,7 @@
 <a name="l00097"></a>00097         <span class="comment">//</span>
 <a name="l00098"></a>00098     <span class="comment">// Contrat :</span>
 <a name="l00099"></a>00099         {
-<a name="l00100"></a>00100                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#f384718c8a922598d355343683cb4538">Select</a> (       MySQLTABLE::TABLE_COLUMN_ALL , 
+<a name="l00100"></a>00100                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> (       MySQLTABLE::TABLE_COLUMN_ALL , 
 <a name="l00101"></a>00101                                                                         MySQLTABLE::MYSQL_CLAUSE_WHERE .
 <a name="l00102"></a>00102                                                                                 <a class="code" href="classTableVariable.html#3e00bfc06e07f3da9bed2b499a6cae3b">TableVariable::TABLE_COLUMN_SCOPE</a> . MySQLTABLE::MYSQL_SEEK_STRICT . MySQLTABLE::MYSQL_SEEK_SEPARATOR . <a class="code" href="classTableVariable.html#4ad31b1751e03e1dd60976a751c4afa0">TableVariable::TABLE_COLUMN_SCOPE_SERVER</a> .MySQLTABLE::MYSQL_SEEK_SEPARATOR
 <a name="l00103"></a>00103                                         );
@@ -155,7 +155,7 @@
 <a name="l00124"></a>00124         <span class="comment">//</span>
 <a name="l00125"></a>00125     <span class="comment">// Contrat :</span>
 <a name="l00126"></a>00126         {
-<a name="l00127"></a>00127                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#f384718c8a922598d355343683cb4538">Select</a> (       MySQLTABLE::TABLE_COLUMN_ALL ,
+<a name="l00127"></a>00127                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> (       MySQLTABLE::TABLE_COLUMN_ALL ,
 <a name="l00128"></a>00128                                                                         MySQLTABLE::MYSQL_CLAUSE_WHERE.
 <a name="l00129"></a>00129                                                                                         <a class="code" href="classTableVariable.html#3e00bfc06e07f3da9bed2b499a6cae3b">TableVariable::TABLE_COLUMN_SCOPE</a>.MySQLTABLE::MYSQL_SEEK_STRICT . MySQLTABLE::MYSQL_SEEK_SEPARATOR.<a class="code" href="classTableVariable.html#b05474eb90bb8c181a626a93d3a495a6">TableVariable::TABLE_COLUMN_SCOPE_SITE</a> . MySQLTABLE::MYSQL_SEEK_SEPARATOR .
 <a name="l00130"></a>00130                                                                         MySQLTABLE::MYSQL_CLAUSE_AND.
@@ -184,7 +184,7 @@
 <a name="l00153"></a>00153         <span class="comment">//</span>
 <a name="l00154"></a>00154     <span class="comment">// Contrat :</span>
 <a name="l00155"></a>00155         {
-<a name="l00156"></a>00156                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#f384718c8a922598d355343683cb4538">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
+<a name="l00156"></a>00156                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
 <a name="l00157"></a>00157                                                 MySQLTABLE::MYSQL_CLAUSE_WHERE.
 <a name="l00158"></a>00158                                                                 <a class="code" href="classTableVariable.html#3ac8b797b2cf77a0fb81205afd88ec23">TableVariable::TABLE_COLUMN_NAME</a>.MySQLTABLE::MYSQL_SEEK_REGEX.MySQLTABLE::MYSQL_SEEK_SEPARATOR.$varName.MySQLTABLE::MYSQL_SEEK_SEPARATOR                
 <a name="l00159"></a>00159                                 );      
@@ -258,7 +258,7 @@
 <a name="l00227"></a>00227         {
 <a name="l00228"></a>00228                 $clauses = <a class="code" href="classMySQLTable.html#8516d74e56fef204aec07eef1176979a">MySQLTable::MYSQL_CLAUSE_WHERE</a> . <a class="code" href="classTableVariable.html#cdda335939c2b8ab2554f5df95f54849">TableVariable::TABLE_COLUMN_IDVARIABLE</a> . MySQLTABLE::MYSQL_SEEK_SEPARATOR . <a class="code" href="classMySQLTable.html#af6ea3dde397f4e780d1a282e80e5f6d">MySQLTable::MYSQL_SEEK_STRICT</a> . intval( $idVariable ) . MySQLTABLE::MYSQL_SEEK_SEPARATOR;
 <a name="l00229"></a>00229                 
-<a name="l00230"></a>00230                 $res = $this-&gt;<a class="code" href="classMySQLTable.html#f384718c8a922598d355343683cb4538">Select</a>( <a class="code" href="classTableVariable.html#cdda335939c2b8ab2554f5df95f54849">TableVariable::TABLE_COLUMN_IDVARIABLE</a>, $clauses);
+<a name="l00230"></a>00230                 $res = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a>( <a class="code" href="classTableVariable.html#cdda335939c2b8ab2554f5df95f54849">TableVariable::TABLE_COLUMN_IDVARIABLE</a>, $clauses);
 <a name="l00231"></a>00231 
 <a name="l00232"></a>00232                 <span class="keywordflow">return</span> (! ($res InstanceOf <a class="code" href="classErrors.html">Errors</a> || $res-&gt;GetCount() == 0 ) );
 <a name="l00233"></a>00233         }
@@ -283,7 +283,7 @@
 <a name="l00252"></a>00252 <span class="comment">//-------------------------------- Autres définitions dépendantes de &lt;MySQLTableVariable&gt;</span>
 <a name="l00253"></a>00253 
 <a name="l00254"></a>00254 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:31:43 2006 for Exetron by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:01 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

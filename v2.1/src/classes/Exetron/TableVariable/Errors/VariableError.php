@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |VariableError.php|  -  description
+                           |VariableError.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <VariableError> (fichier VariableError.php) --------------
-if (defined('VARIABLEERROR_H'))
+//---------- Class <VariableError> (file VariableError.php) --------------
+/*if (defined('VARIABLEERROR_H'))
 {
     return;
 }
@@ -17,61 +17,57 @@ else
 {
 
 }
-define('VARIABLEERROR_H',1);
+define('VARIABLEERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <VariableError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs bdd
-//
+/*!
+ * Provides specific constants for Variable's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class VariableError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
-
-//------------------------------------------------------------- Constantes
-    const VARIABLE_NOT_LOADED = 'VARIABLE_NOT_LOADED'; // variable recherchée inexistante
+	/**
+	 * Requested Variable has not been loaded from database or does not
+	 * exist
+	 */
+    const VARIABLE_NOT_LOADED = 'VARIABLE_NOT_LOADED';
 	
+	/** The Variable has a an empty name */
+    const VARIABLE_NAME_EMPTY = 'VARIABLE_NAME_EMPTY';
 	
-    const VARIABLE_NAME_EMPTY = 'VARIABLE_NAME_EMPTY'; // nom de variable inexistant
-    const VARIABLE_SCOPE_INCORRECT = 'VARIABLE_SCOPE_INCORRECT'; // scope en dehors de l'énumeration
-    const VARIABLE_ACCESS_INCORRECT = 'VARIABLE_ACCESS_INCORRECT'; // access en dehors de l'énumeration
-    const VARIABLE_IDSITE_INEXISTANT = 'VARIABLE_IDSITE_INEXISTANT'; // référent IdSite inexistant
+	/** The scope of the variable is not valid */
+    const VARIABLE_SCOPE_INCORRECT = 'VARIABLE_SCOPE_INCORRECT';
+	
+	/** The access of the variable is not valid */
+    const VARIABLE_ACCESS_INCORRECT = 'VARIABLE_ACCESS_INCORRECT';
+	
+	/** Requested Group has a non valid idSite referrent */
+    const VARIABLE_IDSITE_INEXISTANT = 'VARIABLE_IDSITE_INEXISTANT';
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <VariableError>
+//------------------------------------------------------ other definitions
 
 ?>

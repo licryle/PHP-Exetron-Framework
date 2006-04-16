@@ -37,16 +37,20 @@ Inheritance diagram for User:<p><center><img src="classUser__inherit__graph.gif"
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#c0fa47491e753607144fd3df76e66ff3">Validate</a> ($groupTable)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#373f70e95843297b2a3a4bfc175c8f2a">__construct</a> (<a class="el" href="classBDDRecord.html">BDDRecord</a> &amp;$newRec)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#a03e86d2151310eb18626f34a7f69555">__construct</a> (<a class="el" href="classBDDRecord.html">BDDRecord</a> $newRec)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#ccd20149a7414612c1505e022eb63ffc">__destruct</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUser.html#77b5fe62c111dbb5f5c8f3d1a045b484">__ToString</a> ()</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides specific methods for <a class="el" href="classUser.html">User</a> table entries 
 <p>
 
 <p>
-Definition at line <a class="el" href="User_8php-source.html#l00038">38</a> of file <a class="el" href="User_8php-source.html">User.php</a>.<hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="373f70e95843297b2a3a4bfc175c8f2a"></a><!-- doxytag: member="User::__construct" ref="373f70e95843297b2a3a4bfc175c8f2a" args="(BDDRecord &amp;$newRec)" --><p>
+Definition at line <a class="el" href="User_8php-source.html#l00036">36</a> of file <a class="el" href="User_8php-source.html">User.php</a>.<hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="a03e86d2151310eb18626f34a7f69555"></a><!-- doxytag: member="User::__construct" ref="a03e86d2151310eb18626f34a7f69555" args="(BDDRecord $newRec)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -54,7 +58,7 @@ Definition at line <a class="el" href="User_8php-source.html#l00038">38</a> of f
         <tr>
           <td class="md" nowrap valign="top">User::__construct           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top"><a class="el" href="classBDDRecord.html">BDDRecord</a> &amp;$&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classBDDRecord.html">BDDRecord</a> $&nbsp;</td>
           <td class="mdname1" valign="top" nowrap> <em>newRec</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
@@ -71,11 +75,79 @@ Definition at line <a class="el" href="User_8php-source.html#l00038">38</a> of f
     <td>
 
 <p>
+Initialises <a class="el" href="classUser.html">User</a> from the <a class="el" href="classBDDRecord.html">BDDRecord</a> $newRec. If $newRec is NULL, <a class="el" href="classUser.html">User</a> is empty. Sets IsValid to false.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$newRec</em>&nbsp;</td><td>a <a class="el" href="classBDDRecord.html">BDDRecord</a> to copy/cast or NULL </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="User_8php-source.html#l00103">103</a> of file <a class="el" href="User_8php-source.html">User.php</a>.
+Definition at line <a class="el" href="User_8php-source.html#l00099">99</a> of file <a class="el" href="User_8php-source.html">User.php</a>.
 <p>
-References <a class="el" href="BDDRecord_8php-source.html#l00117">BDDRecord::SetProperty()</a>, <a class="el" href="TableUser_8php-source.html#l00051">TableUser::TABLE_COLUMN_IDGROUP</a>, <a class="el" href="TableUser_8php-source.html#l00042">TableUser::TABLE_COLUMN_IDUSER</a>, <a class="el" href="TableUser_8php-source.html#l00045">TableUser::TABLE_COLUMN_NAME</a>, and <a class="el" href="TableUser_8php-source.html#l00048">TableUser::TABLE_COLUMN_PASSWORD</a>.    </td>
+References <a class="el" href="BDDRecord_8php-source.html#l00111">BDDRecord::SetProperty()</a>, <a class="el" href="TableUser_8php-source.html#l00050">TableUser::TABLE_COLUMN_IDGROUP</a>, <a class="el" href="TableUser_8php-source.html#l00041">TableUser::TABLE_COLUMN_IDUSER</a>, <a class="el" href="TableUser_8php-source.html#l00044">TableUser::TABLE_COLUMN_NAME</a>, and <a class="el" href="TableUser_8php-source.html#l00047">TableUser::TABLE_COLUMN_PASSWORD</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="ccd20149a7414612c1505e022eb63ffc"></a><!-- doxytag: member="User::__destruct" ref="ccd20149a7414612c1505e022eb63ffc" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">User::__destruct           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Destructs ressources allocated 
+<p>
+Reimplemented from <a class="el" href="classBDDRecord.html#b7cb8fc1ad4977a2133081bb06a5ef24">BDDRecord</a>.
+<p>
+Definition at line <a class="el" href="User_8php-source.html#l00126">126</a> of file <a class="el" href="User_8php-source.html">User.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="77b5fe62c111dbb5f5c8f3d1a045b484"></a><!-- doxytag: member="User::__ToString" ref="77b5fe62c111dbb5f5c8f3d1a045b484" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">User::__ToString           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Returns a printable version of object for debugging. 
+<p>
+Reimplemented from <a class="el" href="classBDDRecord.html#ee8deb4c0a66976d8d288e8c3989b1d1">BDDRecord</a>.
+<p>
+Definition at line <a class="el" href="User_8php-source.html#l00135">135</a> of file <a class="el" href="User_8php-source.html">User.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="c0fa47491e753607144fd3df76e66ff3"></a><!-- doxytag: member="User::Validate" ref="c0fa47491e753607144fd3df76e66ff3" args="($groupTable)" --><p>
@@ -103,16 +175,27 @@ References <a class="el" href="BDDRecord_8php-source.html#l00117">BDDRecord::Set
     <td>
 
 <p>
+Tries to validate the <a class="el" href="classUser.html">User</a> in order to save it into DataBase.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$groupTable</em>&nbsp;</td><td>a BDDTableGroup object (where BDD should be replaced by your current Database : eg. <a class="el" href="classMySQLTableGroup.html">MySQLTableGroup</a>). A valid BDDTableGroup implements <a class="el" href="interfaceTableGroupInterface.html">TableGroupInterface</a></td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if object has been validated <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+<a class="el" href="classUserError.html#d6b05579db8f28c2e2340bd50f2ba050">UserError::USER_LOGIN_EMPTY</a> if property <a class="el" href="classTableUser.html#d12850ac0d2c9da4aab6dcb4324073ac">TableUser::TABLE_COLUMN_NAME</a> is empty<p>
+<a class="el" href="classBDDError.html#fda90cdc42742507614afa12a9baab5c">BDDError::TABLE_CLASS_INCORRECT</a> if $groupTable is not a valid instance<p>
+<a class="el" href="classUserError.html#9e66dee41eec00dc77c91116ba0645ad">UserError::USER_IDGROUP_INEXISTANT</a> if User's group (property <a class="el" href="classTableGroup.html#9c4e6f29029930675887f59ab80eb482">TableGroup::TABLE_COLUMN_IDGROUP</a>) doesn't exists </dd></dl>
 
 <p>
-Definition at line <a class="el" href="User_8php-source.html#l00049">49</a> of file <a class="el" href="User_8php-source.html">User.php</a>.
+Definition at line <a class="el" href="User_8php-source.html#l00042">42</a> of file <a class="el" href="User_8php-source.html">User.php</a>.
 <p>
-References <a class="el" href="BDDError_8php-source.html#l00053">BDDError::TABLE_CLASS_INCORRECT</a>, <a class="el" href="TableGroup_8php-source.html#l00042">TableGroup::TABLE_COLUMN_IDGROUP</a>, <a class="el" href="TableUser_8php-source.html#l00045">TableUser::TABLE_COLUMN_NAME</a>, <a class="el" href="UserError_8php-source.html#l00045">UserError::USER_IDGROUP_INEXISTANT</a>, and <a class="el" href="UserError_8php-source.html#l00046">UserError::USER_LOGIN_EMPTY</a>.    </td>
+References <a class="el" href="BDDError_8php-source.html#l00067">BDDError::TABLE_CLASS_INCORRECT</a>, <a class="el" href="TableGroup_8php-source.html#l00041">TableGroup::TABLE_COLUMN_IDGROUP</a>, <a class="el" href="TableUser_8php-source.html#l00044">TableUser::TABLE_COLUMN_NAME</a>, <a class="el" href="UserError_8php-source.html#l00046">UserError::USER_IDGROUP_INEXISTANT</a>, and <a class="el" href="UserError_8php-source.html#l00049">UserError::USER_LOGIN_EMPTY</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableUser/Iterators/<a class="el" href="User_8php-source.html">User.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:52 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:27:06 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |BDDTable.php|  -  description
+                           |BDDTable.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <BDDTable> (fichier BDDTable.php) --------------
-if (defined('BDDTABLE_H'))
+//---------- Class <BDDTable> (file BDDTable.php) --------------
+/*if (defined('BDDTABLE_H'))
 {
     return;
 }
@@ -17,98 +17,113 @@ else
 {
 
 }
-define('BDDTABLE_H',1);
+define('BDDTABLE_H',1);*/
 
-//-------------------------------------------------------- Include système
 
-//------------------------------------------------------ Include personnel
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <BDDTable>
-//
-//
+/*!
+ * Abstract class that provides generic methods for Database Tables
+ */
 //------------------------------------------------------------------------ 
 
 abstract class BDDTable extends AbstractClass implements BDDTableInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
-    //abstract public function Select (  );
-    // Mode d'emploi :
-    //permet de récuperer le contenu d'une table selon différents paramètres
-	//sous forme d'un BDDRecordSet
-	//
-    // Contrat :
-    //
-	
-    //abstract public function Insert (  );
-    // Mode d'emploi :
-    //permet d'insérer de nouveaux enregistrements dans la table
-	//
-    // Contrat :
-    //
-	
-    //abstract public function Update (  );
-    // Mode d'emploi :
-    //permet de mettre à jour le contenu de la table
-	//
-    // Contrat :
-    //
-	
-    //abstract public function Delete (  );
-    // Mode d'emploi :
-    //permet d'effacer une partie du contenu de la table en fonction des paramètres
-	//passés
-	//
-    // Contrat :
-    //
-	
-    //abstract public function Clear (  );
-    // Mode d'emploi :
-    //Efface la totalité du contenu de la table courante.
-	//
-    // Contrat :
-    //
-	
-    //abstract public function Drop (  );
-    // Mode d'emploi :
-    //Supprime la table courante de la base de données
-	//passés
-	//
-    // Contrat :
-    //
+    
+	/*
+	 * Computes a selection of $fields on entries that correspond to 
+	 * $options
+     *
+     * @param $fields array of string that reprensents fields' name to select
+	 * @param $options string that contains various select options like 
+	 * "where", "order", "limit", ...
+     *
+	 * @return - a BDDRecordSet that contains BDDRecord-s ( Database entries)
+	 * if select was successful
+	 * @return - an Errors object in case of error(s) : see BDDConnectionInterface::Query 
+	 *
+     */
+    //public function Select ( $fields, $options );
 
-//-------------------------------------------- Constructeurs - destructeur
+	
+	/*
+	 * Tries to insert the given $record into database
+	 *
+	 * @param $record BDDRecord to be inserted
+	 *
+	 * @return - see BDDConnectionInterface::Query 
+	 *
+     */
+    //public function Insert ( BDDRecord $record );
+	
+	/*
+	 * Tries to update with the given $updatedRec into database in function
+	 * of $clause parameter.
+	 *
+	 * @param $updatedRec the BDDRecord updated
+	 * @param $clause clause constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which record has to be updated
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
+    //public function Update ( BDDRecord $updatedRec, $clause );
+	
+	/*
+	 * Tries to delete entries that correpond to $clauses
+	 *
+	 * @param $clauses clauses constructed in Data Manipulation Language (eg. SQL)
+	 * to determine which records have to be deleted
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
+    //public function Delete ( $clauses );
+	
+	/*
+	 * Tries to delete all entries of the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
+    //public function Clear (  );
+	
+	/*
+	 * Tries to drop the table
+	 *
+	 * @return - see BDDConnectionInterface::Query
+	 *
+     */
+    //public function Drop (  );
+
+//---------------------------------------------- Constructors - destructor
     public function __construct( $table, BDDConnection $connection, & $errors )
-    // Mode d'emploi (constructeur) :
-    //instancie un objet de type BDDTable sur la table $table de la base
-	//de $connection
-	//
-	// Renvoie par référence dans $errors :
-	//- NULL si aucune erreur n'est intervenue
-	//- un objet de type errors en cas d'erreur;
-	//
-    // Contrat :
-	//- la connexion doit rester valable tout le temps de opérations sur la table
-    //
-	// Algorithme :
-	//* vérification de la connexion
-	//* vérification de la table
-	//* chargement de la structure de la table
+    /**
+	 * Initialises BDDTable for the table named $table on the given 
+	 * $connection.
+	 *
+	 * @param $table name of the table
+	 * @param $connection BDDConnection for all table operations. This must
+	 * be a valid and connected BDDConnection unless it will cause an Error.
+	 * @param $errors reference to an Errors object. It will be set if an
+	 * error occurs during instanciation. If operation was successful, it
+	 * equals NULL
+	 *
+     */
     {
+		parent::__construct();
+	
 		$errors = NULL;
 		
     	if ( ! $connection->isConnected ( ) )
@@ -131,25 +146,44 @@ abstract class BDDTable extends AbstractClass implements BDDTableInterface
 		$this->structure = & $connection->TableDescription ( $table );
 		$this->bDDConnection = $connection;
 		$this->tableName = $table;
-    } //---- Fin du constructeur
+    } //---- End of constructor
+	
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+    public function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+		return parrent::__ToString();
+    }
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
-	protected $tableName; // nom de la table gérée
-	protected $bDDConnection; // class ressource connexion
-	protected $structure; // contiendra la structure de la table
+//------------------------------------------------------ protected members
+	/** Name of the current table */
+	protected $tableName;
+	
+	/** BDDConnection object for database connection */
+	protected $bDDConnection;
+	
+	/** contains table structure */
+	protected $structure;
 }
 
-//-------------------------------- Autres définitions dépendantes de <BDDTable>
+//------------------------------------------------------ other definitions
 
 ?>

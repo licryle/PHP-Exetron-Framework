@@ -1,15 +1,11 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,212,736"];
+	graph [bb="0,0,212,496"];
 	Node1 [label="{BDDConnectionInterface\n||+ TableExists()\l+ TableDescription()\l+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\
-\l+ SetPassword()\l+ GetPassword()\l+ Open()\l+ SetDatabase()\l+ Query()\l+ GetQueriesCount()\l+ Close()\l+ isConnected()\l}", height="2.83", width="1.89", color=white, fillcolor=black, style=filled, fontcolor=white, pos="106,626", rects="38,712,174,728 38,696,174,712 38,524,174,696"];
+\l+ SetPassword()\l+ GetPassword()\l+ Open()\l+ SetDatabase()\l+ Query()\l+ GetQueriesCount()\l+ Close()\l+ isConnected()\l}", height="2.83", width="1.89", color=white, fillcolor=black, style=filled, fontcolor=white, pos="106,386", rects="38,472,174,488 38,456,174,472 38,284,174,456"];
 	Node2 [label="{BDDConnection\n|+ CONNECTION_PERSISTENT\l+ CONNECTION_NOT_PERSISTENT\l# $server\l# $username\l# $password\l# $connection\l# $da\
 tabase\l# $nombreRequetes\l|+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\l+ SetPassword()\l+ GetPassword()\l+ \
-GetQueriesCount()\l+ __ToString()\l}", height="3.00", width="2.94", color=black, fillcolor=white, style=filled, URL="$classBDDConnection.html", pos="106,380", rects="0,472,212,488 0,372,212,472 0,272,212,372"];
-	Node3 [label="{MySQLConnection\n||+ TableExists()\l+ TableDescription()\l+ SetServer()\l+ GetServer()\l+ SetUsername()\l+ GetUsername()\l+ Set\
-Password()\l+ GetPassword()\l+ Open()\l+ SetDatabase()\l+ Query()\l+ GetQueriesCount()\l+ Close()\l+ isConnected()\l+ __construc\
-t()\l+ __ToString()\l}", height="3.17", width="1.56", color=black, fillcolor=white, style=filled, URL="$classMySQLConnection.html", pos="106,122", rects="50,220,162,236 50,204,162,220 50,8,162,204"];
-	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,106,524 106,513 106,505 106,496 106,488"];
-	Node2 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,106,272 106,262 106,253 106,245 106,236"];
+GetQueriesCount()\l+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="3.33", width="2.94", color=red, fillcolor=white, style=filled, URL="$classBDDConnection.html", pos="106,128", rects="0,232,212,248 0,132,212,232 0,8,212,132"];
+	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,106,284 106,273 106,265 106,256 106,248"];
 }

@@ -1,0 +1,10 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,152,292"];
+	Node1 [label="{TableGroupInterface\n||+ SelectGroups()\l+ SelectGroupByIdGroup()\l+ FindGroupsByName()\l+ UpdateGroupByIdGroup()\l+ InsertGrou\
+p()\l+ IdGroupExists()\l}", height="1.50", width="2.11", color=white, fillcolor=black, style=filled, fontcolor=white, pos="76,230", rects="0,268,153,284 0,252,153,268 0,176,153,252"];
+	Node2 [label="{MySQLTableGroup\n||+ SaveGroups()\l+ SelectGroups()\l+ SelectGroupByIdGroup()\l+ SelectGroupsByIdSite()\l+ FindGroupsByName()\l\
++ UpdateGroupByIdGroup()\l+ InsertGroup()\l+ IdGroupExists()\l}", height="1.83", width="2.11", color=black, fillcolor=white, style=filled, URL="$classMySQLTableGroup.html", pos="76,74", rects="0,124,153,140 0,108,153,124 0,8,153,108"];
+	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,76,176 76,165 76,157 76,148 76,140"];
+}

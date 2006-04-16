@@ -1,12 +1,12 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,246,424"];
+	graph [bb="0,0,246,436"];
 	Node1 [label="{BDDError\n|+ CONNECTION_NOT_CLOSED\l+ CONNECTION_CLOSED\l+ CONNECTION_ALREADY_OPENED\l+ CONNECTION_CANNOT_OPEN\l+ CONNECTION_CA\
 NNOT_CHANGE_DB\l+ CONNECTION_QUERY_FAILED\l+ CONNECTION_TABLE_INEXISTANT\l+ CONNECTION_COLUMN_INEXISTANT\l+ TABLE_CLASS_INCORREC\
 T\l+ RECORD_NOT_VALID\l+ RECORD_UPDATE_DOESNT_EXIST\l|}", height="2.33", width="3.42", color=white, fillcolor=black, style=filled, fontcolor=white, pos="123,92", rects="0,160,246,176 0,24,246,160 0,8,246,24"];
-	Node2 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __ToString()\l}", height="1.33", width="1.19", color=black, fillcolor=white, style=filled, URL="$classError.html", pos="123,260", rects="80,292,166,308 80,264,166,292 80,212,166,264"];
-	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="123,380", rects="80,400,166,416 80,384,166,400 80,344,166,384"];
-	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,123,212 123,202 123,194 123,185 123,176"];
-	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,123,344 123,333 123,325 123,316 123,308"];
+	Node2 [label="{Error\n|# $erreurCode\l# $erreurString\l|+ GetMessage()\l+ GetCode()\l+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.50", width="1.19", color=black, fillcolor=white, style=filled, URL="$classError.html", pos="123,266", rects="80,304,166,320 80,276,166,304 80,212,166,276"];
+	Node3 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="123,392", rects="80,412,166,428 80,396,166,412 80,356,166,396"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,123,212 123,201 123,193 123,184 123,176"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,123,356 123,345 123,337 123,328 123,320"];
 }

@@ -1,14 +1,14 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,124,544"];
-	Node1 [label="{XHTMLPageTemplate\n|+ TAG_BODY\l+ TAG_HEADERS\l|+ GetBody()\l+ GetHeaders()\l+ Generate()\l+ __construct()\l+ ConvertIntoSGML()\
-\l}", height="1.50", width="1.72", color=white, fillcolor=black, style=filled, fontcolor=white, pos="62,62", rects="0,100,124,116 0,72,124,100 0,8,124,72"];
-	Node2 [label="{XHTMLTemplate\n||}", height="0.67", width="1.39", color=black, fillcolor=white, style=filled, URL="$classXHTMLTemplate.html", pos="62,176", rects="12,184,113,200 12,168,113,184 12,152,113,168"];
-	Node3 [label="{Template\n|+ TAG_OPEN\l+ TAG_CLOSE\l+ NEWLINE\l# $maquette\l# $tags\l|+ SetMaquette()\l+ SetTag()\l+ GetTag()\l+ AddToTag()\l+ \
-TagExists()\l+ Generate()\l+ __construct()\l+ __ToString()\l+ BuildTag()\l}", height="2.67", width="1.25", color=black, fillcolor=white, style=filled, URL="$classTemplate.html", pos="62,332", rects="17,412,107,428 17,348,107,412 17,236,107,348"];
-	Node4 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="62,500", rects="19,520,105,536 19,504,105,520 19,464,105,504"];
-	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,62,152 62,142 62,134 62,125 62,116"];
-	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,62,236 62,225 62,216 62,207 62,200"];
-	Node4 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,62,464 62,454 62,446 62,437 62,428"];
+	graph [bb="0,0,124,604"];
+	Node1 [label="{XHTMLPageTemplate\n|+ TAG_BODY\l+ TAG_HEADERS\l|+ GetBody()\l+ GetHeaders()\l+ Generate()\l+ __construct()\l+ __destruct()\l+ _\
+_ToString()\l+ ConvertIntoSGML()\l}", height="1.83", width="1.72", color=white, fillcolor=black, style=filled, fontcolor=white, pos="62,74", rects="0,124,124,140 0,96,124,124 0,8,124,96"];
+	Node2 [label="{XHTMLTemplate\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.39", color=black, fillcolor=white, style=filled, URL="$classXHTMLTemplate.html", pos="62,212", rects="12,232,113,248 12,216,113,232 12,176,113,216"];
+	Node3 [label="{Template\n|+ TAG_OPEN\l+ TAG_CLOSE\l+ NEWLINE\l# $skeleton\l# $tags\l|+ SetSkeleton()\l+ SetTag()\l+ GetTag()\l+ AddToTag()\l+ \
+TagExists()\l+ Generate()\l+ __construct()\l+ __destruct()\l+ __ToString()\l+ BuildTag()\l}", height="2.83", width="1.25", color=black, fillcolor=white, style=filled, URL="$classTemplate.html", pos="62,386", rects="17,472,107,488 17,408,107,472 17,284,107,408"];
+	Node4 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="62,560", rects="19,580,105,596 19,564,105,580 19,524,105,564"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,62,176 62,165 62,157 62,148 62,140"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,62,284 62,274 62,264 62,256 62,248"];
+	Node4 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,62,524 62,514 62,506 62,497 62,488"];
 }

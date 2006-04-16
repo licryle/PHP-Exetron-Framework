@@ -37,16 +37,20 @@ Inheritance diagram for Group:<p><center><img src="classGroup__inherit__graph.gi
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroup.html#4746b39a3cd261e5b7dcfb9b8fd30bc9">Validate</a> ($siteTable)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroup.html#d6e1650d0213a23561040eedb4bce805">__construct</a> (<a class="el" href="classBDDRecord.html">BDDRecord</a> &amp;$newRec)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroup.html#af407f1eb0847854fad3350a2c52639c">__construct</a> (<a class="el" href="classBDDRecord.html">BDDRecord</a> $newRec)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroup.html#cb5535c8eebc1b21e51fff18d085c339">__destruct</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGroup.html#ff70af67134215bf2e4884a0e17c6d6a">__ToString</a> ()</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides specific methods for <a class="el" href="classGroup.html">Group</a> table entries 
 <p>
 
 <p>
-Definition at line <a class="el" href="Group_8php-source.html#l00038">38</a> of file <a class="el" href="Group_8php-source.html">Group.php</a>.<hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="d6e1650d0213a23561040eedb4bce805"></a><!-- doxytag: member="Group::__construct" ref="d6e1650d0213a23561040eedb4bce805" args="(BDDRecord &amp;$newRec)" --><p>
+Definition at line <a class="el" href="Group_8php-source.html#l00036">36</a> of file <a class="el" href="Group_8php-source.html">Group.php</a>.<hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="af407f1eb0847854fad3350a2c52639c"></a><!-- doxytag: member="Group::__construct" ref="af407f1eb0847854fad3350a2c52639c" args="(BDDRecord $newRec)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -54,7 +58,7 @@ Definition at line <a class="el" href="Group_8php-source.html#l00038">38</a> of 
         <tr>
           <td class="md" nowrap valign="top">Group::__construct           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top"><a class="el" href="classBDDRecord.html">BDDRecord</a> &amp;$&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classBDDRecord.html">BDDRecord</a> $&nbsp;</td>
           <td class="mdname1" valign="top" nowrap> <em>newRec</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
@@ -71,11 +75,79 @@ Definition at line <a class="el" href="Group_8php-source.html#l00038">38</a> of 
     <td>
 
 <p>
+Initialises <a class="el" href="classSite.html">Site</a> from the <a class="el" href="classBDDRecord.html">BDDRecord</a> $newRec. If $newRec is NULL, <a class="el" href="classGroup.html">Group</a> is empty. Sets IsValid to false.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$newRec</em>&nbsp;</td><td>a <a class="el" href="classBDDRecord.html">BDDRecord</a> to copy/cast or NULL </td></tr>
+  </table>
+</dl>
 
 <p>
-Definition at line <a class="el" href="Group_8php-source.html#l00103">103</a> of file <a class="el" href="Group_8php-source.html">Group.php</a>.
+Definition at line <a class="el" href="Group_8php-source.html#l00099">99</a> of file <a class="el" href="Group_8php-source.html">Group.php</a>.
 <p>
-References <a class="el" href="BDDRecord_8php-source.html#l00117">BDDRecord::SetProperty()</a>, <a class="el" href="TableGroup_8php-source.html#l00042">TableGroup::TABLE_COLUMN_IDGROUP</a>, <a class="el" href="TableGroup_8php-source.html#l00051">TableGroup::TABLE_COLUMN_IDSITE</a>, <a class="el" href="TableGroup_8php-source.html#l00045">TableGroup::TABLE_COLUMN_NAME</a>, and <a class="el" href="TableGroup_8php-source.html#l00048">TableGroup::TABLE_COLUMN_OVERRIDE</a>.    </td>
+References <a class="el" href="BDDRecord_8php-source.html#l00111">BDDRecord::SetProperty()</a>, <a class="el" href="TableGroup_8php-source.html#l00041">TableGroup::TABLE_COLUMN_IDGROUP</a>, <a class="el" href="TableGroup_8php-source.html#l00050">TableGroup::TABLE_COLUMN_IDSITE</a>, <a class="el" href="TableGroup_8php-source.html#l00044">TableGroup::TABLE_COLUMN_NAME</a>, and <a class="el" href="TableGroup_8php-source.html#l00047">TableGroup::TABLE_COLUMN_OVERRIDE</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="cb5535c8eebc1b21e51fff18d085c339"></a><!-- doxytag: member="Group::__destruct" ref="cb5535c8eebc1b21e51fff18d085c339" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">Group::__destruct           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Destructs ressources allocated 
+<p>
+Reimplemented from <a class="el" href="classBDDRecord.html#b7cb8fc1ad4977a2133081bb06a5ef24">BDDRecord</a>.
+<p>
+Definition at line <a class="el" href="Group_8php-source.html#l00128">128</a> of file <a class="el" href="Group_8php-source.html">Group.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="ff70af67134215bf2e4884a0e17c6d6a"></a><!-- doxytag: member="Group::__ToString" ref="ff70af67134215bf2e4884a0e17c6d6a" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">Group::__ToString           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Returns a printable version of object for debugging. 
+<p>
+Reimplemented from <a class="el" href="classBDDRecord.html#ee8deb4c0a66976d8d288e8c3989b1d1">BDDRecord</a>.
+<p>
+Definition at line <a class="el" href="Group_8php-source.html#l00137">137</a> of file <a class="el" href="Group_8php-source.html">Group.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="4746b39a3cd261e5b7dcfb9b8fd30bc9"></a><!-- doxytag: member="Group::Validate" ref="4746b39a3cd261e5b7dcfb9b8fd30bc9" args="($siteTable)" --><p>
@@ -103,16 +175,27 @@ References <a class="el" href="BDDRecord_8php-source.html#l00117">BDDRecord::Set
     <td>
 
 <p>
+Tries to validate the <a class="el" href="classSite.html">Site</a> in order to save it into DataBase.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$siteTable</em>&nbsp;</td><td>a BDDTableSite object (where BDD should be replaced by your current Database : eg. <a class="el" href="classMySQLTableSite.html">MySQLTableSite</a>). A valid BDDTableSite implements <a class="el" href="interfaceTableSiteInterface.html">TableSiteInterface</a></td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if object has been validated <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) :<p>
+<a class="el" href="classGroupError.html#22dd8283b89919008133e5936931fb3c">GroupError::GROUP_NAME_EMPTY</a> if property <a class="el" href="classTableGroup.html#5c5015b74f005ef730d1ef3f06b62379">TableGroup::TABLE_COLUMN_NAME</a> is empty<p>
+<a class="el" href="classBDDError.html#fda90cdc42742507614afa12a9baab5c">BDDError::TABLE_CLASS_INCORRECT</a> if $groupTable is not a valid instance<p>
+<a class="el" href="classGroupError.html#0c6c97edc6262e8854aef47d90d38e96">GroupError::GROUP_IDSITE_INEXISTANT</a> if property <a class="el" href="classTableSite.html#12094ef4b48a64b772f91d94629bbb63">TableSite::TABLE_COLUMN_IDSITE</a> refers to a non existant site </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Group_8php-source.html#l00049">49</a> of file <a class="el" href="Group_8php-source.html">Group.php</a>.
+Definition at line <a class="el" href="Group_8php-source.html#l00042">42</a> of file <a class="el" href="Group_8php-source.html">Group.php</a>.
 <p>
-References <a class="el" href="GroupError_8php-source.html#l00045">GroupError::GROUP_IDSITE_INEXISTANT</a>, <a class="el" href="GroupError_8php-source.html#l00046">GroupError::GROUP_NAME_EMPTY</a>, <a class="el" href="BDDError_8php-source.html#l00053">BDDError::TABLE_CLASS_INCORRECT</a>, <a class="el" href="TableSite_8php-source.html#l00042">TableSite::TABLE_COLUMN_IDSITE</a>, and <a class="el" href="TableGroup_8php-source.html#l00045">TableGroup::TABLE_COLUMN_NAME</a>.    </td>
+References <a class="el" href="GroupError_8php-source.html#l00046">GroupError::GROUP_IDSITE_INEXISTANT</a>, <a class="el" href="GroupError_8php-source.html#l00049">GroupError::GROUP_NAME_EMPTY</a>, <a class="el" href="BDDError_8php-source.html#l00067">BDDError::TABLE_CLASS_INCORRECT</a>, <a class="el" href="TableSite_8php-source.html#l00041">TableSite::TABLE_COLUMN_IDSITE</a>, and <a class="el" href="TableGroup_8php-source.html#l00044">TableGroup::TABLE_COLUMN_NAME</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableGroup/Iterators/<a class="el" href="Group_8php-source.html">Group.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:32 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:48 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

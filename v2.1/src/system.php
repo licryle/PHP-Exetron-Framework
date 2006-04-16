@@ -19,6 +19,8 @@
  *
  * It provides classes for all basic features like databases abstraction, sessions management and over...
  * 
+ * \section Change Log
+ * 04-10-06 to 04-16-06 : Complete documentation rewriting to work with Doxygen. translation into English.
  */
 
 

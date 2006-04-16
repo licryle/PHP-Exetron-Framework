@@ -66,7 +66,7 @@
 <a name="l00035"></a>00035 <span class="comment">//</span>
 <a name="l00036"></a>00036 <span class="comment">//------------------------------------------------------------------------ </span>
 <a name="l00037"></a>00037 
-<a name="l00038"></a><a class="code" href="classMySQLTableSite.html">00038</a> <span class="keyword">class </span><a class="code" href="classMySQLTableSite.html">MySQLTableSite</a> <span class="keyword">extends</span> <a class="code" href="classMySQLTable.html">MySQLTable</a>
+<a name="l00038"></a><a class="code" href="classMySQLTableSite.html">00038</a> <span class="keyword">class </span><a class="code" href="classMySQLTableSite.html">MySQLTableSite</a> <span class="keyword">extends</span> <a class="code" href="classMySQLTable.html">MySQLTable</a> implements <a class="code" href="interfaceTableSiteInterface.html">TableSiteInterface</a>
 <a name="l00039"></a>00039 {
 <a name="l00040"></a>00040 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
 <a name="l00041"></a>00041 
@@ -127,7 +127,7 @@
 <a name="l00096"></a>00096         <span class="comment">//</span>
 <a name="l00097"></a>00097     <span class="comment">// Contrat :</span>
 <a name="l00098"></a>00098         {
-<a name="l00099"></a>00099                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#f384718c8a922598d355343683cb4538">Select</a> ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
+<a name="l00099"></a>00099                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 <a name="l00100"></a>00100                 
 <a name="l00101"></a>00101                 <span class="keywordflow">if</span> ( $result InstanceOf <a class="code" href="classErrors.html">Errors</a> )
 <a name="l00102"></a>00102                 {
@@ -151,7 +151,7 @@
 <a name="l00120"></a>00120     <span class="comment">// Contrat :</span>
 <a name="l00121"></a>00121         <span class="comment">//</span>
 <a name="l00122"></a>00122         {
-<a name="l00123"></a>00123                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#f384718c8a922598d355343683cb4538">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
+<a name="l00123"></a>00123                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
 <a name="l00124"></a>00124                                                 MySQLTABLE::MYSQL_CLAUSE_WHERE.
 <a name="l00125"></a>00125                                                                 <a class="code" href="classTableSite.html#12094ef4b48a64b772f91d94629bbb63">TableSite::TABLE_COLUMN_IDSITE</a> . MySQLTABLE::MYSQL_SEEK_STRICT. intval( $idSite )
 <a name="l00126"></a>00126                                 );      
@@ -179,7 +179,7 @@
 <a name="l00148"></a>00148     <span class="comment">// Contrat :</span>
 <a name="l00149"></a>00149         <span class="comment">//</span>
 <a name="l00150"></a>00150         {
-<a name="l00151"></a>00151                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#f384718c8a922598d355343683cb4538">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
+<a name="l00151"></a>00151                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
 <a name="l00152"></a>00152                                                 MySQLTABLE::MYSQL_CLAUSE_WHERE.
 <a name="l00153"></a>00153                                                                 <a class="code" href="classTableSite.html#ee9b72da56fb084126bd3685f718fe58">TableSite::TABLE_COLUMN_NAME</a>.MySQLTABLE::MYSQL_SEEK_REGEX.MySQLTABLE::MYSQL_SEEK_SEPARATOR. addslashes( $siteName ).MySQLTABLE::MYSQL_SEEK_SEPARATOR
 <a name="l00154"></a>00154                                 );      
@@ -253,7 +253,7 @@
 <a name="l00222"></a>00222         {
 <a name="l00223"></a>00223                 $clauses = <a class="code" href="classMySQLTable.html#8516d74e56fef204aec07eef1176979a">MySQLTable::MYSQL_CLAUSE_WHERE</a> . <a class="code" href="classTableSite.html#12094ef4b48a64b772f91d94629bbb63">TableSite::TABLE_COLUMN_IDSITE</a> . <a class="code" href="classMySQLTable.html#af6ea3dde397f4e780d1a282e80e5f6d">MySQLTable::MYSQL_SEEK_STRICT</a> . MySQLTABLE::MYSQL_SEEK_SEPARATOR . intval( $idSite ) . MySQLTABLE::MYSQL_SEEK_SEPARATOR;
 <a name="l00224"></a>00224                 
-<a name="l00225"></a>00225                 $res = $this-&gt;<a class="code" href="classMySQLTable.html#f384718c8a922598d355343683cb4538">Select</a>( <a class="code" href="classTableSite.html#12094ef4b48a64b772f91d94629bbb63">TableSite::TABLE_COLUMN_IDSITE</a>, $clauses);
+<a name="l00225"></a>00225                 $res = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a>( <a class="code" href="classTableSite.html#12094ef4b48a64b772f91d94629bbb63">TableSite::TABLE_COLUMN_IDSITE</a>, $clauses);
 <a name="l00226"></a>00226 
 <a name="l00227"></a>00227                 <span class="keywordflow">return</span> (! ($res InstanceOf <a class="code" href="classErrors.html">Errors</a> || $res-&gt;GetCount() == 0 ) );
 <a name="l00228"></a>00228         }
@@ -278,7 +278,7 @@
 <a name="l00247"></a>00247 <span class="comment">//-------------------------------- Autres définitions dépendantes de &lt;MySQLTableSite&gt;</span>
 <a name="l00248"></a>00248 
 <a name="l00249"></a>00249 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:31:38 2006 for Exetron by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:25:57 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

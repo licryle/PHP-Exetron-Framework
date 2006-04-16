@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |Errors.php|  -  description
+                           |Errors.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Errors> (fichier Errors.php) --------------
-if (defined('ERRORS_H'))
+//---------- Class <Errors> (file Errors.php) --------------
+/*if (defined('ERRORS_H'))
 {
     return;
 }
@@ -17,132 +17,151 @@ else
 {
 
 }
-define('ERRORS_H',1);
+define('ERRORS_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Errors>
-//Itérateur qui gère une liste d'erreurs de type Error ou descendant
-//
+/*!
+ * Manages a list of Error-s (or children objects).
+ * Provides basic methods for this management.
+ */
 //------------------------------------------------------------------------ 
 
 class Errors extends AbstractClass implements Iterator, AbstractIterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //  
-
-    public function Add( Error $newErr )
-    // Mode d'emploi :
-    //Ajoute une erreur à la liste
-    //
+//--------------------------------------------------------- public methods
+    public function Add( Error $item )
+    /**
+	 * Adds an Error to the Sites if it is different than NULL.
+	 * Error-s are indexed by their code.
+     *
+     * @param $item the Error to add 
+     *
+     */
     {
-        $this->errors[ $newErr->getCode( ) ] = $newErr;
-    } //---- Fin de Add
+		if ( $item == NULL ) return;
+		
+        $this->errors[ $item->getCode( ) ] = $item;
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des erreurs
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->errors);
         
         $this->errors = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre d'erreurs contenues dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->errors );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//--------------------------------------------- Iterator's implementation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->errors );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->errors );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le code de l'erreur pointée par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return $this->current( )->getCode( );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->errors );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
-//---------------------------------------------Fin implémentation Iterator
-    
-//-------------------------------------------- Constructeurs - destructeur
-    function __construct( )
-    // Mode d'emploi (constructeur) :
-    //
-    // Contrat :
-    //
+    } //---- End of Valid
+
+//--------------------------------------- End of Iterator's implementation
+
+//---------------------------------------------- Constructors - destructor
+    public function __construct( )
+    /**
+	 * Initialises Errors.
+	 *
+     */
     {
+		parent::__construct();
+	
     	$this->errors = array( );
-    } //---- Fin du constructeur
+    } //---- End of constructor
 
-//------------------------------------------------------ Méthodes Magiques
 
-    public function __ToString ()
-    // Mode d'emploi :
-    //Réalise une conversion des erreurs en String
-    //
-    // Algorithme : 
-    //foreach( $this )
+    public function __destruct ( )
+	/**
+	 * Destructs ressources allocated
+	 */
+    {
+		parent::__destruct();
+    } //---- End of destructor
+    
+//---------------------------------------------------------- Magic Methods
+
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
         $str = '';
         
@@ -152,21 +171,19 @@ class Errors extends AbstractClass implements Iterator, AbstractIterator
         }
         
         return $str;
-    }
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//------------------------------------------------------ protected members
+	
+	/** Array of Error-s indexed by Error's code */
+	protected $errors;
 
-//----------------------------------------------------- Attributs protégés
-    protected $errors;
 }
 
-//-------------------------------- Autres définitions dépendantes de <Errors>
+//------------------------------------------------------ other definitions
 
 ?>

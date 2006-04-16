@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |Users.php|  -  description
+                           |Users.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Users> (fichier Users.php) --------------
-if (defined('USERS_H'))
+//---------- Class <Users> (file Users.php) --------------
+/*if (defined('USERS_H'))
 {
     return;
 }
@@ -17,47 +17,43 @@ else
 {
 
 }
-define('USERS_H',1);
+define('USERS_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Users>
-//
-//
+/*!
+ * Provides specific methods for Iterator of User-s
+ */
 //------------------------------------------------------------------------ 
 
 class Users extends AbstractClass implements Iterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
 	public function GetUserByIdUser ( $idUser )
-	// Mode d'emploi :
-	//permet de récupérer le user d'id $idUser.
-	//
-	// Renvoie :
-	//- un objet de type User en cas de réussite
-	//- un objet de type Errors si la user n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the User which property TableUser::TABLE_COLUMN_IDUSER
+	 * has the value $idUser
+     *
+     * @param $idUser the id of the User to be looked for
+	 *
+     * @return - the User object which property
+	 * TableUser::TABLE_COLUMN_IDUSER has the value $idUser
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return UserError::USER_NOT_LOADED if User has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		if ( isset ( $this->users [ $idUser ] ) )
 		{
@@ -66,23 +62,27 @@ class Users extends AbstractClass implements Iterator
 		else
 		{
 			$errors = new Errors ( );
-			$errors->Add ( new UserError ( UserError::USER_NOT_LOADED, 'Utilisateur non chargé ou inexistant.' ) );
+			$errors->Add ( new UserError ( UserError::USER_NOT_LOADED, 'User not loaded from database or not existant.' ) );
 			
 			return $errors;
 		}
-	} //---- Fin de GetUserByIdUser
+	} //---- End of GetUserByIdUser
 	
 	public function GetUserByName ( $nameUser )
-	// Mode d'emploi :
-	//permet de récupérer le user de nom $nameUser.
-	//
-	// Renvoie :
-	//- un objet de type User en cas de réussite
-	//- un objet de type Errors si la user n'est pas chargée ou n'existe pas
-	//
-	// Note :
-	//Ne pas utiliser le retour pas référence.
-	//
+    /**
+	 * Gets the User which property TableUser::TABLE_COLUMN_NAME
+	 * has the value $nameUser
+     *
+     * @param $nameUser the name of the User to be looked for
+	 *
+     * @return - the User object which property TableUser::TABLE_COLUMN_NAME
+	 * has the value $nameUser
+     * @return - an Errors object in case of error(s) :
+	 *
+	 * @return UserError::USER_NOT_LOADED if User has not been loaded
+	 * from the database or doesn't exist
+     *
+     */
 	{
 		foreach ( $this->users as $user ) 
 		{
@@ -93,158 +93,182 @@ class Users extends AbstractClass implements Iterator
 		}
 		
 		$errors = new Errors ( );
-		$errors->Add ( new UserError ( UserError::USER_NOT_LOADED, 'User non chargé ou inexistant.' ) );
+		$errors->Add ( new UserError ( UserError::USER_NOT_LOADED, 'User not loaded from database or not existant.' ) );
 			
 		return $errors;
-	} //---- Fin de GetUserByName
+	} //---- End of GetUserByName
 	
 	public function SetUser ( User $user )
-	// Mode d'emploi :
-	//permet de mettre en mémoire dans l'objet la user $user.
-	//
-	//Afin de la sauver dans la base de donnée, il est nécessaire d'appeler SaveUsers().
-	//
-	// Algorithme :
+    /**
+	 * Adds a User to the Users if it is different than NULL.
+	 * Alias of User::Add()
+     *
+     * @param $user the User to add
+     *
+     */
 	{
 
 		$this->Add ( $user );
 
-	} //---- Fin de SetUser
+	} //---- End of SetUser
 	
 //------------------------------------------- Implémentation de MyIterator
 
-    public function Add( User $newVar )
-    // Mode d'emploi :
-    //Ajoute un utilisateurs à la liste
-    //
+    public function Add( User $item )
+    /**
+	 * Adds a User to the Users if it is different than NULL.
+	 * User-s are indexed by TableUser::TABLE_COLUMN_IDUSER if possible.
+     *
+     * @param $item the User to add
+     *
+     */
     {
-		$key = $newVar->GetProperty ( TableUser::TABLE_COLUMN_IDUSER );
+		if ( $item == NULL ) return;
+		
+		$key = $item->GetProperty ( TableUser::TABLE_COLUMN_IDUSER );
 	
 		if ( empty ( $key ) )
 		{
-			$this->users [] = $newVar;		
+			$this->users [] = $item;		
 		}
 		else
 		{
-			$this->users [ $key ] = $newVar;
+			$this->users [ $key ] = $item;
 		}
-    } //---- Fin de Add
+    } //---- End of Add
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des users
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset($this->users);
         
         $this->users = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre de users contenus dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $this->users );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
 //-----------------------------------------------Implémentation Iterator
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $this->users );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $this->users );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'id du user pointé par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return Key ( $this->users );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $this->users );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return $this->current( ) !== false;
-    } //---- Fin de Valid
+    } //---- End of Valid
 
-//---------------------------------- Fin de l'implémentation de MyIterator
+//--------------------------------------- End of Iterator's implementation
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
     public function __construct( BDDRecordSet $users )
-    // Mode d'emploi (constructeur) :
-    //instancie des Users à partir d'un BDDRecordSet
-	//
-    // Contrat :
-    //
+    /**
+	 * Initialises Users from a BDDRecordSet.
+	 *
+     */
     {
+		parent::__construct();
+		
 		$this->users = array();
 		
 		foreach ( $users as $user )
 		{
 			$this->Add( new User ( $user ) );
 		}		
-    } //---- Fin du constructeur
+    } //---- End of constructor
 
 
     public function __destruct ( )
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/**
+	 * Destructs ressources allocated
+	 */
     {
-    } //---- Fin du destructeur
+		parent::__destruct();
+    } //---- End of destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 	
-	protected $users; // contient les users de user
-	// sous forme de BDDRecord indexées par leur nom
+	/** 
+	 * Array of User-s indexed by TableUser::TABLE_COLUMN_IDUSER if 
+	 * possible
+	 */
+	protected $users;
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <Users>
+//------------------------------------------------------ other definitions
 
 ?>

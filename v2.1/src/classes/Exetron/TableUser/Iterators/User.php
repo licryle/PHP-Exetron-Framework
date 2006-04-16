@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |User.php|  -  description
+                           |User.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <User> (fichier User.php) --------------
-if (defined('USER_H'))
+//---------- Classe <User> (file User.php) --------------
+/*if (defined('USER_H'))
 {
     return;
 }
@@ -17,72 +17,72 @@ else
 {
 
 }
-define('USER_H',1);
+define('USER_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <User>
-//Gestion d'une entrée de table User
-//
+/*!
+ * Provides specific methods for User table  entries
+ */
 //------------------------------------------------------------------------ 
 
 class User extends BDDRecord
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function Validate ( $groupTable )
-    // Mode d'emploi :
-    //permettra de valider l'objet courant en vue d'une sauvegarde dans la base
-	//de données
-	//
-	//$groupTable doit etre une instance valide d'un BDDTableGroup.
-	//Les classes candidates implémentes l'interface TableGroupInterface.
-	//
-	// Renvoie :
-	//- NULL si l'objet est validé. Il sera alors prêt pour une sauvegarde
-	//- un objet de type Errors contenant les erreurs qui empêchent la validation
-	//
-    // Contrat :
-    //
+    /**
+	 * Tries to validate the User in order to save it into DataBase.
+     *
+	 * @param $groupTable a BDDTableGroup object (where BDD should be
+	 * replaced by your current Database : eg. MySQLTableGroup). A valid 
+	 * BDDTableGroup implements TableGroupInterface
+	 *
+     * @return - NULL if object has been validated
+	 * @return - an Errors object in case of error(s) :
+	 *
+	 * @return UserError::USER_LOGIN_EMPTY if property 
+	 * TableUser::TABLE_COLUMN_NAME is empty
+	 *
+	 * @return BDDError::TABLE_CLASS_INCORRECT if $groupTable is not a 
+	 * valid instance
+	 *
+	 * @return UserError::USER_IDGROUP_INEXISTANT if User's group (property 
+	 * TableGroup::TABLE_COLUMN_IDGROUP) doesn't exists
+     *
+     */
 	{
 		$errors = new Errors ();
 	
 		// login
 			if ( empty( $this->row[ TableUser::TABLE_COLUMN_NAME ] ) )
 			{
-				$errors->Add ( new UserError ( UserError::USER_LOGIN_EMPTY, 'Veuillez saisir un nom d\'utilisateur.') );
+				$errors->Add ( new UserError ( UserError::USER_LOGIN_EMPTY, 'Please fill in login.') );
 			}
 	
 		// referent IdGroup
 			if ( ! @in_array( 'TableGroupInterface', class_implements ( $groupTable ) ) )
 			{
-				$errors->Add( new BDDError ( BDDError::TABLE_CLASS_INCORRECT , 'Cet objet n\'est pas une instance de Table Group correcte.' ) );
+				$errors->Add( new BDDError ( BDDError::TABLE_CLASS_INCORRECT , 'Parameter is not a good instance of BDDTableGroup.' ) );
 			} 
 			else
 			{
 				if ( ! $groupTable->IdGroupExists( $this->row[ TableGroup::TABLE_COLUMN_IDGROUP ]  ) )
 				{
-					$errors->Add ( new GroupError ( UserError::USER_IDGROUP_INEXISTANT, 'L\'utilisateur n\'appartient à aucun groupe valide.') );
+					$errors->Add ( new GroupError ( UserError::USER_IDGROUP_INEXISTANT, 'User does not refer to any a group.') );
 				}
 			}
 			
-		// résultat
+		// result
 		if ( $errors->GetCount() == 0 )
 		{
 			$this->isValid = true;
@@ -92,53 +92,61 @@ class User extends BDDRecord
 		
 		$this->isValid = false;
 		return $errors;
-	}
-	
-//-----------------------------------------------Implémentation Iterator
+	} //----- End of Validate
 
-//---------------------------------------------Fin implémentation Iterator
+//---------------------------------------------- Constructors - destructor
 
-//-------------------------------------------- Constructeurs - destructeur
-
-    function __construct( BDDRecord & $newRec )
-    // Mode d'emploi (constructeur) :
-    //instancie un objet de type User à partir d'un objet de
-	//type BDDRecord en faisant une copie en profondeur.
-	//
-    // Contrat :
-    //
-    {	
-		// initialisation
+    function __construct( BDDRecord $newRec )
+    /**
+	 * Initialises User from the BDDRecord $newRec.
+	 * If $newRec is NULL, User is empty.
+	 * Sets IsValid to false.
+	 *
+	 * @param $newRec a BDDRecord to copy/cast or NULL
+	 *
+     */
+    {
+		parent::__construct( NULL );
+		
+		// initialization		
 		$this->SetProperty ( TableUser::TABLE_COLUMN_IDUSER , '' );
 		$this->SetProperty ( TableUser::TABLE_COLUMN_NAME , '' );
 		$this->SetProperty ( TableUser::TABLE_COLUMN_PASSWORD , '' );
 		$this->SetProperty ( TableUser::TABLE_COLUMN_IDGROUP , '' );
-		
+
 		if ( $newRec != NULL )
 		{
 			$obj = (array)( $newRec);
 			
-			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] ); // hack php pour acceder
-			// a la prop protected $newRec->row
+			$this->row = array_merge ( $this->row, $obj[chr(0).'*'.chr(0).'row'] );
+			// php hack to access protected property $newRec->row
 		}
-		
-		$this->isValid = false;
-    } //---- Fin du constructeur
+    } //---- End of constructor
 	
-//------------------------------------------------------ Méthodes Magiques
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{
+		parent::__destruct();
+	} //----- End of Destructor
+    
+//---------------------------------------------------------- Magic Methods
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 }
 
-//-------------------------------- Autres définitions dépendantes de <User>
+//------------------------------------------------------ other definitions
 
 ?>

@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |GroupError.php|  -  description
+                           |GroupError.php|
                              -------------------
     début                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <GroupError> (fichier GroupError.php) --------------
-if (defined('GROUPERROR_H'))
+//---------- Class <GroupError> (file GroupError.php) --------------
+/*if (defined('GROUPERROR_H'))
 {
     return;
 }
@@ -17,58 +17,51 @@ else
 {
 
 }
-define('GROUPERROR_H',1);
+define('GROUPERROR_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <GroupError>
-// Extension de la classe Error, elle implémente les constantes spécifiques aux erreurs Group
-//
+/*!
+ * Provides specific constants for Group's Errors.
+ */
 //------------------------------------------------------------------------ 
 
 class GroupError extends Error
 {
 //----------------------------------------------------------------- PUBLIC
-
-//------------------------------------------------------------- Constantes
+	/**
+	 * Requested Group has not been loaded from database or does not
+	 * exist
+	 */
     const GROUP_NOT_LOADED = 'GROUP_NOT_LOADED';
 
-    const GROUP_IDSITE_INEXISTANT = 'GROUP_IDSITE_INEXISTANT'; // référent IdSite inexistant
-	const GROUP_NAME_EMPTY = 'GROUP_NAME_EMPTY'; // nom de groupe vide
+	/** Requested Group has a non valid idSite referrent */
+    const GROUP_IDSITE_INEXISTANT = 'GROUP_IDSITE_INEXISTANT';
 	
-//----------------------------------------------------- Méthodes publiques
-    // public type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/** The Group has a an empty name */
+	const GROUP_NAME_EMPTY = 'GROUP_NAME_EMPTY';
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
     
-//------------------------------------------------------ Méthodes Magiques
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <GroupError>
+//------------------------------------------------------ other definitions
 
 ?>

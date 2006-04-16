@@ -28,7 +28,7 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>MySQLTableGroup Class Reference</h1><!-- doxytag: class="MySQLTableGroup" --><!-- doxytag: inherits="MySQLTable" -->Inherits <a class="el" href="classMySQLTable.html">MySQLTable</a>.
+<h1>MySQLTableGroup Class Reference</h1><!-- doxytag: class="MySQLTableGroup" --><!-- doxytag: inherits="MySQLTable,TableGroupInterface" -->Inherits <a class="el" href="classMySQLTable.html">MySQLTable</a>, and <a class="el" href="interfaceTableGroupInterface.html">TableGroupInterface</a>.
 <p>
 Inheritance diagram for MySQLTableGroup:<p><center><img src="classMySQLTableGroup__inherit__graph.gif" border="0" usemap="#MySQLTableGroup__inherit__map" alt="Inheritance graph"></center>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for MySQLTableGroup:<p><center><img src="classMySQLTableGroup__coll__graph.gif" border="0" usemap="#MySQLTableGroup__coll__map" alt="Collaboration graph"></center>
@@ -53,11 +53,11 @@ Inheritance diagram for MySQLTableGroup:<p><center><img src="classMySQLTableGrou
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides specific methods for operations on <a class="el" href="classGroup.html">Group</a> Table for MySQL Database. 
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00038">38</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00037">37</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="4f9d1fc96b332cbdff7b1ac3d797971b"></a><!-- doxytag: member="MySQLTableGroup::FindGroupsByName" ref="4f9d1fc96b332cbdff7b1ac3d797971b" args="($groupName)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -85,9 +85,11 @@ Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00038">
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00165">165</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+Implements <a class="el" href="interfaceTableGroupInterface.html#5944e7e72ad611ac7987ab1c76fb0917">TableGroupInterface</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00079">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00042">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableGroup_8php-source.html#l00045">TableGroup::TABLE_COLUMN_NAME</a>.    </td>
+Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00159">159</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+<p>
+References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00041">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableGroup_8php-source.html#l00044">TableGroup::TABLE_COLUMN_NAME</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="6bcd259b0e55cc065e6c3e9a3a7afca0"></a><!-- doxytag: member="MySQLTableGroup::IdGroupExists" ref="6bcd259b0e55cc065e6c3e9a3a7afca0" args="($idGroup)" --><p>
@@ -117,11 +119,13 @@ References <a class="el" href="MySQLTable_8php-source.html#l00079">MySQLTable::S
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00240">240</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+Implements <a class="el" href="interfaceTableGroupInterface.html#0ff66ddde2240a5ffc6300f75b139c9f">TableGroupInterface</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00045">MySQLTable::MYSQL_CLAUSE_WHERE</a>, <a class="el" href="MySQLTable_8php-source.html#l00065">MySQLTable::MYSQL_SEEK_STRICT</a>, <a class="el" href="MySQLTable_8php-source.html#l00079">MySQLTable::Select()</a>, and <a class="el" href="TableGroup_8php-source.html#l00042">TableGroup::TABLE_COLUMN_IDGROUP</a>.
+Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00234">234</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00049">SaveGroups()</a>, and <a class="el" href="MySQLTableGroup_8php-source.html#l00193">UpdateGroupByIdGroup()</a>.    </td>
+References <a class="el" href="MySQLTable_8php-source.html#l00044">MySQLTable::MYSQL_CLAUSE_WHERE</a>, <a class="el" href="MySQLTable_8php-source.html#l00080">MySQLTable::MYSQL_SEEK_STRICT</a>, <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, and <a class="el" href="TableGroup_8php-source.html#l00041">TableGroup::TABLE_COLUMN_IDGROUP</a>.
+<p>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00043">SaveGroups()</a>, and <a class="el" href="MySQLTableGroup_8php-source.html#l00187">UpdateGroupByIdGroup()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="1b5d4590a49e464254dcdaceeba769c8"></a><!-- doxytag: member="MySQLTableGroup::InsertGroup" ref="1b5d4590a49e464254dcdaceeba769c8" args="(Group $group)" --><p>
@@ -151,11 +155,13 @@ Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00049">SaveG
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00226">226</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+Implements <a class="el" href="interfaceTableGroupInterface.html#b291d2c0dd86fb216a0692fef7344e57">TableGroupInterface</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00114">MySQLTable::Insert()</a>.
+Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00220">220</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00049">SaveGroups()</a>.    </td>
+References <a class="el" href="MySQLTable_8php-source.html#l00131">MySQLTable::Insert()</a>.
+<p>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00043">SaveGroups()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="d9b943cb7b2c544cb531720e435965ea"></a><!-- doxytag: member="MySQLTableGroup::SaveGroups" ref="d9b943cb7b2c544cb531720e435965ea" args="(Groups $groups)" --><p>
@@ -185,9 +191,9 @@ Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00049">SaveG
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00049">49</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00043">43</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
 <p>
-References <a class="el" href="MySQLTableGroup_8php-source.html#l00240">IdGroupExists()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00226">InsertGroup()</a>, <a class="el" href="TableGroup_8php-source.html#l00042">TableGroup::TABLE_COLUMN_IDGROUP</a>, and <a class="el" href="MySQLTableGroup_8php-source.html#l00193">UpdateGroupByIdGroup()</a>.    </td>
+References <a class="el" href="MySQLTableGroup_8php-source.html#l00234">IdGroupExists()</a>, <a class="el" href="MySQLTableGroup_8php-source.html#l00220">InsertGroup()</a>, <a class="el" href="TableGroup_8php-source.html#l00041">TableGroup::TABLE_COLUMN_IDGROUP</a>, and <a class="el" href="MySQLTableGroup_8php-source.html#l00187">UpdateGroupByIdGroup()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="a17b34dc0a67cff3995f0d1604aaeb30"></a><!-- doxytag: member="MySQLTableGroup::SelectGroupByIdGroup" ref="a17b34dc0a67cff3995f0d1604aaeb30" args="($idGroup)" --><p>
@@ -217,9 +223,11 @@ References <a class="el" href="MySQLTableGroup_8php-source.html#l00240">IdGroupE
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00112">112</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+Implements <a class="el" href="interfaceTableGroupInterface.html#67ea92a042cc7c1de4e7e206a118973a">TableGroupInterface</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00079">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00042">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableGroup_8php-source.html#l00042">TableGroup::TABLE_COLUMN_IDGROUP</a>.    </td>
+Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00106">106</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+<p>
+References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00041">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableGroup_8php-source.html#l00041">TableGroup::TABLE_COLUMN_IDGROUP</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="5d3d5c830a7c6b08a7826b0147885a33"></a><!-- doxytag: member="MySQLTableGroup::SelectGroups" ref="5d3d5c830a7c6b08a7826b0147885a33" args="()" --><p>
@@ -248,9 +256,11 @@ References <a class="el" href="MySQLTable_8php-source.html#l00079">MySQLTable::S
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00088">88</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+Implements <a class="el" href="interfaceTableGroupInterface.html#83105e75e9500e0f596f787176665497">TableGroupInterface</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00079">MySQLTable::Select()</a>.    </td>
+Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00082">82</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+<p>
+References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="c6c86728e10ed5291594590bcade3bed"></a><!-- doxytag: member="MySQLTableGroup::SelectGroupsByIdSite" ref="c6c86728e10ed5291594590bcade3bed" args="($idSite)" --><p>
@@ -280,9 +290,9 @@ References <a class="el" href="MySQLTable_8php-source.html#l00079">MySQLTable::S
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00139">139</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00133">133</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00079">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00042">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableGroup_8php-source.html#l00051">TableGroup::TABLE_COLUMN_IDSITE</a>.    </td>
+References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00041">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableGroup_8php-source.html#l00050">TableGroup::TABLE_COLUMN_IDSITE</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="f8352aeafa07e50b537dcd6956fd3ff3"></a><!-- doxytag: member="MySQLTableGroup::UpdateGroupByIdGroup" ref="f8352aeafa07e50b537dcd6956fd3ff3" args="(Group $new)" --><p>
@@ -312,16 +322,18 @@ References <a class="el" href="MySQLTable_8php-source.html#l00079">MySQLTable::S
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00193">193</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
+Implements <a class="el" href="interfaceTableGroupInterface.html#42c041ff8e3f67a4c3f952e1acda69cc">TableGroupInterface</a>.
 <p>
-References <a class="el" href="MySQLTableGroup_8php-source.html#l00240">IdGroupExists()</a>, <a class="el" href="MySQLTable_8php-source.html#l00045">MySQLTable::MYSQL_CLAUSE_WHERE</a>, <a class="el" href="MySQLTable_8php-source.html#l00065">MySQLTable::MYSQL_SEEK_STRICT</a>, <a class="el" href="BDDError_8php-source.html#l00055">BDDError::RECORD_NOT_VALID</a>, <a class="el" href="BDDError_8php-source.html#l00056">BDDError::RECORD_UPDATE_DOESNT_EXIST</a>, <a class="el" href="TableGroup_8php-source.html#l00042">TableGroup::TABLE_COLUMN_IDGROUP</a>, and <a class="el" href="MySQLTable_8php-source.html#l00136">MySQLTable::Update()</a>.
+Definition at line <a class="el" href="MySQLTableGroup_8php-source.html#l00187">187</a> of file <a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00049">SaveGroups()</a>.    </td>
+References <a class="el" href="MySQLTableGroup_8php-source.html#l00234">IdGroupExists()</a>, <a class="el" href="MySQLTable_8php-source.html#l00044">MySQLTable::MYSQL_CLAUSE_WHERE</a>, <a class="el" href="MySQLTable_8php-source.html#l00080">MySQLTable::MYSQL_SEEK_STRICT</a>, <a class="el" href="BDDError_8php-source.html#l00070">BDDError::RECORD_NOT_VALID</a>, <a class="el" href="BDDError_8php-source.html#l00073">BDDError::RECORD_UPDATE_DOESNT_EXIST</a>, <a class="el" href="TableGroup_8php-source.html#l00041">TableGroup::TABLE_COLUMN_IDGROUP</a>, and <a class="el" href="MySQLTable_8php-source.html#l00158">MySQLTable::Update()</a>.
+<p>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00043">SaveGroups()</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableGroup/<a class="el" href="MySQLTableGroup_8php-source.html">MySQLTableGroup.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:39 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:52 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

@@ -1,10 +1,8 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,86,268"];
-	Node1 [label="{LocatorItem\n|# $label\l# $url\l|+ GetLabel()\l+ GetURL()\l+ __construct()\l+ __ToString()\l+ GetLabel()\l+ GetURL()\l+ __const\
-ruct()\l+ __ToString()\l}", height="2.00", width="1.19", color=white, fillcolor=black, style=filled, fontcolor=white, pos="43,80", rects="0,136,86,152 0,108,86,136 0,8,86,108"];
-	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="43,224", rects="0,244,86,260 0,228,86,244 0,188,86,228"];
-	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,37,188 36,178 36,170 36,161 36,152"];
-	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,49,188 50,178 50,170 50,161 50,152"];
+	graph [bb="0,0,86,220"];
+	Node1 [label="{LocatorItem\n|# $label\l# $url\l|+ GetLabel()\l+ GetURL()\l+ __construct()\l+ __ToString()\l}", height="1.33", width="1.19", color=white, fillcolor=black, style=filled, fontcolor=white, pos="43,56", rects="0,88,86,104 0,60,86,88 0,8,86,60"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="43,176", rects="0,196,86,212 0,180,86,196 0,140,86,180"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,43,140 43,129 43,121 43,112 43,104"];
 }

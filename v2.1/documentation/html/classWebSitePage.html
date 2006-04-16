@@ -82,7 +82,7 @@ Definition at line <a class="el" href="WebSitePage_8php-source.html#l00038">38</
     <td>
 
 <p>
-
+instanciates an <a class="el" href="classXHTMLSitePage.html">XHTMLSitePage</a>. 
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#32888a985736c0d0a966bdd3c7d0ebfb">XHTMLSitePage</a>.
 <p>
@@ -113,7 +113,7 @@ Definition at line <a class="el" href="WebSitePage_8php-source.html#l00156">156<
     <td>
 
 <p>
-
+Destructs ressources allocated 
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#57ffee8091b4dc5b4ea97b1868f43b99">XHTMLSitePage</a>.
 <p>
@@ -144,6 +144,8 @@ Definition at line <a class="el" href="WebSitePage_8php-source.html#l00166">166<
     <td>
 
 <p>
+Returns a printable version of object for debugging.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>String printable on screen </dd></dl>
 
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#963383bfe01dd600da1581c0ddaec300">XHTMLSitePage</a>.
@@ -175,6 +177,10 @@ Definition at line <a class="el" href="WebSitePage_8php-source.html#l00176">176<
     <td>
 
 <p>
+Gets a unique instance of current class. Create it if it doesn't exist. Children must call parent::getInstance( __CLASS__ )<p>
+This method MUST be redefined in ALL children.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>unique instance of current class</dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classAbstractSingleton.html#69366dd43f6184303565b69d6550cf87">AbstractSingleton::getThis()</a> </dd></dl>
 
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#c3ac87f9f7bdc1b80a47dab397b3abdd">XHTMLSitePage</a>.
@@ -206,13 +212,15 @@ Definition at line <a class="el" href="WebSitePage_8php-source.html#l00049">49</
     <td>
 
 <p>
+callback function to be called by <a class="el" href="classApplication.html">Application</a> on ApplicationStart. Initializes the page with an <a class="el" href="classXHTMLPageTemplate.html">XHTMLPageTemplate</a>.<p>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classApplication.html">Application</a> class </dd></dl>
 
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#7176c6e061d36755165bb237e380db8d">XHTMLSitePage</a>.
 <p>
 Definition at line <a class="el" href="WebSitePage_8php-source.html#l00061">61</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.
 <p>
-References <a class="el" href="conf_8php-source.html#l00032">$GLOBALS</a>, <a class="el" href="BDDConnection_8php-source.html#l00041">BDDConnection::CONNECTION_PERSISTENT</a>, <a class="el" href="Session_8php-source.html#l00050">Session::GetInstance()</a>, <a class="el" href="Application_8php-source.html#l00051">Application::GetInstance()</a>, and <a class="el" href="TableVariable_8php-source.html#l00078">TableVariable::TABLE_COLUMN_DATA</a>.    </td>
+References <a class="el" href="conf_8php-source.html#l00032">$GLOBALS</a>, <a class="el" href="BDDConnection_8php-source.html#l00041">BDDConnection::CONNECTION_PERSISTENT</a>, <a class="el" href="Session_8php-source.html#l00050">Session::GetInstance()</a>, <a class="el" href="Application_8php-source.html#l00049">Application::GetInstance()</a>, and <a class="el" href="TableVariable_8php-source.html#l00073">TableVariable::TABLE_COLUMN_DATA</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="bf5ab3367f3f70c53ab897ce99d2f544"></a><!-- doxytag: member="WebSitePage::OnUnLoad" ref="bf5ab3367f3f70c53ab897ce99d2f544" args="($applicationVars)" --><p>
@@ -240,6 +248,13 @@ References <a class="el" href="conf_8php-source.html#l00032">$GLOBALS</a>, <a cl
     <td>
 
 <p>
+callback function to be called by <a class="el" href="classApplication.html">Application</a> on ApplicationEnd. Sets up Execution time from Tag named TAG_EXECUTION_TIME and flushes the page.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$applicationVars</em>&nbsp;</td><td>arguments passed by <a class="el" href="classApplication.html">Application</a> on function call - see <a class="el" href="classApplication.html">Application</a> class</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classApplication.html">Application</a> class </dd></dl>
 
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#cfeccabccb636caf328cea3f2abf13ba">XHTMLSitePage</a>.
@@ -271,7 +286,7 @@ Definition at line <a class="el" href="WebSitePage_8php-source.html#l00145">145<
     <td>
 
 <p>
-
+Function called after OnLoad and before OnUnLoad. Here is all the process of the page. 
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#b99ebf37eb4a98dc822097f2817833c0">XHTMLSitePage</a>.
 <p>
@@ -280,7 +295,7 @@ Definition at line <a class="el" href="WebSitePage_8php-source.html#l00134">134<
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/WebSitePage/<a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Tue Apr 11 05:32:57 2006 for Exetron by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:27:11 2006 for Exetron by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

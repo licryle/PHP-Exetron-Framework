@@ -1,9 +1,9 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,134,316"];
+	graph [bb="0,0,134,328"];
 	Node1 [label="{Groups\n|# $groups\l|+ GetGroupByIdGroup()\l+ GetGroupByName()\l+ SetGroup()\l+ Add()\l+ DelAll()\l+ GetCount()\l+ Rewind()\l+ \
-Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __destruct()\l}", height="2.67", width="1.86", color=white, fillcolor=black, style=filled, fontcolor=white, pos="67,104", rects="0,184,134,200 0,168,134,184 0,8,134,168"];
-	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="67,272", rects="24,292,110,308 24,276,110,292 24,236,110,276"];
-	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,67,236 67,226 67,218 67,209 67,200"];
+Current()\l+ Key()\l+ Next()\l+ Valid()\l+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="2.83", width="1.86", color=white, fillcolor=black, style=filled, fontcolor=white, pos="67,110", rects="0,196,134,212 0,180,134,196 0,8,134,180"];
+	Node2 [label="{AbstractClass\n||+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.00", width="1.19", color=black, fillcolor=white, style=filled, URL="$classAbstractClass.html", pos="67,284", rects="24,304,110,320 24,288,110,304 24,248,110,288"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,67,248 67,238 67,230 67,221 67,212"];
 }
