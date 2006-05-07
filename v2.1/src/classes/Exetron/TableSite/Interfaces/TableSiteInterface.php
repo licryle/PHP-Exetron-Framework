@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |TableSiteInterface.php|  -  description
+                           |TableSiteInterface.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableSiteInterface> (fichier TableSiteInterface.php) --------------
-if (defined('TABLESITEINTERFACE_H'))
+//---------- Classe <TableSiteInterface> (file TableSiteInterface.php) --------------
+/*if (defined('TABLESITEINTERFACE_H'))
 {
     return;
 }
@@ -17,120 +17,132 @@ else
 {
 
 }
-define('TABLESITEINTERFACE_H',1);
+define('TABLESITEINTERFACE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableSiteInterface>
-//
-//
+/*!
+ * Provides generic methods for TableSite management for any databases.
+ */
 //------------------------------------------------------------------------ 
 
 interface TableSiteInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
+
+	/**
+	 * Updates validated items in $sites in function of its idSite.
+	 * If idSite doesn't exist, item is inserted.
+	 * If an item of $sites hasn't been validate, it is skipped.
+	 *
+	 * @param $sites a Sites of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
+    public function SaveSites ( Sites $sites );
+	 
+	/**
+	 * Selects all the Site-s from Table.
+     *
+     * @return - a list of Group-s in a Sites object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function SelectSites ();
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des sites.
-	//
-    // Renvoie :
-	//- l'ensemble des sites sous forme d'objets Site dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
 	
+	/**
+	 * Selects the Site from table which TableSite::TABLE_COLUMN_IDSITE
+	 * equals to $idSite.
+     *
+	 * @param $idSite the id of the Site to select
+	 *
+     * @return - the Site which TableSite::TABLE_COLUMN_IDSITE equals to
+	 * $idSite in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function SelectSiteByIdSite ( $idSite );
-    // Mode d'emploi :
-	//permet de sélectionner le site d'id $idSite.
-	//
-	// Renvoie :
-    //- l'ensemble des sites d'id $idSite dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
 	
+	/**
+	 * Selects the Site-s from table which TableSite::TABLE_COLUMN_NAME
+	 * looks like $siteName.
+     *
+	 * @param $siteName the name of the Site to select. It can contain
+	 * magic chars like BDD_SEEK_MULTICHARS and BDD_SEEK_ANYCHAR where BDD
+	 * represent your database type. Please refer to your database documentation.
+	 *
+     * @return - a Sites object : the Site-s which 
+	 * TableSite::TABLE_COLUMN_NAME looks like $siteName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function FindSitesByName ( $siteName );
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des sites de nom $sitename.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des sites de nom $sitename dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
 	
-	public function UpdateSiteByIdSite ( Site $new );
-    // Mode d'emploi :
-	//permet de mettre à jour une site en fonction de sa propriété
-	// TABLE_COLUMN_IDSITE
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Tries to update the given site $updatedSite in function of its
+	 * property TableSite::TABLE_COLUMN_IDSITE.
+	 *
+	 * @param $updatedSite The Site to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */	
+	public function UpdateSiteByIdSite ( Site $updatedSite );
 	
+	/**
+	 * Inserts the given Site $site into the table.
+	 *
+	 * @param $site The Site to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	public function InsertSite ( Site $site );
-    // Mode d'emploi :
-	//permet d'ajouter une nouvelle site à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
 	
+	/**
+	 * Checks whether the Site of id $idSite exists or not.
+	 *
+	 * @param $idSite The TableSite::TABLE_COLUMN_IDSITE of the site 
+	 * to be checked.
+	 *
+	 * @return - true if site exists
+	 * @return - false otherwise
+     *
+     */
 	public function IdSiteExists ( $idSite );
-    // Mode d'emploi :
-	//permet de connaitre si l'$idSite existe dans la table
-	//
-	// Renvoie :
-	//- true si $idSite est présent,
-	//- false sinon.
-	//
-	// Contrat :
     
+//---------------------------------------------- Constructors - destructor
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------------------- Magic methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableSiteInterface>
+//------------------------------------------------------ other definitions
 
 ?>

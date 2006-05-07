@@ -41,35 +41,46 @@ class WebSitePage extends XHTMLSitePage
 //----------------------------------------------------------------- PUBLIC
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
 	
     public static function GetInstance ( )
-    // User's manual :
-    //Getter of the unique instance. Create this if doesn't exist
-	//Must appears in all children.
-	//
-    // Contract :
-    //
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
 	{
 		return parent::getThis( __CLASS__ );
 	} // End of GetInstance
 	
 
     public function OnLoad ( )
-    // User's manual :
-    //function to be called on ApplicationStart
-	//
-    // Contract :
-    //
+	/**
+	 * callback function to be called by Application on ApplicationStart.
+	 * Initializes the page with an XHTMLPageTemplate.
+	 *
+	 * Then try to load configuration variables for site and server.
+	 *
+	 * DB_ARRAY_INDEX must be set.
+	 * MYSQL_CONF_BASE must be set.
+	 * SITE_SESSIONS_ACTIVATED must be set.
+	 * IDSITE must be set.
+	 * Application->GetVariables[ DB_ARRAY_INDEX ] must be set.
+	 *
+	 * @see Application class
+	 *
+	 */
 	{
 		parent::OnLoad();
 		
 		$appl = Application::GetInstance();
-		$DBVars = & $appl->GetVariables[ DB_ARRAY_INDEX ];
+		$DBVars = & @$appl->GetVariables[ DB_ARRAY_INDEX ];
 		
 		// set up all 'always' needed connections
 		foreach ( $DBVars as $key => $db )
@@ -133,64 +144,65 @@ class WebSitePage extends XHTMLSitePage
 	} //---- End of OnLoad
 	
     public function Process ( )
-    // User's manual :
-    //all processes of the page.
-	//called after ApplicationStart / OnStart.
-	//
-    // Contract :
-    //
+	/**
+	 * Function called after OnLoad and before OnUnLoad.
+	 * Here is all the process of the page.
+	 *
+	 */
 	{
 		parent::Process();
 	} //---- End of Process
 	
     public function OnUnLoad ( $applicationVars )
-    // User's manual :
-    //function to be called on ApplicationEnd
-	//
-    // Contract :
-    //
+	/**
+	 * callback function to be called by Application on ApplicationEnd.
+	 * Sets up Execution time from Tag named TAG_EXECUTION_TIME and
+	 * flushes the page.
+	 *
+	 * @param $applicationVars arguments passed by Application on function
+	 * call - see Application class
+	 *
+	 * @see Application class
+	 *
+	 */
 	{
 		parent::OnUnLoad( $applicationVars );
 	} //---- End of OnUnLoad
 
 //---------------------------------------------- Constructors - destructor
     protected function __construct()
-    // User's manual :
-    //Internal constructor that disable instanciation
-    // Contract :
-    //
+	/**
+	 * instanciates an XHTMLSitePage.
+	 *
+	 */
     {	
 		parent::__construct();
     } //---- End of __construct
 
 
     public function __destruct ( )
-    // User's manual :
-    //
-    // Contract :
-    //
+	/**
+	 * Destructs ressources allocated
+	 */
     {
     } //---- End of __destruct
 
 //---------------------------------------------------------- Magic Methods
 
     public function __ToString ( )
-    // User's manual :
-    //
-    // Contract :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
-		return '';
+		return parrent::__ToString();
     } //---- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
 //------------------------------------------------------ protected methods
-    // protected type Méthode ( );
-    // User's manual :
-    //
-    // Contract :
-    //
 
 //--------------------------------------------------- protected properties
 

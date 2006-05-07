@@ -1,9 +1,9 @@
 digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
-	graph [bb="0,0,122,280"];
-	Node1 [label="{TableSiteInterface\n||+ SelectSites()\l+ SelectSiteByIdSite()\l+ FindSitesByName()\l+ UpdateSiteByIdSite()\l+ InsertSite()\l+ I\
-dSiteExists()\l}", height="1.50", width="1.69", color=white, fillcolor=black, style=filled, fontcolor=white, pos="61,218", rects="0,256,123,272 0,240,123,256 0,164,123,240"];
+	graph [bb="0,0,122,292"];
+	Node1 [label="{TableSiteInterface\n||+ SaveSites()\l+ SelectSites()\l+ SelectSiteByIdSite()\l+ FindSitesByName()\l+ UpdateSiteByIdSite()\l+ In\
+sertSite()\l+ IdSiteExists()\l}", height="1.67", width="1.69", color=white, fillcolor=black, style=filled, fontcolor=white, pos="61,224", rects="0,268,123,284 0,252,123,268 0,164,123,252"];
 	Node2 [label="{MySQLTableSite\n||+ SaveSites()\l+ SelectSites()\l+ SelectSiteByIdSite()\l+ FindSitesByName()\l+ UpdateSiteByIdSite()\l+ Insert\
 Site()\l+ IdSiteExists()\l}", height="1.67", width="1.69", color=black, fillcolor=white, style=filled, URL="$classMySQLTableSite.html", pos="61,68", rects="0,112,123,128 0,96,123,112 0,8,123,96"];
 	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,61,164 61,153 61,145 61,136 61,128"];

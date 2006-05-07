@@ -10,9 +10,9 @@ _SEEK_REGEX\l+ MYSQL_SEEK_MULTICHARS\l+ MYSQL_SEEK_ANYCHAR\l+ MYSQL_SEEK_STRICT\
 _NAME\l|+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l+ __construct()\l+ __destruct()\l# isValidProperty(\
 )\l# bDDRecordToTableRecord()\l}", height="4.67", width="3.58", color=black, fillcolor=white, style=filled, URL="$classMySQLTable.html", pos="129,344", rects="0,496,258,512 0,300,258,496 0,176,258,300"];
 	Node3 [label="{BDDTable\n|# $tableName\l# $bDDConnection\l# $structure\l|+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.33", width="1.44", color=red, fillcolor=white, style=filled, URL="$classBDDTable.html", pos="129,596", rects="77,628,182,644 77,588,182,628 77,548,182,588"];
-	Node4 [label="{TableGroupInterface\n||+ SelectGroups()\l+ SelectGroupByIdGroup()\l+ FindGroupsByName()\l+ UpdateGroupByIdGroup()\l+ InsertGrou\
-p()\l+ IdGroupExists()\l}", height="1.50", width="2.11", color=black, fillcolor=white, style=filled, URL="$interfaceTableGroupInterface.html", pos="352,344", rects="276,382,429,398 276,366,429,382 276,290,429,366"];
+	Node4 [label="{TableGroupInterface\n||+ SaveGroups()\l+ SelectGroups()\l+ SelectGroupByIdGroup()\l+ SelectGroupsByIdSite()\l+ FindGroupsByName\
+()\l+ UpdateGroupByIdGroup()\l+ InsertGroup()\l+ IdGroupExists()\l}", height="1.83", width="2.11", color=black, fillcolor=white, style=filled, URL="$interfaceTableGroupInterface.html", pos="352,344", rects="276,394,429,410 276,378,429,394 276,278,429,378"];
 	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,198,176 202,166 206,157 209,148 213,140"];
 	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,129,548 129,538 129,530 129,521 129,512"];
-	Node4 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,329,290 325,280 308,238 286,183 267,140"];
+	Node4 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,325,278 321,269 304,228 284,179 267,140"];
 }

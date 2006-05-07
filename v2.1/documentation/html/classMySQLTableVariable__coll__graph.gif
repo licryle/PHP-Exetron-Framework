@@ -10,9 +10,9 @@ _SEEK_REGEX\l+ MYSQL_SEEK_MULTICHARS\l+ MYSQL_SEEK_ANYCHAR\l+ MYSQL_SEEK_STRICT\
 _NAME\l|+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l+ __construct()\l+ __destruct()\l# isValidProperty(\
 )\l# bDDRecordToTableRecord()\l}", height="4.67", width="3.58", color=black, fillcolor=white, style=filled, URL="$classMySQLTable.html", pos="129,332", rects="0,484,258,500 0,288,258,484 0,164,258,288"];
 	Node3 [label="{BDDTable\n|# $tableName\l# $bDDConnection\l# $structure\l|+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.33", width="1.44", color=red, fillcolor=white, style=filled, URL="$classBDDTable.html", pos="129,584", rects="77,616,182,632 77,576,182,616 77,536,182,576"];
-	Node4 [label="{TableVariableInterface\n||+ SelectServerVariables()\l+ SelectSiteVariables()\l+ SelectVariablesByName()\l+ UpdateVariableByIdVa\
-riable()\l+ InsertVariable()\l+ IdVariableExists()\l}", height="1.50", width="2.39", color=black, fillcolor=white, style=filled, URL="$interfaceTableVariableInterface.html", pos="362,332", rects="276,370,449,386 276,354,449,370 276,278,449,354"];
+	Node4 [label="{TableVariableInterface\n||+ SaveVariables()\l+ SelectServerVariables()\l+ SelectSiteVariables()\l+ SelectVariablesByName()\l+ U\
+pdateVariableByIdVariable()\l+ InsertVariable()\l+ IdVariableExists()\l}", height="1.67", width="2.39", color=black, fillcolor=white, style=filled, URL="$interfaceTableVariableInterface.html", pos="362,332", rects="276,376,449,392 276,360,449,376 276,272,449,360"];
 	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,203,164 207,155 211,146 215,137 219,128"];
 	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,129,536 129,526 129,518 129,509 129,500"];
-	Node4 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,338,278 334,269 315,227 291,170 272,128"];
+	Node4 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,335,272 331,263 313,221 290,168 272,128"];
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
-<title>Exetron: TableGroupInterface Interface Reference</title>
+<title>ExetronSystemProject: TableGroupInterface Interface Reference</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -28,19 +28,21 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>TableGroupInterface Interface Reference</h1><!-- doxytag: class="TableGroupInterface" -->Inherited by <a class="el" href="classMySQLTableGroup.html">MySQLTableGroup</a>.
-<p>
-Inheritance diagram for TableGroupInterface:<p><center><img src="interfaceTableGroupInterface__inherit__graph.gif" border="0" usemap="#TableGroupInterface__inherit__map" alt="Inheritance graph"></center>
+<h1>TableGroupInterface Interface Reference</h1><!-- doxytag: class="TableGroupInterface" -->Inheritance diagram for TableGroupInterface:<p><center><img src="interfaceTableGroupInterface__inherit__graph.jpg" border="0" usemap="#TableGroupInterface__inherit__map" alt="Inheritance graph"></center>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="interfaceTableGroupInterface-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableGroupInterface.html#fd954228be1535c22bc7b4ece9a3a0d2">SaveGroups</a> (<a class="el" href="classGroups.html">Groups</a> $groups)</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableGroupInterface.html#83105e75e9500e0f596f787176665497">SelectGroups</a> ()</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableGroupInterface.html#67ea92a042cc7c1de4e7e206a118973a">SelectGroupByIdGroup</a> ($idGroup)</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableGroupInterface.html#d870d61ecf4ab72fa2efff3db8af5307">SelectGroupsByIdSite</a> ($idSite)</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableGroupInterface.html#5944e7e72ad611ac7987ab1c76fb0917">FindGroupsByName</a> ($groupName)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableGroupInterface.html#42c041ff8e3f67a4c3f952e1acda69cc">UpdateGroupByIdGroup</a> (<a class="el" href="classGroup.html">Group</a> $new)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableGroupInterface.html#63db51992afffbe0d440f2a2a4de414c">UpdateGroupByIdGroup</a> (<a class="el" href="classGroup.html">Group</a> $updatedGroup)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableGroupInterface.html#b291d2c0dd86fb216a0692fef7344e57">InsertGroup</a> (<a class="el" href="classGroup.html">Group</a> $group)</td></tr>
 
@@ -48,11 +50,11 @@ Inheritance diagram for TableGroupInterface:<p><center><img src="interfaceTableG
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides generic methods for <a class="el" href="classTableGroup.html">TableGroup</a> management for any databases. 
 <p>
 
 <p>
-Definition at line <a class="el" href="TableGroupInterface_8php-source.html#l00038">38</a> of file <a class="el" href="TableGroupInterface_8php-source.html">TableGroupInterface.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="TableGroupInterface_8php-source.html#l00036">36</a> of file <a class="el" href="TableGroupInterface_8php-source.html">TableGroupInterface.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="5944e7e72ad611ac7987ab1c76fb0917"></a><!-- doxytag: member="TableGroupInterface::FindGroupsByName" ref="5944e7e72ad611ac7987ab1c76fb0917" args="($groupName)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -78,6 +80,14 @@ Definition at line <a class="el" href="TableGroupInterface_8php-source.html#l000
     <td>
 
 <p>
+Selects the Group-s from table which <a class="el" href="classTableGroup.html#5c5015b74f005ef730d1ef3f06b62379">TableGroup::TABLE_COLUMN_NAME</a> looks like $groupName.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$groupName</em>&nbsp;</td><td>the name of the <a class="el" href="classGroup.html">Group</a> to select. It can contain magic chars like BDD_SEEK_MULTICHARS and BDD_SEEK_ANYCHAR where BDD represent your database type. Please refer to your database documentation.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- a <a class="el" href="classGroups.html">Groups</a> object : the Group-s which <a class="el" href="classTableGroup.html#5c5015b74f005ef730d1ef3f06b62379">TableGroup::TABLE_COLUMN_NAME</a> looks like $groupName in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTableGroup.html#4f9d1fc96b332cbdff7b1ac3d797971b">MySQLTableGroup</a>.    </td>
@@ -108,6 +118,14 @@ Implemented in <a class="el" href="classMySQLTableGroup.html#4f9d1fc96b332cbdff7
     <td>
 
 <p>
+Checks whether the <a class="el" href="classGroup.html">Group</a> of id $idGroup exists or not.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$idGroup</em>&nbsp;</td><td>The <a class="el" href="classTableGroup.html#9c4e6f29029930675887f59ab80eb482">TableGroup::TABLE_COLUMN_IDGROUP</a> of the group to be checked.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- true if group exists <p>
+- false otherwise </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTableGroup.html#6bcd259b0e55cc065e6c3e9a3a7afca0">MySQLTableGroup</a>.    </td>
@@ -138,9 +156,55 @@ Implemented in <a class="el" href="classMySQLTableGroup.html#6bcd259b0e55cc065e6
     <td>
 
 <p>
+Inserts the given <a class="el" href="classGroup.html">Group</a> $group into the table.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$group</em>&nbsp;</td><td>The <a class="el" href="classGroup.html">Group</a> to be inserted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if operation was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of Error-s see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTableGroup.html#1b5d4590a49e464254dcdaceeba769c8">MySQLTableGroup</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="fd954228be1535c22bc7b4ece9a3a0d2"></a><!-- doxytag: member="TableGroupInterface::SaveGroups" ref="fd954228be1535c22bc7b4ece9a3a0d2" args="(Groups $groups)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">TableGroupInterface::SaveGroups           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGroups.html">Groups</a> $&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>groups</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Updates validated items in $groups in function of its idGroup. If idGroup doesn't exist, item is inserted. If an item of $groups hasn't been validate, it is skipped.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$groups</em>&nbsp;</td><td>a <a class="el" href="classGroups.html">Groups</a> of items to be updated/inserted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
+
+<p>
+Implemented in <a class="el" href="classMySQLTableGroup.html#d9b943cb7b2c544cb531720e435965ea">MySQLTableGroup</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="67ea92a042cc7c1de4e7e206a118973a"></a><!-- doxytag: member="TableGroupInterface::SelectGroupByIdGroup" ref="67ea92a042cc7c1de4e7e206a118973a" args="($idGroup)" --><p>
@@ -168,6 +232,14 @@ Implemented in <a class="el" href="classMySQLTableGroup.html#1b5d4590a49e464254d
     <td>
 
 <p>
+Selects the <a class="el" href="classGroup.html">Group</a> from table which <a class="el" href="classTableGroup.html#9c4e6f29029930675887f59ab80eb482">TableGroup::TABLE_COLUMN_IDGROUP</a> equals to $idGroup.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$idGroup</em>&nbsp;</td><td>the id of the <a class="el" href="classGroup.html">Group</a> to select</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- the <a class="el" href="classGroup.html">Group</a> which <a class="el" href="classTableGroup.html#9c4e6f29029930675887f59ab80eb482">TableGroup::TABLE_COLUMN_IDGROUP</a> equals to $idGroup in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTableGroup.html#a17b34dc0a67cff3995f0d1604aaeb30">MySQLTableGroup</a>.    </td>
@@ -197,21 +269,24 @@ Implemented in <a class="el" href="classMySQLTableGroup.html#a17b34dc0a67cff3995
     <td>
 
 <p>
+Selects all the Group-s from Table.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>- a list of Group-s in a <a class="el" href="classGroups.html">Groups</a> object in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTableGroup.html#5d3d5c830a7c6b08a7826b0147885a33">MySQLTableGroup</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="42c041ff8e3f67a4c3f952e1acda69cc"></a><!-- doxytag: member="TableGroupInterface::UpdateGroupByIdGroup" ref="42c041ff8e3f67a4c3f952e1acda69cc" args="(Group $new)" --><p>
+<a class="anchor" name="d870d61ecf4ab72fa2efff3db8af5307"></a><!-- doxytag: member="TableGroupInterface::SelectGroupsByIdSite" ref="d870d61ecf4ab72fa2efff3db8af5307" args="($idSite)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td class="md" nowrap valign="top">TableGroupInterface::UpdateGroupByIdGroup           </td>
+          <td class="md" nowrap valign="top">TableGroupInterface::SelectGroupsByIdSite           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top"><a class="el" href="classGroup.html">Group</a> $&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>new</em>          </td>
+          <td class="md" nowrap valign="top">$&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>idSite</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -227,14 +302,60 @@ Implemented in <a class="el" href="classMySQLTableGroup.html#5d3d5c830a7c6b08a78
     <td>
 
 <p>
+Selects the Group-s from table which <a class="el" href="classTableGroup.html#00fa3abbcda085a116c1508e5f9f7615">TableGroup::TABLE_COLUMN_IDSITE</a> equals to $idSite. In other words : Group-s that belong to the site of id $idSite<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$idSite</em>&nbsp;</td><td>the id of the <a class="el" href="classSite.html">Site</a> the <a class="el" href="classGroup.html">Group</a> may belong</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- A <a class="el" href="classGroups.html">Groups</a> of Group-s which <a class="el" href="classTableGroup.html#00fa3abbcda085a116c1508e5f9f7615">TableGroup::TABLE_COLUMN_IDSITE</a> equals to $idSite in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
-Implemented in <a class="el" href="classMySQLTableGroup.html#f8352aeafa07e50b537dcd6956fd3ff3">MySQLTableGroup</a>.    </td>
+Implemented in <a class="el" href="classMySQLTableGroup.html#c6c86728e10ed5291594590bcade3bed">MySQLTableGroup</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="63db51992afffbe0d440f2a2a4de414c"></a><!-- doxytag: member="TableGroupInterface::UpdateGroupByIdGroup" ref="63db51992afffbe0d440f2a2a4de414c" args="(Group $updatedGroup)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">TableGroupInterface::UpdateGroupByIdGroup           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classGroup.html">Group</a> $&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>updatedGroup</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Tries to update the given group $updatedGroup in function of its property <a class="el" href="classTableGroup.html#9c4e6f29029930675887f59ab80eb482">TableGroup::TABLE_COLUMN_IDGROUP</a>.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$updatedGroup</em>&nbsp;</td><td>The <a class="el" href="classGroup.html">Group</a> to be updated</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if operation was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of Error-s see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
+
+<p>
+Implemented in <a class="el" href="classMySQLTableGroup.html#2d353d358aa32807418c5dd5ee7150c0">MySQLTableGroup</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this interface was generated from the following file:<ul>
-<li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableGroup/Interfaces/<a class="el" href="TableGroupInterface_8php-source.html">TableGroupInterface.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:27:00 2006 for Exetron by&nbsp;
+<li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableGroup/Interfaces/<a class="el" href="TableGroupInterface_8php-source.html">TableGroupInterface.php</a></ul>
+<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:33 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

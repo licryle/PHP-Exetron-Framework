@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
-<title>Exetron: MySQLTableVariable Class Reference</title>
+<title>ExetronSystemProject: MySQLTableVariable Class Reference</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -28,10 +28,8 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>MySQLTableVariable Class Reference</h1><!-- doxytag: class="MySQLTableVariable" --><!-- doxytag: inherits="MySQLTable,TableVariableInterface" -->Inherits <a class="el" href="classMySQLTable.html">MySQLTable</a>, and <a class="el" href="interfaceTableVariableInterface.html">TableVariableInterface</a>.
-<p>
-Inheritance diagram for MySQLTableVariable:<p><center><img src="classMySQLTableVariable__inherit__graph.gif" border="0" usemap="#MySQLTableVariable__inherit__map" alt="Inheritance graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for MySQLTableVariable:<p><center><img src="classMySQLTableVariable__coll__graph.gif" border="0" usemap="#MySQLTableVariable__coll__map" alt="Collaboration graph"></center>
+<h1>MySQLTableVariable Class Reference</h1><!-- doxytag: class="MySQLTableVariable" --><!-- doxytag: inherits="MySQLTable,TableVariableInterface" -->Inheritance diagram for MySQLTableVariable:<p><center><img src="classMySQLTableVariable__inherit__graph.jpg" border="0" usemap="#MySQLTableVariable__inherit__map" alt="Inheritance graph"></center>
+<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for MySQLTableVariable:<p><center><img src="classMySQLTableVariable__coll__graph.jpg" border="0" usemap="#MySQLTableVariable__coll__map" alt="Collaboration graph"></center>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classMySQLTableVariable-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
@@ -39,11 +37,11 @@ Inheritance diagram for MySQLTableVariable:<p><center><img src="classMySQLTableV
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTableVariable.html#7db0eb051d18bd62d6e0d126f1cc6ba4">SelectServerVariables</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTableVariable.html#f1103a406f2cf2a930f69207caf8a819">SelectSiteVariables</a> ($idsite)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTableVariable.html#5f7a9d87148fedd664e70e7b8bc46d5d">SelectSiteVariables</a> ($idSite)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTableVariable.html#467b3b8e672c7b625418e05278853cac">SelectVariablesByName</a> ($varName)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTableVariable.html#beb41004672dee55125d05e885684851">UpdateVariableByIdVariable</a> (<a class="el" href="classVariable.html">Variable</a> $new)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTableVariable.html#78f869ef39da9db27ae48d245437e84f">UpdateVariableByIdVariable</a> (<a class="el" href="classVariable.html">Variable</a> $updatedVariable)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTableVariable.html#55afa8be90b0dc30db1efc6e836fb088">InsertVariable</a> (<a class="el" href="classVariable.html">Variable</a> $variable)</td></tr>
 
@@ -51,11 +49,11 @@ Inheritance diagram for MySQLTableVariable:<p><center><img src="classMySQLTableV
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides specific methods for operations on <a class="el" href="classVariable.html">Variable</a> Table for MySQL Database. 
 <p>
 
 <p>
-Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00038">38</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00037">37</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="0fb44bb4c4d452ba7c0d2b68a4f4e65f"></a><!-- doxytag: member="MySQLTableVariable::IdVariableExists" ref="0fb44bb4c4d452ba7c0d2b68a4f4e65f" args="($idVariable)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -81,6 +79,14 @@ Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l0003
     <td>
 
 <p>
+Checks whether the <a class="el" href="classVariable.html">Variable</a> of id $idVariable exists or not.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$idVariable</em>&nbsp;</td><td>The <a class="el" href="classTableVariable.html#cdda335939c2b8ab2554f5df95f54849">TableVariable::TABLE_COLUMN_IDVARIABLE</a> of the variable to be checked.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- true if variable exists <p>
+- false otherwise </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceTableVariableInterface.html#0a5ef3357ff761f0b5f809cc841e30e1">TableVariableInterface</a>.
@@ -89,7 +95,7 @@ Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l0021
 <p>
 References <a class="el" href="MySQLTable_8php-source.html#l00044">MySQLTable::MYSQL_CLAUSE_WHERE</a>, <a class="el" href="MySQLTable_8php-source.html#l00080">MySQLTable::MYSQL_SEEK_STRICT</a>, <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, and <a class="el" href="TableVariable_8php-source.html#l00041">TableVariable::TABLE_COLUMN_IDVARIABLE</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableVariable_8php-source.html#l00049">SaveVariables()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00171">UpdateVariableByIdVariable()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableVariable_8php-source.html#l00043">SaveVariables()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00168">UpdateVariableByIdVariable()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="55afa8be90b0dc30db1efc6e836fb088"></a><!-- doxytag: member="MySQLTableVariable::InsertVariable" ref="55afa8be90b0dc30db1efc6e836fb088" args="(Variable $variable)" --><p>
@@ -117,15 +123,23 @@ Referenced by <a class="el" href="MySQLTableVariable_8php-source.html#l00049">Sa
     <td>
 
 <p>
+Inserts the given <a class="el" href="classVariable.html">Variable</a> $variable into the table.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$variable</em>&nbsp;</td><td>The <a class="el" href="classVariable.html">Variable</a> to be inserted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if operation was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of Error-s see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceTableVariableInterface.html#9ef8173abf08d0cface8a6a8266563b3">TableVariableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00204">204</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
+Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00203">203</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
 <p>
 References <a class="el" href="MySQLTable_8php-source.html#l00131">MySQLTable::Insert()</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableVariable_8php-source.html#l00049">SaveVariables()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableVariable_8php-source.html#l00043">SaveVariables()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="7c27045b1cb0b030207ab9461904904d"></a><!-- doxytag: member="MySQLTableVariable::SaveVariables" ref="7c27045b1cb0b030207ab9461904904d" args="(Variables $variables)" --><p>
@@ -153,11 +167,21 @@ Referenced by <a class="el" href="MySQLTableVariable_8php-source.html#l00049">Sa
     <td>
 
 <p>
+Updates validated items in $variables in function of its idVariable. If idVariable doesn't exist, item is inserted. If an item of $variables hasn't been validate, it is skipped.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$variables</em>&nbsp;</td><td>a <a class="el" href="classVariables.html">Variables</a> of items to be updated/inserted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
-Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00049">49</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
+Implements <a class="el" href="interfaceTableVariableInterface.html#fc9736425e865f2833a7ba8d4a72a542">TableVariableInterface</a>.
 <p>
-References <a class="el" href="MySQLTableVariable_8php-source.html#l00218">IdVariableExists()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00204">InsertVariable()</a>, and <a class="el" href="TableVariable_8php-source.html#l00041">TableVariable::TABLE_COLUMN_IDVARIABLE</a>.    </td>
+Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00043">43</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
+<p>
+References <a class="el" href="MySQLTableVariable_8php-source.html#l00218">IdVariableExists()</a>, <a class="el" href="MySQLTableVariable_8php-source.html#l00203">InsertVariable()</a>, and <a class="el" href="TableVariable_8php-source.html#l00041">TableVariable::TABLE_COLUMN_IDVARIABLE</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="7db0eb051d18bd62d6e0d126f1cc6ba4"></a><!-- doxytag: member="MySQLTableVariable::SelectServerVariables" ref="7db0eb051d18bd62d6e0d126f1cc6ba4" args="()" --><p>
@@ -184,16 +208,19 @@ References <a class="el" href="MySQLTableVariable_8php-source.html#l00218">IdVar
     <td>
 
 <p>
+Selects all the Variable-s from Table which scope is Server.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>- a list of Variable-s in a <a class="el" href="classVariables.html">Variables</a> object in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceTableVariableInterface.html#005a48f4786f4b4958db3e61abd9e8ab">TableVariableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00088">88</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
+Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00081">81</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
 <p>
 References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, <a class="el" href="TableVariable_8php-source.html#l00044">TableVariable::TABLE_COLUMN_SCOPE</a>, and <a class="el" href="TableVariable_8php-source.html#l00052">TableVariable::TABLE_COLUMN_SCOPE_SERVER</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="f1103a406f2cf2a930f69207caf8a819"></a><!-- doxytag: member="MySQLTableVariable::SelectSiteVariables" ref="f1103a406f2cf2a930f69207caf8a819" args="($idsite)" --><p>
+<a class="anchor" name="5f7a9d87148fedd664e70e7b8bc46d5d"></a><!-- doxytag: member="MySQLTableVariable::SelectSiteVariables" ref="5f7a9d87148fedd664e70e7b8bc46d5d" args="($idSite)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -202,7 +229,7 @@ References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::S
           <td class="md" nowrap valign="top">MySQLTableVariable::SelectSiteVariables           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">$&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>idsite</em>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>idSite</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -218,11 +245,19 @@ References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::S
     <td>
 
 <p>
+Selects all the Variable-s from Table which is <a class="el" href="classSite.html">Site</a> and refers to site of id $idSites.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$idSite</em>&nbsp;</td><td>The id of the <a class="el" href="classSite.html">Site</a> the variable-s returned refers to.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- a list of Variable-s in a Variabless object in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
-Implements <a class="el" href="interfaceTableVariableInterface.html#296309917779c3cda3a4df5a4d85cc1f">TableVariableInterface</a>.
+Implements <a class="el" href="interfaceTableVariableInterface.html#f9ede319d5130fa2af3c0a481b9a825e">TableVariableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00115">115</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
+Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00106">106</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
 <p>
 References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, <a class="el" href="TableVariable_8php-source.html#l00076">TableVariable::TABLE_COLUMN_IDSITE</a>, <a class="el" href="TableVariable_8php-source.html#l00044">TableVariable::TABLE_COLUMN_SCOPE</a>, and <a class="el" href="TableVariable_8php-source.html#l00049">TableVariable::TABLE_COLUMN_SCOPE_SITE</a>.    </td>
   </tr>
@@ -252,16 +287,24 @@ References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::S
     <td>
 
 <p>
+Selects the Group-s from table which <a class="el" href="classTableVariable.html#3ac8b797b2cf77a0fb81205afd88ec23">TableVariable::TABLE_COLUMN_NAME</a> looks like $varName.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$varName</em>&nbsp;</td><td>the name of the <a class="el" href="classVariable.html">Variable</a> to select. It can contain magic chars like MYSQL_SEEK_MULTICHARS and MYSQL_SEEK_MULTICHARS. Please refer to your database documentation.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- a <a class="el" href="classVariables.html">Variables</a> object : the Variable-s which <a class="el" href="classTableVariable.html#3ac8b797b2cf77a0fb81205afd88ec23">TableVariable::TABLE_COLUMN_NAME</a> looks like $varName in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implements <a class="el" href="interfaceTableVariableInterface.html#459ebc789a919d0f4034b24b3293ef60">TableVariableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00144">144</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
+Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00136">136</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
 <p>
 References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00041">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableVariable_8php-source.html#l00070">TableVariable::TABLE_COLUMN_NAME</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="beb41004672dee55125d05e885684851"></a><!-- doxytag: member="MySQLTableVariable::UpdateVariableByIdVariable" ref="beb41004672dee55125d05e885684851" args="(Variable $new)" --><p>
+<a class="anchor" name="78f869ef39da9db27ae48d245437e84f"></a><!-- doxytag: member="MySQLTableVariable::UpdateVariableByIdVariable" ref="78f869ef39da9db27ae48d245437e84f" args="(Variable $updatedVariable)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -270,7 +313,7 @@ References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::S
           <td class="md" nowrap valign="top">MySQLTableVariable::UpdateVariableByIdVariable           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top"><a class="el" href="classVariable.html">Variable</a> $&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>new</em>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>updatedVariable</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -286,18 +329,26 @@ References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::S
     <td>
 
 <p>
+Tries to update the given <a class="el" href="classVariable.html">Variable</a> $updatedVariable in function of its property <a class="el" href="classTableVariable.html#cdda335939c2b8ab2554f5df95f54849">TableVariable::TABLE_COLUMN_IDVARIABLE</a>.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$updatedVariable</em>&nbsp;</td><td>The <a class="el" href="classVariable.html">Variable</a> to be updated</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if operation was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of Error-s see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
-Implements <a class="el" href="interfaceTableVariableInterface.html#aa8eaa48101cd2dcf78709484996796a">TableVariableInterface</a>.
+Implements <a class="el" href="interfaceTableVariableInterface.html#3109d80d291405b4b9b7b1a3c47ca9b4">TableVariableInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00171">171</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
+Definition at line <a class="el" href="MySQLTableVariable_8php-source.html#l00168">168</a> of file <a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a>.
 <p>
 References <a class="el" href="MySQLTableVariable_8php-source.html#l00218">IdVariableExists()</a>, <a class="el" href="MySQLTable_8php-source.html#l00044">MySQLTable::MYSQL_CLAUSE_WHERE</a>, <a class="el" href="MySQLTable_8php-source.html#l00080">MySQLTable::MYSQL_SEEK_STRICT</a>, <a class="el" href="BDDError_8php-source.html#l00070">BDDError::RECORD_NOT_VALID</a>, <a class="el" href="BDDError_8php-source.html#l00073">BDDError::RECORD_UPDATE_DOESNT_EXIST</a>, <a class="el" href="TableVariable_8php-source.html#l00041">TableVariable::TABLE_COLUMN_IDVARIABLE</a>, and <a class="el" href="MySQLTable_8php-source.html#l00158">MySQLTable::Update()</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
-<li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableVariable/<a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:26:55 2006 for Exetron by&nbsp;
+<li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableVariable/<a class="el" href="MySQLTableVariable_8php-source.html">MySQLTableVariable.php</a></ul>
+<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:28 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

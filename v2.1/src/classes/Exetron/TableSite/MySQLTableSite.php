@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |MySQLTableSite.php|  -  description
+                           |MySQLTableSite.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLTableSite> (fichier MySQLTableSite.php) --------------
-if (defined('MYSQLTABLESITE_H'))
+//---------- Class <MySQLTableSite> (file MySQLTableSite.php) --------------
+/*if (defined('MYSQLTABLESITE_H'))
 {
     return;
 }
@@ -17,49 +17,42 @@ else
 {
 
 }
-define('MYSQLTABLESITE_H',1);
+define('MYSQLTABLESITE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <MySQLTableSite>
-//
-//
+/*!
+ * Provides specific methods for operations on Site Table for MySQL 
+ * Database.
+ */
 //------------------------------------------------------------------------ 
 
 class MySQLTableSite extends MySQLTable implements TableSiteInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function SaveSites ( Sites $sites )
-    // Mode d'emploi :
-    //met à jour les éléments Valides de la liste
-	//les ajoute si l'IdSites est inexistant
-	//
-	// Renvoie :
-	//- NULL en cas de réussite
-	//- un objet de type Errors si une erreur s'est produite
-	//
-	// /!\ Cette fonction ne renvoie pas d'erreur si un élément n'est pas validé
-	//elle n'en tient simplement pas compte dans son traitement.
-	//
-    // Contrat :
-    //
+	/**
+	 * Updates validated items in $sites in function of its idSite.
+	 * If idSite doesn't exist, item is inserted.
+	 * If an item of $sites hasn't been validate, it is skipped.
+	 *
+	 * @param $sites a Sites of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
 	{		
 		foreach ( $sites as $site )
 		{
@@ -83,18 +76,17 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		}
 		
 		return NULL;
-	} //---- Fin de SaveSites
+	} //---- End of SaveSites
 
 	public function SelectSites ()
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des sites.
-	//
-    // Renvoie :
-	//- l'ensemble des sites sous forme d'objets Site dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Selects all the Site-s from Table.
+     *
+     * @return - a list of Site-s in a Sites object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 		
@@ -106,19 +98,22 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de SelectSites
+	} //---- End of SelectSites
 	
 	
 	public function SelectSiteByIdSite ( $idSite )
-    // Mode d'emploi :
-	//permet de sélectionner le site d'id $idSite.
-	//
-	// Renvoie :
-    //- le site d'id $idSite dans un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Site from table which TableSite::TABLE_COLUMN_IDSITE
+	 * equals to $idSite.
+     *
+	 * @param $idSite the id of the Site to select
+	 *
+     * @return - the Site which TableSite::TABLE_COLUMN_IDSITE equals to
+	 * $idSite in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -133,20 +128,24 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de SelectSiteByIdSite
+	} //---- End of SelectSiteByIdSite
 	
 	public function FindSitesByName ( $siteName )
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des sites de nom $siteName.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des sites de nom $sitename dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Site-s from table which TableSite::TABLE_COLUMN_NAME
+	 * looks like $siteName.
+     *
+	 * @param $siteName the name of the Site to select. It can contain
+	 * magic chars like MYSQL_SEEK_MULTICHARS and MYSQL_SEEK_ANYCHAR. 
+	 * Please refer to your database documentation.
+	 *
+     * @return - a Sites object : the Site-s which 
+	 * TableSite::TABLE_COLUMN_NAME looks like $siteName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -161,18 +160,20 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de FindSitesByName
+	} //---- End of FindSitesByName
 	
-	public function UpdateSiteByIdSite ( Site $new )
-    // Mode d'emploi :
-	//permet de mettre à jour une site en fonction de sa propriété
-	// TABLE_COLUMN_IDSITE (clef primaire)
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	public function UpdateSiteByIdSite ( Site $updatedSite )
+	/**
+	 * Tries to update the given site $updatedSite in function of its
+	 * property TableSite::TABLE_COLUMN_IDSITE.
+	 *
+	 * @param $updatedSite The Site to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */	
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -182,7 +183,7 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 			return $errors;
 		}
 
-		// record validé, update si existance de l'ancien.
+		/* record validated, checks for existence => update */
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableSite::TABLE_COLUMN_IDSITE . MySQLTable::MYSQL_SEEK_STRICT . intval( $new->GetProperty ( TableSite::TABLE_COLUMN_IDSITE ) );
 		
 		if ( ! ($res = $this->IdSiteExists( intval ($new->GetProperty ( TableSite::TABLE_COLUMN_IDSITE ) )) ) )
@@ -194,56 +195,54 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		}
 		
 		return $this->Update( $new, $clauses );
-	} //---- Fin de UpdateSite
+	} //---- End of UpdateSite
 	
 	public function InsertSite ( Site $site )
-    // Mode d'emploi :
-	//permet d'ajouter une nouvelle site à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
+	/**
+	 * Inserts the given Site $site into the table.
+	 *
+	 * @param $site The Site to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		return $this->Insert ( $site );
-	} //---- Fin de InsertSite
+	} //---- End of InsertSite
 	
 	public function IdSiteExists ( $idSite )
-    // Mode d'emploi :
-	//permet de connaitre si l'$idSite existe dans la table
-	//
-	// Renvoie :
-	//- true si $idSite est présent,
-	//- false sinon.
-	//
-	// Contrat :
+	/**
+	 * Checks whether the Site of id $idSite exists or not.
+	 *
+	 * @param $idSite The TableSite::TABLE_COLUMN_IDSITE of the site 
+	 * to be checked.
+	 *
+	 * @return - true if site exists
+	 * @return - false otherwise
+     *
+     */
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableSite::TABLE_COLUMN_IDSITE . MySQLTable::MYSQL_SEEK_STRICT . MySQLTABLE::MYSQL_SEEK_SEPARATOR . intval( $idSite ) . MySQLTABLE::MYSQL_SEEK_SEPARATOR;
 		
 		$res = $this->Select( TableSite::TABLE_COLUMN_IDSITE, $clauses);
 
 		return (! ($res InstanceOf Errors || $res->GetCount() == 0 ) );
-	}
+	} //---- End of IdSiteExists
 	
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
+
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <MySQLTableSite>
+//------------------------------------------------------ other definitions
 
 ?>

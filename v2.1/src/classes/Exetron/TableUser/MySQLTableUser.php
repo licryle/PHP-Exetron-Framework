@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |MySQLTableUser.php|  -  description
+                           |MySQLTableUser.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLTableUser> (fichier MySQLTableUser.php) --------------
-if (defined('MYSQLTABLEUSER_H'))
+//---------- Class <MySQLTableUser> (file MySQLTableUser.php) --------------
+/*if (defined('MYSQLTABLEUSER_H'))
 {
     return;
 }
@@ -17,49 +17,42 @@ else
 {
 
 }
-define('MYSQLTABLEUSER_H',1);
+define('MYSQLTABLEUSER_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <MySQLTableUser>
-//
-//
+/*!
+ * Provides specific methods for operations on User Table for MySQL 
+ * Database.
+ */
 //------------------------------------------------------------------------ 
 
 class MySQLTableUser extends MySQLTable implements TableUserInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function SaveUsers ( Users $users )
-    // Mode d'emploi :
-    //met à jour les éléments Valides de la liste
-	//les ajoute si l'IdUser est inexistant
-	//
-	// Renvoie :
-	//- NULL en cas de réussite
-	//- un objet de type Errors si une erreur s'est produite
-	//
-	// /!\ Cette fonction ne renvoie pas d'erreur si un élément n'est pas validé
-	//elle n'en tient simplement pas compte dans son traitement.
-	//
-    // Contrat :
-    //
+	/**
+	 * Updates validated items in $users in function of its idUser.
+	 * If idUser doesn't exist, item is inserted.
+	 * If an item of $users hasn't been validate, it is skipped.
+	 *
+	 * @param $users a Users of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
 	{		
 		foreach ( $users as $user )
 		{
@@ -83,18 +76,17 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		}
 		
 		return NULL;
-	} //---- Fin de SaveUsers
+	} //---- End of SaveUsers
 
 	public function SelectUsers ()
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des utilisateurs.
-	//
-    // Renvoie :
-	//- l'ensemble des users sous forme d'objets User dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Selects all the User-s from Table.
+     *
+     * @return - a list of User-s in a Users object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 		
@@ -106,19 +98,22 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		{
 			return new Users ( $result );
 		}
-	} //---- Fin de SelectUsers
+	} //---- End of SelectUsers
 	
 	
 	public function SelectUserByIdUser ( $idUser )
-    // Mode d'emploi :
-	//permet de sélectionner l'utilisateur d'id $idUser.
-	//
-	// Renvoie :
-    //- l'users d'id $idUser dans un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Site from table which TableUser::TABLE_COLUMN_IDUSER
+	 * equals to $idUser.
+     *
+	 * @param $idUser the id of the User to select
+	 *
+     * @return - the User which TableUser::TABLE_COLUMN_IDUSER equals to
+	 * $idUser in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -133,19 +128,22 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		{
 			return new Users ( $result );
 		}	
-	} //---- Fin de SelectUserByIdUser
+	} //---- End of SelectUserByIdUser
 	
 	public function SelectUsersByIdGroup ( $idGroup )
-    // Mode d'emploi :
-	//permet de sélectionner les utilisateurs appartenant au groupe d'id $idGroup.
-	//
-	// Renvoie :
-    //- l'ensemble des utilisateurs appartenant au groupe d'id $idGroup dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the User-s from table which TableUser::TABLE_COLUMN_IDGROUP
+	 * equals to $idGroup. In other words : User-s that belong to the group of 
+	 * id $idGroup
+     *
+	 * @param $idGroup the id of the Group the User may belong
+	 *
+     * @return - A Users of User-s which TableUser::TABLE_COLUMN_IDGROUP 
+	 * equals to $idGroup in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -160,20 +158,24 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		{
 			return new Users ( $result );
 		}
-	} //---- Fin de SelectUsersByIdGroup
+	} //---- End of SelectUsersByIdGroup
 	
 	public function FindUsersByName ( $userName )
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des users de nom $userName.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des users de nom $username dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the User-s from table which TableUser::TABLE_COLUMN_NAME
+	 * looks like $userName.
+     *
+	 * @param $userName the name of the User to select. It can contain
+	 * magic chars like MYSQL_SEEK_MULTICHARS and MYSQL_SEEK_ANYCHAR. 
+	 * Please refer to your database documentation.
+	 *
+     * @return - a Users object : the User-s which 
+	 * TableUser::TABLE_COLUMN_NAME looks like $userName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -188,18 +190,20 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		{
 			return new Users ( $result );
 		}
-	} //---- Fin de FindUsersByName
+	} //---- End of FindUsersByName
 	
-	public function UpdateUserByIdUser ( User $new )
-    // Mode d'emploi :
-	//permet de mettre à jour une user en fonction de sa propriété
-	// TABLE_COLUMN_IDUSER (clef primaire)
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	public function UpdateUserByIdUser ( User $updatedUser )
+	/**
+	 * Tries to update the given site $updatedUser in function of its
+	 * property TableUser::TABLE_COLUMN_IDUSER.
+	 *
+	 * @param $updatedUser The User to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */	
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -221,56 +225,54 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		}
 		
 		return $this->Update( $new, $clauses );
-	} //---- Fin de UpdateUserByIdUser
+	} //---- End of UpdateUserByIdUser
 	
 	public function InsertUser ( User $user )
-    // Mode d'emploi :
-	//permet d'ajouter un nouvel user à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
+	/**
+	 * Inserts the given User $user into the table.
+	 *
+	 * @param $user The User to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		return $this->Insert ( $user );
-	} //---- Fin de InsertUser
+	} //---- End of InsertUser
 	
 	public function IdUserExists ( $idUser )
-    // Mode d'emploi :
-	//permet de connaitre si l'$idUser existe dans la table
-	//
-	// Renvoie :
-	//- true si $idUser est présent,
-	//- false sinon.
-	//
-	// Contrat :
+	/**
+	 * Checks whether the User of id $idUser exists or not.
+	 *
+	 * @param $idUser The TableUser::TABLE_COLUMN_IDUSER of the user 
+	 * to be checked.
+	 *
+	 * @return - true if user exists
+	 * @return - false otherwise
+     *
+     */
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableUser::TABLE_COLUMN_IDUSER . MySQLTable::MYSQL_SEEK_STRICT . intval( $idUser );
 		
 		$res = $this->Select( TableUser::TABLE_COLUMN_IDUSER, $clauses);
 
 		return (! ($res InstanceOf Errors || $res->GetCount() == 0 ) );
-	} //---- Fin de IdUserExists
+	} //---- End of IdUserExists
 	
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
+
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <MySQLTableUser>
+//------------------------------------------------------ other definitions
 
 ?>

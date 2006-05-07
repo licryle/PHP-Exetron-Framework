@@ -1,15 +1,15 @@
 <?php
 
 /*************************************************************************
-                           |Session.php|  -  description
+                           |Session.php|
                              -------------------
     début                : |09.02.2006|
     copyright            : (C) 2005 par BERLIAT Cyrille
     e-mail               : cyrille.berliat@free.fr
 *************************************************************************/
 
-//---------- Interface de la classe <Session> (fichier Session.php) --------------
-if (defined('SESSION_H'))
+//---------- Class <Session> (file Session.php) --------------
+/*if (defined('SESSION_H'))
 {
     return;
 }
@@ -17,95 +17,102 @@ else
 {
 
 }
-define('SESSION_H',1);
+define('SESSION_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Session>
-//fournir une abstraction pour la gestion de session basé sur le
-//système de gestion de session PHP.
-//
+/*!
+ * Provides an abstraction for basic PHP's sessions management.
+ */
 //------------------------------------------------------------------------ 
 
 class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 	
+
     public static function GetInstance ( )
-    // User's manual :
-    //Getter of the unique instance. Create this if doesn't exist
-	//Must appears in all children.
-	//
-    // Contract :
-    //
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
 	{	
 		return parent::getThis( __CLASS__ );
-	} // End of GetInstance
+	} //---- End of GetInstance
    
     public function Destruct( )
-    // Mode d'emploi :
-    //Détruit la session.
-	//
+    /** 
+	 * Destructs the sessions and all informations relatives to this session
+	 */
     {
 		session_destroy ( );
 		
 		unset ( $_SESSION );
 		$_SESSION = array();
-    } //---- Fin de Destruct 
+    } //---- End of Destruct 
 	
     public function GetId( )
-    // Mode d'emploi :
-    //Permet de connaitre l'identifiant de la session.
-	//
-	// Retourne :
-	//- l'identifiant de la session
-	//
+	/**
+	 * Gets the session id.
+	 *
+	 * @return The id of the session
+	 */
     {
 		return session_id ( );
-    } //---- Fin de GetId 
+    } //---- End of GetId 
    
-    public function SetId( $id )
-    // Mode d'emploi :
-    //Permet de mettre à jour l'identifiant de la session
-	//
+    public static function SetId( $id )
+	/**
+	 * Sets the session id.
+	 *
+	 * This function must be call before the first call of GetInstance().
+	 *
+	 * @param $id the id to be set.
+	 *
+	 */
     {
 		session_id ( $id );
-    } //---- Fin de SetId
+    } //---- End of SetId
 
     public function IsSetVariable( $name )
-    // Mode d'emploi :
-    //Permet de connaitre si une variable de session existe ou non
-    //
-	// Retourne :
-	//- vrai si la variable de session existe
-	//- faux sinon
+	/**
+	 * Checks whether the varaiable named $name exists or not.
+	 *
+	 * @param $name The name of the variable to check for
+	 *
+	 * @return - True if a variable named $name exists
+	 * @return - False otherwise
+	 */
     {
 		return isset( $_SESSION [ $name ] );
-    } //---- Fin de IsSetVariable 
+    } //---- End of IsSetVariable 
 	
     public function UnSetVariable( $name )
-    // Mode d'emploi :
-    //Permet de connaitre si une variable de session existe ou non
-    //
-	// Retourne :
-	//- un objet de type Errors en cas d'erreur
-	//- true sinon
+	/**
+	 * Unsets the variable named $name.
+	 *
+	 * @param $name The name of the variable to be unsetted
+	 *
+	 * @return - an object of type Errors in case of error(s)
+	 * @return - NULL if operation was successful
+	 */
     {
 		if ( ! $this->IsSetVariable ( $name ) )
 		{
@@ -118,30 +125,37 @@ class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 		{
 			unset ( $_SESSION [ $name ] );
 			
-			return true;
+			return NULL;
 		}
-    } //---- Fin de UnSetVariable 
+    } //---- End of UnSetVariable 
 
     
     public function SetVariable(  $name, $value )
-    // Mode d'emploi :
-    //Met à jour le contenu de la variable de session de nom $name avec le
-	//contenu $value
-	//
-	// Contrat :
-	//- $name ne peut etre uniquement numérique ni un objet ni une ressource
-    //
+	/**
+	 * Sets the variable named $name with the value $value.
+	 * If a variable named $name already exists, it is replaced.
+	 *
+	 * $name must NOT be only numéric or it will not be saved (due to
+	 * a bug in PHP's API).
+	 *
+	 * @param $name The name of the variable to be set.
+	 * @param $value The value to be associated to variable named $name
+	 *
+	 */
     {	
 		$_SESSION [ $name ] = $value;
-    } //---- Fin de SetVariable
+    } //---- End of SetVariable
 
     public function GetVariable( $name )
-    // Mode d'emploi :
-    //Récupère le contenu de la variable de session $name
-	//
-	// Retourne :
-    //- un objet de type Errors en cas d'erreur
-	//- le contenu de la variable de nom $name
+	/**
+	 * Gets the value associated to variable named $name.
+	 *
+	 * @param $name The name of the variable to be get.
+	 *
+	 * @return - an object of type Errors in case of error(s)
+	 * @return - the content of the variable named $name
+	 *
+	 */
     {
 		if ( ! $this->IsSetVariable ( $name ) )
 		{
@@ -154,82 +168,103 @@ class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 		{
 			return ( $_SESSION [ $name ] );
 		}
-    } //---- Fin de GetVariable
+    } //---- End of GetVariable
 
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des variables
-    //
+    /**
+	 * Clears the Iterator.
+     *
+     */
     {
         unset( $_SESSION );
         
         $_SESSION = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre de variables contenues dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     {
         return count( $_SESSION );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//--------------------------------------------- Iterator's Implémentation
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     {
         reset( $_SESSION );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     {
         return current( $_SESSION );
-    } //---- fin de Current
+    } //---- End of Current
     
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le nom de la variable pointée par la liste
-    //
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     {
         return Key ( $_SESSION );
-    } //---- Fin de Key
+    } //---- End of Key
     
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     {
         return next( $_SESSION );
-    } //---- Fin de Next
+    } //---- End of Next
     
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     {
         return Session::current( ) !== false;
-    } //---- Fin de Valid
+    } //---- End of Valid
 
-//------------------------------------ Fin de l'implémentation de Iterator
+//--------------------------------------- End of Iterator's implémentation
 
 //-------------------------------------------- Constructeurs - destructeur
-    protected function __construct( $sessId = '', $sessName = '' )
+    protected function __construct( );//$sessId = '', $sessName = '' )
+	/**
+	 * Instanciates a Session object.
+	 *
+	 * Instianciation must happen before any print out to the screen.
+	 *
+	 * It will try to determine if a session is active and will work with
+	 * if found.
+	 *
+	 * If no active session has ben found, a new session will be created
+	 * with an unique id.
+	 *
+	 * @see http://fr.php.net/manual/en/function.session-start.php
+	 *
+	 */
     // Mode d'emploi (constructeur) :
     //instancie un objet de type Session.
 	//Si $sessId est fourni, celui-ci servira d'identifiant de session
@@ -240,7 +275,7 @@ class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 	//Si $sessName est fournit, celui est modifie le nom de la session.
 	//
     // Contrat :
-    //- l'instanciation doit s'effectuer avant toute sortie à l'écran afin de 
+    //- l'instanciation doit s'effectuer avant toute sortie à l'écran aEnd of 
 	//que les entetes cookie soient correctement envoyées.
 	//- $sessName doit etre alphanumerique sinon le nom ne sera pas changé
     {
@@ -249,41 +284,42 @@ class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 		{
 			session_name ( $sessName );
 		}
-		
-		// id de session
-		if ( !empty( $sessId ) )
-		{
-			session_id( $sessId );
-		}
 
 		// start session
     	session_start( );
-    } //---- Fin du constructeur
+    } //---- End of constructeur
 
-/*
     public function __destruct ( )
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	/**
+	 * Destructs ressources allocated
+	 *
+	 * Does not destruct the session, just the Session object.
+	 */
     {
-    } //---- Fin du destructeur*/
+		parent::__destruct();
+    } //---- End of destructor
+    
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------ Méthodes Magiques
+    function __ToString ( )
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <Session>
+//------------------------------------------------------ other definitions
 
 ?>

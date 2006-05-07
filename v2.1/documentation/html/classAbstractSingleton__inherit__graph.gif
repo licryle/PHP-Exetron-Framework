@@ -11,8 +11,8 @@ ionEnd\l# $onApplicationEndParams\l# $var_get\l# $var_post\l# $var_global\l# $va
 \l+ SetConfiguration()\l+ GetPOSTVariables()\l+ GetGETVariables()\l+ GetVariables()\l+ GetFILES()\l+ Start()\l+ OnApplicationSta\
 rt()\l+ OnApplicationEnd()\l+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# isCorrectCallBack()\l# setCallBa\
 ck()\l# launchCallBack()\l}", height="5.00", width="2.14", color=black, fillcolor=white, style=filled, URL="$classApplication.html", pos="221,356", rects="144,520,298,536 144,372,298,520 144,176,298,372"];
-	Node5 [label="{Session\n||+ Destruct()\l+ GetId()\l+ SetId()\l+ IsSetVariable()\l+ UnSetVariable()\l+ SetVariable()\l+ GetVariable()\l+ DelAll\
-()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ GetInstance()\l# __construct()\l}", height="3.17", width="1.39", color=black, fillcolor=white, style=filled, URL="$classSession.html", pos="366,356", rects="316,454,416,470 316,438,416,454 316,242,416,438"];
+	Node5 [label="{Session\n||+ Destruct()\l+ GetId()\l+ IsSetVariable()\l+ UnSetVariable()\l+ SetVariable()\l+ GetVariable()\l+ DelAll()\l+ GetCo\
+unt()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ GetInstance()\l+ SetId()\l# __construct()\l}", height="3.17", width="1.39", color=black, fillcolor=white, style=filled, URL="$classSession.html", pos="366,356", rects="316,454,416,470 316,438,416,454 316,242,416,438"];
 	Node1 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,173,572 165,566 149,554 138,554 126,536 102,500 91,453 85,416"];
 	Node2 -> Node3 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,80,296 80,286 80,241 80,184 80,140"];
 	Node1 -> Node4 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,221,572 221,562 221,554 221,545 221,536"];

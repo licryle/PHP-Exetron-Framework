@@ -10,9 +10,9 @@ _SEEK_REGEX\l+ MYSQL_SEEK_MULTICHARS\l+ MYSQL_SEEK_ANYCHAR\l+ MYSQL_SEEK_STRICT\
 _NAME\l|+ Select()\l+ Insert()\l+ Update()\l+ Delete()\l+ Clear()\l+ Drop()\l+ __construct()\l+ __destruct()\l# isValidProperty(\
 )\l# bDDRecordToTableRecord()\l}", height="4.67", width="3.58", color=black, fillcolor=white, style=filled, URL="$classMySQLTable.html", pos="129,344", rects="0,496,258,512 0,300,258,496 0,176,258,300"];
 	Node3 [label="{BDDTable\n|# $tableName\l# $bDDConnection\l# $structure\l|+ __construct()\l+ __destruct()\l+ __ToString()\l}", height="1.33", width="1.44", color=red, fillcolor=white, style=filled, URL="$classBDDTable.html", pos="129,596", rects="77,628,182,644 77,588,182,628 77,548,182,588"];
-	Node4 [label="{TableUserInterface\n||+ SelectUsers()\l+ SelectUserByIdUser()\l+ SelectUsersByIdGroup()\l+ FindUsersByName()\l+ UpdateUserByIdU\
-ser()\l+ InsertUser()\l+ IdUserExists()\l}", height="1.67", width="1.92", color=black, fillcolor=white, style=filled, URL="$interfaceTableUserInterface.html", pos="345,344", rects="276,388,415,404 276,372,415,388 276,284,415,372"];
+	Node4 [label="{TableUserInterface\n||+ SaveUsers()\l+ SelectUsers()\l+ SelectUserByIdUser()\l+ SelectUsersByIdGroup()\l+ FindUsersByName()\l+ \
+UpdateUserByIdUser()\l+ InsertUser()\l+ IdUserExists()\l}", height="1.83", width="1.92", color=black, fillcolor=white, style=filled, URL="$interfaceTableUserInterface.html", pos="345,344", rects="276,394,415,410 276,378,415,394 276,278,415,378"];
 	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,196,176 200,166 203,157 207,148 210,140"];
 	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,129,548 129,538 129,530 129,521 129,512"];
-	Node4 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,321,284 317,274 301,233 280,181 263,140"];
+	Node4 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,319,278 315,269 299,228 280,179 264,140"];
 }

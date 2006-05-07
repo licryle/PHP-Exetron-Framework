@@ -245,7 +245,7 @@ abstract class AbstractSingleton
 	 */
     {
 		return parrent::__ToString();
-    }
+    } //----- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
     
@@ -1254,7 +1254,7 @@ abstract class AbstractSitePage extends AbstractSingleton
 	 */
     {
 		return parrent::__ToString();
-    }
+    } //----- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
@@ -4616,15 +4616,15 @@ class XHTMLPageTemplate extends XHTMLTemplate
 
 
 /*************************************************************************
-                           |XHTMLSitePage.php|  -  description
+                           |XHTMLSitePage.php|
                              -------------------
     start                : |10.02.2006|
     copyright            : (C) 2006 by BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <XHTMLSitePage> class (file XHTMLSitePage.php) -----------------
-if (defined('XHTMLSITEPAGE_H'))
+//-------------- Class <XHTMLSitePage> (file XHTMLSitePage.php) -----------------
+/*if (defined('XHTMLSITEPAGE_H'))
 {
     return;
 }
@@ -4632,11 +4632,9 @@ else
 {
 
 }
-define('XHTMLSITEPAGE_H',1);
+define('XHTMLSITEPAGE_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -4645,61 +4643,74 @@ define('XHTMLSITEPAGE_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <XHTMLSitePage> class
-//
-//
+/*!
+ * XHTML extension of AbstractSitePage. Provides context for XHTML Web 
+ * Pages.
+ */
 //------------------------------------------------------------------------ 
 
 class XHTMLSitePage extends AbstractSitePage
 {
 //----------------------------------------------------------------- PUBLIC
-	const TAG_EXECUTION_TIME = 'EXECTIME'; // tag for execution time disp.
+	/**
+	 * Page Execution Tag Name : the name of tag which will display
+	 * the Page's execution time.
+	 */
+	const TAG_EXECUTION_TIME = 'EXECTIME';
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
-	
+
     public static function GetInstance ( )
-    // User's manual :
-    //Getter of the unique instance. Create this if doesn't exist
-	//Must appears in all children.
-	//
-    // Contract :
-    //
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
 	{	
 		return parent::getThis( __CLASS__ );
-	} // End of GetInstance
+	} //----- End of GetInstance
 	
 
     public function OnLoad ( )
-    // User's manual :
-    //function to be called on ApplicationStart
-	//
-    // Contract :
-    //
+	/**
+	 * callback function to be called by Application on ApplicationStart.
+	 * Initializes the page with an XHTMLPageTemplate.
+	 *
+	 * @see Application class
+	 *
+	 */
 	{
 		$this->pageTemplate = new XHTMLPageTemplate () ;	
 	} //---- End of OnLoad
 	
     public function Process ( )
-    // User's manual :
-    //all processes of the page.
-	//called after ApplicationStart / OnStart.
-	//
-    // Contract :
-    //
+	/**
+	 * Function called after OnLoad and before OnUnLoad.
+	 * Here is all the process of the page.
+	 *
+	 */
 	{
 	} //---- End of Process
 	
     public function OnUnLoad ( $applicationVars )
-    // User's manual :
-    //function to be called on ApplicationEnd
-	//
-    // Contract :
-    //
+	/**
+	 * callback function to be called by Application on ApplicationEnd.
+	 * Sets up Execution time from Tag named TAG_EXECUTION_TIME and
+	 * flushes the page.
+	 *
+	 * @param $applicationVars arguments passed by Application on function
+	 * call - see Application class
+	 *
+	 * @see Application class
+	 *
+	 */
 	{
 		$exectime = new Template();
 		$exectime->SetSkeleton ( round( microtime(true) - $applicationVars[ Application::SYSTEM_START_TIME ], 4 ) );
@@ -4711,47 +4722,42 @@ class XHTMLSitePage extends AbstractSitePage
 
 //---------------------------------------------- Constructors - destructor
     protected function __construct()
-    // User's manual :
-    //Internal constructor that disable instanciation
-    // Contract :
-    //
+	/**
+	 * instanciates an XHTMLSitePage.
+	 *
+	 */
     {
 		parent::__construct();
     } //---- End of __construct
-
-
-    public function __destruct ( )
-    // User's manual :
-    //
-    // Contract :
-    //
-    {
+	 
+    function __destruct( )
+	/**
+	 * Destructs ressources allocated
+	 */
+	{	
 		parent::__destruct();
-    } //---- End of __destruct
+	} //----- End of Destructor
 
 //---------------------------------------------------------- Magic Methods
 
     public function __ToString ( )
-    // User's manual :
-    //
-    // Contract :
-    //
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     {
-		return '';
-    } //---- End of __ToString
+		return parrent::__ToString();
+    } //----- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
 //------------------------------------------------------ protected methods
-    // protected type Méthode ( );
-    // User's manual :
-    //
-    // Contract :
-    //
 
 //--------------------------------------------------- protected properties
-
-	protected $pageTemplate; // XHTML Page Template
+	/** The XHTMLPageTemplate */
+	protected $pageTemplate;
 }
 
 //----------------------------------------------------- Others definitions
@@ -4759,15 +4765,15 @@ class XHTMLSitePage extends AbstractSitePage
 
 
 /*************************************************************************
-                           |WebSitePage.php|  -  description
+                           |WebSitePage.php|
                              -------------------
-    start                : |10.02.2006|
+    start                : |10.04.2006|
     copyright            : (C) 2006 by BERLIAT Cyrille
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Interface of <WebSitePage> class (file WebSitePage.php) -----------------
-if (defined('WEBSITEPAGE_H'))
+//-------------- Class <WebSitePage>  (file WebSitePage.php) -----------------
+/*if (defined('WEBSITEPAGE_H'))
 {
     return;
 }
@@ -4775,11 +4781,9 @@ else
 {
 
 }
-define('WEBSITEPAGE_H',1);
+define('WEBSITEPAGE_H',1);*/
 
-//-------------------------------------------------------- system Includes
-
-//------------------------------------------------------ personal Includes
+//--------------------------------------------------------------- Includes 
 
 //-------------------------------------------------------------- Constants
 
@@ -4788,9 +4792,12 @@ define('WEBSITEPAGE_H',1);
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Role of <WebSitePage> class
-//
-//
+/*!
+ * Web Extension of XHTMLSitePage. It includes a BDDConnection for
+ * configuration loading.
+ *
+ * This class 
+ */
 //------------------------------------------------------------------------ 
 
 class WebSitePage extends XHTMLSitePage
@@ -4829,7 +4836,7 @@ class WebSitePage extends XHTMLSitePage
 		$DBVars = & $appl->GetVariables[ DB_ARRAY_INDEX ];
 		
 		// set up all 'always' needed connections
-		foreach ( $GLOBALS[ DB_ARRAY_INDEX ] as $key => $db )
+		foreach ( $DBVars as $key => $db )
 		{
 			if ( $db['alwaysUse'] && ! isset ( $DBVars[ $key ] ) )
 			{
@@ -4847,7 +4854,7 @@ class WebSitePage extends XHTMLSitePage
 			}
 		}
 		
-		$className = $GLOBALS[ DB_ARRAY_INDEX ][ MYSQL_CONF_BASE ][ 'type' ].'TableVariable';
+		$className = $DBVars[ MYSQL_CONF_BASE ][ 'type' ].'TableVariable';
 		$configuration = new $className ( CONFIGURATION_TABLE_NAME, $DBVars[ MYSQL_CONF_BASE ], $errors );
 
 		$servConf = $configuration->SelectServerVariables();
@@ -5024,15 +5031,15 @@ class GroupError extends Error
 
 
 /*************************************************************************
-                           |TableGroupInterface.php|  -  description
+                           |TableGroupInterface.php|
                              -------------------
     start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableGroupInterface> (fichier TableGroupInterface.php) --------------
-if (defined('TABLEGROUPINTERFACE_H'))
+//---------- Interface <TableGroupInterface> (file TableGroupInterface.php) --------------
+/*if (defined('TABLEGROUPINTERFACE_H'))
 {
     return;
 }
@@ -5040,121 +5047,149 @@ else
 {
 
 }
-define('TABLEGROUPINTERFACE_H',1);
+define('TABLEGROUPINTERFACE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableGroupInterface>
-//
-//
+/*!
+ * Provides generic methods for TableGroup management for any databases.
+ */
 //------------------------------------------------------------------------ 
 
 interface TableGroupInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-	public function SelectGroups ();
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des groupes.
-	//
-    // Renvoie :
-	//- l'ensemble des groupes sous forme d'objets Group dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+//--------------------------------------------------------- public methods
+
+	/**
+	 * Updates validated items in $groups in function of its idGroup.
+	 * If idGroup doesn't exist, item is inserted.
+	 * If an item of $groups hasn't been validate, it is skipped.
+	 *
+	 * @param $groups a Groups of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
+    public function SaveGroups ( Groups $groups );
+	/**
+	 * Selects all the Group-s from Table.
+     *
+     * @return - a list of Group-s in a Groups object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
+	public function SelectGroups (); 
 	
+	/**
+	 * Selects the Group from table which TableGroup::TABLE_COLUMN_IDGROUP
+	 * equals to $idGroup.
+     *
+	 * @param $idGroup the id of the Group to select
+	 *
+     * @return - the Group which TableGroup::TABLE_COLUMN_IDGROUP equals to
+	 * $idGroup in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function SelectGroupByIdGroup ( $idGroup );
-    // Mode d'emploi :
-	//permet de sélectionner le group d'id $idGroup.
-	//
-	// Renvoie :
-    //- l'ensemble des groupes d'id $idGroup dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
 	
+
+	/**
+	 * Selects the Group-s from table which TableGroup::TABLE_COLUMN_IDSITE
+	 * equals to $idSite. In other words : Group-s that belong to the site of 
+	 * id $idSite
+     *
+	 * @param $idSite the id of the Site the Group may belong
+	 *
+     * @return - A Groups of Group-s which TableGroup::TABLE_COLUMN_IDSITE 
+	 * equals to $idSite in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
+	public function SelectGroupsByIdSite ( $idSite );
+	 
+	/**
+	 * Selects the Group-s from table which TableGroup::TABLE_COLUMN_NAME
+	 * looks like $groupName.
+     *
+	 * @param $groupName the name of the Group to select. It can contain
+	 * magic chars like BDD_SEEK_MULTICHARS and BDD_SEEK_ANYCHAR where BDD
+	 * represent your database type. Please refer to your database documentation.
+	 *
+     * @return - a Groups object : the Group-s which 
+	 * TableGroup::TABLE_COLUMN_NAME looks like $groupName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function FindGroupsByName ( $groupName );
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des groupes de nom $groupname.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des groups de nom $groupName dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
 	
-	public function UpdateGroupByIdGroup ( Group $new );
-    // Mode d'emploi :
-	//permet de mettre à jour une groupe en fonction de sa propriété
-	// TABLE_COLUMN_IDGROUP
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Tries to update the given group $updatedGroup in function of its
+	 * property TableGroup::TABLE_COLUMN_IDGROUP.
+	 *
+	 * @param $updatedGroup The Group to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */	
+	public function UpdateGroupByIdGroup ( Group $updatedGroup );
 	
+	
+	/**
+	 * Inserts the given Group $group into the table.
+	 *
+	 * @param $group The Group to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	public function InsertGroup ( Group $group );
-    // Mode d'emploi :
-	//permet d'ajouter un nouveau groupe à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
 	
+	/**
+	 * Checks whether the Group of id $idGroup exists or not.
+	 *
+	 * @param $idGroup The TableGroup::TABLE_COLUMN_IDGROUP of the group 
+	 * to be checked.
+	 *
+	 * @return - true if group exists
+	 * @return - false otherwise
+     *
+     */
 	public function IdGroupExists ( $idGroup );
-    // Mode d'emploi :
-	//permet de connaitre si l'$idGroup existe dans la table
-	//
-	// Renvoie :
-	//- true si $idGroup est présent,
-	//- false sinon.
-	//
-	// Contrat :
     
+//---------------------------------------------- Constructors - destructor
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------------------- Magic methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableGroupInterface>
+//------------------------------------------------------ other definitions
 
 
 
@@ -5625,19 +5660,18 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 //--------------------------------------------------------- public methods
 
     public function SaveGroups ( Groups $groups )
-    // Mode d'emploi :
-    //met à jour les éléments Valides de la liste
-	//les ajoute si l'IdGroup est inexistant
-	//
-	// Renvoie :
-	//- NULL en cas de réussite
-	//- un objet de type Errors si une erreur s'est produite
-	//
-	// /!\ Cette fonction ne renvoie pas d'erreur si un élément n'est pas validé
-	//elle n'en tient simplement pas compte dans son traitement.
-	//
-    // Contrat :
-    //
+	/**
+	 * Updates validated items in $groups in function of its idGroup.
+	 * If idGroup doesn't exist, item is inserted.
+	 * If an item of $groups hasn't been validate, it is skipped.
+	 *
+	 * @param $groups a Groups of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
 	{		
 		foreach ( $groups as $group )
 		{
@@ -5664,15 +5698,14 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	} //---- End of SaveGroups
 
 	public function SelectGroups ()
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des utilisateurs.
-	//
-    // Renvoie :
-	//- l'ensemble des groupes sous forme d'objets Group dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Selects all the Group-s from Table.
+     *
+     * @return - a list of Group-s in a Groups object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 		
@@ -5688,15 +5721,18 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	
 	
 	public function SelectGroupByIdGroup ( $idGroup )
-    // Mode d'emploi :
-	//permet de sélectionner le groupe d'id $idGroup.
-	//
-	// Renvoie :
-    //- l'groups d'id $idGroup dans un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Group from table which TableGroup::TABLE_COLUMN_IDGROUP
+	 * equals to $idGroup.
+     *
+	 * @param $idGroup the id of the Group to select
+	 *
+     * @return - the Group which TableGroup::TABLE_COLUMN_IDGROUP equals to
+	 * $idGroup in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -5715,15 +5751,19 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	
 	
 	public function SelectGroupsByIdSite ( $idSite )
-    // Mode d'emploi :
-	//permet de sélectionner les groupes appartenant au site d'id $idSite.
-	//
-	// Renvoie :
-    //- le groupes d'idSite $idSite dans un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Group-s from table which TableGroup::TABLE_COLUMN_IDSITE
+	 * equals to $idSite. In other words : Group-s that belong to the site of 
+	 * id $idSite
+     *
+	 * @param $idSite the id of the Site the Group may belong
+	 *
+     * @return - A Groups of Group-s which TableGroup::TABLE_COLUMN_IDSITE 
+	 * equals to $idSite in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -5741,17 +5781,21 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	} //---- End of SelectGroupsByIdSite
 	
 	public function FindGroupsByName ( $groupName )
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des groupes de nom $groupName.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des groupes de nom $groupname dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Group-s from table which TableGroup::TABLE_COLUMN_NAME
+	 * looks like $groupName.
+     *
+	 * @param $groupName the name of the Group to select. It can contain
+	 * magic chars like MYSQL_SEEK_MULTICHARS and MYSQL_SEEK_MULTICHARS. 
+	 * Please refer to your database documentation.
+	 *
+     * @return - a Groups object : the Group-s which 
+	 * TableGroup::TABLE_COLUMN_NAME looks like $groupName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -5768,16 +5812,18 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 		}
 	} //---- End of FindGroupsByName
 	
-	public function UpdateGroupByIdGroup ( Group $new )
-    // Mode d'emploi :
-	//permet de mettre à jour une group en fonction de sa propriété
-	// TABLE_COLUMN_IDGROUP (clef primaire)
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	public function UpdateGroupByIdGroup ( Group $updatedGroup )
+	/**
+	 * Tries to update the given group $updatedGroup in function of its
+	 * property TableGroup::TABLE_COLUMN_IDGROUP.
+	 *
+	 * @param $updatedGroup The Group to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */	
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -5787,7 +5833,7 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 			return $errors;
 		}
 
-		// record validé, update si existance de l'ancien.
+		/* record validated, checks for existence => update */
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableGroup::TABLE_COLUMN_IDGROUP . MySQLTable::MYSQL_SEEK_STRICT . intval( $new->GetProperty ( TableGroup::TABLE_COLUMN_IDGROUP ) );
 		
 		if ( ! ($res = $this->IdGroupExists( intval ($new->GetProperty ( TableGroup::TABLE_COLUMN_IDGROUP ) )) ) )
@@ -5802,35 +5848,38 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	} //---- End of UpdateGroupByIdGroup
 	
 	public function InsertGroup ( Group $group )
-    // Mode d'emploi :
-	//permet d'ajouter un nouvel group à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
+	/**
+	 * Inserts the given Group $group into the table.
+	 *
+	 * @param $group The Group to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		return $this->Insert ( $group );
 	} //---- End of InsertGroup
 	
 	public function IdGroupExists ( $idGroup )
-    // Mode d'emploi :
-	//permet de connaitre si l'$idGroup existe dans la table
-	//
-	// Renvoie :
-	//- true si $idGroup est présent,
-	//- false sinon.
-	//
-	// Contrat :
+	/**
+	 * Checks whether the Group of id $idGroup exists or not.
+	 *
+	 * @param $idGroup The TableGroup::TABLE_COLUMN_IDGROUP of the group 
+	 * to be checked.
+	 *
+	 * @return - true if group exists
+	 * @return - false otherwise
+     *
+     */
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableGroup::TABLE_COLUMN_IDGROUP . MySQLTable::MYSQL_SEEK_STRICT . intval( $idGroup );
 		
 		$res = $this->Select( TableGroup::TABLE_COLUMN_IDGROUP, $clauses);
 
 		return (! ($res InstanceOf Errors || $res->GetCount() == 0 ) );
-	}
+	} //---- End of IdGroupExists
 	
 //---------------------------------------------- Constructors - destructor
 
@@ -5982,15 +6031,15 @@ class UserError extends Error
 
 
 /*************************************************************************
-                           |TableUserInterface.php|  -  description
+                           |TableUserInterface.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableUserInterface> (fichier TableUserInterface.php) --------------
-if (defined('TABLEUSERINTERFACE_H'))
+//---------- Class <TableUserInterface> (file TableUserInterface.php) --------------
+/*if (defined('TABLEUSERINTERFACE_H'))
 {
     return;
 }
@@ -5998,134 +6047,148 @@ else
 {
 
 }
-define('TABLEUSERINTERFACE_H',1);
+define('TABLEUSERINTERFACE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableUserInterface>
-//
-//
+/*!
+ * Provides generic methods for TableUser management for any databases.
+ */
 //------------------------------------------------------------------------ 
 
 interface TableUserInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
+
+	/**
+	 * Updates validated items in $users in function of its idUser.
+	 * If idUser doesn't exist, item is inserted.
+	 * If an item of $users hasn't been validate, it is skipped.
+	 *
+	 * @param $users a Users of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
+    public function SaveUsers ( Users $users );
+	 
+	/**
+	 * Selects all the User-s from Table.
+     *
+     * @return - a list of User-s in a Users object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function SelectUsers ();
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des users.
-	//
-    // Renvoie :
-	//- l'ensemble des users sous forme d'objets User dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
 	
+	/**
+	 * Selects the Site from table which TableUser::TABLE_COLUMN_IDUSER
+	 * equals to $idUser.
+     *
+	 * @param $idUser the id of the User to select
+	 *
+     * @return - the User which TableUser::TABLE_COLUMN_IDUSER equals to
+	 * $idUser in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function SelectUserByIdUser ( $idUser );
-    // Mode d'emploi :
-	//permet de sélectionner le user d'id $idUser.
-	//
-	// Renvoie :
-    //- l'ensemble des users d'id $idUser dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
 	
-	public function SelectUsersByIdGroup ( $idGroup );
-    // Mode d'emploi :
-	//permet de sélectionner les utilisateurs appartenant au groupe d'id $idGroup.
-	//
-	// Renvoie :
-    //- l'ensemble des utilisateurs appartenant au groupe d'id $idGroup dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the User-s from table which TableUser::TABLE_COLUMN_IDGROUP
+	 * equals to $idGroup. In other words : User-s that belong to the group of 
+	 * id $idGroup
+     *
+	 * @param $idGroup the id of the Group the User may belong
+	 *
+     * @return - A Users of User-s which TableUser::TABLE_COLUMN_IDGROUP 
+	 * equals to $idGroup in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
+	public function SelectUsersByIdGroup ( $idGroup );	
 	
-	
+	/**
+	 * Selects the User-s from table which TableUser::TABLE_COLUMN_NAME
+	 * looks like $userName.
+     *
+	 * @param $userName the name of the User to select. It can contain
+	 * magic chars like MYSQL_SEEK_MULTICHARS and MYSQL_SEEK_ANYCHAR. 
+	 * Please refer to your database documentation.
+	 *
+     * @return - a Users object : the User-s which 
+	 * TableUser::TABLE_COLUMN_NAME looks like $userName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function FindUsersByName ( $userName );
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des users de nom $username.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des users de nom $username dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
 	
+	/**
+	 * Tries to update the given site $updatedUser in function of its
+	 * property TableUser::TABLE_COLUMN_IDUSER.
+	 *
+	 * @param $updatedUser The User to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */	
 	public function UpdateUserByIdUser ( User $new );
-    // Mode d'emploi :
-	//permet de mettre à jour une user en fonction de sa propriété
-	// TABLE_COLUMN_IDUSER
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
 	
+	/**
+	 * Inserts the given User $user into the table.
+	 *
+	 * @param $user The User to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	public function InsertUser ( User $user );
-    // Mode d'emploi :
-	//permet d'ajouter une nouvelle user à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
 	
+	/**
+	 * Checks whether the User of id $idUser exists or not.
+	 *
+	 * @param $idUser The TableUser::TABLE_COLUMN_IDUSER of the user 
+	 * to be checked.
+	 *
+	 * @return - true if user exists
+	 * @return - false otherwise
+     *
+     */
 	public function IdUserExists ( $idUser );
-    // Mode d'emploi :
-	//permet de connaitre si l'$idUser existe dans la table
-	//
-	// Renvoie :
-	//- true si $idUser est présent,
-	//- false sinon.
-	//
-	// Contrat :
     
+//---------------------------------------------- Constructors - destructor
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------------------- Magic methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableUserInterface>
+//------------------------------------------------------ other definitions
 
 
 
@@ -6554,15 +6617,15 @@ class Users extends AbstractClass implements Iterator
 
 
 /*************************************************************************
-                           |MySQLTableUser.php|  -  description
+                           |MySQLTableUser.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLTableUser> (fichier MySQLTableUser.php) --------------
-if (defined('MYSQLTABLEUSER_H'))
+//---------- Class <MySQLTableUser> (file MySQLTableUser.php) --------------
+/*if (defined('MYSQLTABLEUSER_H'))
 {
     return;
 }
@@ -6570,49 +6633,42 @@ else
 {
 
 }
-define('MYSQLTABLEUSER_H',1);
+define('MYSQLTABLEUSER_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <MySQLTableUser>
-//
-//
+/*!
+ * Provides specific methods for operations on User Table for MySQL 
+ * Database.
+ */
 //------------------------------------------------------------------------ 
 
 class MySQLTableUser extends MySQLTable implements TableUserInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function SaveUsers ( Users $users )
-    // Mode d'emploi :
-    //met à jour les éléments Valides de la liste
-	//les ajoute si l'IdUser est inexistant
-	//
-	// Renvoie :
-	//- NULL en cas de réussite
-	//- un objet de type Errors si une erreur s'est produite
-	//
-	// /!\ Cette fonction ne renvoie pas d'erreur si un élément n'est pas validé
-	//elle n'en tient simplement pas compte dans son traitement.
-	//
-    // Contrat :
-    //
+	/**
+	 * Updates validated items in $users in function of its idUser.
+	 * If idUser doesn't exist, item is inserted.
+	 * If an item of $users hasn't been validate, it is skipped.
+	 *
+	 * @param $users a Users of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
 	{		
 		foreach ( $users as $user )
 		{
@@ -6636,18 +6692,17 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		}
 		
 		return NULL;
-	} //---- Fin de SaveUsers
+	} //---- End of SaveUsers
 
 	public function SelectUsers ()
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des utilisateurs.
-	//
-    // Renvoie :
-	//- l'ensemble des users sous forme d'objets User dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Selects all the User-s from Table.
+     *
+     * @return - a list of User-s in a Users object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 		
@@ -6659,19 +6714,22 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		{
 			return new Users ( $result );
 		}
-	} //---- Fin de SelectUsers
+	} //---- End of SelectUsers
 	
 	
 	public function SelectUserByIdUser ( $idUser )
-    // Mode d'emploi :
-	//permet de sélectionner l'utilisateur d'id $idUser.
-	//
-	// Renvoie :
-    //- l'users d'id $idUser dans un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Site from table which TableUser::TABLE_COLUMN_IDUSER
+	 * equals to $idUser.
+     *
+	 * @param $idUser the id of the User to select
+	 *
+     * @return - the User which TableUser::TABLE_COLUMN_IDUSER equals to
+	 * $idUser in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -6686,19 +6744,22 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		{
 			return new Users ( $result );
 		}	
-	} //---- Fin de SelectUserByIdUser
+	} //---- End of SelectUserByIdUser
 	
 	public function SelectUsersByIdGroup ( $idGroup )
-    // Mode d'emploi :
-	//permet de sélectionner les utilisateurs appartenant au groupe d'id $idGroup.
-	//
-	// Renvoie :
-    //- l'ensemble des utilisateurs appartenant au groupe d'id $idGroup dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the User-s from table which TableUser::TABLE_COLUMN_IDGROUP
+	 * equals to $idGroup. In other words : User-s that belong to the group of 
+	 * id $idGroup
+     *
+	 * @param $idGroup the id of the Group the User may belong
+	 *
+     * @return - A Users of User-s which TableUser::TABLE_COLUMN_IDGROUP 
+	 * equals to $idGroup in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -6713,20 +6774,24 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		{
 			return new Users ( $result );
 		}
-	} //---- Fin de SelectUsersByIdGroup
+	} //---- End of SelectUsersByIdGroup
 	
 	public function FindUsersByName ( $userName )
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des users de nom $userName.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des users de nom $username dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the User-s from table which TableUser::TABLE_COLUMN_NAME
+	 * looks like $userName.
+     *
+	 * @param $userName the name of the User to select. It can contain
+	 * magic chars like MYSQL_SEEK_MULTICHARS and MYSQL_SEEK_ANYCHAR. 
+	 * Please refer to your database documentation.
+	 *
+     * @return - a Users object : the User-s which 
+	 * TableUser::TABLE_COLUMN_NAME looks like $userName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -6741,18 +6806,20 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		{
 			return new Users ( $result );
 		}
-	} //---- Fin de FindUsersByName
+	} //---- End of FindUsersByName
 	
-	public function UpdateUserByIdUser ( User $new )
-    // Mode d'emploi :
-	//permet de mettre à jour une user en fonction de sa propriété
-	// TABLE_COLUMN_IDUSER (clef primaire)
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	public function UpdateUserByIdUser ( User $updatedUser )
+	/**
+	 * Tries to update the given site $updatedUser in function of its
+	 * property TableUser::TABLE_COLUMN_IDUSER.
+	 *
+	 * @param $updatedUser The User to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */	
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -6774,57 +6841,55 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		}
 		
 		return $this->Update( $new, $clauses );
-	} //---- Fin de UpdateUserByIdUser
+	} //---- End of UpdateUserByIdUser
 	
 	public function InsertUser ( User $user )
-    // Mode d'emploi :
-	//permet d'ajouter un nouvel user à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
+	/**
+	 * Inserts the given User $user into the table.
+	 *
+	 * @param $user The User to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		return $this->Insert ( $user );
-	} //---- Fin de InsertUser
+	} //---- End of InsertUser
 	
 	public function IdUserExists ( $idUser )
-    // Mode d'emploi :
-	//permet de connaitre si l'$idUser existe dans la table
-	//
-	// Renvoie :
-	//- true si $idUser est présent,
-	//- false sinon.
-	//
-	// Contrat :
+	/**
+	 * Checks whether the User of id $idUser exists or not.
+	 *
+	 * @param $idUser The TableUser::TABLE_COLUMN_IDUSER of the user 
+	 * to be checked.
+	 *
+	 * @return - true if user exists
+	 * @return - false otherwise
+     *
+     */
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableUser::TABLE_COLUMN_IDUSER . MySQLTable::MYSQL_SEEK_STRICT . intval( $idUser );
 		
 		$res = $this->Select( TableUser::TABLE_COLUMN_IDUSER, $clauses);
 
 		return (! ($res InstanceOf Errors || $res->GetCount() == 0 ) );
-	} //---- Fin de IdUserExists
+	} //---- End of IdUserExists
 	
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
+
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <MySQLTableUser>
+//------------------------------------------------------ other definitions
 
 
 
@@ -6968,15 +7033,15 @@ class VariableError extends Error
 
 
 /*************************************************************************
-                           |TableVariableInterface.php|  -  description
+                           |TableVariableInterface.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableVariableInterface> (fichier TableVariableInterface.php) --------------
-if (defined('TABLEVARIABLEINTERFACE_H'))
+//---------- Class <TableVariableInterface> (file TableVariableInterface.php) --------------
+/*if (defined('TABLEVARIABLEINTERFACE_H'))
 {
     return;
 }
@@ -6984,122 +7049,132 @@ else
 {
 
 }
-define('TABLEVARIABLEINTERFACE_H',1);
+define('TABLEVARIABLEINTERFACE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableVariableInterface>
-//
-//
+/*!
+ * Provides generic methods for VariableTable management for any databases.
+ */
 //------------------------------------------------------------------------ 
 
 interface TableVariableInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
+
+	/**
+	 * Updates validated items in $variables in function of its idVariable.
+	 * If idVariable doesn't exist, item is inserted.
+	 * If an item of $variables hasn't been validate, it is skipped.
+	 *
+	 * @param $variables a Variables of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
+    public function SaveVariables ( Variables $variables );
+	
+	/**
+	 * Selects all the Variable-s from Table which scope is Server.
+     *
+     * @return - a list of Variable-s in a Variables object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function SelectServerVariables ();
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des variables de configuration liées
-	//au serveur.
-	//
-    // Renvoie :
-	//- l'ensemble des variables de scope TABLE_COLUMN_SCOPE_SERVER
-	//dans un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
 	
-	public function SelectSiteVariables ( $idsite );
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des variables de configuration liées
-	//à un site.
-	//
-	// Renvoie :
-    //- l'ensemble des variables de scope TABLE_COLUMN_SCOPE_SITE
-	//et de site n° $idsite en un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Selects all the Variable-s from Table which is Site and refers to
+	 * site of id $idSites.
+     *
+	 * @param $idSite The id of the Site the variable-s returned refers to.
+	 *
+     * @return - a list of Variable-s in a Variabless object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
+	public function SelectSiteVariables ( $idSite );
 	
+	/**
+	 * Selects the Variable-s from table which TableVariable::TABLE_COLUMN_NAME
+	 * looks like $varName.
+     *
+	 * @param $varName the name of the Variable to select. It can contain
+	 * magic chars like BDD_SEEK_MULTICHARS and BDD_SEEK_ANYCHAR where BDD
+	 * represent your database type. Please refer to your database documentation.
+	 *
+     * @return - a Variables object : the Variable-s which 
+	 * TableVariable::TABLE_COLUMN_NAME looks like $varName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function SelectVariablesByName ( $varName );
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des variables de nom $varname.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des variables de nom $varname dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
 	
-	public function UpdateVariableByIdVariable ( Variable $new );
-    // Mode d'emploi :
-	//permet de mettre à jour une variable en fonction de sa clef IdVariable
-	//disponible en tant que propriété TABLE_COLUMN_IDVARIABLE
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Tries to update the given Variable $updatedVariable in function of its
+	 * property TableVariable::TABLE_COLUMN_IDVARIABLE.
+	 *
+	 * @param $updatedVariable The Variable to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
+	public function UpdateVariableByIdVariable ( Variable $updatedVariable );
 	
+	/**
+	 * Inserts the given Variable $variable into the table.
+	 *
+	 * @param $variable The Variable to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	public function InsertVariable ( Variable $variable );
-    // Mode d'emploi :
-	//permet d'ajouter une nouvelle variable à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
 	
+	/**
+	 * Checks whether the Variable of id $idVariable exists or not.
+	 *
+	 * @param $idVariable The TableVariable::TABLE_COLUMN_IDVARIABLE of the variable 
+	 * to be checked.
+	 *
+	 * @return - true if variable exists
+	 * @return - false otherwise
+     *
+     */
 	public function IdVariableExists ( $idVariable );
-    // Mode d'emploi :
-	//permet de connaitre si l'$idVariable existe dans la table
-	//
-	// Renvoie :
-	//- true si $idVariable est présent,
-	//- false sinon.
-	//
-	// Contrat :
+	
+//---------------------------------------------- Constructors - destructor
+
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
     
+//------------------------------------------------------ protected methods
 
-//-------------------------------------------- Constructeurs - destructeur
-    
-//------------------------------------------------------ Méthodes Magiques
-
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableVariableInterface>
+//------------------------------------------------------ other definitions
 
 
 
@@ -7516,15 +7591,15 @@ class Variables extends AbstractClass implements Iterator
 
 
 /*************************************************************************
-                           |MySQLTableVariable.php|  -  description
+                           |MySQLTableVariable.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLTableVariable> (fichier MySQLTableVariable.php) --------------
-if (defined('MYSQLTABLEVARIABLE_H'))
+//---------- Class <MySQLTableVariable> (file MySQLTableVariable.php) --------------
+/*if (defined('MYSQLTABLEVARIABLE_H'))
 {
     return;
 }
@@ -7532,49 +7607,42 @@ else
 {
 
 }
-define('MYSQLTABLEVARIABLE_H',1);
+define('MYSQLTABLEVARIABLE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <MySQLTableVariable>
-//
-//
+/*!
+ * Provides specific methods for operations on Variable Table for MySQL 
+ * Database.
+ */
 //------------------------------------------------------------------------ 
 
 class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 {
-//----------------------------------------------------------------- PUBLIC	
+//----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function SaveVariables ( Variables $variables )
-    // Mode d'emploi :
-    //met à jour les éléments Valides de la liste
-	//les ajoute si l'IdVariable est inexistant
-	//
-	// Renvoie :
-	//- NULL en cas de réussite
-	//- un objet de type Errors si une erreur s'est produite
-	//
-	// /!\ Cette fonction ne renvoie pas d'erreur si un élément n'est pas validé
-	//elle n'en tient simplement pas compte dans son traitement.
-	//
-    // Contrat :
-    //
+	/**
+	 * Updates validated items in $variables in function of its idVariable.
+	 * If idVariable doesn't exist, item is inserted.
+	 * If an item of $variables hasn't been validate, it is skipped.
+	 *
+	 * @param $variables a Variables of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
 	{		
 		foreach ( $variables as $variable )
 		{
@@ -7598,19 +7666,17 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 		}
 		
 		return NULL;
-	} //---- Fin de SaveVariables
+	} //---- End of SaveVariables
 	
 	public function SelectServerVariables ()
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des variables de configuration liées
-	//au serveur.
-	//
-    // Renvoie :
-	//- l'ensemble des variables de scope TABLE_COLUMN_SCOPE_SERVER
-	//dans un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Selects all the Variable-s from Table which scope is Server.
+     *
+     * @return - a list of Variable-s in a Variables object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select (	MySQLTABLE::TABLE_COLUMN_ALL , 
 									MySQLTABLE::MYSQL_CLAUSE_WHERE .
@@ -7625,25 +7691,26 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 		{
 			return new Variables ( $result );
 		}
-	} //---- Fin de SelectServerVariable
+	} //---- End of SelectServerVariable
 	
-	public function SelectSiteVariables ( $idsite )
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des variables de configuration liées
-	//à un site.
-	//
-	// Renvoie :
-    //- l'ensemble des variables de scope TABLE_COLUMN_SCOPE_SITE
-	//et de site n° $idsite en un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	public function SelectSiteVariables ( $idSite )
+	/**
+	 * Selects all the Variable-s from Table which is Site and refers to
+	 * site of id $idSites.
+     *
+	 * @param $idSite The id of the Site the variable-s returned refers to.
+	 *
+     * @return - a list of Variable-s in a Variabless object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select (	MySQLTABLE::TABLE_COLUMN_ALL ,
 									MySQLTABLE::MYSQL_CLAUSE_WHERE.
 											TableVariable::TABLE_COLUMN_SCOPE.MySQLTABLE::MYSQL_SEEK_STRICT . MySQLTABLE::MYSQL_SEEK_SEPARATOR.TableVariable::TABLE_COLUMN_SCOPE_SITE . MySQLTABLE::MYSQL_SEEK_SEPARATOR .
 									MySQLTABLE::MYSQL_CLAUSE_AND.
-											TableVariable::TABLE_COLUMN_IDSITE.MySQLTABLE::MYSQL_SEEK_STRICT.MySQLTABLE::MYSQL_SEEK_SEPARATOR.$idsite.MySQLTABLE::MYSQL_SEEK_SEPARATOR
+											TableVariable::TABLE_COLUMN_IDSITE.MySQLTABLE::MYSQL_SEEK_STRICT.MySQLTABLE::MYSQL_SEEK_SEPARATOR.$idSite.MySQLTABLE::MYSQL_SEEK_SEPARATOR
 					);
 		
 		if ( $result InstanceOf Errors )
@@ -7654,19 +7721,24 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 		{
 			return new Variables ( $result );
 		}
-	} //---- Fin de SelectSiteVariable
+	} //---- End of SelectSiteVariable
 	
 	public function SelectVariablesByName ( $varName )
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des variables de nom $varname.
-	//Il est possible ici d'utiliser les caractères magiques MYSQL_SEEK_MULTICHARS et MYSQL_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des variables de nom $varname dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Selects the Group-s from table which TableVariable::TABLE_COLUMN_NAME
+	 * looks like $varName.
+     *
+	 * @param $varName the name of the Variable to select. It can contain
+	 * magic chars like MYSQL_SEEK_MULTICHARS and MYSQL_SEEK_MULTICHARS. 
+	 * Please refer to your database documentation.
+	 *
+     * @return - a Variables object : the Variable-s which 
+	 * TableVariable::TABLE_COLUMN_NAME looks like $varName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -7681,18 +7753,20 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 		{
 			return new Variables ( $result );
 		}
-	} //---- Fin de SelectVariablesByName
+	} //---- End of SelectVariablesByName
 	
-	public function UpdateVariableByIdVariable ( Variable $new )
-    // Mode d'emploi :
-	//permet de mettre à jour une variable en fonction de sa clef IdVariable
-	//disponible en tant que propriété TABLE_COLUMN_IDVARIABLE
-	//
-	// Renvoie :
-    //- un objet de type BDDRecordSet en cas de réussite
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	public function UpdateVariableByIdVariable ( Variable $updatedVariable )
+	/**
+	 * Tries to update the given Variable $updatedVariable in function of its
+	 * property TableVariable::TABLE_COLUMN_IDVARIABLE.
+	 *
+	 * @param $updatedVariable The Variable to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -7714,57 +7788,55 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 		}
 		
 		return $this->Update( $new, $clauses );
-	} //---- Fin de UpdateVariableByIdVariable
+	} //---- End of UpdateVariableByIdVariable
 	
 	public function InsertVariable ( Variable $variable )
-    // Mode d'emploi :
-	//permet d'ajouter une nouvelle variable à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- un objet de type BDDRecordSet en cas de réussite.
-	//
-	// Contrat :
+	/**
+	 * Inserts the given Variable $variable into the table.
+	 *
+	 * @param $variable The Variable to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		return $this->Insert ( $variable );
-	} //---- Fin de InsertVariable
+	} //---- End of InsertVariable
 	
 	public function IdVariableExists ( $idVariable )
-    // Mode d'emploi :
-	//permet de connaitre si l'$idVariable existe dans la table
-	//
-	// Renvoie :
-	//- true si $idVariable est présent,
-	//- false sinon.
-	//
-	// Contrat :
+	/**
+	 * Checks whether the Variable of id $idVariable exists or not.
+	 *
+	 * @param $idVariable The TableVariable::TABLE_COLUMN_IDVARIABLE of the variable 
+	 * to be checked.
+	 *
+	 * @return - true if variable exists
+	 * @return - false otherwise
+     *
+     */
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableVariable::TABLE_COLUMN_IDVARIABLE . MySQLTABLE::MYSQL_SEEK_SEPARATOR . MySQLTable::MYSQL_SEEK_STRICT . intval( $idVariable ) . MySQLTABLE::MYSQL_SEEK_SEPARATOR;
 		
 		$res = $this->Select( TableVariable::TABLE_COLUMN_IDVARIABLE, $clauses);
 
 		return (! ($res InstanceOf Errors || $res->GetCount() == 0 ) );
-	}
+	} //---- End of IdVariableExists
 	
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
+
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <MySQLTableVariable>
+//------------------------------------------------------ other definitions
 
 
 
@@ -7925,15 +7997,15 @@ class SiteError extends Error
 
 
 /*************************************************************************
-                           |TableSiteInterface.php|  -  description
+                           |TableSiteInterface.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <TableSiteInterface> (fichier TableSiteInterface.php) --------------
-if (defined('TABLESITEINTERFACE_H'))
+//---------- Classe <TableSiteInterface> (file TableSiteInterface.php) --------------
+/*if (defined('TABLESITEINTERFACE_H'))
 {
     return;
 }
@@ -7941,121 +8013,133 @@ else
 {
 
 }
-define('TABLESITEINTERFACE_H',1);
+define('TABLESITEINTERFACE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <TableSiteInterface>
-//
-//
+/*!
+ * Provides generic methods for TableSite management for any databases.
+ */
 //------------------------------------------------------------------------ 
 
 interface TableSiteInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
+
+	/**
+	 * Updates validated items in $sites in function of its idSite.
+	 * If idSite doesn't exist, item is inserted.
+	 * If an item of $sites hasn't been validate, it is skipped.
+	 *
+	 * @param $sites a Sites of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
+    public function SaveSites ( Sites $sites );
+	 
+	/**
+	 * Selects all the Site-s from Table.
+     *
+     * @return - a list of Group-s in a Sites object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function SelectSites ();
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des sites.
-	//
-    // Renvoie :
-	//- l'ensemble des sites sous forme d'objets Site dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
 	
+	/**
+	 * Selects the Site from table which TableSite::TABLE_COLUMN_IDSITE
+	 * equals to $idSite.
+     *
+	 * @param $idSite the id of the Site to select
+	 *
+     * @return - the Site which TableSite::TABLE_COLUMN_IDSITE equals to
+	 * $idSite in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function SelectSiteByIdSite ( $idSite );
-    // Mode d'emploi :
-	//permet de sélectionner le site d'id $idSite.
-	//
-	// Renvoie :
-    //- l'ensemble des sites d'id $idSite dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
 	
+	/**
+	 * Selects the Site-s from table which TableSite::TABLE_COLUMN_NAME
+	 * looks like $siteName.
+     *
+	 * @param $siteName the name of the Site to select. It can contain
+	 * magic chars like BDD_SEEK_MULTICHARS and BDD_SEEK_ANYCHAR where BDD
+	 * represent your database type. Please refer to your database documentation.
+	 *
+     * @return - a Sites object : the Site-s which 
+	 * TableSite::TABLE_COLUMN_NAME looks like $siteName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	public function FindSitesByName ( $siteName );
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des sites de nom $sitename.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des sites de nom $sitename dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
 	
+	/**
+	 * Tries to update the given site $updatedSite in function of its
+	 * property TableSite::TABLE_COLUMN_IDSITE.
+	 *
+	 * @param $updatedSite The Site to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */	
 	public function UpdateSiteByIdSite ( Site $new );
-    // Mode d'emploi :
-	//permet de mettre à jour une site en fonction de sa propriété
-	// TABLE_COLUMN_IDSITE
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
 	
+	/**
+	 * Inserts the given Site $site into the table.
+	 *
+	 * @param $site The Site to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	public function InsertSite ( Site $site );
-    // Mode d'emploi :
-	//permet d'ajouter une nouvelle site à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
 	
+	/**
+	 * Checks whether the Site of id $idSite exists or not.
+	 *
+	 * @param $idSite The TableSite::TABLE_COLUMN_IDSITE of the site 
+	 * to be checked.
+	 *
+	 * @return - true if site exists
+	 * @return - false otherwise
+     *
+     */
 	public function IdSiteExists ( $idSite );
-    // Mode d'emploi :
-	//permet de connaitre si l'$idSite existe dans la table
-	//
-	// Renvoie :
-	//- true si $idSite est présent,
-	//- false sinon.
-	//
-	// Contrat :
     
+//---------------------------------------------- Constructors - destructor
 
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------------------- Magic methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <TableSiteInterface>
+//------------------------------------------------------ other definitions
 
 
 
@@ -8454,15 +8538,15 @@ class Sites extends AbstractClass implements Iterator
 
 
 /*************************************************************************
-                           |MySQLTableSite.php|  -  description
+                           |MySQLTableSite.php|
                              -------------------
-    début                : |DATE|
+    start                : |DATE|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <MySQLTableSite> (fichier MySQLTableSite.php) --------------
-if (defined('MYSQLTABLESITE_H'))
+//---------- Class <MySQLTableSite> (file MySQLTableSite.php) --------------
+/*if (defined('MYSQLTABLESITE_H'))
 {
     return;
 }
@@ -8470,49 +8554,42 @@ else
 {
 
 }
-define('MYSQLTABLESITE_H',1);
+define('MYSQLTABLESITE_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <MySQLTableSite>
-//
-//
+/*!
+ * Provides specific methods for operations on Site Table for MySQL 
+ * Database.
+ */
 //------------------------------------------------------------------------ 
 
 class MySQLTableSite extends MySQLTable implements TableSiteInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
 
     public function SaveSites ( Sites $sites )
-    // Mode d'emploi :
-    //met à jour les éléments Valides de la liste
-	//les ajoute si l'IdSites est inexistant
-	//
-	// Renvoie :
-	//- NULL en cas de réussite
-	//- un objet de type Errors si une erreur s'est produite
-	//
-	// /!\ Cette fonction ne renvoie pas d'erreur si un élément n'est pas validé
-	//elle n'en tient simplement pas compte dans son traitement.
-	//
-    // Contrat :
-    //
+	/**
+	 * Updates validated items in $sites in function of its idSite.
+	 * If idSite doesn't exist, item is inserted.
+	 * If an item of $sites hasn't been validate, it is skipped.
+	 *
+	 * @param $sites a Sites of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
 	{		
 		foreach ( $sites as $site )
 		{
@@ -8536,18 +8613,17 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		}
 		
 		return NULL;
-	} //---- Fin de SaveSites
+	} //---- End of SaveSites
 
 	public function SelectSites ()
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des sites.
-	//
-    // Renvoie :
-	//- l'ensemble des sites sous forme d'objets Site dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Selects all the Site-s from Table.
+     *
+     * @return - a list of Site-s in a Sites object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 		
@@ -8559,19 +8635,22 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de SelectSites
+	} //---- End of SelectSites
 	
 	
 	public function SelectSiteByIdSite ( $idSite )
-    // Mode d'emploi :
-	//permet de sélectionner le site d'id $idSite.
-	//
-	// Renvoie :
-    //- le site d'id $idSite dans un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Site from table which TableSite::TABLE_COLUMN_IDSITE
+	 * equals to $idSite.
+     *
+	 * @param $idSite the id of the Site to select
+	 *
+     * @return - the Site which TableSite::TABLE_COLUMN_IDSITE equals to
+	 * $idSite in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -8586,20 +8665,24 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de SelectSiteByIdSite
+	} //---- End of SelectSiteByIdSite
 	
 	public function FindSitesByName ( $siteName )
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des sites de nom $siteName.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des sites de nom $sitename dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Site-s from table which TableSite::TABLE_COLUMN_NAME
+	 * looks like $siteName.
+     *
+	 * @param $siteName the name of the Site to select. It can contain
+	 * magic chars like MYSQL_SEEK_MULTICHARS and MYSQL_SEEK_ANYCHAR. 
+	 * Please refer to your database documentation.
+	 *
+     * @return - a Sites object : the Site-s which 
+	 * TableSite::TABLE_COLUMN_NAME looks like $siteName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -8614,18 +8697,20 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		{
 			return new Sites ( $result );
 		}
-	} //---- Fin de FindSitesByName
+	} //---- End of FindSitesByName
 	
-	public function UpdateSiteByIdSite ( Site $new )
-    // Mode d'emploi :
-	//permet de mettre à jour une site en fonction de sa propriété
-	// TABLE_COLUMN_IDSITE (clef primaire)
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	public function UpdateSiteByIdSite ( Site $updatedSite )
+	/**
+	 * Tries to update the given site $updatedSite in function of its
+	 * property TableSite::TABLE_COLUMN_IDSITE.
+	 *
+	 * @param $updatedSite The Site to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */	
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -8635,7 +8720,7 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 			return $errors;
 		}
 
-		// record validé, update si existance de l'ancien.
+		/* record validated, checks for existence => update */
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableSite::TABLE_COLUMN_IDSITE . MySQLTable::MYSQL_SEEK_STRICT . intval( $new->GetProperty ( TableSite::TABLE_COLUMN_IDSITE ) );
 		
 		if ( ! ($res = $this->IdSiteExists( intval ($new->GetProperty ( TableSite::TABLE_COLUMN_IDSITE ) )) ) )
@@ -8647,57 +8732,55 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		}
 		
 		return $this->Update( $new, $clauses );
-	} //---- Fin de UpdateSite
+	} //---- End of UpdateSite
 	
 	public function InsertSite ( Site $site )
-    // Mode d'emploi :
-	//permet d'ajouter une nouvelle site à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
+	/**
+	 * Inserts the given Site $site into the table.
+	 *
+	 * @param $site The Site to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		return $this->Insert ( $site );
-	} //---- Fin de InsertSite
+	} //---- End of InsertSite
 	
 	public function IdSiteExists ( $idSite )
-    // Mode d'emploi :
-	//permet de connaitre si l'$idSite existe dans la table
-	//
-	// Renvoie :
-	//- true si $idSite est présent,
-	//- false sinon.
-	//
-	// Contrat :
+	/**
+	 * Checks whether the Site of id $idSite exists or not.
+	 *
+	 * @param $idSite The TableSite::TABLE_COLUMN_IDSITE of the site 
+	 * to be checked.
+	 *
+	 * @return - true if site exists
+	 * @return - false otherwise
+     *
+     */
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableSite::TABLE_COLUMN_IDSITE . MySQLTable::MYSQL_SEEK_STRICT . MySQLTABLE::MYSQL_SEEK_SEPARATOR . intval( $idSite ) . MySQLTABLE::MYSQL_SEEK_SEPARATOR;
 		
 		$res = $this->Select( TableSite::TABLE_COLUMN_IDSITE, $clauses);
 
 		return (! ($res InstanceOf Errors || $res->GetCount() == 0 ) );
-	}
+	} //---- End of IdSiteExists
 	
-//-------------------------------------------- Constructeurs - destructeur
+//---------------------------------------------- Constructors - destructor
+
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
     
-//------------------------------------------------------ Méthodes Magiques
+//------------------------------------------------------ protected methods
 
-//------------------------------------------------------------------ PRIVE 
-
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <MySQLTableSite>
+//------------------------------------------------------ other definitions
 
 
 

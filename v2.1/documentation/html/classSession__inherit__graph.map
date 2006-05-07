@@ -2,8 +2,8 @@ digraph G {
 	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
 	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
 	graph [bb="0,0,100,376"];
-	Node1 [label="{Session\n||+ Destruct()\l+ GetId()\l+ SetId()\l+ IsSetVariable()\l+ UnSetVariable()\l+ SetVariable()\l+ GetVariable()\l+ DelAll\
-()\l+ GetCount()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ GetInstance()\l# __construct()\l}", height="3.17", width="1.39", color=white, fillcolor=black, style=filled, fontcolor=white, pos="50,122", rects="0,220,100,236 0,204,100,220 0,8,100,204"];
+	Node1 [label="{Session\n||+ Destruct()\l+ GetId()\l+ IsSetVariable()\l+ UnSetVariable()\l+ SetVariable()\l+ GetVariable()\l+ DelAll()\l+ GetCo\
+unt()\l+ Rewind()\l+ Current()\l+ Key()\l+ Next()\l+ Valid()\l+ GetInstance()\l+ SetId()\l# __construct()\l}", height="3.17", width="1.39", color=white, fillcolor=black, style=filled, fontcolor=white, pos="50,122", rects="0,220,100,236 0,204,100,220 0,8,100,204"];
 	Node2 [label="{AbstractSingleton\n|# $instance\l|+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# getThis()\l}", height="1.33", width="1.33", color=black, fillcolor=white, style=filled, URL="$classAbstractSingleton.html", pos="50,320", rects="2,352,99,368 2,336,99,352 2,272,99,336"];
 	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,50,272 50,262 50,254 50,245 50,236"];
 }

@@ -41,19 +41,18 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 //--------------------------------------------------------- public methods
 
     public function SaveGroups ( Groups $groups )
-    // Mode d'emploi :
-    //met à jour les éléments Valides de la liste
-	//les ajoute si l'IdGroup est inexistant
-	//
-	// Renvoie :
-	//- NULL en cas de réussite
-	//- un objet de type Errors si une erreur s'est produite
-	//
-	// /!\ Cette fonction ne renvoie pas d'erreur si un élément n'est pas validé
-	//elle n'en tient simplement pas compte dans son traitement.
-	//
-    // Contrat :
-    //
+	/**
+	 * Updates validated items in $groups in function of its idGroup.
+	 * If idGroup doesn't exist, item is inserted.
+	 * If an item of $groups hasn't been validate, it is skipped.
+	 *
+	 * @param $groups a Groups of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
 	{		
 		foreach ( $groups as $group )
 		{
@@ -80,15 +79,14 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	} //---- End of SaveGroups
 
 	public function SelectGroups ()
-    // Mode d'emploi :
-	//permet de récupérer l'ensemble des utilisateurs.
-	//
-    // Renvoie :
-	//- l'ensemble des groupes sous forme d'objets Group dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	/**
+	 * Selects all the Group-s from Table.
+     *
+     * @return - a list of Group-s in a Groups object in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 		
@@ -104,15 +102,18 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	
 	
 	public function SelectGroupByIdGroup ( $idGroup )
-    // Mode d'emploi :
-	//permet de sélectionner le groupe d'id $idGroup.
-	//
-	// Renvoie :
-    //- l'groups d'id $idGroup dans un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Group from table which TableGroup::TABLE_COLUMN_IDGROUP
+	 * equals to $idGroup.
+     *
+	 * @param $idGroup the id of the Group to select
+	 *
+     * @return - the Group which TableGroup::TABLE_COLUMN_IDGROUP equals to
+	 * $idGroup in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -131,15 +132,19 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	
 	
 	public function SelectGroupsByIdSite ( $idSite )
-    // Mode d'emploi :
-	//permet de sélectionner les groupes appartenant au site d'id $idSite.
-	//
-	// Renvoie :
-    //- le groupes d'idSite $idSite dans un objet de type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Group-s from table which TableGroup::TABLE_COLUMN_IDSITE
+	 * equals to $idSite. In other words : Group-s that belong to the site of 
+	 * id $idSite
+     *
+	 * @param $idSite the id of the Site the Group may belong
+	 *
+     * @return - A Groups of Group-s which TableGroup::TABLE_COLUMN_IDSITE 
+	 * equals to $idSite in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -157,17 +162,21 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	} //---- End of SelectGroupsByIdSite
 	
 	public function FindGroupsByName ( $groupName )
-    // Mode d'emploi :
-	//permet de sélectionner l'ensemble des groupes de nom $groupName.
-	//Il est possible ici d'utiliser les caractères magiques BDD_SEEK_MULTICHARS et BDD_SEEK_ANYCHAR
-	//
-	// Renvoie :
-    //- l'ensemble des groupes de nom $groupname dans un objet de 
-	//type BDDRecordSet en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
-	//
+	/**
+	 * Selects the Group-s from table which TableGroup::TABLE_COLUMN_NAME
+	 * looks like $groupName.
+     *
+	 * @param $groupName the name of the Group to select. It can contain
+	 * magic chars like MYSQL_SEEK_MULTICHARS and MYSQL_SEEK_MULTICHARS. 
+	 * Please refer to your database documentation.
+	 *
+     * @return - a Groups object : the Group-s which 
+	 * TableGroup::TABLE_COLUMN_NAME looks like $groupName in case of 
+	 * success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -184,16 +193,18 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 		}
 	} //---- End of FindGroupsByName
 	
-	public function UpdateGroupByIdGroup ( Group $new )
-    // Mode d'emploi :
-	//permet de mettre à jour une group en fonction de sa propriété
-	// TABLE_COLUMN_IDGROUP (clef primaire)
-	//
-	// Renvoie :
-    //- NULL en cas de réussite,
-	//- un objet de type Errors sinon
-	//
-    // Contrat :
+	public function UpdateGroupByIdGroup ( Group $updatedGroup )
+	/**
+	 * Tries to update the given group $updatedGroup in function of its
+	 * property TableGroup::TABLE_COLUMN_IDGROUP.
+	 *
+	 * @param $updatedGroup The Group to be updated
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */	
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -203,7 +214,7 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 			return $errors;
 		}
 
-		// record validé, update si existance de l'ancien.
+		/* record validated, checks for existence => update */
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableGroup::TABLE_COLUMN_IDGROUP . MySQLTable::MYSQL_SEEK_STRICT . intval( $new->GetProperty ( TableGroup::TABLE_COLUMN_IDGROUP ) );
 		
 		if ( ! ($res = $this->IdGroupExists( intval ($new->GetProperty ( TableGroup::TABLE_COLUMN_IDGROUP ) )) ) )
@@ -218,35 +229,38 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	} //---- End of UpdateGroupByIdGroup
 	
 	public function InsertGroup ( Group $group )
-    // Mode d'emploi :
-	//permet d'ajouter un nouvel group à l'aide d'un BDDRecord contenant
-	//l'ensemble des valeurs des champs.
-	//
-	// Renvoie :
-	//- un objet de type Errors en cas d'erreur,
-	//- NULL en cas de réussite.
-	//
-	// Contrat :
+	/**
+	 * Inserts the given Group $group into the table.
+	 *
+	 * @param $group The Group to be inserted
+	 *
+	 * @return - NULL if operation was successful
+	 * @return - an Errors object in case of Error-s see
+	 * BDDConnection::Query
+     *
+     */
 	{
 		return $this->Insert ( $group );
 	} //---- End of InsertGroup
 	
 	public function IdGroupExists ( $idGroup )
-    // Mode d'emploi :
-	//permet de connaitre si l'$idGroup existe dans la table
-	//
-	// Renvoie :
-	//- true si $idGroup est présent,
-	//- false sinon.
-	//
-	// Contrat :
+	/**
+	 * Checks whether the Group of id $idGroup exists or not.
+	 *
+	 * @param $idGroup The TableGroup::TABLE_COLUMN_IDGROUP of the group 
+	 * to be checked.
+	 *
+	 * @return - true if group exists
+	 * @return - false otherwise
+     *
+     */
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableGroup::TABLE_COLUMN_IDGROUP . MySQLTable::MYSQL_SEEK_STRICT . intval( $idGroup );
 		
 		$res = $this->Select( TableGroup::TABLE_COLUMN_IDGROUP, $clauses);
 
 		return (! ($res InstanceOf Errors || $res->GetCount() == 0 ) );
-	}
+	} //---- End of IdGroupExists
 	
 //---------------------------------------------- Constructors - destructor
 

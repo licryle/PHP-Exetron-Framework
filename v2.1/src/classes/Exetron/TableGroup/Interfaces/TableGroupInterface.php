@@ -39,8 +39,21 @@ interface TableGroupInterface
 
 //--------------------------------------------------------- public methods
 
-	/*
-	 * Selects all the Groups from Table.
+	/**
+	 * Updates validated items in $groups in function of its idGroup.
+	 * If idGroup doesn't exist, item is inserted.
+	 * If an item of $groups hasn't been validate, it is skipped.
+	 *
+	 * @param $groups a Groups of items to be updated/inserted
+	 *
+     * @return - NULL in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+	 *
+	 */
+    public function SaveGroups ( Groups $groups );
+	/**
+	 * Selects all the Group-s from Table.
      *
      * @return - a list of Group-s in a Groups object in case of success
 	 * @return - an Errors object in case of error(s) : see
@@ -49,7 +62,7 @@ interface TableGroupInterface
      */
 	public function SelectGroups (); 
 	
-	/*
+	/**
 	 * Selects the Group from table which TableGroup::TABLE_COLUMN_IDGROUP
 	 * equals to $idGroup.
      *
@@ -63,7 +76,23 @@ interface TableGroupInterface
      */
 	public function SelectGroupByIdGroup ( $idGroup );
 	
-	/*
+
+	/**
+	 * Selects the Group-s from table which TableGroup::TABLE_COLUMN_IDSITE
+	 * equals to $idSite. In other words : Group-s that belong to the site of 
+	 * id $idSite
+     *
+	 * @param $idSite the id of the Site the Group may belong
+	 *
+     * @return - A Groups of Group-s which TableGroup::TABLE_COLUMN_IDSITE 
+	 * equals to $idSite in case of success
+	 * @return - an Errors object in case of error(s) : see
+	 * BDDConnection::Query
+     *
+     */
+	public function SelectGroupsByIdSite ( $idSite );
+	 
+	/**
 	 * Selects the Group-s from table which TableGroup::TABLE_COLUMN_NAME
 	 * looks like $groupName.
      *
@@ -80,11 +109,11 @@ interface TableGroupInterface
      */
 	public function FindGroupsByName ( $groupName );
 	
-	/*
+	/**
 	 * Tries to update the given group $updatedGroup in function of its
 	 * property TableGroup::TABLE_COLUMN_IDGROUP.
 	 *
-	 * @param $updatedGroup The group to be updated
+	 * @param $updatedGroup The Group to be updated
 	 *
 	 * @return - NULL if operation was successful
 	 * @return - an Errors object in case of Error-s see
@@ -94,10 +123,10 @@ interface TableGroupInterface
 	public function UpdateGroupByIdGroup ( Group $updatedGroup );
 	
 	
-	/*
+	/**
 	 * Inserts the given Group $group into the table.
 	 *
-	 * @param $group The group to be inserted
+	 * @param $group The Group to be inserted
 	 *
 	 * @return - NULL if operation was successful
 	 * @return - an Errors object in case of Error-s see
@@ -106,8 +135,8 @@ interface TableGroupInterface
      */
 	public function InsertGroup ( Group $group );
 	
-	/*
-	 * Checks whether the group of id $idGroup exists or not.
+	/**
+	 * Checks whether the Group of id $idGroup exists or not.
 	 *
 	 * @param $idGroup The TableGroup::TABLE_COLUMN_IDGROUP of the group 
 	 * to be checked.

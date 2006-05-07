@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
-<title>Exetron: TableSiteInterface Interface Reference</title>
+<title>ExetronSystemProject: TableSiteInterface Interface Reference</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -28,19 +28,19 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>TableSiteInterface Interface Reference</h1><!-- doxytag: class="TableSiteInterface" -->Inherited by <a class="el" href="classMySQLTableSite.html">MySQLTableSite</a>.
-<p>
-Inheritance diagram for TableSiteInterface:<p><center><img src="interfaceTableSiteInterface__inherit__graph.gif" border="0" usemap="#TableSiteInterface__inherit__map" alt="Inheritance graph"></center>
+<h1>TableSiteInterface Interface Reference</h1><!-- doxytag: class="TableSiteInterface" -->Inheritance diagram for TableSiteInterface:<p><center><img src="interfaceTableSiteInterface__inherit__graph.jpg" border="0" usemap="#TableSiteInterface__inherit__map" alt="Inheritance graph"></center>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="interfaceTableSiteInterface-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableSiteInterface.html#e94324bfef7c5213d14d1ae7d5264526">SaveSites</a> (<a class="el" href="classSites.html">Sites</a> $sites)</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableSiteInterface.html#913a07a7576cb56e0fdcc90a29cd34f7">SelectSites</a> ()</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableSiteInterface.html#4321d07925547d2a3294c7e7ca70ae57">SelectSiteByIdSite</a> ($idSite)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableSiteInterface.html#1c50e06d11a3859a4d1cdca824a40ead">FindSitesByName</a> ($siteName)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableSiteInterface.html#75336c61da5f2930e34855003f868231">UpdateSiteByIdSite</a> (<a class="el" href="classSite.html">Site</a> $new)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableSiteInterface.html#62ad8ffc6cb492cb47891626773d26e3">UpdateSiteByIdSite</a> (<a class="el" href="classSite.html">Site</a> $updatedSite)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceTableSiteInterface.html#3a955ff1d241db7f440b3a0273622f48">InsertSite</a> (<a class="el" href="classSite.html">Site</a> $site)</td></tr>
 
@@ -48,11 +48,11 @@ Inheritance diagram for TableSiteInterface:<p><center><img src="interfaceTableSi
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-
+Provides generic methods for <a class="el" href="classTableSite.html">TableSite</a> management for any databases. 
 <p>
 
 <p>
-Definition at line <a class="el" href="TableSiteInterface_8php-source.html#l00038">38</a> of file <a class="el" href="TableSiteInterface_8php-source.html">TableSiteInterface.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="TableSiteInterface_8php-source.html#l00036">36</a> of file <a class="el" href="TableSiteInterface_8php-source.html">TableSiteInterface.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="1c50e06d11a3859a4d1cdca824a40ead"></a><!-- doxytag: member="TableSiteInterface::FindSitesByName" ref="1c50e06d11a3859a4d1cdca824a40ead" args="($siteName)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -78,6 +78,14 @@ Definition at line <a class="el" href="TableSiteInterface_8php-source.html#l0003
     <td>
 
 <p>
+Selects the Site-s from table which <a class="el" href="classTableSite.html#ee9b72da56fb084126bd3685f718fe58">TableSite::TABLE_COLUMN_NAME</a> looks like $siteName.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$siteName</em>&nbsp;</td><td>the name of the <a class="el" href="classSite.html">Site</a> to select. It can contain magic chars like BDD_SEEK_MULTICHARS and BDD_SEEK_ANYCHAR where BDD represent your database type. Please refer to your database documentation.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- a <a class="el" href="classSites.html">Sites</a> object : the Site-s which <a class="el" href="classTableSite.html#ee9b72da56fb084126bd3685f718fe58">TableSite::TABLE_COLUMN_NAME</a> looks like $siteName in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTableSite.html#c48a020efbcf57de0d943519edc2da4f">MySQLTableSite</a>.    </td>
@@ -108,6 +116,14 @@ Implemented in <a class="el" href="classMySQLTableSite.html#c48a020efbcf57de0d94
     <td>
 
 <p>
+Checks whether the <a class="el" href="classSite.html">Site</a> of id $idSite exists or not.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$idSite</em>&nbsp;</td><td>The <a class="el" href="classTableSite.html#12094ef4b48a64b772f91d94629bbb63">TableSite::TABLE_COLUMN_IDSITE</a> of the site to be checked.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- true if site exists <p>
+- false otherwise </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTableSite.html#9407e4877f0c95072a1b3961bb3fe39b">MySQLTableSite</a>.    </td>
@@ -138,9 +154,55 @@ Implemented in <a class="el" href="classMySQLTableSite.html#9407e4877f0c95072a1b
     <td>
 
 <p>
+Inserts the given <a class="el" href="classSite.html">Site</a> $site into the table.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$site</em>&nbsp;</td><td>The <a class="el" href="classSite.html">Site</a> to be inserted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if operation was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of Error-s see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTableSite.html#4bed3013672e4e441aa75f5c7e080903">MySQLTableSite</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="e94324bfef7c5213d14d1ae7d5264526"></a><!-- doxytag: member="TableSiteInterface::SaveSites" ref="e94324bfef7c5213d14d1ae7d5264526" args="(Sites $sites)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">TableSiteInterface::SaveSites           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classSites.html">Sites</a> $&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>sites</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Updates validated items in $sites in function of its idSite. If idSite doesn't exist, item is inserted. If an item of $sites hasn't been validate, it is skipped.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$sites</em>&nbsp;</td><td>a <a class="el" href="classSites.html">Sites</a> of items to be updated/inserted</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
+
+<p>
+Implemented in <a class="el" href="classMySQLTableSite.html#50dedb6d7ba81a656a5d5243536e18fb">MySQLTableSite</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="4321d07925547d2a3294c7e7ca70ae57"></a><!-- doxytag: member="TableSiteInterface::SelectSiteByIdSite" ref="4321d07925547d2a3294c7e7ca70ae57" args="($idSite)" --><p>
@@ -168,6 +230,14 @@ Implemented in <a class="el" href="classMySQLTableSite.html#4bed3013672e4e441aa7
     <td>
 
 <p>
+Selects the <a class="el" href="classSite.html">Site</a> from table which <a class="el" href="classTableSite.html#12094ef4b48a64b772f91d94629bbb63">TableSite::TABLE_COLUMN_IDSITE</a> equals to $idSite.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$idSite</em>&nbsp;</td><td>the id of the <a class="el" href="classSite.html">Site</a> to select</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- the <a class="el" href="classSite.html">Site</a> which <a class="el" href="classTableSite.html#12094ef4b48a64b772f91d94629bbb63">TableSite::TABLE_COLUMN_IDSITE</a> equals to $idSite in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTableSite.html#77c4d44cacdd08eeaf4750122163fe13">MySQLTableSite</a>.    </td>
@@ -197,12 +267,15 @@ Implemented in <a class="el" href="classMySQLTableSite.html#77c4d44cacdd08eeaf47
     <td>
 
 <p>
+Selects all the Site-s from Table.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>- a list of Group-s in a <a class="el" href="classSites.html">Sites</a> object in case of success <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) : see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLTableSite.html#28e2aea53fa48487c179afc6cf704569">MySQLTableSite</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="75336c61da5f2930e34855003f868231"></a><!-- doxytag: member="TableSiteInterface::UpdateSiteByIdSite" ref="75336c61da5f2930e34855003f868231" args="(Site $new)" --><p>
+<a class="anchor" name="62ad8ffc6cb492cb47891626773d26e3"></a><!-- doxytag: member="TableSiteInterface::UpdateSiteByIdSite" ref="62ad8ffc6cb492cb47891626773d26e3" args="(Site $updatedSite)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -211,7 +284,7 @@ Implemented in <a class="el" href="classMySQLTableSite.html#28e2aea53fa48487c179
           <td class="md" nowrap valign="top">TableSiteInterface::UpdateSiteByIdSite           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top"><a class="el" href="classSite.html">Site</a> $&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>new</em>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>updatedSite</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -227,14 +300,22 @@ Implemented in <a class="el" href="classMySQLTableSite.html#28e2aea53fa48487c179
     <td>
 
 <p>
+Tries to update the given site $updatedSite in function of its property <a class="el" href="classTableSite.html#12094ef4b48a64b772f91d94629bbb63">TableSite::TABLE_COLUMN_IDSITE</a>.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$updatedSite</em>&nbsp;</td><td>The <a class="el" href="classSite.html">Site</a> to be updated</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- NULL if operation was successful <p>
+- an <a class="el" href="classErrors.html">Errors</a> object in case of Error-s see <a class="el" href="interfaceBDDConnectionInterface.html#fb391d421b54744f6457dd58bff40687">BDDConnection::Query</a> </dd></dl>
 
 <p>
-Implemented in <a class="el" href="classMySQLTableSite.html#4efebd2c95295ffacf4b3658f51f7ea0">MySQLTableSite</a>.    </td>
+Implemented in <a class="el" href="classMySQLTableSite.html#0744d6b7a99b8ab318af7b5152636325">MySQLTableSite</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this interface was generated from the following file:<ul>
-<li>E:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableSite/Interfaces/<a class="el" href="TableSiteInterface_8php-source.html">TableSiteInterface.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Apr 17 20:27:01 2006 for Exetron by&nbsp;
+<li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableSite/Interfaces/<a class="el" href="TableSiteInterface_8php-source.html">TableSiteInterface.php</a></ul>
+<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:34 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>
