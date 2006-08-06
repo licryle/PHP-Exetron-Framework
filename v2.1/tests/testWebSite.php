@@ -34,19 +34,18 @@ class CurrentPage extends WebSitePage
 	{
 		parent::Process();
 		
-		$this->pageTemplate->GetHeaders ()->AddHeaders( '<title>Coucou</title>' );
+		$this->GetTemplate()->GetHeaders()->AddHeaders( '<title>Coucou</title>' );
 		
-		$sess = Session::GetInstance();
+		$sess = $this->GetSession();
 		$rand = $sess->GetVariable('lastexec');
 		$sess->SetVariable('lastexec',rand() );
 		
-		$this->pageTemplate->GetBody()->AddContent(
+		$this->GetTemplate()->GetBody()->AddContent(
 			'Bonjour!<br />'.
 			'Execut� en '.Template::BuildTag( XHTMLSitePage::TAG_EXECUTION_TIME ).' secondes<br />'.
 			'Dernier rand() en '.$rand.'<br />'.
 			'Current rand() en '.$sess->GetVariable('lastexec')
 		);
-		
 	}
 
 //---------------------------------------------- Constructors - destructor

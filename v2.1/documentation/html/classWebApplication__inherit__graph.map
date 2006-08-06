@@ -1,0 +1,14 @@
+digraph G {
+	node [label="\N", fontname=Helvetica, fontsize=10, shape=record];
+	edge [fontname=Helvetica, fontsize=10, labelfontname=Helvetica, labelfontsize=10];
+	graph [bb="0,0,154,616"];
+	Node1 [label="{WebApplication\n|# $var_get\l# $var_post\l# $var_global\l# $var_files\l|+ GetPOSTVariables()\l+ GetGETVariables()\l+ GetVariabl\
+es()\l+ GetFILES()\l+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l}", height="2.33", width="1.67", color=white, fillcolor=black, style=filled, fontcolor=white, pos="77,92", rects="17,160,137,176 17,108,137,160 17,8,137,108"];
+	Node2 [label="{Application\n|+ SYSTEM_START_TIME\l# $started\l# $systemVars\l# $onApplicationStart\l# $onApplicationStartParams\l# $onApplicat\
+ionEnd\l# $onApplicationEndParams\l# $configuration\l|+ GetConfiguration()\l+ SetConfiguration()\l+ Start()\l+ OnApplicationStar\
+t()\l+ OnApplicationEnd()\l+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# isCorrectCallBack()\l# setCallBac\
+k()\l# launchCallBack()\l}", height="3.67", width="2.14", color=black, fillcolor=white, style=filled, URL="$classApplication.html", pos="77,344", rects="0,460,154,476 0,360,154,460 0,212,154,360"];
+	Node3 [label="{AbstractSingleton\n|# $instance\l|+ __destruct()\l+ __ToString()\l+ GetInstance()\l# __construct()\l# getThis()\l}", height="1.33", width="1.33", color=black, fillcolor=white, style=filled, URL="$classAbstractSingleton.html", pos="77,560", rects="29,592,126,608 29,576,126,592 29,512,126,576"];
+	Node2 -> Node1 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,77,212 77,201 77,193 77,184 77,176"];
+	Node3 -> Node2 [dir=back, color=midnightblue, style=solid, arrowtail=empty, pos="s,77,512 77,502 77,494 77,485 77,476"];
+}

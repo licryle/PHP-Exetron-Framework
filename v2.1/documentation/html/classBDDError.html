@@ -28,9 +28,9 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>BDDError Class Reference</h1><!-- doxytag: class="BDDError" --><!-- doxytag: inherits="Error" -->Inheritance diagram for BDDError:<p><center><img src="classBDDError__inherit__graph.jpg" border="0" usemap="#BDDError__inherit__map" alt="Inheritance graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for BDDError:<p><center><img src="classBDDError__coll__graph.jpg" border="0" usemap="#BDDError__coll__map" alt="Collaboration graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classBDDError-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<h1>BDDError Class Reference</h1><!-- doxytag: class="BDDError" --><!-- doxytag: inherits="Error" -->Inherits <a class="el" href="classError.html">Error</a>.
+<p>
+<a href="classBDDError-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBDDError.html#7cbace17e290a7aeb7baac248c4b200f">CONNECTION_NOT_CLOSED</a> = '<a class="el" href="classBDDError.html#7cbace17e290a7aeb7baac248c4b200f">CONNECTION_NOT_CLOSED</a>'</td></tr>
@@ -86,7 +86,7 @@ Connection is already opened
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00046">46</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00212">MySQLConnection::Open()</a>.    </td>
+Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00228">MySQLConnection::Open()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="644235150bd420ccfbcd655d1115d7af"></a><!-- doxytag: member="BDDError::CONNECTION_CANNOT_CHANGE_DB" ref="644235150bd420ccfbcd655d1115d7af" args="" --><p>
@@ -113,7 +113,7 @@ Database cannot be changed for current connection
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00052">52</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00267">MySQLConnection::SetDatabase()</a>.    </td>
+Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00282">MySQLConnection::SetDatabase()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="ece74bdbc7de1854656227337f5c20eb"></a><!-- doxytag: member="BDDError::CONNECTION_CANNOT_OPEN" ref="ece74bdbc7de1854656227337f5c20eb" args="" --><p>
@@ -140,7 +140,7 @@ Connection cannot be made
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00049">49</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00212">MySQLConnection::Open()</a>.    </td>
+Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00228">MySQLConnection::Open()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="e2b22f9ace8a6e233a284f29f36207ef"></a><!-- doxytag: member="BDDError::CONNECTION_CLOSED" ref="e2b22f9ace8a6e233a284f29f36207ef" args="" --><p>
@@ -167,7 +167,7 @@ Connection is currently closed
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00043">43</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="BDDTable_8php-source.html#l00111">BDDTable::__construct()</a>, <a class="el" href="MySQLConnection_8php-source.html#l00382">MySQLConnection::Close()</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00267">MySQLConnection::SetDatabase()</a>.    </td>
+Referenced by <a class="el" href="BDDTable_8php-source.html#l00133">BDDTable::__construct()</a>, <a class="el" href="MySQLConnection_8php-source.html#l00392">MySQLConnection::Close()</a>, and <a class="el" href="MySQLConnection_8php-source.html#l00282">MySQLConnection::SetDatabase()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="417fd6b12b8df29eeb4fa2302c0233c4"></a><!-- doxytag: member="BDDError::CONNECTION_COLUMN_INEXISTANT" ref="417fd6b12b8df29eeb4fa2302c0233c4" args="" --><p>
@@ -194,7 +194,7 @@ Requested field does not exists in table
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00061">61</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="BDDRecord_8php-source.html#l00085">BDDRecord::GetProperty()</a>.    </td>
+Referenced by <a class="el" href="BDDRecord_8php-source.html#l00095">BDDRecord::GetProperty()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="7cbace17e290a7aeb7baac248c4b200f"></a><!-- doxytag: member="BDDError::CONNECTION_NOT_CLOSED" ref="7cbace17e290a7aeb7baac248c4b200f" args="" --><p>
@@ -221,7 +221,7 @@ Connection is currently not closed
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00040">40</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="BDDConnection_8php-source.html#l00150">BDDConnection::SetPassword()</a>, <a class="el" href="BDDConnection_8php-source.html#l00070">BDDConnection::SetServer()</a>, and <a class="el" href="BDDConnection_8php-source.html#l00110">BDDConnection::SetUsername()</a>.    </td>
+Referenced by <a class="el" href="BDDConnection_8php-source.html#l00160">BDDConnection::SetPassword()</a>, <a class="el" href="BDDConnection_8php-source.html#l00080">BDDConnection::SetServer()</a>, and <a class="el" href="BDDConnection_8php-source.html#l00120">BDDConnection::SetUsername()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="f248463c365a0d0c654c20e9b0fdd928"></a><!-- doxytag: member="BDDError::CONNECTION_QUERY_FAILED" ref="f248463c365a0d0c654c20e9b0fdd928" args="" --><p>
@@ -248,7 +248,7 @@ Query failed
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00055">55</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00313">MySQLConnection::Query()</a>.    </td>
+Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00329">MySQLConnection::Query()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="d6c7db60f07deb6b2b5fefc771603f61"></a><!-- doxytag: member="BDDError::CONNECTION_TABLE_INEXISTANT" ref="d6c7db60f07deb6b2b5fefc771603f61" args="" --><p>
@@ -275,7 +275,7 @@ Requested table does not exists in database
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00058">58</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00043">MySQLConnection::TableExists()</a>.    </td>
+Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00061">MySQLConnection::TableExists()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="26b30821decfbf3edf2ee60135ca8d67"></a><!-- doxytag: member="BDDError::RECORD_NOT_VALID" ref="26b30821decfbf3edf2ee60135ca8d67" args="" --><p>
@@ -302,7 +302,7 @@ Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00043">MySQL
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00070">70</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00196">MySQLTableGroup::UpdateGroupByIdGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00165">MySQLTableSite::UpdateSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00195">MySQLTableUser::UpdateUserByIdUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00168">MySQLTableVariable::UpdateVariableByIdVariable()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00207">MySQLTableGroup::UpdateGroupByIdGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00176">MySQLTableSite::UpdateSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00206">MySQLTableUser::UpdateUserByIdUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00179">MySQLTableVariable::UpdateVariableByIdVariable()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="051271e96623e0647fa7ed5301c17b43"></a><!-- doxytag: member="BDDError::RECORD_UPDATE_DOESNT_EXIST" ref="051271e96623e0647fa7ed5301c17b43" args="" --><p>
@@ -329,7 +329,7 @@ Cannot update an inexistant record
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00073">73</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00196">MySQLTableGroup::UpdateGroupByIdGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00165">MySQLTableSite::UpdateSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00195">MySQLTableUser::UpdateUserByIdUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00168">MySQLTableVariable::UpdateVariableByIdVariable()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableGroup_8php-source.html#l00207">MySQLTableGroup::UpdateGroupByIdGroup()</a>, <a class="el" href="MySQLTableSite_8php-source.html#l00176">MySQLTableSite::UpdateSiteByIdSite()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00206">MySQLTableUser::UpdateUserByIdUser()</a>, and <a class="el" href="MySQLTableVariable_8php-source.html#l00179">MySQLTableVariable::UpdateVariableByIdVariable()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="fda90cdc42742507614afa12a9baab5c"></a><!-- doxytag: member="BDDError::TABLE_CLASS_INCORRECT" ref="fda90cdc42742507614afa12a9baab5c" args="" --><p>
@@ -356,12 +356,12 @@ TableClass given does not implement valid interface or does not herit from <a cl
 <p>
 Definition at line <a class="el" href="BDDError_8php-source.html#l00067">67</a> of file <a class="el" href="BDDError_8php-source.html">BDDError.php</a>.
 <p>
-Referenced by <a class="el" href="Variable_8php-source.html#l00041">Variable::Validate()</a>, <a class="el" href="User_8php-source.html#l00042">User::Validate()</a>, and <a class="el" href="Group_8php-source.html#l00042">Group::Validate()</a>.    </td>
+Referenced by <a class="el" href="Variable_8php-source.html#l00066">Variable::Validate()</a>, <a class="el" href="User_8php-source.html#l00042">User::Validate()</a>, and <a class="el" href="Group_8php-source.html#l00062">Group::Validate()</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/DataBases/BDDConnection/Errors/<a class="el" href="BDDError_8php-source.html">BDDError.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:17 2006 for ExetronSystemProject by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:05:10 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

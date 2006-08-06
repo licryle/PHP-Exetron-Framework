@@ -73,7 +73,7 @@
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049 <span class="comment">//--------------------------------------------------------- Public Methods</span>
 <a name="l00050"></a>00050     
-<a name="l00051"></a><a class="code" href="classXHTMLPageTemplate.html#e2594c3b047fb871c053c8dcfdc6aa47">00051</a>     <span class="keyword">public</span> <span class="keyword">static</span> function <a class="code" href="classXHTMLPageTemplate.html#e2594c3b047fb871c053c8dcfdc6aa47">ConvertIntoSGML</a>( $source )
+<a name="l00059"></a><a class="code" href="classXHTMLPageTemplate.html#e2594c3b047fb871c053c8dcfdc6aa47">00059</a>     <span class="keyword">public</span> <span class="keyword">static</span> function <a class="code" href="classXHTMLPageTemplate.html#e2594c3b047fb871c053c8dcfdc6aa47">ConvertIntoSGML</a>( $source )
 <a name="l00060"></a>00060     {
 <a name="l00061"></a>00061         $newString = '';
 <a name="l00062"></a>00062         
@@ -86,25 +86,24 @@
 <a name="l00069"></a>00069         <span class="keywordflow">return</span> $newString;
 <a name="l00070"></a>00070     } <span class="comment">//----- End of ConvertIntoSGML</span>
 <a name="l00071"></a>00071         
-<a name="l00072"></a><a class="code" href="classXHTMLPageTemplate.html#38a87978c779f7dbd809de728aeea9c3">00072</a>     <span class="keyword">public</span> function GetBody ( )
+<a name="l00080"></a><a class="code" href="classXHTMLPageTemplate.html#38a87978c779f7dbd809de728aeea9c3">00080</a>     <span class="keyword">public</span> function GetBody ( )
 <a name="l00081"></a>00081     {
 <a name="l00082"></a>00082         <span class="keywordflow">return</span> $this-&gt;GetTag ( self::TAG_BODY );
 <a name="l00083"></a>00083     } <span class="comment">//----- End of GetBody</span>
 <a name="l00084"></a>00084         
-<a name="l00085"></a><a class="code" href="classXHTMLPageTemplate.html#9de0c180c5314a61893db76ebeb97391">00085</a>     <span class="keyword">public</span> function GetHeaders ( )
+<a name="l00091"></a><a class="code" href="classXHTMLPageTemplate.html#9de0c180c5314a61893db76ebeb97391">00091</a>     <span class="keyword">public</span> function GetHeaders ( )
 <a name="l00092"></a>00092     {
 <a name="l00093"></a>00093         <span class="keywordflow">return</span> $this-&gt;GetTag ( self::TAG_HEADERS );
 <a name="l00094"></a>00094     } <span class="comment">//----- End of GetHeaders</span>
 <a name="l00095"></a>00095 
 <a name="l00096"></a>00096         
-<a name="l00097"></a><a class="code" href="classXHTMLPageTemplate.html#7035d59c790739206d873a8b6c815717">00097</a>         <span class="keyword">public</span> function Generate ( )
+<a name="l00110"></a><a class="code" href="classXHTMLPageTemplate.html#7035d59c790739206d873a8b6c815717">00110</a>         <span class="keyword">public</span> function Generate ( )
 <a name="l00111"></a>00111         {
 <a name="l00112"></a>00112                 <span class="keywordflow">return</span> self::ConvertIntoSGML ( parent::Generate() );
 <a name="l00113"></a>00113         } <span class="comment">//------ End of Generate</span>
 <a name="l00114"></a>00114 
 <a name="l00115"></a>00115 <span class="comment">//-------------------------------------------- Constructeurs - destructeur</span>
-<a name="l00116"></a><a class="code" href="classXHTMLPageTemplate.html#f2f64d1d81be506d5a3b309f6a7677cc">00116</a>         function __construct () 
-<a name="l00117"></a>00117         
+<a name="l00123"></a><a class="code" href="classXHTMLPageTemplate.html#f2f64d1d81be506d5a3b309f6a7677cc">00123</a> <span class="comment"></span>        function __construct () 
 <a name="l00124"></a>00124         {
 <a name="l00125"></a>00125                 parent::__construct();
 <a name="l00126"></a>00126 
@@ -133,13 +132,13 @@
 <a name="l00149"></a>00149                 $this-&gt;SetTag ( self::TAG_HEADERS, <span class="keyword">new</span> <a class="code" href="classXHTMLHeadersTemplate.html">XHTMLHeadersTemplate</a>() );
 <a name="l00150"></a>00150         } <span class="comment">//---- End of __construct</span>
 <a name="l00151"></a>00151          
-<a name="l00152"></a><a class="code" href="classXHTMLPageTemplate.html#b3601a8c4bb24a27be5b0bd5c4777186">00152</a>     function __destruct( )
+<a name="l00155"></a><a class="code" href="classXHTMLPageTemplate.html#b3601a8c4bb24a27be5b0bd5c4777186">00155</a>     function __destruct( )
 <a name="l00156"></a>00156         {       
 <a name="l00157"></a>00157                 parent::__destruct();
 <a name="l00158"></a>00158         } <span class="comment">//----- End of Destructor</span>
 <a name="l00159"></a>00159   
 <a name="l00160"></a>00160 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
-<a name="l00161"></a><a class="code" href="classXHTMLPageTemplate.html#020c032595867cecf0c0d324917d6bda">00161</a>         <span class="keyword">public</span> function __ToString ()
+<a name="l00169"></a><a class="code" href="classXHTMLPageTemplate.html#020c032595867cecf0c0d324917d6bda">00169</a> <span class="comment"></span>        <span class="keyword">public</span> function __ToString ()
 <a name="l00170"></a>00170         {
 <a name="l00171"></a>00171                 <span class="keywordflow">return</span> $this-&gt;Generate ( );
 <a name="l00172"></a>00172         } <span class="comment">// End of __ToString</span>
@@ -155,7 +154,7 @@
 <a name="l00182"></a>00182 <span class="comment">//----------------------------------------------------- Others definitions</span>
 <a name="l00183"></a>00183 
 <a name="l00184"></a>00184 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:43 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:28 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

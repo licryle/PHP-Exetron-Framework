@@ -118,17 +118,17 @@ abstract class AbstractClass
 //--------------------------------------------------------- public methods
 
 //-------------------------------------------- Constructeurs - destructeur
-    public function __construct()
     /**
 	 * Initialises object
      */
+    public function __construct()
 	{
 	} //---- End of constructor
 	
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
         /*$vars = get_object_vars($this);
         
@@ -142,10 +142,10 @@ abstract class AbstractClass
     
 //---------------------------------------------------------- Magic Methods
 
-    public function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 */
+    public function __ToString ( )
     {
         return (string)var_export($this);
     } // End of __ToString
@@ -219,30 +219,30 @@ abstract class AbstractSingleton
 	//}
 
 //-------------------------------------------- Constructeurs - destructeur
-    protected function __construct()
 	/**
 	 * instanciates an AbstractSingleton (for overwriting only).
 	 *
 	 */
+    protected function __construct()
     {
     } //---- End of __construct
 	 
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 	} //----- End of Destructor
 
 //---------------------------------------------------------- Magic Methods
 
-    public function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    public function __ToString ( )
     {
 		return parrent::__ToString();
     } //----- End of __ToString
@@ -251,7 +251,6 @@ abstract class AbstractSingleton
     
 //------------------------------------------------------ protected methods
 	
-    protected static function getThis ( $class )
 	/**
 	 * Gets a unique instance of class $class.
 	 * Create it if it doesn't exist.
@@ -261,6 +260,7 @@ abstract class AbstractSingleton
 	 * @return unique instance of class $class
 	 *
 	 */
+    protected static function getThis ( $class )
 	{
 		if ( !IsSet ( self::$instance ) || ! IsSet ( self::$instance[ $class ] ) )
 		// instance creation
@@ -321,30 +321,29 @@ class Error extends AbstractClass
 
 //--------------------------------------------------------- public methods
     
-    public function GetMessage( )
 	/**
 	 * Gets message associated to the error.
 	 *
 	 * @return The message associated to the error
 	 *
      */
+    public function GetMessage( )
     {
         return $this->erreurString;
     }
     
-    public function GetCode( )
 	/**
 	 * Gets code associated to the error.
 	 *
 	 * @return The code associated to the error
 	 *
      */
+    public function GetCode( )
     {
         return $this->erreurCode;
     }
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct( $code, $str )
     /**
 	 * Initialises an Error object from a $code and a message $str.
 	 *
@@ -352,6 +351,7 @@ class Error extends AbstractClass
 	 * @param $str The message associated to the error
 	 *
      */
+    public function __construct( $code, $str )
     {
 		parent::__construct();
 	
@@ -359,22 +359,22 @@ class Error extends AbstractClass
         $this->erreurString = $str;
     } //---- End of constructor
 	
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		parent::__destruct();
 	} //----- End of Destructor
     
 //---------------------------------------------------------- Magic Methods
-    public function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    public function __ToString ( )
     {
         return $this->erreurString;
     } // End of __ToString
@@ -434,7 +434,6 @@ class Errors extends AbstractClass implements Iterator, AbstractIterator
 //----------------------------------------------------------------- PUBLIC
 
 //--------------------------------------------------------- public methods
-    public function Add( Error $item )
     /**
 	 * Adds an Error to the Sites if it is different than NULL.
 	 * Error-s are indexed by their code.
@@ -442,78 +441,78 @@ class Errors extends AbstractClass implements Iterator, AbstractIterator
      * @param $item the Error to add 
      *
      */
+    public function Add( Error $item )
     {
 		if ( $item == NULL ) return;
 		
         $this->errors[ $item->getCode( ) ] = $item;
     } //---- End of Add
 
-    public function DelAll( )
     /**
 	 * Clears the Iterator.
      *
      */
+    public function DelAll( )
     {
         unset($this->errors);
         
         $this->errors = array();
     } //---- End of DelAll
 
-    public function GetCount( )
     /**
 	 * Gets the number of items it contains.
      *
 	 * @return the number of items it contains
 	 *
      */
+    public function GetCount( )
     {
         return count( $this->errors );
     } //---- End of GetCount
     
 //--------------------------------------------- Iterator's implementation
-    public function Rewind( )
     /**
 	 * Gets back to the start of array.
 	 *
      */
+    public function Rewind( )
     {
         reset( $this->errors );
     } //--- End of Rewind
 
-    public function Current( )
     /**
 	 * Gets the current element of the array.
 	 *
 	 * @return the current element of array
 	 *
      */
+    public function Current( )
     {
         return current( $this->errors );
     } //---- End of Current
     
-    public function Key( )
     /**
 	 * Gets the key of the current element of the array.
 	 *
 	 * @return the key of the current element of array
 	 *
      */
+    public function Key( )
     {
         return $this->current( )->getCode( );
     } //---- End of Key
     
-    public function Next( )
     /**
 	 * Goes to the next element of array.
 	 *
 	 * @return next element of array
 	 *
      */
+    public function Next( )
     {
         return next( $this->errors );
     } //---- End of Next
     
-    public function Valid( )
     /**
 	 * Checks if array's element is valid or not.
 	 *
@@ -521,6 +520,7 @@ class Errors extends AbstractClass implements Iterator, AbstractIterator
 	 * @return - false otherwise
 	 *
      */
+    public function Valid( )
     {
         return $this->current( ) !== false;
     } //---- End of Valid
@@ -528,11 +528,11 @@ class Errors extends AbstractClass implements Iterator, AbstractIterator
 //--------------------------------------- End of Iterator's implementation
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct( )
     /**
 	 * Initialises Errors.
 	 *
      */
+    public function __construct( )
     {
 		parent::__construct();
 	
@@ -540,23 +540,23 @@ class Errors extends AbstractClass implements Iterator, AbstractIterator
     } //---- End of constructor
 
 
-    public function __destruct ( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    public function __destruct ( )
     {
 		parent::__destruct();
     } //---- End of destructor
     
 //---------------------------------------------------------- Magic Methods
 
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    function __ToString ( )
     {
         $str = '';
         
@@ -685,123 +685,98 @@ define('APPLICATION_H',1);*/
 
 //------------------------------------------------------------------------ 
 /*!
+ * Represents an application. All your PHP applications may inherits from
+ * this class. It has to be instancied by a first call to GetInstance().
+ * All next calls will only return the reference to the Application pre-
+ * viously instancied.
  *
+ * When application is started (a call to Start()), the Application object
+ * automatically calls the call back set up with OnApplicationStart().
+ *
+ * A call back is also called when application ends. Application uses the
+ * PHP's API register_shudown_function. You MUST NOT use this function by
+ * yourself as it would by pass Application class's callback.
+ *
+ * Application can keep the configuration of your application by using 
+ * SetConfiguration() and GetConfiguration().
+ *
+ * As a general abstraction of an application, Application does not
+ * include $_GET, $_POST or $_FILES variables. You may look at child named
+ * WebApplication.
+ *
+ * @see register_shutdown_function on http://www.php.net
+ * 
  */
 //------------------------------------------------------------------------ 
 
 class Application extends AbstractSingleton
 {
 //----------------------------------------------------------------- PUBLIC
-	//Unix Time of Application start
+	/** Variable index for Unix Time of Application start */
 	const SYSTEM_START_TIME = 'SYSTEM_START_TIME';
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
 	
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
     public static function GetInstance ( )
-    // User's manual :
-    //Getter of the unique instance. Create this if doesn't exist
-	//Must appears in all children.
-	//
-    // Contract :
-    //
 	{	
 		return parent::getThis( __CLASS__ );
-	} // End of GetInstance
+	} //----- End of GetInstance
 	
+    /**
+     * Get the object of type Variables that correspond 
+	 * to the configuration of Application. Configuration has to be set
+	 * with SetConfiguration().
+	 * 
+	 * You MUST NOT unset or change it's type using reference.
+	 *
+	 * @return the configuration of the application as a Variables' object.
+	 */
     public function GetConfiguration ( )
-    // User's manual :
-    //Get the object of type Variables that correspond
-	//to the configuration of Application
-	//
-	// Returns :
-	//- the configuration of the application
-	//
-    // Contract :
-    //- You must not unset the configuration or change it's type
-	//
 	{
 		return $this->configuration;
-	} // End of GetConfiguration
+	} //----- End of GetConfiguration
 	
+    /**
+     * Set the Application Configuration to the one given by $configuration.
+	 * If $configuration is NULL, the new confoguration will be empty.
+	 *
+	 * @param $configuration the new configuration of the application.
+	 */
     public function SetConfiguration ( Variables $configuration )
-    // User's manual :
-    //Set the Application Configuration to the one given by $configuration
-	//
-	// Returns :
-	//
-    // Contract :
-    //- You must not unset the configuration or change it's type
-    //- $configuration must be not null
-	//
 	{
-		$this->configuration = $configuration;
-	} // End of SetConfiguration
-	
-	// variables
-	
-    public function GetPOSTVariables ( )
-    // User's manual :
-    //Get the array of POST Variables
-	//
-	// Returns :
-	//- array of POST Variables
-	//
-	{
-		return $this->var_post;
-	} // End of GetPOSTVariables
-	
-    public function GetGETVariables ( )
-    // User's manual :
-    //Get the array of GET Variables
-	//
-	// Returns :
-	//- array of GET Variables
-	//
-	{
-		return $this->var_post;
-	} // End of GetGETVariables
-	
-    public function GetVariables ( )
-    // User's manual :
-    //Get the array of GLOBALS Variables
-	//
-	// Returns :
-	//- array of GLOBALS Variables
-	//
-	{
-		return $this->var_globals;
-	} // End of GetVariables
-	
-    public function GetFILES ( )
-    // User's manual :
-    //Get the array of FILES Variables
-	//
-	// Returns :
-	//- array of FILES Variables
-	//
-	{
-		return $this->var_globals;
-	} // End of GetFILES
-	
-	// end of variables
+		if ( $configuration == NULL )
+		{
+			unset ( $this->configuration );
+			$this->configuration = new Variables( new BBDRecordSet() );
+		}
+		else
+		{
+			$this->configuration = $configuration;
+		}
+	} //----- End of SetConfiguration
 	
 	
+    /**
+     * Start the application.
+	 * Call the call back function set up by OnApplicationStart.
+	 *
+	 * @return null if application successfully started
+	 * @return an object of type Errors in case of error(s).
+	 *
+	 */
     public function Start ( )
-    // User's manual :
-    //Start the application
-	//Call the call back function set up by OnApplicationStart
-	//
-	// Returns :
-	//- null if application successfully started
-	//- an object of type Errors in case of error(s)
-	//
-    // Contract :
-    //
 	{
 		if ( $this->started )
 		{
@@ -818,57 +793,52 @@ class Application extends AbstractSingleton
 		register_shutdown_function ( $this->onApplicationEnd, $this->systemVars );
 
 		return $this->launchCallBack ( 'onApplicationStart' );
-	} // End of Start
+	} //----- End of Start
 	
+    /**
+     * Set up call_back function for Application Start.
+	 * The $function will be called when Start() will.
+	 * 
+	 * @param $function the name of the function to be called
+	 * @param $params must be an array of parameters for the function
+	 * 
+	 * For calling method of a class, use array (& $obj, 'method_name')
+	 * 
+	 * @return an object of Errors' type in case of Error(s)
+	 * @return null instead
+	 * 
+	 * 
+	 * Errors may be composed by :
+	 * - ApplicationError::FUNCTION_NOT_CALLABLE;
+	 * - ApplicationError::FUNCTION_PARAM_NOT_ARRAY;
+	 * - ApplicationError::CALLBACK_NOT_EXISTS;
+	 * 
+	 */
     public function OnApplicationStart ( $function, $params )
-    // User's manual :
-    //Set up call_back function for Application Start.
-	//The $function will be called when Start() will
-	//
-	//$function is the name of the function to be called
-	//$params must be an array of parameters for the function
-	//
-	//For calling method of a class, use array (& $obj, 'method_name')
-	//
-	// Returns :
-	//- return an object of Errors' type in case of Error(s)
-	//- null instead
-	//
-	//
-	// Errors may be composed by :
-	// - ApplicationError::FUNCTION_NOT_CALLABLE;
-	// - ApplicationError::FUNCTION_PARAM_NOT_ARRAY;
-	// - ApplicationError::CALLBACK_NOT_EXISTS;
-	//
-    // Contract :
-    //
 	{
 		return $this->setCallBack ( 'onApplicationStart', $function, $params ) ;
-	}
+	} //----- End of OnApplicationStart
 	
+    /**
+     * Set up call_back function for Application End.
+	 * The $function will be called when Script will be stopped
+	 * 
+	 * @param $function the name of the function to be called
+	 * @param $function may accept 1 argument. This argument will be an array of system variables
+	 * Please look at the definition of systemVars
+	 * 
+	 * For calling method of a class, use array (& $obj, 'method_name')
+	 * 
+	 * @return an object of Errors' type in case of Error(s)
+	 * @return null instead
+	 *
+	 * Errors may be composed by :
+	 * - ApplicationError::FUNCTION_NOT_CALLABLE;
+	 * - ApplicationError::FUNCTION_PARAM_NOT_ARRAY;
+	 * - ApplicationError::CALLBACK_NOT_EXISTS;
+	 *
+     */
     public function OnApplicationEnd ( $function )
-    // User's manual :
-    //Set up call_back function for Application End.
-	//The $function will be called when Script will be stopped
-	//
-	//$function is the name of the function to be called
-	//$function may accept 1 argument. This argument will be an array of system variables
-	//Please look at the definition of systemVars
-	//
-	//For calling method of a class, use array (& $obj, 'method_name')
-	//
-	// Returns :
-	//- return an object of Errors' type in case of Error(s)
-	//- null instead
-	//
-	//
-	// Errors may be composed by :
-	// - ApplicationError::FUNCTION_NOT_CALLABLE;
-	// - ApplicationError::FUNCTION_PARAM_NOT_ARRAY;
-	// - ApplicationError::CALLBACK_NOT_EXISTS;
-	//
-    // Contract :
-    //
 	{
 		$falseArray = array();
 			$errors = $this->setCallBack ( 'onApplicationEnd', $function, $falseArray ) ;
@@ -880,15 +850,16 @@ class Application extends AbstractSingleton
 		}
 
 		return null;
-	}
+	} //----- End of OnApplicationEnd
 
 //---------------------------------------------- Constructors - destructor
+	/**
+	 * Initialises systems vars, configuration and default call backs.
+	 */
     protected function __construct()
-    // User's manual :
-    //Internal constructor that disable instanciation
-    // Contract :
-    //
     {
+		parent::__construct();
+		
 		$this->configuration = new Variables ( new BDDRecordSet() );
 		$this->started = false;
 		
@@ -899,30 +870,25 @@ class Application extends AbstractSingleton
 		
 		$this->onApplicationEnd = -1;
 		$this->onApplicationEndParams = -1;
-		
-		$this->var_globals = & $GLOBALS;
-		$this->var_post = & $_POST;
-		$this->var_get = & $_GET;
-		$this->var_files = & $_FILES;
-    	
     } //---- End of __construct
 
 
+	/**
+	 * Destructs ressources allocated
+	 *
+	 */
     public function __destruct ( )
-    // User's manual :
-    //
-    // Contract :
-    //
     {
+		parent::__destruct();
     } //---- End of __destruct
     
 //---------------------------------------------------------- Magic Methods
 
+    /**
+	 * An application should never printed to screen so this method always
+	 * returns an empty string.
+	 */
     public function __ToString ( )
-    // User's manual :
-    //
-    // Contract :
-    //
     {
 		return '';
     } //---- End of __ToString
@@ -930,23 +896,21 @@ class Application extends AbstractSingleton
 //---------------------------------------------------------------- PRIVATE 
 
 //------------------------------------------------------ protected methods
-    // protected type Méthode ( );
-    // User's manual :
-    //
-    // Contract :
-    //
 	
-	protected function isCorrectCallBack ( & $function, & $params, Errors $errors )
-	// User's manual :
-	//Let us know if a $function and it's $params are good to form a 
-	//call back function
-	//
-	// Returns :
-	//- true if the function can be set as CallBack
-	//- false instead
-	//
-	// Contract :
-	//$errors must be not null
+	/**
+	 * Let us know if a $function and it's $params are good to form a 
+	 * call back function
+	 *
+	 * @param $function The function tobe verified
+	 * @param $params The parameters for the function as a call back
+	 * @param $errors The "return by reference"'s variable for errors detected.
+	 *
+	 * $errors MUST BE a valid Errors object.
+	 *
+	 * @return true if the function can be set as CallBack
+	 * @return false instead
+	 */
+	protected function isCorrectCallBack ( & $function, & $params, Errors & $errors )
 	{	
 		// function incorrect or doesn't have good scope
 		if ( !is_callable( $function ) )
@@ -961,25 +925,25 @@ class Application extends AbstractSingleton
 		}
 		
 		return ( $errors->GetCount () == 0 );
-	} // End of isCorrectCallBack
+	} //------ End of isCorrectCallBack
 	
+	/**
+	 * Internally sets call back for callback named $callBackName/
+	 *
+	 * @param $callBackName the name of the call back to be set
+	 * @param $function the function to set as a callback
+	 * @param $params the parameters for the function to be set
+	 *
+	 * @return an object of Errors' type in case of Error(s)
+	 * @return null instead
+	 *
+	 * Errors may be composed by :
+	 * - ApplicationError::FUNCTION_NOT_CALLABLE;
+	 * - ApplicationError::FUNCTION_PARAM_NOT_ARRAY
+	 * - ApplicationError::CALLBACK_NOT_EXISTS
+	 *
+	 */
 	protected function setCallBack ( $callBackName, & $function, & $params )
-	// User's manual :
-	//Let us know if a $function and its $params are good to form a 
-	//call back function
-	//
-	// Returns :
-	//- return an object of Errors' type in case of Error(s)
-	//- null instead
-	//
-	//
-	// Errors may be composed by :
-	// - ApplicationError::FUNCTION_NOT_CALLABLE;
-	// - ApplicationError::FUNCTION_PARAM_NOT_ARRAY
-	// - ApplicationError::CALLBACK_NOT_EXISTS
-	//
-	// Contract :
-	//
 	{			
 		$errors = new Errors();
 		
@@ -1003,21 +967,18 @@ class Application extends AbstractSingleton
 		unset ( $errors );
 		
 		return null;
-	} // End of setCallBack
+	} //----- End of setCallBack
 	
+	/**
+	 * Launch CallBack function that names $callBackName.
+	 * 
+	 * @param $callBackName the name of the call back to be called
+	 *
+	 * @return an object of Errors' type in case of Error(s)
+	 * @return null instead
+	 *
+	 */
 	protected function launchCallBack ( $callBackName )
-	// User's manual :
-	//Launch CallBack function that names $callBackName
-	//
-	// Returns :
-	//- return an object of Errors' type in case of Error(s)
-	//- null instead
-	//
-	//
-	// Errors may be composed by :
-	//
-	// Contract :
-	//
 	{
 		// launch start call_back function if set
 		if ( @$this->{ $callBackName } !== -1 )
@@ -1033,30 +994,199 @@ class Application extends AbstractSingleton
 			
 			return $errors;
 		}
-	} // End of launchCallBack
+	} //----- End of launchCallBack
 
 //--------------------------------------------------- protected properties
-	protected $started; // check if the application has already been started
+	/** check if the application has already been started */
+	protected $started;
 
+	/**
+	 * The system's variable of the Application
+	 * Contains Application Vars :
+	 *- SYSTEM_START_TIME : Unix Time of Application start
+	 *
+	 */
 	protected $systemVars; 
-	// Contains Application Vars :
-	//- SYSTEM_START_TIME : Unix Time of Application start
 	
 	// call-backs
+	
+	/** the function to call back on Application start */
 	protected $onApplicationStart;
+	/** the parameters of the function to call back on application start */
 	protected $onApplicationStartParams;
 	
+	/** the function to call back on Application end */
 	protected $onApplicationEnd;
-	protected $onApplicationEndParams; // false params for ending call_back
+	/**
+	 * false parameters of the function to call back on application end
+	 * The true parameters are generated from system configuration.
+	 *
+	 */
+	protected $onApplicationEndParams;
+	
+	/** contains the configuration of the Application */
+	protected $configuration;
+}
+
+//----------------------------------------------------- Others definitions
+
+
+
+/*************************************************************************
+                           |WebApplication.php|
+                             -------------------
+    start                : |02.06.2006|
+    copyright            : (C) 2006 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
+*************************************************************************/
+
+//---------- Class <WebApplication> (file WebApplication.php) ------------
+/*if (defined('WEBAPPLICATION_H'))
+{
+    return;
+}
+else
+{
+
+}
+define('WEBAPPLICATION_H',1);*/
+
+//--------------------------------------------------------------- Includes 
+
+//-------------------------------------------------------------- Constants
+
+//----------------------------------------------------------------- PUBLIC
+
+//------------------------------------------------------------------ Types 
+
+//------------------------------------------------------------------------ 
+/*!
+ * Web extension of an Application. Implements global variables manage-
+ * ment : $_POST, $_GET, $_FILE.
+ * 
+ */
+//------------------------------------------------------------------------ 
+
+class WebApplication extends Application
+{
+//----------------------------------------------------------------- PUBLIC
+
+//--------------------------------------------------------- Public Methods
+	
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
+    public static function GetInstance ( )
+	{
+		return parent::getThis( __CLASS__ );
+	} //----- End of GetInstance
+		// variables
+	
+    /**
+	 * Gets the array of POST Variables
+	 *
+	 * @return - array of POST Variables
+	 *
+	 */
+    public function GetPOSTVariables ( )
+	{
+		return $this->var_post;
+	} //---- End of GetPOSTVariables
+	
+    /**
+	 * Gets the array of GET Variables
+	 *
+	 * @return - array of GET Variables
+	 *
+	 */
+    public function GetGETVariables ( )
+	{
+		return $this->var_post;
+	} //----- End of GetGETVariables
+	
+    /**
+	 * Gets the array of GLOBALS Variables
+	 *
+	 * @return - array of GLOBALS Variables
+	 *
+	 */
+    public function GetVariables ( )
+	{
+		return $this->var_globals;
+	} //----- End of GetVariables
+	
+    /**
+	 * Gets the array of FILES Variables
+	 *
+	 * @return - array of FILES Variables
+	 *
+	 */
+    public function GetFILES ( )
+	{
+		return $this->var_files;
+	} //----- End of GetFILES
+	
+	// end of variables
+//---------------------------------------------- Constructors - destructor
+	/**
+	 * Initialises systems vars, configuration and default call backs.
+	 */
+    protected function __construct()
+    {
+		parent::__construct();
+		
+		$this->var_globals = & $GLOBALS;
+		$this->var_post = & $_POST;
+		$this->var_get = & $_GET;
+		$this->var_files = & $_FILES;
+    	
+    } //---- End of __construct
+
+
+	/**
+	 * Destructs ressources allocated
+	 */
+    public function __destruct ( )
+    {
+		parent::__destruct();
+    } //---- End of __destruct
+    
+//---------------------------------------------------------- Magic Methods
+
+    /**
+	 * An application should never printed to screen so this method always
+	 * returns an empty string.
+	 */
+    public function __ToString ( )
+    {
+		return parent::_ToString();
+    } //---- End of __ToString
+
+//---------------------------------------------------------------- PRIVATE 
+
+//------------------------------------------------------ protected methods
+
+//--------------------------------------------------- protected properties
+
 	
 	// globals
+	/** represents $_GET */
 	protected $var_get;
+	/** represents $_POST */
 	protected $var_post;
+	/** represents $_GLOBALS */
 	protected $var_global;
+	/** represents $_FILES */
 	protected $var_files;
-	
-	//configuration of the Application
-	protected $configuration;
 }
 
 //----------------------------------------------------- Others definitions
@@ -1148,7 +1278,7 @@ define('ABSTRACTSITEPAGE_H',1);*/
 //------------------------------------------------------------------------ 
 /*!
  * Provides generic methods for SitePages for WebApplications.
- * It is a "call back" class that auto sets itself into Application unique
+ * It is a "call back" class that auto sets itself into WebApplication unique
  * instance.
  *
  * It sets ApplicationStart /ApplicationEnd with respectively OnLoad / 
@@ -1164,8 +1294,17 @@ abstract class AbstractSitePage extends AbstractSingleton
 //----------------------------------------------------------------- PUBLIC
 
 //--------------------------------------------------------- Public Methods
+
+	/**
+	 * Gets the current web application
+	 *	 
+	 * @return unique instance of a WebApplication object
+	 */
+	public function GetApplication()
+	{
+		return $this->application;
+	} //---- End of GetApplication
 	
-    public static function GetInstance ( )
 	/**
 	 * Gets a unique instance of current class.
 	 * Create it if it doesn't exist.
@@ -1178,13 +1317,14 @@ abstract class AbstractSitePage extends AbstractSingleton
 	 * @see AbstractSingleton::getThis()
 	 *
 	 */
+    public static function GetInstance ( )
 	{	
 		return parent::getThis( __CLASS__ );
 	} // End of GetInstance
 	
 	
 	/**
-	 * callback function to be called by Application on ApplicationStart
+	 * callback function to be called by WebApplication on ApplicationStart
 	 *
 	 * @see Application class
 	 *
@@ -1200,7 +1340,7 @@ abstract class AbstractSitePage extends AbstractSingleton
     abstract public function Process ( );
 	
 	/**
-	 * callback function to be called by Application on ApplicationEnd
+	 * callback function to be called by WebApplication on ApplicationEnd
 	 *
 	 * @param $applicationVars arguments passed by Application on function
 	 * call - see Application class
@@ -1211,7 +1351,6 @@ abstract class AbstractSitePage extends AbstractSingleton
     abstract public function OnUnLoad ( $applicationVars );
 
 //---------------------------------------------- Constructors - destructor
-    protected function __construct()
 	/**
 	 * instanciates an AbstractSitePage (for overwriting only).
 	 *
@@ -1220,38 +1359,37 @@ abstract class AbstractSitePage extends AbstractSingleton
 	 * It initialises application for running as Web application on the base
 	 * of this class child.
 	 */
+    protected function __construct()
     {
 		parent::__construct();
 		
-		$appl = Application::GetInstance ();
+		$this->application = WebApplication::GetInstance ();
 
-		$appl->OnApplicationStart ( array ( & $this, 'OnLoad' ), array() );
-		$appl->OnApplicationEnd ( array ( & $this, 'OnUnLoad' ), array() );
+		$this->application->OnApplicationStart ( array ( & $this, 'OnLoad' ), array() );
+		$this->application->OnApplicationEnd ( array ( & $this, 'OnUnLoad' ), array() );
 
-		$appl->Start();
-
-		unset ( $appl );
+		$this->application->Start();
 		
 		$this->Process();
     } //---- End of __construct
 	 
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{	
 		parent::__destruct();
 	} //----- End of Destructor
 
 //---------------------------------------------------------- Magic Methods
 
-    public function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    public function __ToString ( )
     {
 		return parrent::__ToString();
     } //----- End of __ToString
@@ -1261,6 +1399,9 @@ abstract class AbstractSitePage extends AbstractSingleton
 //------------------------------------------------------ protected methods
 
 //------------------------------------------------------ protected members
+	
+	/** application object linked to SitePage */
+	protected $application;
 
 }
 
@@ -1329,15 +1470,15 @@ class SessionError extends Error
 
 
 /*************************************************************************
-                           |Session.php|  -  description
+                           |SessionInterface.php|
                              -------------------
-    début                : |09.02.2006|
+    début                : |28.07.2006|
     copyright            : (C) 2005 par BERLIAT Cyrille
-    e-mail               : cyrille.berliat@free.fr
+    e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//---------- Interface de la classe <Session> (fichier Session.php) --------------
-if (defined('SESSION_H'))
+//----- Interface <SessionInterface> (file SessionInterface.php) ---------
+/*if (defined('SESSION_H'))
 {
     return;
 }
@@ -1345,95 +1486,213 @@ else
 {
 
 }
-define('SESSION_H',1);
+define('SESSION_H',1);*/
 
-//-------------------------------------------------------- Include système
+//--------------------------------------------------------------- Includes 
 
-//------------------------------------------------------ Include personnel
-
-//------------------------------------------------------------- Constantes
+//-------------------------------------------------------------- Constants
 
 //----------------------------------------------------------------- PUBLIC
 
 //------------------------------------------------------------------ Types 
 
 //------------------------------------------------------------------------ 
-// Rôle de la classe <Session>
-//fournir une abstraction pour la gestion de session basé sur le
-//système de gestion de session PHP.
-//
+/*!
+ * Provides basic methods for all sessions management
+ */
 //------------------------------------------------------------------------ 
 
-class Session extends AbstractSingleton implements Iterator//, AbstractIterator
+interface SessionInterface
 {
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-    // public function Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+//--------------------------------------------------------- public methods
+
+    /** 
+	 * Destructs the sessions and all informations relatives to this session
+	 */
+    public function Destruct( );
 	
+	/**
+	 * Gets the session id.
+	 *
+	 * @return The id of the session
+	 */
+    public function GetId( );
+   
+	/**
+	 * Sets the session id.
+	 *
+	 * This function must be call before the first call of GetInstance().
+	 *
+	 * @param $id the id to be set.
+	 *
+	 */
+    public static function SetId( $id );
+	
+	/**
+	 * Checks whether the varaiable named $name exists or not.
+	 *
+	 * @param $name The name of the variable to check for
+	 *
+	 * @return - True if a variable named $name exists
+	 * @return - False otherwise
+	 */
+    public function IsSetVariable( $name );
+	
+	/**
+	 * Unsets the variable named $name.
+	 *
+	 * @param $name The name of the variable to be unsetted
+	 *
+	 * @return - an object of type Errors in case of error(s)
+	 * @return - NULL if operation was successful
+	 */
+    public function UnSetVariable( $name );
+    
+	/**
+	 * Sets the variable named $name with the value $value.
+	 * If a variable named $name already exists, it is replaced.
+	 *
+	 * $name must NOT be only numéric or it will not be saved (due to
+	 * a bug in PHP's API).
+	 *
+	 * @param $name The name of the variable to be set.
+	 * @param $value The value to be associated to variable named $name
+	 *
+	 */
+    public function SetVariable(  $name, $value );
+
+	/**
+	 * Gets the value associated to variable named $name.
+	 *
+	 * @param $name The name of the variable to be get.
+	 *
+	 * @return - an object of type Errors in case of error(s)
+	 * @return - the content of the variable named $name
+	 *
+	 */
+    public function GetVariable( $name );
+	
+}
+
+//------------------------------------------------------ other definitions
+
+
+
+/*************************************************************************
+                           |Session.php|
+                             -------------------
+    début                : |09.02.2006|
+    copyright            : (C) 2005 par BERLIAT Cyrille
+    e-mail               : cyrille.berliat@free.fr
+*************************************************************************/
+
+//---------- Class <Session> (file Session.php) --------------
+/*if (defined('SESSION_H'))
+{
+    return;
+}
+else
+{
+
+}
+define('SESSION_H',1);*/
+
+//--------------------------------------------------------------- Includes 
+
+//-------------------------------------------------------------- Constants
+
+//----------------------------------------------------------------- PUBLIC
+
+//------------------------------------------------------------------ Types 
+
+//------------------------------------------------------------------------ 
+/*!
+ * Provides an abstraction for basic PHP's sessions management.
+ */
+//------------------------------------------------------------------------ 
+
+class Session extends AbstractSingleton implements Iterator, SessionInterface//, AbstractIterator
+{
+//----------------------------------------------------------------- PUBLIC
+
+//--------------------------------------------------------- public methods
+	
+
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
     public static function GetInstance ( )
-    // User's manual :
-    //Getter of the unique instance. Create this if doesn't exist
-	//Must appears in all children.
-	//
-    // Contract :
-    //
 	{	
 		return parent::getThis( __CLASS__ );
-	} // End of GetInstance
+	} //---- End of GetInstance
    
+    /** 
+	 * Destructs the sessions and all informations relatives to this session
+	 */
     public function Destruct( )
-    // Mode d'emploi :
-    //Détruit la session.
-	//
     {
 		session_destroy ( );
 		
 		unset ( $_SESSION );
 		$_SESSION = array();
-    } //---- Fin de Destruct 
+    } //---- End of Destruct 
 	
+	/**
+	 * Gets the session id.
+	 *
+	 * @return The id of the session
+	 */
     public function GetId( )
-    // Mode d'emploi :
-    //Permet de connaitre l'identifiant de la session.
-	//
-	// Retourne :
-	//- l'identifiant de la session
-	//
     {
 		return session_id ( );
-    } //---- Fin de GetId 
+    } //---- End of GetId 
    
-    public function SetId( $id )
-    // Mode d'emploi :
-    //Permet de mettre à jour l'identifiant de la session
-	//
+	/**
+	 * Sets the session id.
+	 *
+	 * This function must be call before the first call of GetInstance().
+	 *
+	 * @param $id the id to be set.
+	 *
+	 */
+    public static function SetId( $id )
     {
 		session_id ( $id );
-    } //---- Fin de SetId
+    } //---- End of SetId
 
+	/**
+	 * Checks whether the varaiable named $name exists or not.
+	 *
+	 * @param $name The name of the variable to check for
+	 *
+	 * @return - True if a variable named $name exists
+	 * @return - False otherwise
+	 */
     public function IsSetVariable( $name )
-    // Mode d'emploi :
-    //Permet de connaitre si une variable de session existe ou non
-    //
-	// Retourne :
-	//- vrai si la variable de session existe
-	//- faux sinon
     {
 		return isset( $_SESSION [ $name ] );
-    } //---- Fin de IsSetVariable 
+    } //---- End of IsSetVariable 
 	
+	/**
+	 * Unsets the variable named $name.
+	 *
+	 * @param $name The name of the variable to be unsetted
+	 *
+	 * @return - an object of type Errors in case of error(s)
+	 * @return - NULL if operation was successful
+	 */
     public function UnSetVariable( $name )
-    // Mode d'emploi :
-    //Permet de connaitre si une variable de session existe ou non
-    //
-	// Retourne :
-	//- un objet de type Errors en cas d'erreur
-	//- true sinon
     {
 		if ( ! $this->IsSetVariable ( $name ) )
 		{
@@ -1446,30 +1705,37 @@ class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 		{
 			unset ( $_SESSION [ $name ] );
 			
-			return true;
+			return NULL;
 		}
-    } //---- Fin de UnSetVariable 
+    } //---- End of UnSetVariable 
 
     
+	/**
+	 * Sets the variable named $name with the value $value.
+	 * If a variable named $name already exists, it is replaced.
+	 *
+	 * $name must NOT be only numéric or it will not be saved (due to
+	 * a bug in PHP's API).
+	 *
+	 * @param $name The name of the variable to be set.
+	 * @param $value The value to be associated to variable named $name
+	 *
+	 */
     public function SetVariable(  $name, $value )
-    // Mode d'emploi :
-    //Met à jour le contenu de la variable de session de nom $name avec le
-	//contenu $value
-	//
-	// Contrat :
-	//- $name ne peut etre uniquement numérique ni un objet ni une ressource
-    //
     {	
 		$_SESSION [ $name ] = $value;
-    } //---- Fin de SetVariable
+    } //---- End of SetVariable
 
+	/**
+	 * Gets the value associated to variable named $name.
+	 *
+	 * @param $name The name of the variable to be get.
+	 *
+	 * @return - an object of type Errors in case of error(s)
+	 * @return - the content of the variable named $name
+	 *
+	 */
     public function GetVariable( $name )
-    // Mode d'emploi :
-    //Récupère le contenu de la variable de session $name
-	//
-	// Retourne :
-    //- un objet de type Errors en cas d'erreur
-	//- le contenu de la variable de nom $name
     {
 		if ( ! $this->IsSetVariable ( $name ) )
 		{
@@ -1482,81 +1748,102 @@ class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 		{
 			return ( $_SESSION [ $name ] );
 		}
-    } //---- Fin de GetVariable
+    } //---- End of GetVariable
 
+    /**
+	 * Clears the Iterator.
+     *
+     */
     public function DelAll( )
-    // Mode d'emploi :
-    //Remet à zero la liste des variables
-    //
     {
         unset( $_SESSION );
         
         $_SESSION = array();
-    } //---- Fin de DelAll
+    } //---- End of DelAll
 
+    /**
+	 * Gets the number of items it contains.
+     *
+	 * @return the number of items it contains
+	 *
+     */
     public function GetCount( )
-    // Mode d'emploi :
-    //retourne le nombre de variables contenues dans la liste
-    //
-    // Renvoie :
-    //le nombre d'erreurs contenues
     {
         return count( $_SESSION );
-    } //---- Fin de GetCount
+    } //---- End of GetCount
     
-//-----------------------------------------------Implémentation Iterator
+//--------------------------------------------- Iterator's Implémentation
+    /**
+	 * Gets back to the start of array.
+	 *
+     */
     public function Rewind( )
-    // Mode d'emploi :
-    //Revient au début de la liste
-    //
     {
         reset( $_SESSION );
-    } //--- Fin de Rewind
+    } //--- End of Rewind
 
+    /**
+	 * Gets the current element of the array.
+	 *
+	 * @return the current element of array
+	 *
+     */
     public function Current( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne l'élément actuel de la liste
-    //
     {
         return current( $_SESSION );
-    } //---- fin de Current
+    } //---- End of Current
     
+    /**
+	 * Gets the key of the current element of the array.
+	 *
+	 * @return the key of the current element of array
+	 *
+     */
     public function Key( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne le nom de la variable pointée par la liste
-    //
     {
         return Key ( $_SESSION );
-    } //---- Fin de Key
+    } //---- End of Key
     
+    /**
+	 * Goes to the next element of array.
+	 *
+	 * @return next element of array
+	 *
+     */
     public function Next( )
-    // Mode d'emploi  :
-    //avance le pointeur de 1 dans la liste
-    //
-    // Renvoie :
-    // le nouvel élément pointé
-    //
     {
         return next( $_SESSION );
-    } //---- Fin de Next
+    } //---- End of Next
     
+    /**
+	 * Checks if array's element is valid or not.
+	 *
+	 * @return - true if element is valid
+	 * @return - false otherwise
+	 *
+     */
     public function Valid( )
-    // Mode d'emploi  :
-    //
-    // Renvoie :
-    //retourne vrai ou faux si l'élément est valide
-    //
     {
         return Session::current( ) !== false;
-    } //---- Fin de Valid
+    } //---- End of Valid
 
-//------------------------------------ Fin de l'implémentation de Iterator
+//--------------------------------------- End of Iterator's implémentation
 
 //-------------------------------------------- Constructeurs - destructeur
+	/**
+	 * Instanciates a Session object.
+	 *
+	 * Instianciation must happen before any print out to the screen.
+	 *
+	 * It will try to determine if a session is active and will work with
+	 * if found.
+	 *
+	 * If no active session has ben found, a new session will be created
+	 * with an unique id.
+	 *
+	 * @see http://fr.php.net/manual/en/function.session-start.php
+	 *
+	 */
     protected function __construct( $sessId = '', $sessName = '' )
     // Mode d'emploi (constructeur) :
     //instancie un objet de type Session.
@@ -1568,7 +1855,7 @@ class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 	//Si $sessName est fournit, celui est modifie le nom de la session.
 	//
     // Contrat :
-    //- l'instanciation doit s'effectuer avant toute sortie à l'écran afin de 
+    //- l'instanciation doit s'effectuer avant toute sortie à l'écran aEnd of 
 	//que les entetes cookie soient correctement envoyées.
 	//- $sessName doit etre alphanumerique sinon le nom ne sera pas changé
     {
@@ -1577,42 +1864,43 @@ class Session extends AbstractSingleton implements Iterator//, AbstractIterator
 		{
 			session_name ( $sessName );
 		}
-		
-		// id de session
-		if ( !empty( $sessId ) )
-		{
-			session_id( $sessId );
-		}
 
 		// start session
     	session_start( );
-    } //---- Fin du constructeur
+    } //---- End of constructeur
 
-/*
+	/**
+	 * Destructs ressources allocated
+	 *
+	 * Does not destruct the session, just the Session object.
+	 */
     public function __destruct ( )
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
     {
-    } //---- Fin du destructeur*/
+		parent::__destruct();
+    } //---- End of destructor
+    
+//---------------------------------------------------------- Magic Methods
 
-//------------------------------------------------------ Méthodes Magiques
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    function __ToString ( )
+    {
+        return parent::__ToString();
+    } // End of __ToString
 
-//------------------------------------------------------------------ PRIVE 
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
 
-//----------------------------------------------------- Méthodes protégées
-    // protected type Méthode ( liste des paramètres );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//----------------------------------------------------- Attributs protégés
+//------------------------------------------------------ protected members
 
 }
 
-//-------------------------------- Autres définitions dépendantes de <Session>
+//------------------------------------------------------ other definitions
 
 
 
@@ -1747,7 +2035,6 @@ class BDDRecord extends AbstractClass implements Iterator
 
 //--------------------------------------------------------- public methods
 
-    public function IsValid (  )
     /**
 	 * Checks if the BDDRecord is ready to be saved into DataBase.
 	 * Uses the method Validate() to make the racord valid.
@@ -1756,11 +2043,11 @@ class BDDRecord extends AbstractClass implements Iterator
 	 * @return - false otherwise
      *
      */
+    public function IsValid (  )
 	{
 		return true;
 	} //----- End of IsValid
 	
-    public function Validate (  )
     /**
 	 * Tries to validate the BDDRecord in order to save it into DataBase.
      *
@@ -1768,13 +2055,13 @@ class BDDRecord extends AbstractClass implements Iterator
 	 * @return - an Errors object in case of error(s)
      *
      */
+    public function Validate (  )
     {
 		$this->isValid = true;
 	
 		return NULL;
 	} //----- End of Validate
 	
-    public function PropertyExists( $propertyName )
     /**
 	 * Checks if the property $propertyName exists into the BDDRecord.
      *
@@ -1784,11 +2071,11 @@ class BDDRecord extends AbstractClass implements Iterator
 	 * @return - false otherwise
      *
      */
+    public function PropertyExists( $propertyName )
     {
 		return ( isset ( $this->row[ $propertyName ] ) );
     } //----- End of PropertyExists
 	
-    public function GetProperty( $propertyName )
     /**
 	 * Returns the value associated to property $propertyName.
      *
@@ -1799,6 +2086,7 @@ class BDDRecord extends AbstractClass implements Iterator
 	 * @return 		BDDError::CONNECTION_COLUMN_INEXISTANT if property doesn't exist.
      *
      */
+    public function GetProperty( $propertyName )
     {
 		if ( $this->PropertyExists( $propertyName ) )
 		{
@@ -1814,7 +2102,6 @@ class BDDRecord extends AbstractClass implements Iterator
 		}
     } //----- End of GetProperty
 	
-    public function SetProperty( $propertyName , $propertyValue )
     /**
 	 * Sets the property named $propertyName with value $propertyValue.
 	 * If property doesn't exists, it is created.
@@ -1823,67 +2110,67 @@ class BDDRecord extends AbstractClass implements Iterator
 	 * @param $propertyValue value to associate to property
      *
      */
+    public function SetProperty( $propertyName , $propertyValue )
     {
 		$this->row [ $propertyName ] = $propertyValue;
 		
 		$this->isValid = false;
     } //----- End of SetProperty
 	
-	public function GetPropertyCount ( )
     /**
 	 * Gets the number of properties of the object.
      *
 	 * @return the number of properties of the object
      *
      */
+	public function GetPropertyCount ( )
 	{
 			return count ( $this->row );
 	} //----- End of GetPropertyCount
 	
 //------------------------------------------- Implementation's of Iterator
-    public function Rewind( )
     /**
 	 * Gets back to the start of array.
 	 *
      */
+    public function Rewind( )
     {
         reset( $this->row );
     } //--- End of Rewind
 
-    public function Current( )
     /**
 	 * Gets the current element of the array.
 	 *
 	 * @return the current element of array
 	 *
      */
+    public function Current( )
     {
         return current( $this->row );
     } //---- End of Current
     
-    public function Key( )
     /**
 	 * Gets the key of the current element of the array.
 	 *
 	 * @return the key of the current element of array
 	 *
      */
+    public function Key( )
     {
         return key( $this->row );
     } //---- End of Key
     
-    public function Next( )
     /**
 	 * Goes to the next element of array.
 	 *
 	 * @return next element of array
 	 *
      */
+    public function Next( )
     {
         return next( $this->row );
     } //---- End of Next
     
-    public function Valid( )
     /**
 	 * Checks if array's element is valid or not.
 	 *
@@ -1891,13 +2178,13 @@ class BDDRecord extends AbstractClass implements Iterator
 	 * @return - false otherwise
 	 *
      */
+    public function Valid( )
     {
         return $this->current( ) !== false;
     } //---- End of Valid
 //--------------------------------------- End of Iterator's implementation
 
 //---------------------------------------------- Constructors - destructor
-    function __construct( $row = NULL )
     /**
 	 * Initialises BDDRecord from an array $row.
 	 * Sets IsValid to false.
@@ -1905,6 +2192,7 @@ class BDDRecord extends AbstractClass implements Iterator
 	 * @param $row a database row array
 	 *
      */
+    function __construct( $row = NULL )
     {
 		parent::__construct();
 		
@@ -1920,22 +2208,22 @@ class BDDRecord extends AbstractClass implements Iterator
 		$this->isValid = false;
     } //---- End of constructor
 	
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		parent::__destruct();
 	} //----- End of Destructor
     
 //---------------------------------------------------------- Magic Methods
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    function __ToString ( )	 
     {
         return (String)var_export( $this->row );
     } // End of __ToString
@@ -1951,7 +2239,7 @@ class BDDRecord extends AbstractClass implements Iterator
 	/**
 	 * validation flag : contains true of false whether it has been 
 	 * validated or not.
-	*/
+	 */
 	protected $isValid;
 }
 
@@ -1999,83 +2287,82 @@ class BDDRecordSet extends AbstractClass implements Iterator
 
 //--------------------------------------------------------- public methods
 
-    public function Add( BDDRecord & $item )
     /**
 	 * Adds a BDDRecord to the Iterator.
      *
      * @param $item the BDDRecord to add
      *
      */
+    public function Add( BDDRecord & $item )
     {
         $this->items[ ] = $item;
     } //---- End of Add
 
-    public function DelAll( )
     /**
 	 * Clears the Iterator.
      *
      */
+    public function DelAll( )
     {
         unset($this->items);
         
         $this->items = array();
     } //---- End of DelAll
 
-    public function GetCount( )
     /**
 	 * Gets the number of items it contains.
      *
 	 * @return the number of items it contains
 	 *
      */
+    public function GetCount( )
     {
         return count( $this->items );
     } //---- End of GetCount
     
 //---------------------------------------------- Iterator's Implementation
-    public function Rewind( )
     /**
 	 * Gets back to the start of array.
 	 *
      */
+    public function Rewind( )
     {
         reset( $this->items );
     } //--- End of Rewind
 
-    public function Current( )
     /**
 	 * Gets the current element of the array.
 	 *
 	 * @return the current element of array
 	 *
      */
+    public function Current( )
     {
         return @current( $this->items );
     } //---- End of Current
     
-    public function Key( )
     /**
 	 * Gets the key of the current element of the array.
 	 *
 	 * @return the key of the current element of array
 	 *
      */
+    public function Key( )
     {
         return key( $this->items );
     } //---- End of  Key
     
-    public function Next( )
     /**
 	 * Goes to the next element of array.
 	 *
 	 * @return next element of array
 	 *
      */
+    public function Next( )
     {
         return next( $this->items );
     } //---- End of  Next
     
-    public function Valid( )
     /**
 	 * Checks if array's element is valid or not.
 	 *
@@ -2083,40 +2370,41 @@ class BDDRecordSet extends AbstractClass implements Iterator
 	 * @return - false otherwise
 	 *
      */
+    public function Valid( )
     {
         return $this->current( ) !== false;
     } //---- End of  Valid
 //--------------------------------------- End of Iterator's implementation
 
 //---------------------------------------------- Constructors - destructor
-    function __construct( )
     /**
 	 * Initialises BDDRecordSet.
 	 *
      */
+    function __construct( )
     {
 		parent::__construct();
 		
 		$this->items = array();
     } //---- End of constructor
 	
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		parent::__destruct();
 	} //----- End of Destructor
 
 //---------------------------------------------------------- Magic Methods
 
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    function __ToString ( )
     {
         return $this->GetCount().' entrées'.var_dump($this->items);
     } // End of __ToString
@@ -2255,7 +2543,7 @@ interface BDDConnectionInterface
      */
     public function GetPassword ( );
     
-	/*
+	/**
 	 * Try to open connection.
 	 *
 	 * @param $isPersistent specifies if connection may be persistent or not = { CONNECTION_PERSISTENT | CONNECTION_NOT_PERSISTENT }
@@ -2495,7 +2783,6 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 
 //--------------------------------------------------------- public methods
 
-    //public function TableExists ( $table );
     /*
 	 * Searchs for table named $table in database.
 	 * Connection may be opened.
@@ -2506,8 +2793,8 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 	 * @return - an Errors object in case of error(s)
      *
      */
+    //public function TableExists ( $table );
     
-	//public function TableDescription ( $table );
 	/*
 	 * Gets the description of the table named $table
 	 *
@@ -2516,8 +2803,8 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      * @return - a BDDRecordSet if table exists wich BDDRecord s describe a field of the table
 	 * @return - an Errors object in case of error(s)
 	 */
+	//public function TableDescription ( $table );
     
-    public function SetServer ( $server )
     /**
      * Sets host address for connection.
 	 * Connection may be closed.
@@ -2528,6 +2815,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      * @return - NULL if operation was successful
      *
      */
+    public function SetServer ( $server )
     {
         if ( !$this->isConnected() )
         {
@@ -2546,18 +2834,17 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
         }
     } //----- End of SetServer
     
-    public function GetServer ( )
     /**
      * Gets host address for connection.
      *
      * @return the host address
      *
      */
+    public function GetServer ( )
     {
         return $this->server;
     } //----- End of GetServer
     
-    public function SetUsername ( $username )
     /**
      * Sets the username for connection.
 	 * Connection may be closed.
@@ -2568,6 +2855,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      * @return - NULL if operation was successful
      *
      */
+    public function SetUsername ( $username )
     {
         if ( !$this->isConnected() )
         {
@@ -2586,18 +2874,17 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
         }
     } //----- End of SetUsername
     
-    public function GetUsername ( )
     /**
      * Gets the login used for connection.
      *
      * @return the login used
      *
      */
+    public function GetUsername ( )
     {
         return $this->username;
     } //----- End of GetUsername
     
-    public function SetPassword ( $password )
     /**
      * Sets the password associated to the given username for connection.
 	 * Connection may be closed.
@@ -2608,6 +2895,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      * @return - NULL if operation was successful
      *
      */
+    public function SetPassword ( $password )
     {
         if ( !$this->isConnected() )
         {
@@ -2626,18 +2914,17 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
         }
     } //----- End of SetPassword
     
-    public function GetPassword ( )
     /**
      * Gets the password associated to the login used for connection.
      *
      * @return the password used
      *
      */
+    public function GetPassword ( )
     {
         return $this->password;
     } //----- End of GetPassword
     
-    //public function Open( $isPersistent );
 	/*
 	 * Tries to open connection.
 	 *
@@ -2648,8 +2935,8 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      * @return - NULL if operation was successful
 	 *
 	 */
+    //public function Open( $isPersistent );
     
-    //public function SetDatabase( $database );
     /**
      * Sets the database to be used.
 	 * Connection may be opened.
@@ -2660,8 +2947,8 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      * @return - NULL if operation was successful
      *
      */
+    //public function SetDatabase( $database );
     
-    //public function Query( $query );
     /**
      * tries to send a query to DB server
 	 * Connection may be opened.
@@ -2672,19 +2959,19 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      * @return - a BDDRecord object which contains entries as BDDRecordItem s
      *
      */
+    //public function Query( $query );
     
-    public function GetQueriesCount ( )
     /**
      * Gets the number of queries that has been successfully sent.
      *
      * @return the number of queries sent from the creation of the object
      *
      */
+    public function GetQueriesCount ( )
 	{
 		return $this->nombreRequetes;
 	}
     
-    //public function Close( );
     /**
      * Tries to close the connection
      *
@@ -2692,8 +2979,8 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      * @return - NULL if operation was successful
      *
      */
+    //public function Close( );
     
-    //public function isConnected ( );
     /**
      * Checks whether connection is opened or closed
      *
@@ -2701,10 +2988,10 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
      * @return - false if connection is closed
      *
      */
+    //public function isConnected ( );
     
 //---------------------------------------------- Constructors - destructor
-    function __construct( $server = '' , $username = '' , $password = '' )
-	/*
+	/**
 	 * initialises members of the object.
 	 * interrupts script if DataBase is not supported.
 	 *
@@ -2713,6 +3000,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 	 * @param $password the password associated to the login
 	 *
 	 */
+    function __construct( $server = '' , $username = '' , $password = '' )
 	{
 		parent::__construct( );	
             
@@ -2727,23 +3015,23 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 		$this->nombreRequetes = 0;
 	}
 	 
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		parent::__destruct();
 	} //----- End of Destructor
     
 //---------------------------------------------------------- Magic Methods
 
-    public function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    public function __ToString ( )
     {
 		return parrent::__ToString();
     }
@@ -2885,9 +3173,18 @@ abstract class BDDTable extends AbstractClass implements BDDTableInterface
 	 *
      */
     //public function Drop (  );
+	
+	/**
+	 * Escape the given $value for a secured insert/update into database.
+	 *
+	 * @param $value The value to be escaped
+	 *
+	 * @return the escaped string
+	 *
+     */
+    abstract public function EscapeValue ( $value );
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct( $table, BDDConnection $connection, & $errors )
     /**
 	 * Initialises BDDTable for the table named $table on the given 
 	 * $connection.
@@ -2900,6 +3197,7 @@ abstract class BDDTable extends AbstractClass implements BDDTableInterface
 	 * equals NULL
 	 *
      */
+    public function __construct( $table, BDDConnection $connection, & $errors )
     {
 		parent::__construct();
 	
@@ -2927,23 +3225,23 @@ abstract class BDDTable extends AbstractClass implements BDDTableInterface
 		$this->tableName = $table;
     } //---- End of constructor
 	
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		parent::__destruct();
 	} //----- End of Destructor
     
 //---------------------------------------------------------- Magic Methods
 
-    public function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    public function __ToString ( )
     {
 		return parrent::__ToString();
     }
@@ -3007,7 +3305,6 @@ class MySQLConnection extends BDDConnection
 
 //--------------------------------------------------------- public methods
     
-    public function TableExists ( $table )
     /**
 	 * Search for table named $table in database.
 	 * Connection may be opened.
@@ -3026,6 +3323,7 @@ class MySQLConnection extends BDDConnection
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/show-tables.html
 	 *
      */
+    public function TableExists ( $table )
     {
         if ( $this->database == '' )
         // no database selected
@@ -3064,7 +3362,6 @@ class MySQLConnection extends BDDConnection
         }
     } //----- End of TableExists
     
-	public function TableDescription ( $table )
 	/**
 	 * Gets the description of the table named $table
 	 *
@@ -3079,6 +3376,7 @@ class MySQLConnection extends BDDConnection
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/describe.html
 	 *
 	 */
+	public function TableDescription ( $table )
     {
         if ( $this->database == '' )
         // no database selected
@@ -3097,7 +3395,6 @@ class MySQLConnection extends BDDConnection
         }
     } //----- End of TableDescription
     
-    public function SetServer ( $server )
     /**
      * Sets host address for connection.
 	 * Connection may be closed.
@@ -3108,23 +3405,23 @@ class MySQLConnection extends BDDConnection
      * @return - NULL if operation was successful
      *
      */
+    public function SetServer ( $server )
 	{
 		return parent::SetServer( $server );
 	} //----- End of GetServer
 
     
-    public function GetServer ( )
     /**
      * Gets host address for connection.
      *
      * @return the host address
      *
      */
+    public function GetServer ( )
 	{
 		return parent::GetServer();
 	} //----- End of GetServer
     
-    public function SetUsername ( $username )
     /**
      * Sets the username for connection.
 	 * Connection may be closed.
@@ -3135,22 +3432,22 @@ class MySQLConnection extends BDDConnection
      * @return - NULL if operation was successful
      *
      */
+    public function SetUsername ( $username )
 	{
 		return parent::SetUsername( $username );
 	} //----- End of SetUsername
     
-    public function GetUsername ( )
     /**
      * Gets the login used for connection.
      *
      * @return the login used
      *
      */
+    public function GetUsername ( )
 	{
 		return parent::GetUsername( );
 	} //----- End of SetUsername
     
-    public function SetPassword ( $password )
     /**
      * Sets the password associated to the given username for connection.
 	 * Connection may be closed.
@@ -3161,22 +3458,22 @@ class MySQLConnection extends BDDConnection
      * @return - NULL if operation was successful
      *
      */
+    public function SetPassword ( $password )
 	{
 		return parent::SetPassword( $password );
 	} //----- End of SetPassword
     
-    public function GetPassword ( )
     /**
      * Gets the password associated to the login used for connection.
      *
      * @return the password used
      *
      */
+    public function GetPassword ( )
     {
         return parent::GetPassword( );
     } //----- End of GetPassword
     
-    public function Open( $isPersistent )
 	/**
 	 * Try to open connection.
 	 *
@@ -3193,6 +3490,7 @@ class MySQLConnection extends BDDConnection
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-pconnect.html
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-connect.html
 	 */
+    public function Open( $isPersistent )
     {
         if ( !$this->isConnected() ) 
         {
@@ -3231,7 +3529,6 @@ class MySQLConnection extends BDDConnection
         }
     } //----- End of Open
     
-    public function SetDatabase( $database ) 
     /**
      * Sets the database to be used.
 	 * Connection may be opened.
@@ -3247,6 +3544,7 @@ class MySQLConnection extends BDDConnection
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-select-db.html
      *
      */
+    public function SetDatabase( $database ) 
     {
         if ( !$this->isConnected() )
         {
@@ -3277,7 +3575,6 @@ class MySQLConnection extends BDDConnection
         }
     } //----- End of SetDabase
     
-    public function Query( $query )
     /**
      * tries to send a query to DB server
 	 * Connection may be opened.
@@ -3294,6 +3591,7 @@ class MySQLConnection extends BDDConnection
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-query.html
 	 *
      */
+    public function Query( $query )
     {
         if ( $this->database == '' )
         // no database selected
@@ -3335,18 +3633,17 @@ class MySQLConnection extends BDDConnection
         }
     } //----- End of Query
     
-    public function GetQueriesCount ( )
     /**
      * Gets the number of queries that has been successfully sent.
      *
      * @return the number of queries sent from the creation of the object
      *
      */
+    public function GetQueriesCount ( )
 	{
 		return parent::GetQueriesCount();
 	} //----- End of GetQueriesCount
     
-    public function Close( )
     /**
      * Tries to close the connection
      *
@@ -3357,6 +3654,7 @@ class MySQLConnection extends BDDConnection
      *
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/mysql-close.html
      */
+    public function Close( )
     {
         if ( !$this->isConnected() || !@mysql_close( $this->connection ) )
         {
@@ -3375,7 +3673,6 @@ class MySQLConnection extends BDDConnection
         }
     } //----- End of Close
     
-    public function isConnected ( )
     /**
      * Checks whether connection is opened or closed
      *
@@ -3383,12 +3680,12 @@ class MySQLConnection extends BDDConnection
      * @return - false if connection is closed
      *
      */
+    public function IsConnected ( )
     {
         return ( $this->connection !== NULL && @mysql_stat ( $this->connection ) !== NULL );
-    } //----- End of isConnected
+    } //----- End of IsConnected
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct( $server = '' , $username = '' , $password = '' )
 	/**
 	 * initialises members of the object.
 	 * interrupts script if DataBase is not supported.
@@ -3398,6 +3695,7 @@ class MySQLConnection extends BDDConnection
 	 * @param $password the password associated to the login
 	 *
 	 */
+    public function __construct( $server = '' , $username = '' , $password = '' )
     {
 		parent::__construct( $server, $username, $password );
 
@@ -3407,10 +3705,10 @@ class MySQLConnection extends BDDConnection
             }
     } //----- End of contructor
 	 
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		$this->Close();
 	
@@ -3419,13 +3717,13 @@ class MySQLConnection extends BDDConnection
     
 //---------------------------------------------------------- Magic methods
 
-    public function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    public function __ToString ( )
     {
 		return parrent::__ToString();
     }
@@ -3532,7 +3830,6 @@ class MySQLTable extends BDDTable
 
 //--------------------------------------------------------- public methods
 	
-    public function Select ( $fields, $options )
 	/**
 	 * Computes a selection of $fields on entries that correspond to 
 	 * $options
@@ -3548,6 +3845,7 @@ class MySQLTable extends BDDTable
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/select.html
 	 *
      */
+    public function Select ( $fields, $options )
 	{
 		$selectQuery = 'SELECT ';
 		
@@ -3570,7 +3868,6 @@ class MySQLTable extends BDDTable
 		return $this->bDDConnection->Query ( $selectQuery ) ;
 	} //---- End of Select
 	
-    public function Insert ( BDDRecord $record )
 	/**
 	 * Tries to insert the given $record into database
 	 *
@@ -3581,6 +3878,7 @@ class MySQLTable extends BDDTable
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/insert.html
 	 *
      */
+    public function Insert ( BDDRecord $record )
 	{
 		$newRecord = $this->bDDRecordToTableRecord ( $record );
 		unset( $record );
@@ -3589,7 +3887,7 @@ class MySQLTable extends BDDTable
 		
 		foreach ( $newRecord as $champ  => $value )
 		{
-			$insertQuery .= $champ.' = "'. $value .'", ';
+			$insertQuery .= $champ.' = "'. $this->EscapeValue( $value ) .'", ';
 		}
 		
 		$insertQuery = substr ( $insertQuery , 0 , -2 );
@@ -3597,7 +3895,6 @@ class MySQLTable extends BDDTable
 		return $this->bDDConnection->Query ( $insertQuery ) ;
 	} //---- End of Insert
 	
-    public function Update ( BDDRecord $updatedRec, $clause )
 	/**
 	 * Tries to update with the given $updatedRec into database in function
 	 * of $clause parameter.
@@ -3611,6 +3908,7 @@ class MySQLTable extends BDDTable
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/update.html
 	 *
      */
+    public function Update ( BDDRecord $updatedRec, $clause )
 	{
 		$newRecord = $this->bDDRecordToTableRecord ( $updatedRec );
 		unset( $updatedRec );
@@ -3619,7 +3917,7 @@ class MySQLTable extends BDDTable
 		
 		foreach ( $newRecord as $champ  => $value )
 		{
-			$updateQuery .= $champ.' = "'. $value .'", ';
+			$updateQuery .= $champ.' = "'. $this->EscapeValue( $value ) .'", ';
 		}
 		
 		$updateQuery = substr ( $updateQuery , 0 , -2 ) . $clause;
@@ -3628,7 +3926,6 @@ class MySQLTable extends BDDTable
 	
 	} //---- End of Update
 	
-    public function Delete ( $clauses )
 	/**
 	 * Tries to delete entries that correpond to $clauses
 	 *
@@ -3640,11 +3937,11 @@ class MySQLTable extends BDDTable
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/delete.html
 	 *
      */
+    public function Delete ( $clauses )
 	{
 		return $this->bDDConnection->Query ( 'DELETE FROM `'.$this->tableName.'` WHERE '.$clause );
 	} //---- End of Delete
 
-    public function Clear (  )
 	/**
 	 * Tries to delete all entries of the table
 	 *
@@ -3653,11 +3950,11 @@ class MySQLTable extends BDDTable
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/delete.html
 	 *
      */
+    public function Clear (  )
 	{
 		return $this->bDDConnection->Query ( 'DELETE FROM `'.$this->tableName.'`' );
 	} //---- End of Clear
 	
-    public function Drop (  )
 	/**
 	 * Tries to drop the table
 	 *
@@ -3666,12 +3963,25 @@ class MySQLTable extends BDDTable
 	 * @see http://dev.mysql.com/doc/refman/5.0/en/drop-table.html
 	 *
      */
+    public function Drop (  )
 	{
 		return $this->bDDConnection->Query ( 'DROP TABLE `'.$this->tableName.'`' );
 	} //---- End of Drop
+	
+	/**
+	 * Escape the given $value for a secured insert/update into database.
+	 *
+	 * @param $value The value to be escaped
+	 *
+	 * @return the escaped string
+	 *
+     */
+    public function EscapeValue ( $value )
+	{
+		return mysql_escape_string( $value );
+	}
     
 //---------------------------------------------- Constructors - destructor
-    public function __construct( $table, MySQLConnection $connection, & $errors )
     /**
 	 * Initialises MySQLTable for the table named $table on the given 
 	 * $connection.
@@ -3684,14 +3994,15 @@ class MySQLTable extends BDDTable
 	 * equals NULL
 	 *
      */
+    public function __construct( $table, MySQLConnection $connection, & $errors )
 	{
 		parent::__construct ( $table, $connection, $errors );
 	} //---- End of constructor
 	
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		parent::__destruct();
 	} //----- End of Destructor
@@ -3702,7 +4013,6 @@ class MySQLTable extends BDDTable
     
 //------------------------------------------------------ protected methods
 
-	protected function isValidProperty ( $property )
 	/**
 	 * Checks into table description if the property named $property
 	 * exists as a field in table
@@ -3711,6 +4021,7 @@ class MySQLTable extends BDDTable
 	 * @return false otherwise
 	 *
      */
+	protected function isValidProperty ( $property )
 	{
 		foreach ( $this->structure as $champ )
 		{
@@ -3723,7 +4034,6 @@ class MySQLTable extends BDDTable
 		return false;
 	} //----- End of isValidProperty
 	
-	protected function bDDRecordToTableRecord ( BDDRecord $record )
 	/**
 	 * Computes conversion from a standard BDDRecord to a safe BDDRecord
 	 * for MySQL queries. It also computes an intersection between 
@@ -3732,6 +4042,7 @@ class MySQLTable extends BDDTable
 	 * @return a BDDRecord ready to be saved/updated into table
 	 *
      */
+	protected function bDDRecordToTableRecord ( BDDRecord $record )
 	{
 		$tableRecord = new BDDRecord();
 		
@@ -3863,7 +4174,6 @@ class Template extends AbstractClass
 
 //--------------------------------------------------------- Public Methods
 
-    public static function BuildTag ( $tagName )
     /**
      * builds a Tag from TAG_OPEN, $tagName and TAG_CLOSE
      *
@@ -3871,11 +4181,11 @@ class Template extends AbstractClass
 	 *
      * @return the valid tag built for $tagName with TAG_OPEN and TAG_CLOSE chars
 	 */
+    public static function BuildTag ( $tagName )
     {
         return self::TAG_OPEN. $tagName. self::TAG_CLOSE;
     } //----- End of BuildTag
     
-    public function SetSkeleton ( $skeleton )
     /**
      * Sets page skeleton to $skeleton.
      * the skeleton may has the [TAG] you'll set.
@@ -3883,6 +4193,7 @@ class Template extends AbstractClass
 	 * @param $skeleton the skeleton to be set
 	 *
 	 */
+    public function SetSkeleton ( $skeleton )
     {
         $this->skeleton = $skeleton;
     } //----- End of SetSkeleton
@@ -3899,7 +4210,6 @@ class Template extends AbstractClass
         return $this->skeleton;
     } //----- End of SetSkeleton*/
     
-    public function SetTag ( $tagName , Template & $value )
     /**
      * Assigns sub-Template $value to the tag named $tagName.
      * The skeleton you've set may contain the tag named $tag
@@ -3908,11 +4218,11 @@ class Template extends AbstractClass
 	 * @param $value the sub-Template to assign to tag
 	 *
 	 */
+    public function SetTag ( $tagName , Template & $value )
     {
         $this->tags[ $this->BuildTag ( $tagName ) ] = $value;
     } //----- End of SetTag
     
-    public function GetTag ( $tagName )
     /**
      * Gets sub-Template assigned to tag named $tagName.
      * The skeleton you've set may contain the tag named $tag.
@@ -3924,6 +4234,7 @@ class Template extends AbstractClass
 	 * doesn't exist.
 	 *
 	 */
+    public function GetTag ( $tagName )
     {
         if ( $this->TagExists( $tagName ) )
         {
@@ -3939,7 +4250,6 @@ class Template extends AbstractClass
         }
     } //----- End of GetTag
     
-    public function AddToTag ( $tagName, $value )
     /**
      * Adds $value to the Template's skeleton associated to the tag named $tagName
      * The skeleton you've set may contain the tag named $tag.
@@ -3953,6 +4263,7 @@ class Template extends AbstractClass
 	 * doesn't exist.
 	 *
 	 */
+    public function AddToTag ( $tagName, $value )
     {
         if ( $this->TagExists( $tagName ) )
         {
@@ -3970,7 +4281,6 @@ class Template extends AbstractClass
         }
     } //----- End of AddToTag
     
-    public function TagExists ( $tagName )
     /**
      * Checks if the tag named $tagName exist or not.
 	 *
@@ -3980,54 +4290,72 @@ class Template extends AbstractClass
 	 * @return false otherwise
 	 *
 	 */
+    public function TagExists ( $tagName )
     {
         return isset ( $this->tags[ Template::BuildTag( $tagName ) ] );
     } //----- End of TagExists
     
-    public function Generate( )
     /**
      * Generates a printable version of object for final print out.
 	 * It replaces each tag by it's Template Generated value.
 	 * So it generate final document by hierarchy.
 	 *
+	 * @param $cached boolean that should always be false. It enables caching
+	 * of generated values for future call. Due to internal generation by hierarchy,
+	 * the function always call herself with $cached as true
+	 *
 	 * @return printable version of document
 	 *
 	 */
+    public function Generate( $cached = false )
     {
-		$generated = $this->skeleton;
-
-		foreach ( $this->tags as $tag => $value )
-		// replace tags by value, generated by subtemplates...
+		if ( $cached && ! empty ( $this->lastGenerated ) )
 		{
-			// generation by hierarchy
-			$generated = str_replace ( $tag, $value->Generate(), $generated );
+			return $this->lastGenerated;
 		}
 	
+		$generated = $this->skeleton;
+		$lastGenerated = '';
+
+		while ( $generated != $lastGenerated )
+		{
+			$lastGenerated = $generated;
+			
+			foreach ( $this->tags as $tag => $value )
+			// replace tags by value, generated by subtemplates...
+			{
+				// generation by hierarchy
+				$val = $value->Generate( true );
+				$generated = str_replace ( $tag, $val, $generated );
+			}
+		}
+
+		$this->lastGenerated = $generated;
+		
         return $generated;
     } //----- End of Generate
     
 //-------------------------------------------- Constructors - destructors
-    public function __construct( )
 	/**
 	 * instanciates a Template.
 	 *
 	 */
+    public function __construct( )
     {
 		parent::__construct();
 	
         $this->tags = array();
     } //---- End of __construct
 	 
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{	
 		parent::__destruct();
 	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
-	public function __ToString ()
     /**
 	 * Returns a printable version of object for final print out.
 	 *
@@ -4036,6 +4364,7 @@ class Template extends AbstractClass
 	 * @see Template::Generate()
 	 * 
 	 */
+	public function __ToString ()
 	{
 		return $this->Generate ( );
 	} // End of __ToString
@@ -4051,6 +4380,9 @@ class Template extends AbstractClass
 	
 	/** Array of Template-s indexed by tag name */
     protected $tags;
+	
+	/** Template generation cache, see Generate() */
+	private $lastGenerated;
 }
 
 //----------------------------------------------------- Others definitions
@@ -4097,25 +4429,24 @@ class XHTMLTemplate extends Template
 //--------------------------------------------------------- Public Methods
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct( )
 	/**
 	 * instanciates a Template.
 	 *
 	 */
+    public function __construct( )
     {
 		parent::__construct();
     } //---- End of __construct
 	 
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{	
 		parent::__destruct();
 	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
-	public function __ToString ()
     /**
 	 * Returns a printable version of object for final print out.
 	 *
@@ -4124,6 +4455,7 @@ class XHTMLTemplate extends Template
 	 * @see Template::Generate()
 	 * 
 	 */
+	public function __ToString ()
 	{
 		return $this->Generate ( );
 	} // End of __ToString
@@ -4185,7 +4517,6 @@ class XHTMLBodyTemplate extends XHTMLTemplate
 
 //--------------------------------------------------------- Public Methods
 	
-    public function AddContent ( $content )
     /**
      * Adds raw XHTML $content to the current content of the body.
 	 * Content of the page is value associated to the tag named TAG_CONTENT.
@@ -4195,11 +4526,11 @@ class XHTMLBodyTemplate extends XHTMLTemplate
 	 * @param $content the raw XHTML to be added
 	 *
 	 */
+    public function AddContent ( $content )
     {
 		$this->AddToTag ( self::TAG_CONTENT, $content );
     } //----- End of AddContent
 	
-    public function SetContent ( $content )
     /**
      * Sets raw XHTML $content as the current content of the body.
 	 * Content of the page is value associated to the tag named TAG_CONTENT.
@@ -4209,6 +4540,7 @@ class XHTMLBodyTemplate extends XHTMLTemplate
 	 * @param $content the raw XHTML to be set
 	 *
 	 */
+    public function SetContent ( $content )
     {
 		$temp = new Template ();
 		$temp->SetSkeleton ( $content );
@@ -4216,7 +4548,6 @@ class XHTMLBodyTemplate extends XHTMLTemplate
         $this->SetTag ( self::TAG_CONTENT, $temp );
     } //----- End of SetContent
 	
-    public function AddParams ( $params )
     /**
      * Adds raw XHTML $params to the current parameters of the body XHTML tag.
 	 * Parameters of the body tag is value associated to the tag named TAG_PARAMS.
@@ -4226,11 +4557,11 @@ class XHTMLBodyTemplate extends XHTMLTemplate
 	 * @param $params the raw XHTML to be added
 	 *
 	 */
+    public function AddParams ( $params )
     {
 		$this->AddToTag ( self::TAG_PARAMS, $params );
     } //----- End of AddParams
 	
-    public function SetParams ( $params )
     /**
      * Sets raw XHTML $params as the current parameters of the body XHTML tag.
 	 * Parameters of the body tag is value associated to the tag named TAG_PARAMS.
@@ -4240,6 +4571,7 @@ class XHTMLBodyTemplate extends XHTMLTemplate
 	 * @param $params the raw XHTML to be set
 	 *
 	 */
+    public function SetParams ( $params )
     {
 		$temp = new Template ();
 		$temp->SetSkeleton ( $content );
@@ -4248,13 +4580,13 @@ class XHTMLBodyTemplate extends XHTMLTemplate
     } //----- End of SetParams
 
 //---------------------------------------------- Constructors - destructor
-	function __construct () 
 	/**
 	 * instanciates a XHTMLBodyTemplate.
 	 * Sets a default skeleton and initialises XHTMLTemplates for tags
 	 * named TAG_CONTENT and TAG_PARAMS
 	 *
 	 */
+	function __construct () 
 	{
 		parent::__construct();
 		
@@ -4267,6 +4599,89 @@ class XHTMLBodyTemplate extends XHTMLTemplate
 		$this->SetTag ( self::TAG_PARAMS, new XHTMLTemplate() ); 
 
 	} //---- End of __construct
+	 
+	/**
+	 * Destructs ressources allocated
+	 */
+    function __destruct( )
+	{	
+		parent::__destruct();
+	} //----- End of Destructor
+  
+//---------------------------------------------------------- Magic Methods
+    /**
+	 * Returns a printable version of object for final print out.
+	 *
+	 * @return String printable on screen
+	 *
+	 * @see Template::Generate()
+	 * 
+	 */
+	public function __ToString ()
+	{
+		return $this->Generate ( );
+	} // End of __ToString
+
+//---------------------------------------------------------------- PRIVATE 
+
+//------------------------------------------------------ protected methods
+
+//--------------------------------------------------- protected properties
+
+}
+
+//----------------------------------------------------- Others definitions
+
+
+
+/*************************************************************************
+                           |XHTMLTemplate.php|
+                             -------------------
+    début                : |11.02.2006|
+    copyright            : (C) 2006 par BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
+*************************************************************************/
+
+//-------------- Class <XHTMLTemplate>  (file XHTMLTemplate.php) -----------------
+/*if (defined('XHTMLTemplate_H'))
+{
+    return;
+}
+else
+{
+
+}
+define('XHTMLTemplate_H',1);*/
+
+//--------------------------------------------------------------- Includes 
+
+//-------------------------------------------------------------- Constants
+
+//----------------------------------------------------------------- PUBLIC
+
+//------------------------------------------------------------------ Types 
+
+//------------------------------------------------------------------------ 
+/*!
+ * Basic XHTMLHeaderTemplate.
+ */
+//------------------------------------------------------------------------ 
+
+class XHTMLHeaderTemplate extends XHTMLTemplate
+{
+//----------------------------------------------------------------- PUBLIC
+
+//--------------------------------------------------------- Public Methods
+
+//---------------------------------------------- Constructors - destructor
+    public function __construct( )
+	/**
+	 * instanciates a Template.
+	 *
+	 */
+    {
+		parent::__construct();
+    } //---- End of __construct
 	 
     function __destruct( )
 	/**
@@ -4346,7 +4761,22 @@ class XHTMLHeadersTemplate extends XHTMLTemplate
 
 //--------------------------------------------------------- Public Methods
 	
-    public function AddHeaders ( $headers )
+	/**
+     * Adds XHTML $header to the current headers.
+	 * Headers of the heads is value associated to the tag TAG_HEADERS.
+	 *
+	 * It automatiquely adds a NEWLINE to the $headers.
+	 *
+	 * Be careful that added headers are not modifiable cause this function
+	 * calls its Generate() member!
+	 *
+	 * @param $header The XHTML header to be added.
+	 */
+    public function AddHeader ( XHTMLHeaderTemplate $header )
+    {
+		$this->AddToTag ( self::TAG_HEADERS, $header->Generate() . self::NEWLINE );
+    } //----- End of AddHeaders
+	
 	/**
      * Adds raw XHTML $headers to the current headers.
 	 * Headers of the heads is value associated to the tag TAG_HEADERS.
@@ -4357,11 +4787,11 @@ class XHTMLHeadersTemplate extends XHTMLTemplate
 	 *
 	 * @param $headers The raw XHTML header(s) to be added.
 	 */
+    public function AddRawHeaders ( $headers )
     {
 		$this->AddToTag ( self::TAG_HEADERS, $headers . self::NEWLINE );
     } //----- End of AddHeaders
 	
-    public function SetHeaders ( $headers )
 	/**
      * Sets raw XHTML $headers as the current headers.
 	 * Headers of the heads is value associated to the tag TAG_HEADERS.
@@ -4370,6 +4800,7 @@ class XHTMLHeadersTemplate extends XHTMLTemplate
 	 *
 	 * @param $headers The raw XHTML header(s) to be set.
 	 */
+    public function SetRawHeaders ( $headers )
     {
 		$temp = new Template ();
 		$temp->SetSkeleton ( $headers );
@@ -4378,13 +4809,13 @@ class XHTMLHeadersTemplate extends XHTMLTemplate
     } //----- End of SetHeaders
 
 //-------------------------------------------- Constructeurs - destructeur
-	function __construct () 
 	/**
 	 * instanciates a XHTMLHeadersTemplate.
 	 * Sets a default skeleton for head tag.
 	 * Initialises XHTMLTemplate for the raw headers.
 	 *
 	 */
+	function __construct () 
 	{
 		parent::__construct();
 		
@@ -4398,16 +4829,15 @@ class XHTMLHeadersTemplate extends XHTMLTemplate
 
 	} //---- End of __construct
 	 
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{	
 		parent::__destruct();
 	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
-	public function __ToString ()
     /**
 	 * Returns a printable version of object for final print out.
 	 *
@@ -4416,6 +4846,7 @@ class XHTMLHeadersTemplate extends XHTMLTemplate
 	 * @see Template::Generate()
 	 * 
 	 */
+	public function __ToString ()
 	{
 		return $this->Generate ( );
 	} // End of __ToString
@@ -4480,7 +4911,6 @@ class XHTMLPageTemplate extends XHTMLTemplate
 
 //--------------------------------------------------------- Public Methods
     
-    public static function ConvertIntoSGML( $source )
     /**
      * Converts $source string into valid SGML string char by char.
 	 *
@@ -4489,6 +4919,7 @@ class XHTMLPageTemplate extends XHTMLTemplate
 	 * @return the valid SGML string that correspond to $source string
 	 *
 	 */
+    public static function ConvertIntoSGML( $source )
     {
         $newString = '';
         
@@ -4501,7 +4932,6 @@ class XHTMLPageTemplate extends XHTMLTemplate
         return $newString;
     } //----- End of ConvertIntoSGML
 	
-    public function GetBody ( )
     /**
      * Gets the XHTMLHeadersTemplate that corresponds to body tag named 
 	 * TAG_BODY.
@@ -4510,23 +4940,23 @@ class XHTMLPageTemplate extends XHTMLTemplate
 	 * tag named TAG_HEADERS.
 	 *
 	 */
+    public function GetBody ( )
     {
         return $this->GetTag ( self::TAG_BODY );
     } //----- End of GetBody
 	
-    public function GetHeaders ( )
     /**
      * Gets the XHTMLHeadersTemplate that corresponds to TAG_HEADERS tag of the page.
 	 *
 	 * @return the XHTMLHeadersTemplate object that corresponds to TAG_HEADERS tag of the page.
 	 *
 	 */
+    public function GetHeaders ( )
     {
         return $this->GetTag ( self::TAG_HEADERS );
     } //----- End of GetHeaders
 
 	
-	public function Generate ( )
     /**
      * Generates a printable version of object for final print out.
 	 * It replaces each tag by it's Template Generated value.
@@ -4540,12 +4970,12 @@ class XHTMLPageTemplate extends XHTMLTemplate
 	 * @see XHTMLPageTemplate::ConvertIntoSGML();
 	 *
 	 */
+	public function Generate ( )
 	{
 		return self::ConvertIntoSGML ( parent::Generate() );
 	} //------ End of Generate
 
 //-------------------------------------------- Constructeurs - destructeur
-	function __construct () 
 	/**
 	 * instanciates a XHTMLPageTemplate.
 	 * Sets a default skeleton for valid XHTML1.1.
@@ -4553,6 +4983,7 @@ class XHTMLPageTemplate extends XHTMLTemplate
 	 * Initialises XHTMLHeadersTemplate for the head tag named TAG_HEADERS
 	 *
 	 */
+	function __construct () 
 	{
 		parent::__construct();
 
@@ -4581,16 +5012,15 @@ class XHTMLPageTemplate extends XHTMLTemplate
 		$this->SetTag ( self::TAG_HEADERS, new XHTMLHeadersTemplate() );
 	} //---- End of __construct
 	 
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{	
 		parent::__destruct();
 	} //----- End of Destructor
   
 //---------------------------------------------------------- Magic Methods
-	public function __ToString ()
     /**
 	 * Returns a printable version of object for final print out.
 	 *
@@ -4599,6 +5029,7 @@ class XHTMLPageTemplate extends XHTMLTemplate
 	 * @see Template::Generate()
 	 * 
 	 */
+	public function __ToString ()
 	{
 		return $this->Generate ( );
 	} // End of __ToString
@@ -4659,8 +5090,17 @@ class XHTMLSitePage extends AbstractSitePage
 	const TAG_EXECUTION_TIME = 'EXECTIME';
 
 //--------------------------------------------------------- Public Methods
+	
+	/**
+	 * Gets the Template object of the class
+	 *	 
+	 * @return the main Template object of the class
+	 */
+	public function GetTemplate()
+	{
+		return $this->pageTemplate; /* comming from parent class */
+	} //---- End of GetTemplate
 
-    public static function GetInstance ( )
 	/**
 	 * Gets a unique instance of current class.
 	 * Create it if it doesn't exist.
@@ -4673,12 +5113,12 @@ class XHTMLSitePage extends AbstractSitePage
 	 * @see AbstractSingleton::getThis()
 	 *
 	 */
+    public static function GetInstance ( )
 	{	
 		return parent::getThis( __CLASS__ );
 	} //----- End of GetInstance
 	
 
-    public function OnLoad ( )
 	/**
 	 * callback function to be called by Application on ApplicationStart.
 	 * Initializes the page with an XHTMLPageTemplate.
@@ -4686,20 +5126,20 @@ class XHTMLSitePage extends AbstractSitePage
 	 * @see Application class
 	 *
 	 */
+    public function OnLoad ( )
 	{
 		$this->pageTemplate = new XHTMLPageTemplate () ;	
 	} //---- End of OnLoad
 	
-    public function Process ( )
 	/**
 	 * Function called after OnLoad and before OnUnLoad.
 	 * Here is all the process of the page.
 	 *
 	 */
+    public function Process ( )
 	{
 	} //---- End of Process
 	
-    public function OnUnLoad ( $applicationVars )
 	/**
 	 * callback function to be called by Application on ApplicationEnd.
 	 * Sets up Execution time from Tag named TAG_EXECUTION_TIME and
@@ -4711,6 +5151,7 @@ class XHTMLSitePage extends AbstractSitePage
 	 * @see Application class
 	 *
 	 */
+    public function OnUnLoad ( $applicationVars )
 	{
 		$exectime = new Template();
 		$exectime->SetSkeleton ( round( microtime(true) - $applicationVars[ Application::SYSTEM_START_TIME ], 4 ) );
@@ -4721,32 +5162,32 @@ class XHTMLSitePage extends AbstractSitePage
 	} //---- End of OnUnLoad
 
 //---------------------------------------------- Constructors - destructor
-    protected function __construct()
 	/**
 	 * instanciates an XHTMLSitePage.
 	 *
 	 */
+    protected function __construct()
     {
 		parent::__construct();
     } //---- End of __construct
 	 
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{	
 		parent::__destruct();
 	} //----- End of Destructor
 
 //---------------------------------------------------------- Magic Methods
 
-    public function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    public function __ToString ( )
     {
 		return parrent::__ToString();
     } //----- End of __ToString
@@ -4805,58 +5246,89 @@ class WebSitePage extends XHTMLSitePage
 //----------------------------------------------------------------- PUBLIC
 
 //--------------------------------------------------------- Public Methods
-    // public function Méthode ( )
-    // User's manual :
-    //
-    // Contract :
-    //
 	
+	/**
+	 * Gets the current session object
+	 *	 
+	 * @return unique instance of a Session object
+	 */
+	public function GetSession()
+	{
+		return $this->session;
+	} //---- End of GetSession
+	
+	/**
+	 * Gets all active databases connections
+	 *	 
+	 * @return an array of all active connections
+	 */
+	public function GetDatabasesConnections()
+	{
+		return $this->databasesConnections;
+	} //---- End of GetDatabasesConnections
+	
+	/**
+	 * Gets configuration database connection
+	 *	 
+	 * @return a Database object
+	 */
+	public function GetConfigurationDatabaseConnection()
+	{
+		return $this->confDatabaseConnection;
+	} //---- End of GetDatabasesConnections
+	
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
     public static function GetInstance ( )
-    // User's manual :
-    //Getter of the unique instance. Create this if doesn't exist
-	//Must appears in all children.
-	//
-    // Contract :
-    //
 	{
 		return parent::getThis( __CLASS__ );
 	} // End of GetInstance
 	
 
+	/**
+	 * callback function to be called by Application on ApplicationStart.
+	 * Initializes the page with an XHTMLPageTemplate.
+	 *
+	 * Then try to load configuration variables for site and server.
+	 *
+	 * DB_ARRAY_INDEX must be set.
+	 * MYSQL_CONF_BASE must be set.
+	 * SITE_SESSIONS_ACTIVATED must be set.
+	 * IDSITE must be set.
+	 * Application->GetVariables[ DB_ARRAY_INDEX ] must be set.
+	 *
+	 * @see Application class
+	 *
+	 */
     public function OnLoad ( )
-    // User's manual :
-    //function to be called on ApplicationStart
-	//
-    // Contract :
-    //
 	{
 		parent::OnLoad();
 		
-		$appl = Application::GetInstance();
-		$DBVars = & $appl->GetVariables[ DB_ARRAY_INDEX ];
+		$DBVars =  & $this->GetApplication()->GetVariables();
+		$DBVars = & $DBVars[ DB_ARRAY_INDEX ];
 		
-		// set up all 'always' needed connections
-		foreach ( $DBVars as $key => $db )
-		{
-			if ( $db['alwaysUse'] && ! isset ( $DBVars[ $key ] ) )
-			{
-				// set up
-				$className = $db[ 'type' ].'Connection';
-				$DBVars[ $key ] = new $className ( );
-				
-				$DBVars[ $key ]->SetServer( $db['host'] );
-				$DBVars[ $key ]->SetUsername( $db['login'] );
-				$DBVars[ $key ]->SetPassword( $db['password'] );
-				
-				$DBVars[ $key ]->Open( BDDConnection::CONNECTION_PERSISTENT );
-				
-				$DBVars[ $key ]->SetDatabase( $db['database'] );
-			}
-		}
+		$this->initializeDatabasesConnections( $DBVars, MYSQL_CONF_BASE );
+		
+		
+		$confConnexion = $this->GetConfigurationDatabaseConnection( );
 		
 		$className = $DBVars[ MYSQL_CONF_BASE ][ 'type' ].'TableVariable';
-		$configuration = new $className ( CONFIGURATION_TABLE_NAME, $DBVars[ MYSQL_CONF_BASE ], $errors );
+		$configuration = new $className ( CONFIGURATION_TABLE_NAME, $confConnection, $errors );
 
+		unset ( $DBVars );
+		unset ( $className );
+		unset ( $confConnection );
+		
 		$servConf = $configuration->SelectServerVariables();
 		$siteConf = $configuration->SelectSiteVariables( IDSITE );
 		
@@ -4876,7 +5348,7 @@ class WebSitePage extends XHTMLSitePage
 			}
 		
 			// load Server configuration
-			$appl->SetConfiguration( $conf );
+			$this->GetApplication()->SetConfiguration( $conf );
 			
 			unset ( $conf );
 		}
@@ -4884,80 +5356,144 @@ class WebSitePage extends XHTMLSitePage
 		unset ( $servConf );
 		unset ( $siteConf );
 
-		$sessionsActivated = $appl->GetConfiguration()->GetVariableByName( SITE_SESSIONS_ACTIVATED );
+		$sessionsActivated = $this->GetApplication()->GetConfiguration()->GetVariableByName( SITE_SESSIONS_ACTIVATED );
+		
+		
+		$this->GetTemplate()->GetHeaders()->AddHeaders( '<title>'.$this->GetApplication()->GetConfiguration()->GetVariableByName( SITE_TITLE )->GetProperty ( TableVariable::TABLE_COLUMN_DATA ).'</title>' );
+		$this->GetTemplate()->GetHeaders()->AddHeaders( '<meta http-equiv="desc" content="'.$this->GetApplication()->GetConfiguration()->GetVariableByName( SITE_DESCRIPTION )->GetProperty ( TableVariable::TABLE_COLUMN_DATA ).'" />' );
+		$this->GetTemplate()->GetHeaders()->AddHeaders( '<meta http-equiv="keywords" content="'.$this->GetApplication()->GetConfiguration()->GetVariableByName( SITE_KEYWORDS )->GetProperty ( TableVariable::TABLE_COLUMN_DATA ).'" />' );
 		
 		if ( ! ($sessionsActivated InstanceOf Errors) && $sessionsActivated->GetProperty ( TableVariable::TABLE_COLUMN_DATA ) )
 		{
 			// activate sessions
-			Session::GetInstance();
+			$this->session = Session::GetInstance();
 		}
 		
 		unset ( $sessionsActivated );
-		unset ( $appl );
 	} //---- End of OnLoad
 	
+	/**
+	 * Function called after OnLoad and before OnUnLoad.
+	 * Here is all the process of the page.
+	 *
+	 */
     public function Process ( )
-    // User's manual :
-    //all processes of the page.
-	//called after ApplicationStart / OnStart.
-	//
-    // Contract :
-    //
 	{
 		parent::Process();
 	} //---- End of Process
 	
+	/**
+	 * callback function to be called by Application on ApplicationEnd.
+	 * Sets up Execution time from Tag named TAG_EXECUTION_TIME and
+	 * flushes the page.
+	 *
+	 * @param $applicationVars arguments passed by Application on function
+	 * call - see Application class
+	 *
+	 * @see Application class
+	 *
+	 */
     public function OnUnLoad ( $applicationVars )
-    // User's manual :
-    //function to be called on ApplicationEnd
-	//
-    // Contract :
-    //
 	{
 		parent::OnUnLoad( $applicationVars );
 	} //---- End of OnUnLoad
 
 //---------------------------------------------- Constructors - destructor
+	/**
+	 * instanciates a WebSitePage.
+	 *
+	 */
     protected function __construct()
-    // User's manual :
-    //Internal constructor that disable instanciation
-    // Contract :
-    //
-    {	
+    {
+		$this->databasesConnections = array();
+		$this->confDatabaseConnection = NULL;
+		
 		parent::__construct();
     } //---- End of __construct
 
 
+	/**
+	 * Destructs ressources allocated
+	 */
     public function __destruct ( )
-    // User's manual :
-    //
-    // Contract :
-    //
     {
     } //---- End of __destruct
 
 //---------------------------------------------------------- Magic Methods
 
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
     public function __ToString ( )
-    // User's manual :
-    //
-    // Contract :
-    //
     {
-		return '';
+		return parrent::__ToString();
     } //---- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
 
 //------------------------------------------------------ protected methods
-    // protected type Méthode ( );
-    // User's manual :
-    //
-    // Contract :
-    //
+	/**
+	 * Initializes all databases connections flaged as used in the $DBVars
+	 * array.
+	 *
+	 * @param $DBVars array of Databases structures
+	 *
+	 * @param $confDBIndex integer that indicates which $DBVars contains
+	 * the database connection for the configuration of all sites.
+	 *
+	 */
+	protected function initializeDatabasesConnections( & $DBVars, $confDBIndex )
+	{		
+		$this->confDatabaseConnection = NULL;
+	
+		// set up all 'always' needed connections
+		foreach ( $DBVars as $index => $db )
+		{
+			if ( $db['alwaysUse'] )
+			{
+				// set up
+				$className = $db[ 'type' ].'Connection';
+				$newDB = new $className ( ) or ($errors = new Errors());
+				
+				$newDB->SetServer( $db['host'] );
+				$newDB->SetUsername( $db['login'] );
+				$newDB->SetPassword( $db['password'] );
+				
+				$newDB->Open( BDDConnection::CONNECTION_PERSISTENT );
+				
+				$errors = $newDB->SetDatabase( $db['database'] );
+				
+				if ( $errors == NULL )
+				{
+					$this->databasesConnections[] = & $newDB;
+					
+					if ( $index == $confDBIndex )
+					{
+						$this->confDatabaseConnection = & $newDB;
+					}
+				}
+				else
+				{
+					die ( $errors );
+				}
+				
+				unset ( $newDB );
+			}
+		}
+	} //----- End of initializeDatabasesConnections
 
 //--------------------------------------------------- protected properties
-
+	/** session object */
+	protected $session;
+	
+	/** array of databases connections */
+	protected $databasesConnections;
+	
+	/** reference to main database connection : the configuration one */
+	protected $confDatabaseConnection;
 }
 
 //----------------------------------------------------- Others definitions
@@ -5232,7 +5768,6 @@ class Group extends BDDRecord
 
 //--------------------------------------------------------- public methods
 
-    public function Validate ( $siteTable )
     /**
 	 * Tries to validate the Site in order to save it into DataBase.
      *
@@ -5253,6 +5788,7 @@ class Group extends BDDRecord
 	 * TableSite::TABLE_COLUMN_IDSITE refers to a non existant site
 	 *
      */
+    public function Validate ( $siteTable )
 	{
 		$errors = new Errors ();
 	
@@ -5289,7 +5825,6 @@ class Group extends BDDRecord
 
 //---------------------------------------------- Constructors - destructor
 
-    function __construct( BDDRecord $newRec )
     /**
 	 * Initialises Site from the BDDRecord $newRec.
 	 * If $newRec is NULL, Group is empty.
@@ -5298,6 +5833,7 @@ class Group extends BDDRecord
 	 * @param $newRec a BDDRecord to copy/cast or NULL
 	 *
      */
+    function __construct( BDDRecord $newRec )
     {
 		parent::__construct( NULL );
 	
@@ -5318,19 +5854,19 @@ class Group extends BDDRecord
 		$this->isValid = false;
     } //---- End of constructor
 	
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		parent::__destruct();
 	} //----- End of Destructor
     
 //---------------------------------------------------------- Magic Methods
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 */
+    function __ToString ( )
     {
         return parent::__ToString();
     } // End of __ToString
@@ -5385,7 +5921,6 @@ class Groups extends AbstractClass implements Iterator
 
 //--------------------------------------------------------- public methods
 	
-	public function GetGroupByIdGroup ( $idGroup )
     /**
 	 * Gets the Group which property TableGroup::TABLE_COLUMN_IDGROUP
 	 * has the value $idGroup
@@ -5400,6 +5935,7 @@ class Groups extends AbstractClass implements Iterator
 	 * from the database or doesn't exist
      *
      */
+	public function GetGroupByIdGroup ( $idGroup )
 	{
 		if ( isset ( $this->groups [ $idGroup ] ) )
 		{
@@ -5414,7 +5950,6 @@ class Groups extends AbstractClass implements Iterator
 		}
 	} //---- End of GetGroupByIdGroup
 	
-	public function GetGroupByName ( $nameGroup )
     /**
 	 * Gets the Group which property TableGroup::TABLE_COLUMN_NAME
 	 * has the value $nameGroup
@@ -5429,6 +5964,7 @@ class Groups extends AbstractClass implements Iterator
 	 * from the database or doesn't exist
      *
      */
+	public function GetGroupByName ( $nameGroup )
 	{
 		foreach ( $this->groups as $group ) 
 		{
@@ -5444,7 +5980,6 @@ class Groups extends AbstractClass implements Iterator
 		return $errors;
 	} //---- End of GetGroupByName
 	
-	public function SetGroup ( Group $group )
     /**
 	 * Adds a Group to the Groups if it is different than NULL.
 	 * Alias of Groups::Add()
@@ -5452,6 +5987,7 @@ class Groups extends AbstractClass implements Iterator
      * @param $group the Group to add
      *
      */
+	public function SetGroup ( Group $group )
 	{
 
 		$this->Add ( $group );
@@ -5460,7 +5996,6 @@ class Groups extends AbstractClass implements Iterator
 	
 //---------------------------------------------- Iterator's Implementation
 
-    public function Add( Group $item )
     /**
 	 * Adds a Group to the Groups if it is different than NULL.
 	 * Group-s are indexed by TableGroup::TABLE_COLUMN_IDGROUP if possible.
@@ -5468,6 +6003,7 @@ class Groups extends AbstractClass implements Iterator
      * @param $item the Group to add
      *
      */
+    public function Add( Group $item )
     {
 		if ( $item == NULL ) return;
 	
@@ -5483,72 +6019,71 @@ class Groups extends AbstractClass implements Iterator
 		}
     } //---- End of Add
 
-    public function DelAll( )
     /**
 	 * Clears the Iterator.
      *
      */
+    public function DelAll( )
     {
         unset($this->groups);
         
         $this->groups = array();
     } //---- End of DelAll
 
-    public function GetCount( )
     /**
 	 * Gets the number of items it contains.
      *
 	 * @return the number of items it contains
 	 *
      */
+    public function GetCount( )
     {
         return count( $this->groups );
     } //---- End of GetCount
     
 //---------------------------------------------- Iterator's Implementation
-    public function Rewind( )
     /**
 	 * Gets back to the start of array.
 	 *
      */
+    public function Rewind( )
     {
         reset( $this->groups );
     } //--- End of Rewind
 
-    public function Current( )
     /**
 	 * Gets the current element of the array.
 	 *
 	 * @return the current element of array
 	 *
      */
+    public function Current( )
     {
         return current( $this->groups );
     } //---- End of Current
     
-    public function Key( )
     /**
 	 * Gets the key of the current element of the array.
 	 *
 	 * @return the key of the current element of array
 	 *
      */
+    public function Key( )
     {
         return Key ( $this->groups );
     } //---- End of Key
     
-    public function Next( )
     /**
 	 * Goes to the next element of array.
 	 *
 	 * @return next element of array
 	 *
      */
+    public function Next( )
     {
         return next( $this->groups );
     } //---- End of Next
     
-    public function Valid( )
     /**
 	 * Checks if array's element is valid or not.
 	 *
@@ -5556,6 +6091,7 @@ class Groups extends AbstractClass implements Iterator
 	 * @return - false otherwise
 	 *
      */
+    public function Valid( )
     {
         return $this->current( ) !== false;
     } //---- End of Valid
@@ -5563,11 +6099,11 @@ class Groups extends AbstractClass implements Iterator
 //--------------------------------------- End of Iterator's implementation
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct( BDDRecordSet $groups )
     /**
 	 * Initialises Groups from a BDDRecordSet.
 	 *
      */
+    public function __construct( BDDRecordSet $groups )
     {
 		parent::__construct();
 	
@@ -5580,23 +6116,23 @@ class Groups extends AbstractClass implements Iterator
     } //---- End of constructor
 
 
-    public function __destruct ( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    public function __destruct ( )
     {
 		parent::__destruct();
     } //---- End of destructor
     
 //---------------------------------------------------------- Magic Methods
 
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    function __ToString ( )
     {
         return parent::__ToString();
     } // End of __ToString
@@ -5659,7 +6195,6 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 
 //--------------------------------------------------------- public methods
 
-    public function SaveGroups ( Groups $groups )
 	/**
 	 * Updates validated items in $groups in function of its idGroup.
 	 * If idGroup doesn't exist, item is inserted.
@@ -5672,6 +6207,7 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	 * BDDConnection::Query
 	 *
 	 */
+    public function SaveGroups ( Groups $groups )
 	{		
 		foreach ( $groups as $group )
 		{
@@ -5697,7 +6233,6 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 		return NULL;
 	} //---- End of SaveGroups
 
-	public function SelectGroups ()
 	/**
 	 * Selects all the Group-s from Table.
      *
@@ -5706,6 +6241,7 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectGroups ()
 	{
 		$result = $this->Select ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 		
@@ -5720,7 +6256,6 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	} //---- End of SelectGroups
 	
 	
-	public function SelectGroupByIdGroup ( $idGroup )
 	/**
 	 * Selects the Group from table which TableGroup::TABLE_COLUMN_IDGROUP
 	 * equals to $idGroup.
@@ -5733,6 +6268,7 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectGroupByIdGroup ( $idGroup )
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -5750,7 +6286,6 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	} //---- End of SelectGroupByIdGroup
 	
 	
-	public function SelectGroupsByIdSite ( $idSite )
 	/**
 	 * Selects the Group-s from table which TableGroup::TABLE_COLUMN_IDSITE
 	 * equals to $idSite. In other words : Group-s that belong to the site of 
@@ -5764,6 +6299,7 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectGroupsByIdSite ( $idSite )
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -5780,7 +6316,6 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 		}
 	} //---- End of SelectGroupsByIdSite
 	
-	public function FindGroupsByName ( $groupName )
 	/**
 	 * Selects the Group-s from table which TableGroup::TABLE_COLUMN_NAME
 	 * looks like $groupName.
@@ -5796,6 +6331,7 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	 * BDDConnection::Query
      *
      */
+	public function FindGroupsByName ( $groupName )
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -5812,7 +6348,6 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 		}
 	} //---- End of FindGroupsByName
 	
-	public function UpdateGroupByIdGroup ( Group $updatedGroup )
 	/**
 	 * Tries to update the given group $updatedGroup in function of its
 	 * property TableGroup::TABLE_COLUMN_IDGROUP.
@@ -5824,6 +6359,7 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	 * BDDConnection::Query
      *
      */	
+	public function UpdateGroupByIdGroup ( Group $updatedGroup )
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -5847,7 +6383,6 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 		return $this->Update( $new, $clauses );
 	} //---- End of UpdateGroupByIdGroup
 	
-	public function InsertGroup ( Group $group )
 	/**
 	 * Inserts the given Group $group into the table.
 	 *
@@ -5858,11 +6393,11 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	 * BDDConnection::Query
      *
      */
+	public function InsertGroup ( Group $group )
 	{
 		return $this->Insert ( $group );
 	} //---- End of InsertGroup
 	
-	public function IdGroupExists ( $idGroup )
 	/**
 	 * Checks whether the Group of id $idGroup exists or not.
 	 *
@@ -5873,6 +6408,7 @@ class MySQLTableGroup extends MySQLTable implements TableGroupInterface
 	 * @return - false otherwise
      *
      */
+	public function IdGroupExists ( $idGroup )
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableGroup::TABLE_COLUMN_IDGROUP . MySQLTable::MYSQL_SEEK_STRICT . intval( $idGroup );
 		
@@ -6150,7 +6686,7 @@ interface TableUserInterface
 	 * BDDConnection::Query
      *
      */	
-	public function UpdateUserByIdUser ( User $new );
+	public function UpdateUserByIdUser ( User $updatedUser );
 	
 	/**
 	 * Inserts the given User $user into the table.
@@ -6288,7 +6824,6 @@ class User extends BDDRecord
 
 //---------------------------------------------- Constructors - destructor
 
-    function __construct( BDDRecord $newRec )
     /**
 	 * Initialises User from the BDDRecord $newRec.
 	 * If $newRec is NULL, User is empty.
@@ -6297,6 +6832,7 @@ class User extends BDDRecord
 	 * @param $newRec a BDDRecord to copy/cast or NULL
 	 *
      */
+    function __construct( BDDRecord $newRec )
     {
 		parent::__construct( NULL );
 		
@@ -6315,19 +6851,19 @@ class User extends BDDRecord
 		}
     } //---- End of constructor
 	
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		parent::__destruct();
 	} //----- End of Destructor
     
 //---------------------------------------------------------- Magic Methods
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 */
+    function __ToString ( )
     {
         return parent::__ToString();
     } // End of __ToString
@@ -6382,7 +6918,6 @@ class Users extends AbstractClass implements Iterator
 
 //--------------------------------------------------------- public methods
 	
-	public function GetUserByIdUser ( $idUser )
     /**
 	 * Gets the User which property TableUser::TABLE_COLUMN_IDUSER
 	 * has the value $idUser
@@ -6397,6 +6932,7 @@ class Users extends AbstractClass implements Iterator
 	 * from the database or doesn't exist
      *
      */
+	public function GetUserByIdUser ( $idUser )
 	{
 		if ( isset ( $this->users [ $idUser ] ) )
 		{
@@ -6411,7 +6947,6 @@ class Users extends AbstractClass implements Iterator
 		}
 	} //---- End of GetUserByIdUser
 	
-	public function GetUserByName ( $nameUser )
     /**
 	 * Gets the User which property TableUser::TABLE_COLUMN_NAME
 	 * has the value $nameUser
@@ -6426,6 +6961,7 @@ class Users extends AbstractClass implements Iterator
 	 * from the database or doesn't exist
      *
      */
+	public function GetUserByName ( $nameUser )
 	{
 		foreach ( $this->users as $user ) 
 		{
@@ -6441,7 +6977,6 @@ class Users extends AbstractClass implements Iterator
 		return $errors;
 	} //---- End of GetUserByName
 	
-	public function SetUser ( User $user )
     /**
 	 * Adds a User to the Users if it is different than NULL.
 	 * Alias of User::Add()
@@ -6449,6 +6984,7 @@ class Users extends AbstractClass implements Iterator
      * @param $user the User to add
      *
      */
+	public function SetUser ( User $user )
 	{
 
 		$this->Add ( $user );
@@ -6457,7 +6993,6 @@ class Users extends AbstractClass implements Iterator
 	
 //------------------------------------------- Implémentation de MyIterator
 
-    public function Add( User $item )
     /**
 	 * Adds a User to the Users if it is different than NULL.
 	 * User-s are indexed by TableUser::TABLE_COLUMN_IDUSER if possible.
@@ -6465,6 +7000,7 @@ class Users extends AbstractClass implements Iterator
      * @param $item the User to add
      *
      */
+    public function Add( User $item )
     {
 		if ( $item == NULL ) return;
 		
@@ -6480,72 +7016,71 @@ class Users extends AbstractClass implements Iterator
 		}
     } //---- End of Add
 
-    public function DelAll( )
     /**
 	 * Clears the Iterator.
      *
      */
+    public function DelAll( )
     {
         unset($this->users);
         
         $this->users = array();
     } //---- End of DelAll
 
-    public function GetCount( )
     /**
 	 * Gets the number of items it contains.
      *
 	 * @return the number of items it contains
 	 *
      */
+    public function GetCount( )
     {
         return count( $this->users );
     } //---- End of GetCount
     
 //-----------------------------------------------Implémentation Iterator
-    public function Rewind( )
     /**
 	 * Gets back to the start of array.
 	 *
      */
+    public function Rewind( )
     {
         reset( $this->users );
     } //--- End of Rewind
 
-    public function Current( )
     /**
 	 * Gets the current element of the array.
 	 *
 	 * @return the current element of array
 	 *
      */
+    public function Current( )
     {
         return current( $this->users );
     } //---- End of Current
     
-    public function Key( )
     /**
 	 * Gets the key of the current element of the array.
 	 *
 	 * @return the key of the current element of array
 	 *
      */
+    public function Key( )
     {
         return Key ( $this->users );
     } //---- End of Key
     
-    public function Next( )
     /**
 	 * Goes to the next element of array.
 	 *
 	 * @return next element of array
 	 *
      */
+    public function Next( )
     {
         return next( $this->users );
     } //---- End of Next
     
-    public function Valid( )
     /**
 	 * Checks if array's element is valid or not.
 	 *
@@ -6553,6 +7088,7 @@ class Users extends AbstractClass implements Iterator
 	 * @return - false otherwise
 	 *
      */
+    public function Valid( )
     {
         return $this->current( ) !== false;
     } //---- End of Valid
@@ -6560,11 +7096,11 @@ class Users extends AbstractClass implements Iterator
 //--------------------------------------- End of Iterator's implementation
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct( BDDRecordSet $users )
     /**
 	 * Initialises Users from a BDDRecordSet.
 	 *
      */
+    public function __construct( BDDRecordSet $users )
     {
 		parent::__construct();
 		
@@ -6577,23 +7113,23 @@ class Users extends AbstractClass implements Iterator
     } //---- End of constructor
 
 
-    public function __destruct ( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    public function __destruct ( )
     {
 		parent::__destruct();
     } //---- End of destructor
     
 //---------------------------------------------------------- Magic Methods
 
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    function __ToString ( )
     {
         return parent::__ToString();
     } // End of __ToString
@@ -6656,7 +7192,6 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 
 //--------------------------------------------------------- public methods
 
-    public function SaveUsers ( Users $users )
 	/**
 	 * Updates validated items in $users in function of its idUser.
 	 * If idUser doesn't exist, item is inserted.
@@ -6669,6 +7204,7 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 	 * BDDConnection::Query
 	 *
 	 */
+    public function SaveUsers ( Users $users )
 	{		
 		foreach ( $users as $user )
 		{
@@ -6694,7 +7230,6 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		return NULL;
 	} //---- End of SaveUsers
 
-	public function SelectUsers ()
 	/**
 	 * Selects all the User-s from Table.
      *
@@ -6703,6 +7238,7 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectUsers ()
 	{
 		$result = $this->Select ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 		
@@ -6717,7 +7253,6 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 	} //---- End of SelectUsers
 	
 	
-	public function SelectUserByIdUser ( $idUser )
 	/**
 	 * Selects the Site from table which TableUser::TABLE_COLUMN_IDUSER
 	 * equals to $idUser.
@@ -6730,6 +7265,7 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectUserByIdUser ( $idUser )
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -6746,7 +7282,6 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		}	
 	} //---- End of SelectUserByIdUser
 	
-	public function SelectUsersByIdGroup ( $idGroup )
 	/**
 	 * Selects the User-s from table which TableUser::TABLE_COLUMN_IDGROUP
 	 * equals to $idGroup. In other words : User-s that belong to the group of 
@@ -6760,6 +7295,7 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectUsersByIdGroup ( $idGroup )
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -6776,7 +7312,6 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		}
 	} //---- End of SelectUsersByIdGroup
 	
-	public function FindUsersByName ( $userName )
 	/**
 	 * Selects the User-s from table which TableUser::TABLE_COLUMN_NAME
 	 * looks like $userName.
@@ -6792,6 +7327,7 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 	 * BDDConnection::Query
      *
      */
+	public function FindUsersByName ( $userName )
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -6808,7 +7344,6 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		}
 	} //---- End of FindUsersByName
 	
-	public function UpdateUserByIdUser ( User $updatedUser )
 	/**
 	 * Tries to update the given site $updatedUser in function of its
 	 * property TableUser::TABLE_COLUMN_IDUSER.
@@ -6820,6 +7355,7 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 	 * BDDConnection::Query
      *
      */	
+	public function UpdateUserByIdUser ( User $updatedUser )
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -6843,7 +7379,6 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 		return $this->Update( $new, $clauses );
 	} //---- End of UpdateUserByIdUser
 	
-	public function InsertUser ( User $user )
 	/**
 	 * Inserts the given User $user into the table.
 	 *
@@ -6854,11 +7389,11 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 	 * BDDConnection::Query
      *
      */
+	public function InsertUser ( User $user )
 	{
 		return $this->Insert ( $user );
 	} //---- End of InsertUser
 	
-	public function IdUserExists ( $idUser )
 	/**
 	 * Checks whether the User of id $idUser exists or not.
 	 *
@@ -6869,6 +7404,7 @@ class MySQLTableUser extends MySQLTable implements TableUserInterface
 	 * @return - false otherwise
      *
      */
+	public function IdUserExists ( $idUser )
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableUser::TABLE_COLUMN_IDUSER . MySQLTable::MYSQL_SEEK_STRICT . intval( $idUser );
 		
@@ -7216,7 +7752,6 @@ class Variable extends BDDRecord
 //----------------------------------------------------------------- PUBLIC
 
 //--------------------------------------------------------- public methods
-    public function Validate ( $siteTable )
     /**
 	 * Tries to validate the Variable in order to save it into DataBase.
      *
@@ -7242,6 +7777,7 @@ class Variable extends BDDRecord
 	 * @return VariableError::VARIABLE_IDSITE_INEXISTANT if property 
 	 * TableVariable::TABLE_COLUMN_IDSITE refers to a non existant site
      */
+    public function Validate ( $siteTable )
 	{
 		$errors = new Errors ();
 	
@@ -7291,7 +7827,6 @@ class Variable extends BDDRecord
 
 //---------------------------------------------- Constructors - destructor
 
-    function __construct( BDDRecord $newRec )
     /**
 	 * Initialises Variable from the BDDRecord $newRec.
 	 * If $newRec is NULL, Variable is empty.
@@ -7300,6 +7835,7 @@ class Variable extends BDDRecord
 	 * @param $newRec a BDDRecord to copy/cast or NULL
 	 *
      */
+    function __construct( BDDRecord $newRec )
     {
 		parent::__construct( NULL );
 		
@@ -7321,19 +7857,19 @@ class Variable extends BDDRecord
 		}
     } //---- End of constructor
 	
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		parent::__destruct();
 	} //----- End of Destructor
     
 //---------------------------------------------------------- Magic Methods
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 */
+    function __ToString ( )
     {
         return parent::__ToString();
     } // End of __ToString
@@ -7388,7 +7924,6 @@ class Variables extends AbstractClass implements Iterator
 
 //--------------------------------------------------------- public methods
 	
-	public function GetVariableByName ( $varName )
     /**
 	 * Gets the Variable which property TableVariable::TABLE_COLUMN_NAME
 	 * has the value $varName
@@ -7403,6 +7938,7 @@ class Variables extends AbstractClass implements Iterator
 	 * from the database or doesn't exist
      *
      */
+	public function GetVariableByName ( $varName )
 	{
 		if ( isset ( $this->variables [ $varName ] ) )
 		{
@@ -7417,7 +7953,6 @@ class Variables extends AbstractClass implements Iterator
 		}
 	} //---- End of GetVariableByName
 	
-	public function SetVariable ( Variable $variable )
     /**
 	 * Adds a Variable to the Variables if it is different than NULL.
 	 * Alias of Variables::Add()
@@ -7425,13 +7960,13 @@ class Variables extends AbstractClass implements Iterator
      * @param $variable the Variable to add
      *
      */
+	public function SetVariable ( Variable $variable )
 	{
 		$this->Add ( $variable );
 	} //---- End of SetVariable
 	
 //------------------------------------------- Implémentation de MyIterator
 
-    public function Add( Variable $item )
     /**
 	 * Adds a Variable to the Variables if it is different than NULL.
 	 * Variable-s are indexed by TableVariable::TABLE_COLUMN_NAME if possible.
@@ -7439,6 +7974,7 @@ class Variables extends AbstractClass implements Iterator
      * @param $item the Variable to add
      *
      */
+    public function Add( Variable $item )
     {
 		if ( $item == NULL ) return;
 		
@@ -7454,72 +7990,71 @@ class Variables extends AbstractClass implements Iterator
 		}
     } //---- End of Add
 
-    public function DelAll( )
     /**
 	 * Clears the Iterator.
      *
      */
+    public function DelAll( )
     {
         unset($this->variables);
         
         $this->variables = array();
     } //---- End of DelAll
 
-    public function GetCount( )
     /**
 	 * Gets the number of items it contains.
      *
 	 * @return the number of items it contains
 	 *
      */
+    public function GetCount( )
     {
         return count( $this->variables );
     } //---- End of GetCount
     
 //---------------------------------------------- Iterator's Implementation
-    public function Rewind( )
     /**
 	 * Gets back to the start of array.
 	 *
      */
+    public function Rewind( )
     {
         reset( $this->variables );
     } //--- End of Rewind
 
-    public function Current( )
     /**
 	 * Gets the current element of the array.
 	 *
 	 * @return the current element of array
 	 *
      */
+    public function Current( )
     {
         return current( $this->variables );
     } //---- End of Current
     
-    public function Key( )
     /**
 	 * Gets the key of the current element of the array.
 	 *
 	 * @return the key of the current element of array
 	 *
      */
+    public function Key( )
     {
         return Key ( $this->variables );
     } //---- End of Key
     
-    public function Next( )
     /**
 	 * Goes to the next element of array.
 	 *
 	 * @return next element of array
 	 *
      */
+    public function Next( )
     {
         return next( $this->variables );
     } //---- End of Next
     
-    public function Valid( )
     /**
 	 * Checks if array's element is valid or not.
 	 *
@@ -7527,6 +8062,7 @@ class Variables extends AbstractClass implements Iterator
 	 * @return - false otherwise
 	 *
      */
+    public function Valid( )
     {
         return $this->current( ) !== false;
     } //---- End of Valid
@@ -7534,11 +8070,11 @@ class Variables extends AbstractClass implements Iterator
 //--------------------------------------- End of Iterator's implementation
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct( BDDRecordSet $variables )
     /**
 	 * Initialises Variables from a BDDRecordSet.
 	 *
      */
+    public function __construct( BDDRecordSet $variables )
     {
 		parent::__construct();
 		
@@ -7551,23 +8087,23 @@ class Variables extends AbstractClass implements Iterator
     } //---- End of constructor
 
 
-    public function __destruct ( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    public function __destruct ( )
     {
 		parent::__destruct();
     } //---- End of destructor
     
 //---------------------------------------------------------- Magic Methods
 
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    function __ToString ( )
     {
         return parent::__ToString();
     } // End of __ToString
@@ -7630,7 +8166,6 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 
 //--------------------------------------------------------- public methods
 
-    public function SaveVariables ( Variables $variables )
 	/**
 	 * Updates validated items in $variables in function of its idVariable.
 	 * If idVariable doesn't exist, item is inserted.
@@ -7643,6 +8178,7 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 	 * BDDConnection::Query
 	 *
 	 */
+    public function SaveVariables ( Variables $variables )
 	{		
 		foreach ( $variables as $variable )
 		{
@@ -7668,7 +8204,6 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 		return NULL;
 	} //---- End of SaveVariables
 	
-	public function SelectServerVariables ()
 	/**
 	 * Selects all the Variable-s from Table which scope is Server.
      *
@@ -7677,6 +8212,7 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectServerVariables ()
 	{
 		$result = $this->Select (	MySQLTABLE::TABLE_COLUMN_ALL , 
 									MySQLTABLE::MYSQL_CLAUSE_WHERE .
@@ -7693,7 +8229,6 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 		}
 	} //---- End of SelectServerVariable
 	
-	public function SelectSiteVariables ( $idSite )
 	/**
 	 * Selects all the Variable-s from Table which is Site and refers to
 	 * site of id $idSites.
@@ -7705,6 +8240,7 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectSiteVariables ( $idSite )
 	{
 		$result = $this->Select (	MySQLTABLE::TABLE_COLUMN_ALL ,
 									MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -7723,7 +8259,6 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 		}
 	} //---- End of SelectSiteVariable
 	
-	public function SelectVariablesByName ( $varName )
 	/**
 	 * Selects the Group-s from table which TableVariable::TABLE_COLUMN_NAME
 	 * looks like $varName.
@@ -7739,6 +8274,7 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectVariablesByName ( $varName )
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -7755,7 +8291,6 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 		}
 	} //---- End of SelectVariablesByName
 	
-	public function UpdateVariableByIdVariable ( Variable $updatedVariable )
 	/**
 	 * Tries to update the given Variable $updatedVariable in function of its
 	 * property TableVariable::TABLE_COLUMN_IDVARIABLE.
@@ -7767,6 +8302,7 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 	 * BDDConnection::Query
      *
      */
+	public function UpdateVariableByIdVariable ( Variable $updatedVariable )
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -7790,7 +8326,6 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 		return $this->Update( $new, $clauses );
 	} //---- End of UpdateVariableByIdVariable
 	
-	public function InsertVariable ( Variable $variable )
 	/**
 	 * Inserts the given Variable $variable into the table.
 	 *
@@ -7801,11 +8336,11 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 	 * BDDConnection::Query
      *
      */
+	public function InsertVariable ( Variable $variable )
 	{
 		return $this->Insert ( $variable );
 	} //---- End of InsertVariable
 	
-	public function IdVariableExists ( $idVariable )
 	/**
 	 * Checks whether the Variable of id $idVariable exists or not.
 	 *
@@ -7816,6 +8351,7 @@ class MySQLTableVariable extends MySQLTable implements TableVariableInterface
 	 * @return - false otherwise
      *
      */
+	public function IdVariableExists ( $idVariable )
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableVariable::TABLE_COLUMN_IDVARIABLE . MySQLTABLE::MYSQL_SEEK_SEPARATOR . MySQLTable::MYSQL_SEEK_STRICT . intval( $idVariable ) . MySQLTABLE::MYSQL_SEEK_SEPARATOR;
 		
@@ -8101,7 +8637,7 @@ interface TableSiteInterface
 	 * BDDConnection::Query
      *
      */	
-	public function UpdateSiteByIdSite ( Site $new );
+	public function UpdateSiteByIdSite ( Site $updatedSite );
 	
 	/**
 	 * Inserts the given Site $site into the table.
@@ -8182,7 +8718,6 @@ class Site extends BDDRecord
 
 //--------------------------------------------------------- public methods
 
-    public function Validate (  )
     /**
 	 * Tries to validate the Site in order to save it into DataBase.
 	 *
@@ -8192,6 +8727,7 @@ class Site extends BDDRecord
 	 * @return SiteError::SITE_NAME_EMPTY if property 
 	 * TableSite::TABLE_COLUMN_NAME is empty
      */
+    public function Validate (  )
 	{
 		$errors = new Errors ();
 	
@@ -8215,7 +8751,6 @@ class Site extends BDDRecord
 
 //---------------------------------------------- Constructors - destructor
 
-    function __construct( BDDRecord $newRec )
     /**
 	 * Initialises Site from the BDDRecord $newRec.
 	 * If $newRec is NULL, Variable is empty.
@@ -8224,6 +8759,7 @@ class Site extends BDDRecord
 	 * @param $newRec a BDDRecord to copy/cast or NULL
 	 *
      */
+    function __construct( BDDRecord $newRec )
     {
 		parent::__construct( NULL );
 	
@@ -8240,19 +8776,19 @@ class Site extends BDDRecord
 		}
     } //---- End of constructor
 	
-    function __destruct( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    function __destruct( )
 	{
 		parent::__destruct();
 	} //----- End of Destructor
     
 //---------------------------------------------------------- Magic Methods
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 */
+    function __ToString ( )
     {
         return parent::__ToString();
     } // End of __ToString
@@ -8307,7 +8843,6 @@ class Sites extends AbstractClass implements Iterator
 
 //--------------------------------------------------------- public methods
 	
-	public function GetSiteByIdSite ( $idSite )
     /**
 	 * Gets the Site which property TableSite::TABLE_COLUMN_IDSITE
 	 * has the value $idSite
@@ -8322,6 +8857,7 @@ class Sites extends AbstractClass implements Iterator
 	 * from the database or doesn't exist
      *
      */
+	public function GetSiteByIdSite ( $idSite )
 	{
 		if ( isset ( $this->sites [ $idSite ] ) )
 		{
@@ -8336,7 +8872,6 @@ class Sites extends AbstractClass implements Iterator
 		}
 	} //---- End of GetSiteByIdSite
 	
-	public function GetSiteByName ( $nameSite )
     /**
 	 * Gets the Site which property TableSite::TABLE_COLUMN_NAME
 	 * has the value $nameSite
@@ -8351,6 +8886,7 @@ class Sites extends AbstractClass implements Iterator
 	 * from the database or doesn't exist
      *
      */
+	public function GetSiteByName ( $nameSite )
 	{
 		foreach ( $this->sites as $site ) 
 		{
@@ -8366,7 +8902,6 @@ class Sites extends AbstractClass implements Iterator
 		return $errors;
 	} //---- End of GetSiteByName
 	
-	public function SetSite ( Site $site )
     /**
 	 * Adds a Site to the Sites if it is different than NULL.
 	 * Alias of Site::Add()
@@ -8374,13 +8909,13 @@ class Sites extends AbstractClass implements Iterator
      * @param $site the Site to add
      *
      */
+	public function SetSite ( Site $site )
 	{
 		$this->Add ( $site );
 	} //---- End of SetSite
 	
 //------------------------------------------- Implémentation de MyIterator
 
-    public function Add( Site $item )
     /**
 	 * Adds a Site to the Sites if it is different than NULL.
 	 * Site-s are indexed by TableSite::TABLE_COLUMN_IDSITE if possible.
@@ -8388,6 +8923,7 @@ class Sites extends AbstractClass implements Iterator
      * @param $item the Site to add
      *
      */
+    public function Add( Site $item )
     {
 		$key = $item->GetProperty ( TableSite::TABLE_COLUMN_IDSITE );
 	
@@ -8401,72 +8937,71 @@ class Sites extends AbstractClass implements Iterator
 		}
     } //---- End of Add
 
-    public function DelAll( )
     /**
 	 * Clears the Iterator.
      *
      */
+    public function DelAll( )
     {
         unset($this->sites);
         
         $this->sites = array();
     } //---- End of DelAll
 
-    public function GetCount( )
     /**
 	 * Gets the number of items it contains.
      *
 	 * @return the number of items it contains
 	 *
      */
+    public function GetCount( )
     {
         return count( $this->sites );
     } //---- End of GetCount
     
 //----------------------------------------------- Iterator's implementation
-    public function Rewind( )
     /**
 	 * Gets back to the start of array.
 	 *
      */
+    public function Rewind( )
     {
         reset( $this->sites );
     } //--- End of Rewind
 
-    public function Current( )
     /**
 	 * Gets the current element of the array.
 	 *
 	 * @return the current element of array
 	 *
      */
+    public function Current( )
     {
         return current( $this->sites );
     } //---- End of Current
     
-    public function Key( )
     /**
 	 * Gets the key of the current element of the array.
 	 *
 	 * @return the key of the current element of array
 	 *
      */
+    public function Key( )
     {
         return Key ( $this->sites );
     } //---- End of Key
     
-    public function Next( )
     /**
 	 * Goes to the next element of array.
 	 *
 	 * @return next element of array
 	 *
      */
+    public function Next( )
     {
         return next( $this->sites );
     } //---- End of Next
     
-    public function Valid( )
     /**
 	 * Checks if array's element is valid or not.
 	 *
@@ -8474,6 +9009,7 @@ class Sites extends AbstractClass implements Iterator
 	 * @return - false otherwise
 	 *
      */
+    public function Valid( )
     {
         return $this->current( ) !== false;
     } //---- End of Valid
@@ -8481,11 +9017,11 @@ class Sites extends AbstractClass implements Iterator
 //--------------------------------------- End of Iterator's implementation
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct( BDDRecordSet $sites )
     /**
 	 * Initialises Sites from a BDDRecordSet.
 	 *
      */
+    public function __construct( BDDRecordSet $sites )
     {
 		parent::__construct();
 	
@@ -8498,23 +9034,23 @@ class Sites extends AbstractClass implements Iterator
     } //---- End of constructor
 
 
-    public function __destruct ( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    public function __destruct ( )
     {
 		parent::__destruct();
     } //---- End of destructor
     
 //---------------------------------------------------------- Magic Methods
 
-    function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    function __ToString ( )
     {
         return parent::__ToString();
     } // End of __ToString
@@ -8577,7 +9113,6 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 
 //--------------------------------------------------------- public methods
 
-    public function SaveSites ( Sites $sites )
 	/**
 	 * Updates validated items in $sites in function of its idSite.
 	 * If idSite doesn't exist, item is inserted.
@@ -8590,6 +9125,7 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 	 * BDDConnection::Query
 	 *
 	 */
+    public function SaveSites ( Sites $sites )
 	{		
 		foreach ( $sites as $site )
 		{
@@ -8615,7 +9151,6 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		return NULL;
 	} //---- End of SaveSites
 
-	public function SelectSites ()
 	/**
 	 * Selects all the Site-s from Table.
      *
@@ -8624,6 +9159,7 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectSites ()
 	{
 		$result = $this->Select ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 		
@@ -8638,7 +9174,6 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 	} //---- End of SelectSites
 	
 	
-	public function SelectSiteByIdSite ( $idSite )
 	/**
 	 * Selects the Site from table which TableSite::TABLE_COLUMN_IDSITE
 	 * equals to $idSite.
@@ -8651,6 +9186,7 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 	 * BDDConnection::Query
      *
      */
+	public function SelectSiteByIdSite ( $idSite )
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -8667,7 +9203,6 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		}
 	} //---- End of SelectSiteByIdSite
 	
-	public function FindSitesByName ( $siteName )
 	/**
 	 * Selects the Site-s from table which TableSite::TABLE_COLUMN_NAME
 	 * looks like $siteName.
@@ -8683,6 +9218,7 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 	 * BDDConnection::Query
      *
      */
+	public function FindSitesByName ( $siteName )
 	{
 		$result = $this->Select ( TABLE_COLUMN_ALL ,
 						MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -8699,7 +9235,6 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		}
 	} //---- End of FindSitesByName
 	
-	public function UpdateSiteByIdSite ( Site $updatedSite )
 	/**
 	 * Tries to update the given site $updatedSite in function of its
 	 * property TableSite::TABLE_COLUMN_IDSITE.
@@ -8711,6 +9246,7 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 	 * BDDConnection::Query
      *
      */	
+	public function UpdateSiteByIdSite ( Site $updatedSite )
 	{
 		if ( ! $new->isValid( ) )
 		{
@@ -8734,7 +9270,6 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 		return $this->Update( $new, $clauses );
 	} //---- End of UpdateSite
 	
-	public function InsertSite ( Site $site )
 	/**
 	 * Inserts the given Site $site into the table.
 	 *
@@ -8745,11 +9280,11 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 	 * BDDConnection::Query
      *
      */
+	public function InsertSite ( Site $site )
 	{
 		return $this->Insert ( $site );
 	} //---- End of InsertSite
 	
-	public function IdSiteExists ( $idSite )
 	/**
 	 * Checks whether the Site of id $idSite exists or not.
 	 *
@@ -8760,6 +9295,7 @@ class MySQLTableSite extends MySQLTable implements TableSiteInterface
 	 * @return - false otherwise
      *
      */
+	public function IdSiteExists ( $idSite )
 	{
 		$clauses = MySQLTable::MYSQL_CLAUSE_WHERE . TableSite::TABLE_COLUMN_IDSITE . MySQLTable::MYSQL_SEEK_STRICT . MySQLTABLE::MYSQL_SEEK_SEPARATOR . intval( $idSite ) . MySQLTABLE::MYSQL_SEEK_SEPARATOR;
 		

@@ -1,3 +1,18 @@
-base referer
-rect dir_2ecd046c76e29aeb15401a9040919958.html 27,54 179,102
-rect dir_b8b04be60aa5ee30625eb470bbe70adb.html 16,16 189,112
+digraph G {
+	graph [compound=true];
+	node [label="\N", fontsize=10, fontname=Helvetica];
+	edge [labelfontsize=9, labelfontname=Helvetica];
+	graph [lp="79,0"];
+	graph [bb="0,0,158,84"];
+	subgraph clusterdir_b8b04be60aa5ee30625eb470bbe70adb {
+		graph [bgcolor="#ddddee"];
+		graph [pencolor=black];
+		graph [label=XHTMLTemplates];
+		graph [fontname=Helvetica];
+		graph [fontsize=10];
+		graph [URL="dir_b8b04be60aa5ee30625eb470bbe70adb.html"];
+		graph [lp=""];
+		graph [bb="8,8,150,76"];
+		dir_2ecd046c76e29aeb15401a9040919958 [label=XHTMLBodyTemplate, shape=box, style=filled, fillcolor="#eeeeff", pencolor=black, URL="dir_2ecd046c76e29aeb15401a9040919958.html", pos="79,34", width="1.75", height="0.50"];
+	}
+}

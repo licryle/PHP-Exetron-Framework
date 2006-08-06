@@ -67,18 +67,18 @@
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041 <span class="comment">//--------------------------------------------------------- public methods</span>
 <a name="l00042"></a>00042     
-<a name="l00043"></a><a class="code" href="classError.html#9a0c9dabf6e651deb32ad38995cdd1c2">00043</a>     <span class="keyword">public</span> function <a class="code" href="classError.html#9a0c9dabf6e651deb32ad38995cdd1c2">GetMessage</a>( )
+<a name="l00049"></a><a class="code" href="classError.html#9a0c9dabf6e651deb32ad38995cdd1c2">00049</a>     <span class="keyword">public</span> function <a class="code" href="classError.html#9a0c9dabf6e651deb32ad38995cdd1c2">GetMessage</a>( )
 <a name="l00050"></a>00050     {
 <a name="l00051"></a>00051         <span class="keywordflow">return</span> $this-&gt;erreurString;
 <a name="l00052"></a>00052     }
 <a name="l00053"></a>00053     
-<a name="l00054"></a><a class="code" href="classError.html#56b61a842c04387434c6816bc866c247">00054</a>     <span class="keyword">public</span> function <a class="code" href="classError.html#56b61a842c04387434c6816bc866c247">GetCode</a>( )
+<a name="l00060"></a><a class="code" href="classError.html#56b61a842c04387434c6816bc866c247">00060</a>     <span class="keyword">public</span> function <a class="code" href="classError.html#56b61a842c04387434c6816bc866c247">GetCode</a>( )
 <a name="l00061"></a>00061     {
 <a name="l00062"></a>00062         <span class="keywordflow">return</span> $this-&gt;erreurCode;
 <a name="l00063"></a>00063     }
 <a name="l00064"></a>00064 
 <a name="l00065"></a>00065 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
-<a name="l00066"></a><a class="code" href="classError.html#75c6faba582d795c66ba6db68fc9ca05">00066</a>     <span class="keyword">public</span> function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( $code, $str )
+<a name="l00073"></a><a class="code" href="classError.html#75c6faba582d795c66ba6db68fc9ca05">00073</a> <span class="comment"></span>    <span class="keyword">public</span> function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( $code, $str )
 <a name="l00074"></a>00074     {
 <a name="l00075"></a>00075                 parent::__construct();
 <a name="l00076"></a>00076         
@@ -86,13 +86,13 @@
 <a name="l00078"></a>00078         $this-&gt;erreurString = $str;
 <a name="l00079"></a>00079     } <span class="comment">//---- End of constructor</span>
 <a name="l00080"></a>00080         
-<a name="l00081"></a><a class="code" href="classError.html#cf34625af8bb15a5519ac9185296345b">00081</a>     function <a class="code" href="classError.html#cf34625af8bb15a5519ac9185296345b">__destruct</a>( )
+<a name="l00084"></a><a class="code" href="classError.html#cf34625af8bb15a5519ac9185296345b">00084</a>     function <a class="code" href="classError.html#cf34625af8bb15a5519ac9185296345b">__destruct</a>( )
 <a name="l00085"></a>00085         {
 <a name="l00086"></a>00086                 parent::__destruct();
 <a name="l00087"></a>00087         } <span class="comment">//----- End of Destructor</span>
 <a name="l00088"></a>00088     
 <a name="l00089"></a>00089 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
-<a name="l00090"></a><a class="code" href="classError.html#317cdb077b2b6212da3feb700f6af562">00090</a>     <span class="keyword">public</span> function <a class="code" href="classError.html#317cdb077b2b6212da3feb700f6af562">__ToString</a> ( )
+<a name="l00096"></a><a class="code" href="classError.html#317cdb077b2b6212da3feb700f6af562">00096</a> <span class="comment"></span>    <span class="keyword">public</span> function <a class="code" href="classError.html#317cdb077b2b6212da3feb700f6af562">__ToString</a> ( )
 <a name="l00097"></a>00097     {
 <a name="l00098"></a>00098         <span class="keywordflow">return</span> $this-&gt;erreurString;
 <a name="l00099"></a>00099     } <span class="comment">// End of __ToString</span>
@@ -110,7 +110,7 @@
 <a name="l00113"></a>00113 <span class="comment">//------------------------------------------------------ other definitions</span>
 <a name="l00114"></a>00114 
 <a name="l00115"></a>00115 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:40 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:23 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

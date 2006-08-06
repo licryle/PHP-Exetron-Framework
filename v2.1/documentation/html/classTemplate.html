@@ -28,9 +28,11 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>Template Class Reference</h1><!-- doxytag: class="Template" --><!-- doxytag: inherits="AbstractClass" -->Inheritance diagram for Template:<p><center><img src="classTemplate__inherit__graph.jpg" border="0" usemap="#Template__inherit__map" alt="Inheritance graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for Template:<p><center><img src="classTemplate__coll__graph.jpg" border="0" usemap="#Template__coll__map" alt="Collaboration graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classTemplate-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<h1>Template Class Reference</h1><!-- doxytag: class="Template" --><!-- doxytag: inherits="AbstractClass" -->Inherits <a class="el" href="classAbstractClass.html">AbstractClass</a>.
+<p>
+Inherited by <a class="el" href="classXHTMLTemplate.html">XHTMLTemplate</a>.
+<p>
+<a href="classTemplate-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplate.html#addd64f2e83a529e6b6959af65f2e1dc">SetSkeleton</a> ($skeleton)</td></tr>
@@ -43,7 +45,7 @@
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplate.html#e977b88d049dd7fe2b404a2cf7519300">TagExists</a> ($tagName)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplate.html#10efb5fbb001719b7329164fe29097f2">Generate</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplate.html#259325ce06ab2f2a27c387ae9647c225">Generate</a> ($cached=false)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplate.html#8ec2b97fe1bacf9b31f56e5e4c40c3e2">__construct</a> ()</td></tr>
 
@@ -65,6 +67,9 @@
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplate.html#8b730648077192daed848f265b25596d">$skeleton</a></td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplate.html#e1bd0af64f603fcaf60160cc8ded8083">$tags</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTemplate.html#700136bde6ce629c163761f9b66fcc57">$lastGenerated</a></td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
@@ -102,9 +107,9 @@ instanciates a <a class="el" href="classTemplate.html">Template</a>.
 <p>
 Reimplemented from <a class="el" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">AbstractClass</a>.
 <p>
-Reimplemented in <a class="el" href="classXHTMLBodyTemplate.html#423b63e1cf9a2d5e6cf7b12b01c73288">XHTMLBodyTemplate</a>, <a class="el" href="classXHTMLHeadersTemplate.html#0f4c8279feb3fc8b72ed0003b14f2ac4">XHTMLHeadersTemplate</a>, <a class="el" href="classXHTMLPageTemplate.html#f2f64d1d81be506d5a3b309f6a7677cc">XHTMLPageTemplate</a>, and <a class="el" href="classXHTMLTemplate.html#a9e339053f4fdb3680be768b7709fc6f">XHTMLTemplate</a>.
+Reimplemented in <a class="el" href="classXHTMLBodyTemplate.html#423b63e1cf9a2d5e6cf7b12b01c73288">XHTMLBodyTemplate</a>, <a class="el" href="classXHTMLHeadersTemplate.html#0f4c8279feb3fc8b72ed0003b14f2ac4">XHTMLHeadersTemplate</a>, <a class="el" href="classXHTMLHeaderTemplate.html#87e25acf7adc04a958705f7f672c36c5">XHTMLHeaderTemplate</a>, <a class="el" href="classXHTMLPageTemplate.html#f2f64d1d81be506d5a3b309f6a7677cc">XHTMLPageTemplate</a>, and <a class="el" href="classXHTMLTemplate.html#a9e339053f4fdb3680be768b7709fc6f">XHTMLTemplate</a>.
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00200">200</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.    </td>
+Definition at line <a class="el" href="Template_8php-source.html#l00222">222</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="d9541ebbf2825cd01ef0f25c124ddf5b"></a><!-- doxytag: member="Template::__destruct" ref="d9541ebbf2825cd01ef0f25c124ddf5b" args="()" --><p>
@@ -135,9 +140,9 @@ Destructs ressources allocated
 <p>
 Reimplemented from <a class="el" href="classAbstractClass.html#97843d1029084c62a26fe60b1709bdb4">AbstractClass</a>.
 <p>
-Reimplemented in <a class="el" href="classXHTMLBodyTemplate.html#f50650bbe18ce9c661a7cd678143a17e">XHTMLBodyTemplate</a>, <a class="el" href="classXHTMLHeadersTemplate.html#f7b9072e7d829f1af5175cd518bdb5bc">XHTMLHeadersTemplate</a>, <a class="el" href="classXHTMLPageTemplate.html#b3601a8c4bb24a27be5b0bd5c4777186">XHTMLPageTemplate</a>, and <a class="el" href="classXHTMLTemplate.html#a203cda3a1f2ca76850f37fe646794eb">XHTMLTemplate</a>.
+Reimplemented in <a class="el" href="classXHTMLBodyTemplate.html#f50650bbe18ce9c661a7cd678143a17e">XHTMLBodyTemplate</a>, <a class="el" href="classXHTMLHeadersTemplate.html#f7b9072e7d829f1af5175cd518bdb5bc">XHTMLHeadersTemplate</a>, <a class="el" href="classXHTMLHeaderTemplate.html#8059109ab4d589cb05fea1e5f5861707">XHTMLHeaderTemplate</a>, <a class="el" href="classXHTMLPageTemplate.html#b3601a8c4bb24a27be5b0bd5c4777186">XHTMLPageTemplate</a>, and <a class="el" href="classXHTMLTemplate.html#a203cda3a1f2ca76850f37fe646794eb">XHTMLTemplate</a>.
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00211">211</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.    </td>
+Definition at line <a class="el" href="Template_8php-source.html#l00232">232</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="06f37fe6afe5644774ba3b59f86221d6"></a><!-- doxytag: member="Template::__ToString" ref="06f37fe6afe5644774ba3b59f86221d6" args="()" --><p>
@@ -166,16 +171,16 @@ Definition at line <a class="el" href="Template_8php-source.html#l00211">211</a>
 <p>
 Returns a printable version of object for final print out.<p>
 <dl compact><dt><b>Returns:</b></dt><dd>String printable on screen</dd></dl>
-<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classTemplate.html#10efb5fbb001719b7329164fe29097f2">Template::Generate()</a> </dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classTemplate.html#259325ce06ab2f2a27c387ae9647c225">Template::Generate()</a> </dd></dl>
 
 <p>
 Reimplemented from <a class="el" href="classAbstractClass.html#1e51d9ae9242be960663e150807bdc8b">AbstractClass</a>.
 <p>
-Reimplemented in <a class="el" href="classXHTMLBodyTemplate.html#bd0e450c7069f6691dd52a73155a86a0">XHTMLBodyTemplate</a>, <a class="el" href="classXHTMLHeadersTemplate.html#47dfffed6ea89190a974641d87cbc180">XHTMLHeadersTemplate</a>, <a class="el" href="classXHTMLPageTemplate.html#020c032595867cecf0c0d324917d6bda">XHTMLPageTemplate</a>, and <a class="el" href="classXHTMLTemplate.html#a8656f08bc9b5f9a79c7ba26978ae184">XHTMLTemplate</a>.
+Reimplemented in <a class="el" href="classXHTMLBodyTemplate.html#bd0e450c7069f6691dd52a73155a86a0">XHTMLBodyTemplate</a>, <a class="el" href="classXHTMLHeadersTemplate.html#47dfffed6ea89190a974641d87cbc180">XHTMLHeadersTemplate</a>, <a class="el" href="classXHTMLHeaderTemplate.html#10752f8e07dabf3bcf0f75b8d14ee96e">XHTMLHeaderTemplate</a>, <a class="el" href="classXHTMLPageTemplate.html#020c032595867cecf0c0d324917d6bda">XHTMLPageTemplate</a>, and <a class="el" href="classXHTMLTemplate.html#a8656f08bc9b5f9a79c7ba26978ae184">XHTMLTemplate</a>.
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00220">220</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
+Definition at line <a class="el" href="Template_8php-source.html#l00246">246</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00177">Generate()</a>.    </td>
+References <a class="el" href="Template_8php-source.html#l00189">Generate()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="bb934a6fa6bcaf62429e8991e08ed96d"></a><!-- doxytag: member="Template::AddToTag" ref="bb934a6fa6bcaf62429e8991e08ed96d" args="($tagName, $value)" --><p>
@@ -223,11 +228,11 @@ Adds $value to the Template's skeleton associated to the tag named $tagName The 
 <a class="el" href="classTemplateError.html#a6fc3d99ad198a43dcfb4dd3c1d30e49">TemplateError::TEMPLATE_TAG_INEXISTANT</a> if tag named $tagName doesn't exist. </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00132">132</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
+Definition at line <a class="el" href="Template_8php-source.html#l00145">145</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00105">GetTag()</a>, <a class="el" href="Template_8php-source.html#l00163">TagExists()</a>, and <a class="el" href="TemplateError_8php-source.html#l00040">TemplateError::TEMPLATE_TAG_INEXISTANT</a>.
+References <a class="el" href="Template_8php-source.html#l00116">GetTag()</a>, <a class="el" href="Template_8php-source.html#l00172">TagExists()</a>, and <a class="el" href="TemplateError_8php-source.html#l00040">TemplateError::TEMPLATE_TAG_INEXISTANT</a>.
 <p>
-Referenced by <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00048">XHTMLBodyTemplate::AddContent()</a>, <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00047">XHTMLHeadersTemplate::AddHeaders()</a>, and <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00079">XHTMLBodyTemplate::AddParams()</a>.    </td>
+Referenced by <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00057">XHTMLBodyTemplate::AddContent()</a>, <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00058">XHTMLHeadersTemplate::AddHeader()</a>, <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00088">XHTMLBodyTemplate::AddParams()</a>, and <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00073">XHTMLHeadersTemplate::AddRawHeaders()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="a3f4408220efe01744e1ac47202b2719"></a><!-- doxytag: member="Template::BuildTag" ref="a3f4408220efe01744e1ac47202b2719" args="($tagName)" --><p>
@@ -264,12 +269,12 @@ builds a Tag from TAG_OPEN, $tagName and TAG_CLOSE<p>
 <dl compact><dt><b>Returns:</b></dt><dd>the valid tag built for $tagName with TAG_OPEN and TAG_CLOSE chars </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00056">56</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
+Definition at line <a class="el" href="Template_8php-source.html#l00063">63</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
 <p>
-Referenced by <a class="el" href="XHTMLPageTemplate_8php-source.html#l00116">XHTMLPageTemplate::__construct()</a>, <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00079">XHTMLHeadersTemplate::__construct()</a>, <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00111">XHTMLBodyTemplate::__construct()</a>, <a class="el" href="Template_8php-source.html#l00105">GetTag()</a>, <a class="el" href="Template_8php-source.html#l00092">SetTag()</a>, and <a class="el" href="Template_8php-source.html#l00163">TagExists()</a>.    </td>
+Referenced by <a class="el" href="XHTMLPageTemplate_8php-source.html#l00123">XHTMLPageTemplate::__construct()</a>, <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00101">XHTMLHeadersTemplate::__construct()</a>, <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00117">XHTMLBodyTemplate::__construct()</a>, <a class="el" href="Template_8php-source.html#l00116">GetTag()</a>, <a class="el" href="Template_8php-source.html#l00100">SetTag()</a>, and <a class="el" href="Template_8php-source.html#l00172">TagExists()</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="10efb5fbb001719b7329164fe29097f2"></a><!-- doxytag: member="Template::Generate" ref="10efb5fbb001719b7329164fe29097f2" args="()" --><p>
+<a class="anchor" name="259325ce06ab2f2a27c387ae9647c225"></a><!-- doxytag: member="Template::Generate" ref="259325ce06ab2f2a27c387ae9647c225" args="($cached=false)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -277,7 +282,8 @@ Referenced by <a class="el" href="XHTMLPageTemplate_8php-source.html#l00116">XHT
         <tr>
           <td class="md" nowrap valign="top">Template::Generate           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" nowrap valign="top">$&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>cached</em> = <code>false</code>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -294,14 +300,19 @@ Referenced by <a class="el" href="XHTMLPageTemplate_8php-source.html#l00116">XHT
 
 <p>
 Generates a printable version of object for final print out. It replaces each tag by it's <a class="el" href="classTemplate.html">Template</a> Generated value. So it generate final document by hierarchy.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$cached</em>&nbsp;</td><td>boolean that should always be false. It enables caching of generated values for future call. Due to internal generation by hierarchy, the function always call herself with $cached as true</td></tr>
+  </table>
+</dl>
 <dl compact><dt><b>Returns:</b></dt><dd>printable version of document </dd></dl>
 
 <p>
-Reimplemented in <a class="el" href="classXHTMLPageTemplate.html#7035d59c790739206d873a8b6c815717">XHTMLPageTemplate</a>.
+Definition at line <a class="el" href="Template_8php-source.html#l00189">189</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00177">177</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
+References <a class="el" href="Template_8php-source.html#l00264">$lastGenerated</a>.
 <p>
-Referenced by <a class="el" href="XHTMLTemplate_8php-source.html#l00061">XHTMLTemplate::__ToString()</a>, <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00108">XHTMLHeadersTemplate::__ToString()</a>, <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00140">XHTMLBodyTemplate::__ToString()</a>, and <a class="el" href="Template_8php-source.html#l00220">__ToString()</a>.    </td>
+Referenced by <a class="el" href="XHTMLTemplate_8php-source.html#l00069">XHTMLTemplate::__ToString()</a>, <a class="el" href="XHTMLHeaderTemplate_8php-source.html#l00061">XHTMLHeaderTemplate::__ToString()</a>, <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00132">XHTMLHeadersTemplate::__ToString()</a>, <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00148">XHTMLBodyTemplate::__ToString()</a>, <a class="el" href="Template_8php-source.html#l00246">__ToString()</a>, and <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00058">XHTMLHeadersTemplate::AddHeader()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="71e9a415d5ac02c90ad44c92417e4ecc"></a><!-- doxytag: member="Template::GetTag" ref="71e9a415d5ac02c90ad44c92417e4ecc" args="($tagName)" --><p>
@@ -339,11 +350,11 @@ Gets sub-Template assigned to tag named $tagName. The skeleton you've set may co
 <a class="el" href="classTemplateError.html#a6fc3d99ad198a43dcfb4dd3c1d30e49">TemplateError::TEMPLATE_TAG_INEXISTANT</a> if tag named $tagName doesn't exist. </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00105">105</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
+Definition at line <a class="el" href="Template_8php-source.html#l00116">116</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00056">BuildTag()</a>, <a class="el" href="Template_8php-source.html#l00163">TagExists()</a>, and <a class="el" href="TemplateError_8php-source.html#l00040">TemplateError::TEMPLATE_TAG_INEXISTANT</a>.
+References <a class="el" href="Template_8php-source.html#l00063">BuildTag()</a>, <a class="el" href="Template_8php-source.html#l00172">TagExists()</a>, and <a class="el" href="TemplateError_8php-source.html#l00040">TemplateError::TEMPLATE_TAG_INEXISTANT</a>.
 <p>
-Referenced by <a class="el" href="Template_8php-source.html#l00132">AddToTag()</a>.    </td>
+Referenced by <a class="el" href="Template_8php-source.html#l00145">AddToTag()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="addd64f2e83a529e6b6959af65f2e1dc"></a><!-- doxytag: member="Template::SetSkeleton" ref="addd64f2e83a529e6b6959af65f2e1dc" args="($skeleton)" --><p>
@@ -379,11 +390,11 @@ Sets page skeleton to $skeleton. the skeleton may has the [TAG] you'll set.<p>
 </dl>
 
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00068">68</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
+Definition at line <a class="el" href="Template_8php-source.html#l00075">75</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00240">$skeleton</a>.
+References <a class="el" href="Template_8php-source.html#l00258">$skeleton</a>.
 <p>
-Referenced by <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00079">XHTMLHeadersTemplate::__construct()</a>, and <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00111">XHTMLBodyTemplate::__construct()</a>.    </td>
+Referenced by <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00101">XHTMLHeadersTemplate::__construct()</a>, and <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00117">XHTMLBodyTemplate::__construct()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="1d7b2ec39ef8fb744c42cfc32350ac4c"></a><!-- doxytag: member="Template::SetTag" ref="1d7b2ec39ef8fb744c42cfc32350ac4c" args="($tagName, Template &amp;$value)" --><p>
@@ -429,11 +440,11 @@ Assigns sub-Template $value to the tag named $tagName. The skeleton you've set m
 </dl>
 
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00092">92</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
+Definition at line <a class="el" href="Template_8php-source.html#l00100">100</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00056">BuildTag()</a>.
+References <a class="el" href="Template_8php-source.html#l00063">BuildTag()</a>.
 <p>
-Referenced by <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00079">XHTMLHeadersTemplate::__construct()</a>, <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00111">XHTMLBodyTemplate::__construct()</a>, <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00062">XHTMLBodyTemplate::SetContent()</a>, <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00062">XHTMLHeadersTemplate::SetHeaders()</a>, and <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00093">XHTMLBodyTemplate::SetParams()</a>.    </td>
+Referenced by <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00101">XHTMLHeadersTemplate::__construct()</a>, <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00117">XHTMLBodyTemplate::__construct()</a>, <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00071">XHTMLBodyTemplate::SetContent()</a>, <a class="el" href="XHTMLBodyTemplate_8php-source.html#l00102">XHTMLBodyTemplate::SetParams()</a>, and <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00086">XHTMLHeadersTemplate::SetRawHeaders()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="e977b88d049dd7fe2b404a2cf7519300"></a><!-- doxytag: member="Template::TagExists" ref="e977b88d049dd7fe2b404a2cf7519300" args="($tagName)" --><p>
@@ -471,14 +482,41 @@ Checks if the tag named $tagName exist or not.<p>
 false otherwise </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00163">163</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
+Definition at line <a class="el" href="Template_8php-source.html#l00172">172</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00056">BuildTag()</a>.
+References <a class="el" href="Template_8php-source.html#l00063">BuildTag()</a>.
 <p>
-Referenced by <a class="el" href="Template_8php-source.html#l00132">AddToTag()</a>, and <a class="el" href="Template_8php-source.html#l00105">GetTag()</a>.    </td>
+Referenced by <a class="el" href="Template_8php-source.html#l00145">AddToTag()</a>, and <a class="el" href="Template_8php-source.html#l00116">GetTag()</a>.    </td>
   </tr>
 </table>
 <hr><h2>Member Data Documentation</h2>
+<a class="anchor" name="700136bde6ce629c163761f9b66fcc57"></a><!-- doxytag: member="Template::$lastGenerated" ref="700136bde6ce629c163761f9b66fcc57" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">Template::$lastGenerated<code> [private]</code>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+<a class="el" href="classTemplate.html">Template</a> generation cache, see <a class="el" href="classTemplate.html#259325ce06ab2f2a27c387ae9647c225">Generate()</a> 
+<p>
+Definition at line <a class="el" href="Template_8php-source.html#l00264">264</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
+<p>
+Referenced by <a class="el" href="Template_8php-source.html#l00189">Generate()</a>.    </td>
+  </tr>
+</table>
 <a class="anchor" name="8b730648077192daed848f265b25596d"></a><!-- doxytag: member="Template::$skeleton" ref="8b730648077192daed848f265b25596d" args="" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -501,9 +539,9 @@ Referenced by <a class="el" href="Template_8php-source.html#l00132">AddToTag()</
 <p>
 Skeleton of the page, places sub-Template-s by [tags-name] 
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00240">240</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
+Definition at line <a class="el" href="Template_8php-source.html#l00258">258</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.
 <p>
-Referenced by <a class="el" href="Template_8php-source.html#l00068">SetSkeleton()</a>.    </td>
+Referenced by <a class="el" href="Template_8php-source.html#l00075">SetSkeleton()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="e1bd0af64f603fcaf60160cc8ded8083"></a><!-- doxytag: member="Template::$tags" ref="e1bd0af64f603fcaf60160cc8ded8083" args="" --><p>
@@ -528,7 +566,7 @@ Referenced by <a class="el" href="Template_8php-source.html#l00068">SetSkeleton(
 <p>
 Array of Template-s indexed by tag name 
 <p>
-Definition at line <a class="el" href="Template_8php-source.html#l00243">243</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.    </td>
+Definition at line <a class="el" href="Template_8php-source.html#l00261">261</a> of file <a class="el" href="Template_8php-source.html">Template.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="f05ee151b4228c7a6416b98c033216ca"></a><!-- doxytag: member="Template::NEWLINE" ref="f05ee151b4228c7a6416b98c033216ca" args="" --><p>
@@ -608,7 +646,7 @@ Definition at line <a class="el" href="Template_8php-source.html#l00046">46</a> 
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Templates/Template/<a class="el" href="Template_8php-source.html">Template.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:37 2006 for ExetronSystemProject by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:05:36 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

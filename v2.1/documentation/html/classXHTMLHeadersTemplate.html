@@ -28,14 +28,16 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>XHTMLHeadersTemplate Class Reference</h1><!-- doxytag: class="XHTMLHeadersTemplate" --><!-- doxytag: inherits="XHTMLTemplate" -->Inheritance diagram for XHTMLHeadersTemplate:<p><center><img src="classXHTMLHeadersTemplate__inherit__graph.jpg" border="0" usemap="#XHTMLHeadersTemplate__inherit__map" alt="Inheritance graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for XHTMLHeadersTemplate:<p><center><img src="classXHTMLHeadersTemplate__coll__graph.jpg" border="0" usemap="#XHTMLHeadersTemplate__coll__map" alt="Collaboration graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classXHTMLHeadersTemplate-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<h1>XHTMLHeadersTemplate Class Reference</h1><!-- doxytag: class="XHTMLHeadersTemplate" --><!-- doxytag: inherits="XHTMLTemplate" -->Inherits <a class="el" href="classXHTMLTemplate.html">XHTMLTemplate</a>.
+<p>
+<a href="classXHTMLHeadersTemplate-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLHeadersTemplate.html#798dd7afb4d86c95bc4ed720f8fa7aea">AddHeaders</a> ($headers)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLHeadersTemplate.html#2e9cf22c9c6c89ea2078b24fbf4efe2a">AddHeader</a> (<a class="el" href="classXHTMLHeaderTemplate.html">XHTMLHeaderTemplate</a> $header)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLHeadersTemplate.html#d832964363cf720b3eb8f38b4c295be2">SetHeaders</a> ($headers)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLHeadersTemplate.html#ee5003bd9f4705ea6d3a299097c0d037">AddRawHeaders</a> ($headers)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLHeadersTemplate.html#fbf3bad282b7fdc288f8911ade7ad990">SetRawHeaders</a> ($headers)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXHTMLHeadersTemplate.html#0f4c8279feb3fc8b72ed0003b14f2ac4">__construct</a> ()</td></tr>
 
@@ -81,9 +83,9 @@ instanciates a <a class="el" href="classXHTMLHeadersTemplate.html">XHTMLHeadersT
 <p>
 Reimplemented from <a class="el" href="classXHTMLTemplate.html#a9e339053f4fdb3680be768b7709fc6f">XHTMLTemplate</a>.
 <p>
-Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00079">79</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.
+Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00101">101</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00056">Template::BuildTag()</a>, <a class="el" href="Template_8php-source.html#l00068">Template::SetSkeleton()</a>, and <a class="el" href="Template_8php-source.html#l00092">Template::SetTag()</a>.    </td>
+References <a class="el" href="Template_8php-source.html#l00063">Template::BuildTag()</a>, <a class="el" href="Template_8php-source.html#l00075">Template::SetSkeleton()</a>, and <a class="el" href="Template_8php-source.html#l00100">Template::SetTag()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="f7b9072e7d829f1af5175cd518bdb5bc"></a><!-- doxytag: member="XHTMLHeadersTemplate::__destruct" ref="f7b9072e7d829f1af5175cd518bdb5bc" args="()" --><p>
@@ -114,7 +116,7 @@ Destructs ressources allocated
 <p>
 Reimplemented from <a class="el" href="classXHTMLTemplate.html#a203cda3a1f2ca76850f37fe646794eb">XHTMLTemplate</a>.
 <p>
-Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00099">99</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.    </td>
+Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00118">118</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="47dfffed6ea89190a974641d87cbc180"></a><!-- doxytag: member="XHTMLHeadersTemplate::__ToString" ref="47dfffed6ea89190a974641d87cbc180" args="()" --><p>
@@ -143,23 +145,63 @@ Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00
 <p>
 Returns a printable version of object for final print out.<p>
 <dl compact><dt><b>Returns:</b></dt><dd>String printable on screen</dd></dl>
-<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classTemplate.html#10efb5fbb001719b7329164fe29097f2">Template::Generate()</a> </dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classTemplate.html#259325ce06ab2f2a27c387ae9647c225">Template::Generate()</a> </dd></dl>
 
 <p>
 Reimplemented from <a class="el" href="classXHTMLTemplate.html#a8656f08bc9b5f9a79c7ba26978ae184">XHTMLTemplate</a>.
 <p>
-Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00108">108</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.
+Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00132">132</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00177">Template::Generate()</a>.    </td>
+References <a class="el" href="Template_8php-source.html#l00189">Template::Generate()</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="798dd7afb4d86c95bc4ed720f8fa7aea"></a><!-- doxytag: member="XHTMLHeadersTemplate::AddHeaders" ref="798dd7afb4d86c95bc4ed720f8fa7aea" args="($headers)" --><p>
+<a class="anchor" name="2e9cf22c9c6c89ea2078b24fbf4efe2a"></a><!-- doxytag: member="XHTMLHeadersTemplate::AddHeader" ref="2e9cf22c9c6c89ea2078b24fbf4efe2a" args="(XHTMLHeaderTemplate $header)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td class="md" nowrap valign="top">XHTMLHeadersTemplate::AddHeaders           </td>
+          <td class="md" nowrap valign="top">XHTMLHeadersTemplate::AddHeader           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top"><a class="el" href="classXHTMLHeaderTemplate.html">XHTMLHeaderTemplate</a> $&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap> <em>header</em>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Adds XHTML $header to the current headers. Headers of the heads is value associated to the tag TAG_HEADERS.<p>
+It automatiquely adds a NEWLINE to the $headers.<p>
+Be careful that added headers are not modifiable cause this function calls its <a class="el" href="classTemplate.html#259325ce06ab2f2a27c387ae9647c225">Generate()</a> member!<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$header</em>&nbsp;</td><td>The XHTML header to be added. </td></tr>
+  </table>
+</dl>
+
+<p>
+Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00058">58</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.
+<p>
+References <a class="el" href="Template_8php-source.html#l00145">Template::AddToTag()</a>, and <a class="el" href="Template_8php-source.html#l00189">Template::Generate()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="ee5003bd9f4705ea6d3a299097c0d037"></a><!-- doxytag: member="XHTMLHeadersTemplate::AddRawHeaders" ref="ee5003bd9f4705ea6d3a299097c0d037" args="($headers)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">XHTMLHeadersTemplate::AddRawHeaders           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">$&nbsp;</td>
           <td class="mdname1" valign="top" nowrap> <em>headers</em>          </td>
@@ -188,18 +230,18 @@ Raw XHTML may be correct.<p>
 </dl>
 
 <p>
-Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00047">47</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.
+Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00073">73</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00132">Template::AddToTag()</a>.    </td>
+References <a class="el" href="Template_8php-source.html#l00145">Template::AddToTag()</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="d832964363cf720b3eb8f38b4c295be2"></a><!-- doxytag: member="XHTMLHeadersTemplate::SetHeaders" ref="d832964363cf720b3eb8f38b4c295be2" args="($headers)" --><p>
+<a class="anchor" name="fbf3bad282b7fdc288f8911ade7ad990"></a><!-- doxytag: member="XHTMLHeadersTemplate::SetRawHeaders" ref="fbf3bad282b7fdc288f8911ade7ad990" args="($headers)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
       <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td class="md" nowrap valign="top">XHTMLHeadersTemplate::SetHeaders           </td>
+          <td class="md" nowrap valign="top">XHTMLHeadersTemplate::SetRawHeaders           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">$&nbsp;</td>
           <td class="mdname1" valign="top" nowrap> <em>headers</em>          </td>
@@ -227,9 +269,9 @@ Raw XHTML may be correct.<p>
 </dl>
 
 <p>
-Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00062">62</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.
+Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00086">86</a> of file <a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a>.
 <p>
-References <a class="el" href="Template_8php-source.html#l00092">Template::SetTag()</a>.    </td>
+References <a class="el" href="Template_8php-source.html#l00100">Template::SetTag()</a>.    </td>
   </tr>
 </table>
 <hr><h2>Member Data Documentation</h2>
@@ -260,7 +302,7 @@ Definition at line <a class="el" href="XHTMLHeadersTemplate_8php-source.html#l00
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Templates/XHTMLTemplates/XHTMLHeadersTemplate/<a class="el" href="XHTMLHeadersTemplate_8php-source.html">XHTMLHeadersTemplate.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:45 2006 for ExetronSystemProject by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:05:47 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

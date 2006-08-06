@@ -68,7 +68,7 @@
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041 <span class="comment">//--------------------------------------------------------- public methods</span>
 <a name="l00042"></a>00042     
-<a name="l00043"></a><a class="code" href="classMySQLConnection.html#cac6713c3841770211c3a25d2b7fa4e0">00043</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#cac6713c3841770211c3a25d2b7fa4e0">TableExists</a> ( $table )
+<a name="l00061"></a><a class="code" href="classMySQLConnection.html#cac6713c3841770211c3a25d2b7fa4e0">00061</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#cac6713c3841770211c3a25d2b7fa4e0">TableExists</a> ( $table )
 <a name="l00062"></a>00062     {
 <a name="l00063"></a>00063         <span class="keywordflow">if</span> ( $this-&gt;database == '' )
 <a name="l00064"></a>00064         <span class="comment">// no database selected</span>
@@ -107,7 +107,7 @@
 <a name="l00097"></a>00097         }
 <a name="l00098"></a>00098     } <span class="comment">//----- End of TableExists</span>
 <a name="l00099"></a>00099     
-<a name="l00100"></a><a class="code" href="classMySQLConnection.html#1011f2263045023a662fcd16f580529f">00100</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#1011f2263045023a662fcd16f580529f">TableDescription</a> ( $table )
+<a name="l00114"></a><a class="code" href="classMySQLConnection.html#1011f2263045023a662fcd16f580529f">00114</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#1011f2263045023a662fcd16f580529f">TableDescription</a> ( $table )
 <a name="l00115"></a>00115     {
 <a name="l00116"></a>00116         <span class="keywordflow">if</span> ( $this-&gt;database == '' )
 <a name="l00117"></a>00117         <span class="comment">// no database selected</span>
@@ -126,40 +126,40 @@
 <a name="l00130"></a>00130         }
 <a name="l00131"></a>00131     } <span class="comment">//----- End of TableDescription</span>
 <a name="l00132"></a>00132     
-<a name="l00133"></a><a class="code" href="classMySQLConnection.html#1d8d41b2ae0f09ff73a0d22c56698731">00133</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#1d8d41b2ae0f09ff73a0d22c56698731">SetServer</a> ( <a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">$server</a> )
+<a name="l00143"></a><a class="code" href="classMySQLConnection.html#1d8d41b2ae0f09ff73a0d22c56698731">00143</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#1d8d41b2ae0f09ff73a0d22c56698731">SetServer</a> ( <a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">$server</a> )
 <a name="l00144"></a>00144         {
 <a name="l00145"></a>00145                 <span class="keywordflow">return</span> parent::SetServer( <a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">$server</a> );
 <a name="l00146"></a>00146         } <span class="comment">//----- End of GetServer</span>
 <a name="l00147"></a>00147 
 <a name="l00148"></a>00148     
-<a name="l00149"></a><a class="code" href="classMySQLConnection.html#f8ac0212474df8c37abc54900e1a26d4">00149</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#f8ac0212474df8c37abc54900e1a26d4">GetServer</a> ( )
+<a name="l00155"></a><a class="code" href="classMySQLConnection.html#f8ac0212474df8c37abc54900e1a26d4">00155</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#f8ac0212474df8c37abc54900e1a26d4">GetServer</a> ( )
 <a name="l00156"></a>00156         {
 <a name="l00157"></a>00157                 <span class="keywordflow">return</span> parent::GetServer();
 <a name="l00158"></a>00158         } <span class="comment">//----- End of GetServer</span>
 <a name="l00159"></a>00159     
-<a name="l00160"></a><a class="code" href="classMySQLConnection.html#d4ed29fddd6b7e2372142c95888a7f24">00160</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#d4ed29fddd6b7e2372142c95888a7f24">SetUsername</a> ( <a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">$username</a> )
+<a name="l00170"></a><a class="code" href="classMySQLConnection.html#d4ed29fddd6b7e2372142c95888a7f24">00170</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#d4ed29fddd6b7e2372142c95888a7f24">SetUsername</a> ( <a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">$username</a> )
 <a name="l00171"></a>00171         {
 <a name="l00172"></a>00172                 <span class="keywordflow">return</span> parent::SetUsername( <a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">$username</a> );
 <a name="l00173"></a>00173         } <span class="comment">//----- End of SetUsername</span>
 <a name="l00174"></a>00174     
-<a name="l00175"></a><a class="code" href="classMySQLConnection.html#4374f24fbde6ca9a3312d458ca659a1e">00175</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#4374f24fbde6ca9a3312d458ca659a1e">GetUsername</a> ( )
+<a name="l00181"></a><a class="code" href="classMySQLConnection.html#4374f24fbde6ca9a3312d458ca659a1e">00181</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#4374f24fbde6ca9a3312d458ca659a1e">GetUsername</a> ( )
 <a name="l00182"></a>00182         {
 <a name="l00183"></a>00183                 <span class="keywordflow">return</span> parent::GetUsername( );
 <a name="l00184"></a>00184         } <span class="comment">//----- End of SetUsername</span>
 <a name="l00185"></a>00185     
-<a name="l00186"></a><a class="code" href="classMySQLConnection.html#a55da146e6f84db9834381d72ca3d630">00186</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#a55da146e6f84db9834381d72ca3d630">SetPassword</a> ( <a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">$password</a> )
+<a name="l00196"></a><a class="code" href="classMySQLConnection.html#a55da146e6f84db9834381d72ca3d630">00196</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#a55da146e6f84db9834381d72ca3d630">SetPassword</a> ( <a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">$password</a> )
 <a name="l00197"></a>00197         {
 <a name="l00198"></a>00198                 <span class="keywordflow">return</span> parent::SetPassword( <a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">$password</a> );
 <a name="l00199"></a>00199         } <span class="comment">//----- End of SetPassword</span>
 <a name="l00200"></a>00200     
-<a name="l00201"></a><a class="code" href="classMySQLConnection.html#7c04bdad17e25ea2f64773d5d9685f21">00201</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#7c04bdad17e25ea2f64773d5d9685f21">GetPassword</a> ( )
+<a name="l00207"></a><a class="code" href="classMySQLConnection.html#7c04bdad17e25ea2f64773d5d9685f21">00207</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#7c04bdad17e25ea2f64773d5d9685f21">GetPassword</a> ( )
 <a name="l00208"></a>00208     {
 <a name="l00209"></a>00209         <span class="keywordflow">return</span> parent::GetPassword( );
 <a name="l00210"></a>00210     } <span class="comment">//----- End of GetPassword</span>
 <a name="l00211"></a>00211     
-<a name="l00212"></a><a class="code" href="classMySQLConnection.html#546927da9d56a34d1e9163118894cd33">00212</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#546927da9d56a34d1e9163118894cd33">Open</a>( $isPersistent )
+<a name="l00228"></a><a class="code" href="classMySQLConnection.html#546927da9d56a34d1e9163118894cd33">00228</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#546927da9d56a34d1e9163118894cd33">Open</a>( $isPersistent )
 <a name="l00229"></a>00229     {
-<a name="l00230"></a>00230         <span class="keywordflow">if</span> ( !$this-&gt;<a class="code" href="classMySQLConnection.html#5bad3dd9022d6a02dde99d1df10793f0">isConnected</a>() ) 
+<a name="l00230"></a>00230         <span class="keywordflow">if</span> ( !$this-&gt;<a class="code" href="interfaceBDDConnectionInterface.html#97254d5810413cf8ecf7cea9d0848d87">isConnected</a>() ) 
 <a name="l00231"></a>00231         {
 <a name="l00232"></a>00232                         <span class="keywordflow">if</span> ( $isPersistent == <a class="code" href="classBDDConnection.html#9c2a1801ea27af6c57dc66134dad0573">BDDConnection::CONNECTION_PERSISTENT</a> )
 <a name="l00233"></a>00233                         {
@@ -196,10 +196,9 @@
 <a name="l00264"></a>00264         }
 <a name="l00265"></a>00265     } <span class="comment">//----- End of Open</span>
 <a name="l00266"></a>00266     
-<a name="l00267"></a><a class="code" href="classMySQLConnection.html#89e8fad3d1313b9205237d70ed1c3462">00267</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#89e8fad3d1313b9205237d70ed1c3462">SetDatabase</a>( <a class="code" href="classBDDConnection.html#de33e488a4156b6ea17f665dbd10c166">$database</a> ) 
-<a name="l00268"></a>00268     
+<a name="l00282"></a><a class="code" href="classMySQLConnection.html#89e8fad3d1313b9205237d70ed1c3462">00282</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#89e8fad3d1313b9205237d70ed1c3462">SetDatabase</a>( <a class="code" href="classBDDConnection.html#de33e488a4156b6ea17f665dbd10c166">$database</a> ) 
 <a name="l00283"></a>00283     {
-<a name="l00284"></a>00284         <span class="keywordflow">if</span> ( !$this-&gt;<a class="code" href="classMySQLConnection.html#5bad3dd9022d6a02dde99d1df10793f0">isConnected</a>() )
+<a name="l00284"></a>00284         <span class="keywordflow">if</span> ( !$this-&gt;<a class="code" href="interfaceBDDConnectionInterface.html#97254d5810413cf8ecf7cea9d0848d87">isConnected</a>() )
 <a name="l00285"></a>00285         {
 <a name="l00286"></a>00286             <span class="comment">// connexion inexistante</span>
 <a name="l00287"></a>00287             $errs = <span class="keyword">new</span> <a class="code" href="classErrors.html">Errors</a>();
@@ -228,7 +227,7 @@
 <a name="l00310"></a>00310         }
 <a name="l00311"></a>00311     } <span class="comment">//----- End of SetDabase</span>
 <a name="l00312"></a>00312     
-<a name="l00313"></a><a class="code" href="classMySQLConnection.html#5a91f25271718a34c6d81bd0fa8c5e67">00313</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#5a91f25271718a34c6d81bd0fa8c5e67">Query</a>( $query )
+<a name="l00329"></a><a class="code" href="classMySQLConnection.html#5a91f25271718a34c6d81bd0fa8c5e67">00329</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#5a91f25271718a34c6d81bd0fa8c5e67">Query</a>( $query )
 <a name="l00330"></a>00330     {
 <a name="l00331"></a>00331         <span class="keywordflow">if</span> ( $this-&gt;database == '' )
 <a name="l00332"></a>00332         <span class="comment">// no database selected</span>
@@ -270,14 +269,14 @@
 <a name="l00368"></a>00368         }
 <a name="l00369"></a>00369     } <span class="comment">//----- End of Query</span>
 <a name="l00370"></a>00370     
-<a name="l00371"></a><a class="code" href="classMySQLConnection.html#fcd6ba3db63ad356f76b621fff6155c1">00371</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#fcd6ba3db63ad356f76b621fff6155c1">GetQueriesCount</a> ( )
+<a name="l00377"></a><a class="code" href="classMySQLConnection.html#fcd6ba3db63ad356f76b621fff6155c1">00377</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#fcd6ba3db63ad356f76b621fff6155c1">GetQueriesCount</a> ( )
 <a name="l00378"></a>00378         {
 <a name="l00379"></a>00379                 <span class="keywordflow">return</span> parent::GetQueriesCount();
 <a name="l00380"></a>00380         } <span class="comment">//----- End of GetQueriesCount</span>
 <a name="l00381"></a>00381     
-<a name="l00382"></a><a class="code" href="classMySQLConnection.html#181648a5ce653d7e61d918eadb89a297">00382</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#181648a5ce653d7e61d918eadb89a297">Close</a>( )
+<a name="l00392"></a><a class="code" href="classMySQLConnection.html#181648a5ce653d7e61d918eadb89a297">00392</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#181648a5ce653d7e61d918eadb89a297">Close</a>( )
 <a name="l00393"></a>00393     {
-<a name="l00394"></a>00394         <span class="keywordflow">if</span> ( !$this-&gt;<a class="code" href="classMySQLConnection.html#5bad3dd9022d6a02dde99d1df10793f0">isConnected</a>() || !@mysql_close( $this-&gt;connection ) )
+<a name="l00394"></a>00394         <span class="keywordflow">if</span> ( !$this-&gt;<a class="code" href="interfaceBDDConnectionInterface.html#97254d5810413cf8ecf7cea9d0848d87">isConnected</a>() || !@mysql_close( $this-&gt;connection ) )
 <a name="l00395"></a>00395         {
 <a name="l00396"></a>00396             <span class="comment">// no connection</span>
 <a name="l00397"></a>00397             $errs = <span class="keyword">new</span> <a class="code" href="classErrors.html">Errors</a>();
@@ -294,13 +293,13 @@
 <a name="l00408"></a>00408         }
 <a name="l00409"></a>00409     } <span class="comment">//----- End of Close</span>
 <a name="l00410"></a>00410     
-<a name="l00411"></a><a class="code" href="classMySQLConnection.html#5bad3dd9022d6a02dde99d1df10793f0">00411</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#5bad3dd9022d6a02dde99d1df10793f0">isConnected</a> ( )
+<a name="l00418"></a><a class="code" href="classMySQLConnection.html#22ba99c2d6a4d005e1b8b329208d936f">00418</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#22ba99c2d6a4d005e1b8b329208d936f">IsConnected</a> ( )
 <a name="l00419"></a>00419     {
 <a name="l00420"></a>00420         <span class="keywordflow">return</span> ( $this-&gt;connection !== NULL &amp;&amp; @mysql_stat ( $this-&gt;connection ) !== NULL );
-<a name="l00421"></a>00421     } <span class="comment">//----- End of isConnected</span>
+<a name="l00421"></a>00421     } <span class="comment">//----- End of IsConnected</span>
 <a name="l00422"></a>00422 
 <a name="l00423"></a>00423 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
-<a name="l00424"></a><a class="code" href="classMySQLConnection.html#fdcfe7cee0c00ebc401ef042294e80c1">00424</a>     <span class="keyword">public</span> function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( <a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">$server</a> = '' , <a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">$username</a> = '' , <a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">$password</a> = '' )
+<a name="l00433"></a><a class="code" href="classMySQLConnection.html#fdcfe7cee0c00ebc401ef042294e80c1">00433</a> <span class="comment"></span>    <span class="keyword">public</span> function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( <a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">$server</a> = '' , <a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">$username</a> = '' , <a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">$password</a> = '' )
 <a name="l00434"></a>00434     {
 <a name="l00435"></a>00435                 parent::__construct( <a class="code" href="classBDDConnection.html#d39fc2f14fc9557e4cd2e03821d184d7">$server</a>, <a class="code" href="classBDDConnection.html#a79491c716cc5470f56fb5d5485afc25">$username</a>, <a class="code" href="classBDDConnection.html#3f315350a8716b29741d6d493c248563">$password</a> );
 <a name="l00436"></a>00436 
@@ -310,7 +309,7 @@
 <a name="l00440"></a>00440             }
 <a name="l00441"></a>00441     } <span class="comment">//----- End of contructor</span>
 <a name="l00442"></a>00442          
-<a name="l00443"></a><a class="code" href="classMySQLConnection.html#8f865ae7ade75b2bfe774ab5975e8c36">00443</a>     function <a class="code" href="classMySQLConnection.html#8f865ae7ade75b2bfe774ab5975e8c36">__destruct</a>( )
+<a name="l00446"></a><a class="code" href="classMySQLConnection.html#8f865ae7ade75b2bfe774ab5975e8c36">00446</a>     function <a class="code" href="classMySQLConnection.html#8f865ae7ade75b2bfe774ab5975e8c36">__destruct</a>( )
 <a name="l00447"></a>00447         {
 <a name="l00448"></a>00448                 $this-&gt;<a class="code" href="classMySQLConnection.html#181648a5ce653d7e61d918eadb89a297">Close</a>();
 <a name="l00449"></a>00449         
@@ -319,7 +318,7 @@
 <a name="l00452"></a>00452     
 <a name="l00453"></a>00453 <span class="comment">//---------------------------------------------------------- Magic methods</span>
 <a name="l00454"></a>00454 
-<a name="l00455"></a><a class="code" href="classMySQLConnection.html#a412b80237e1180d312241cd32ee3765">00455</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#a412b80237e1180d312241cd32ee3765">__ToString</a> ( )
+<a name="l00461"></a><a class="code" href="classMySQLConnection.html#a412b80237e1180d312241cd32ee3765">00461</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLConnection.html#a412b80237e1180d312241cd32ee3765">__ToString</a> ( )
 <a name="l00462"></a>00462     {
 <a name="l00463"></a>00463                 <span class="keywordflow">return</span> parrent::__ToString();
 <a name="l00464"></a>00464     }
@@ -335,7 +334,7 @@
 <a name="l00474"></a>00474 <span class="comment">//------------------------------------------------------ other definitions</span>
 <a name="l00475"></a>00475 
 <a name="l00476"></a>00476 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:26 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:01 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

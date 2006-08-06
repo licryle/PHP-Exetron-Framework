@@ -101,7 +101,7 @@
 <a name="l00090"></a>00090 
 <a name="l00091"></a>00091 <span class="comment">//--------------------------------------------------------- public methods</span>
 <a name="l00092"></a>00092         
-<a name="l00093"></a><a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">00093</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( $fields, $options )
+<a name="l00108"></a><a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">00108</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( $fields, $options )
 <a name="l00109"></a>00109         {
 <a name="l00110"></a>00110                 $selectQuery = 'SELECT ';
 <a name="l00111"></a>00111                 
@@ -124,7 +124,7 @@
 <a name="l00128"></a>00128                 <span class="keywordflow">return</span> $this-&gt;bDDConnection-&gt;Query ( $selectQuery ) ;
 <a name="l00129"></a>00129         } <span class="comment">//---- End of Select</span>
 <a name="l00130"></a>00130         
-<a name="l00131"></a><a class="code" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef99816420">00131</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef99816420">Insert</a> ( <a class="code" href="classBDDRecord.html">BDDRecord</a> $record )
+<a name="l00141"></a><a class="code" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef99816420">00141</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef99816420">Insert</a> ( <a class="code" href="classBDDRecord.html">BDDRecord</a> $record )
 <a name="l00142"></a>00142         {
 <a name="l00143"></a>00143                 $newRecord = $this-&gt;<a class="code" href="classMySQLTable.html#94777e2e52849c53a18f5a0188dca02d">bDDRecordToTableRecord</a> ( $record );
 <a name="l00144"></a>00144                 unset( $record );
@@ -133,7 +133,7 @@
 <a name="l00147"></a>00147                 
 <a name="l00148"></a>00148                 foreach ( $newRecord as $champ  =&gt; $value )
 <a name="l00149"></a>00149                 {
-<a name="l00150"></a>00150                         $insertQuery .= $champ.' = <span class="stringliteral">"'. $value .'"</span>, ';
+<a name="l00150"></a>00150                         $insertQuery .= $champ.' = <span class="stringliteral">"'. $this-&gt;EscapeValue( $value ) .'"</span>, ';
 <a name="l00151"></a>00151                 }
 <a name="l00152"></a>00152                 
 <a name="l00153"></a>00153                 $insertQuery = substr ( $insertQuery , 0 , -2 );
@@ -141,7 +141,7 @@
 <a name="l00155"></a>00155                 <span class="keywordflow">return</span> $this-&gt;bDDConnection-&gt;Query ( $insertQuery ) ;
 <a name="l00156"></a>00156         } <span class="comment">//---- End of Insert</span>
 <a name="l00157"></a>00157         
-<a name="l00158"></a><a class="code" href="classMySQLTable.html#96784244d94a2da7047c24d542a25bc8">00158</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#96784244d94a2da7047c24d542a25bc8">Update</a> ( <a class="code" href="classBDDRecord.html">BDDRecord</a> $updatedRec, $clause )
+<a name="l00171"></a><a class="code" href="classMySQLTable.html#96784244d94a2da7047c24d542a25bc8">00171</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#96784244d94a2da7047c24d542a25bc8">Update</a> ( <a class="code" href="classBDDRecord.html">BDDRecord</a> $updatedRec, $clause )
 <a name="l00172"></a>00172         {
 <a name="l00173"></a>00173                 $newRecord = $this-&gt;<a class="code" href="classMySQLTable.html#94777e2e52849c53a18f5a0188dca02d">bDDRecordToTableRecord</a> ( $updatedRec );
 <a name="l00174"></a>00174                 unset( $updatedRec );
@@ -150,7 +150,7 @@
 <a name="l00177"></a>00177                 
 <a name="l00178"></a>00178                 foreach ( $newRecord as $champ  =&gt; $value )
 <a name="l00179"></a>00179                 {
-<a name="l00180"></a>00180                         $updateQuery .= $champ.' = <span class="stringliteral">"'. $value .'"</span>, ';
+<a name="l00180"></a>00180                         $updateQuery .= $champ.' = <span class="stringliteral">"'. $this-&gt;EscapeValue( $value ) .'"</span>, ';
 <a name="l00181"></a>00181                 }
 <a name="l00182"></a>00182                 
 <a name="l00183"></a>00183                 $updateQuery = substr ( $updateQuery , 0 , -2 ) . $clause;
@@ -159,73 +159,78 @@
 <a name="l00186"></a>00186         
 <a name="l00187"></a>00187         } <span class="comment">//---- End of Update</span>
 <a name="l00188"></a>00188         
-<a name="l00189"></a><a class="code" href="classMySQLTable.html#309504311d2385a87c0bb634efc394cd">00189</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#309504311d2385a87c0bb634efc394cd">Delete</a> ( $clauses )
+<a name="l00200"></a><a class="code" href="classMySQLTable.html#309504311d2385a87c0bb634efc394cd">00200</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#309504311d2385a87c0bb634efc394cd">Delete</a> ( $clauses )
 <a name="l00201"></a>00201         {
 <a name="l00202"></a>00202                 <span class="keywordflow">return</span> $this-&gt;bDDConnection-&gt;Query ( 'DELETE FROM `'.$this-&gt;tableName.'` WHERE '.$clause );
 <a name="l00203"></a>00203         } <span class="comment">//---- End of Delete</span>
 <a name="l00204"></a>00204 
-<a name="l00205"></a><a class="code" href="classMySQLTable.html#6e2df2345cbe92834fd57d02f7d752eb">00205</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#6e2df2345cbe92834fd57d02f7d752eb">Clear</a> (  )
+<a name="l00213"></a><a class="code" href="classMySQLTable.html#6e2df2345cbe92834fd57d02f7d752eb">00213</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#6e2df2345cbe92834fd57d02f7d752eb">Clear</a> (  )
 <a name="l00214"></a>00214         {
 <a name="l00215"></a>00215                 <span class="keywordflow">return</span> $this-&gt;bDDConnection-&gt;Query ( 'DELETE FROM `'.$this-&gt;tableName.<span class="charliteral">'`'</span> );
 <a name="l00216"></a>00216         } <span class="comment">//---- End of Clear</span>
 <a name="l00217"></a>00217         
-<a name="l00218"></a><a class="code" href="classMySQLTable.html#73a7e46a8d266779e95744aa0b0943c5">00218</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#73a7e46a8d266779e95744aa0b0943c5">Drop</a> (  )
+<a name="l00226"></a><a class="code" href="classMySQLTable.html#73a7e46a8d266779e95744aa0b0943c5">00226</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#73a7e46a8d266779e95744aa0b0943c5">Drop</a> (  )
 <a name="l00227"></a>00227         {
 <a name="l00228"></a>00228                 <span class="keywordflow">return</span> $this-&gt;bDDConnection-&gt;Query ( 'DROP TABLE `'.$this-&gt;tableName.<span class="charliteral">'`'</span> );
 <a name="l00229"></a>00229         } <span class="comment">//---- End of Drop</span>
-<a name="l00230"></a>00230     
-<a name="l00231"></a>00231 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
-<a name="l00232"></a><a class="code" href="classMySQLTable.html#fd100c44d578b4047b49e7836b46e467">00232</a>     <span class="keyword">public</span> function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( $table, <a class="code" href="classMySQLConnection.html">MySQLConnection</a> $connection, &amp; $errors )
-<a name="l00245"></a>00245         {
-<a name="l00246"></a>00246                 parent::__construct ( $table, $connection, $errors );
-<a name="l00247"></a>00247         } <span class="comment">//---- End of constructor</span>
-<a name="l00248"></a>00248         
-<a name="l00249"></a><a class="code" href="classMySQLTable.html#51bae42880714255caed4fd45177f93e">00249</a>     function <a class="code" href="classMySQLTable.html#51bae42880714255caed4fd45177f93e">__destruct</a>( )
-<a name="l00253"></a>00253         {
-<a name="l00254"></a>00254                 parent::__destruct();
-<a name="l00255"></a>00255         } <span class="comment">//----- End of Destructor</span>
-<a name="l00256"></a>00256         
-<a name="l00257"></a>00257 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
-<a name="l00258"></a>00258 
-<a name="l00259"></a>00259 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
-<a name="l00260"></a>00260     
-<a name="l00261"></a>00261 <span class="comment">//------------------------------------------------------ protected methods</span>
-<a name="l00262"></a>00262 
-<a name="l00263"></a><a class="code" href="classMySQLTable.html#d287c273da5c1b9159a71114944b18c1">00263</a>         <span class="keyword">protected</span> function <a class="code" href="classMySQLTable.html#d287c273da5c1b9159a71114944b18c1">isValidProperty</a> ( $property )
-<a name="l00272"></a>00272         {
-<a name="l00273"></a>00273                 foreach ( $this-&gt;structure as $champ )
-<a name="l00274"></a>00274                 {
-<a name="l00275"></a>00275                         <span class="keywordflow">if</span> ( $champ-&gt;getProperty( <a class="code" href="classMySQLTable.html#34fff19e99689fe4d3c012e0159d6450">MySQLTable::MYSQL_STRUCTURE_FIELD_NAME</a> ) == $property )
-<a name="l00276"></a>00276                         {
-<a name="l00277"></a>00277                                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00278"></a>00278                         }
-<a name="l00279"></a>00279                 }
-<a name="l00280"></a>00280                 
-<a name="l00281"></a>00281                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00282"></a>00282         } <span class="comment">//----- End of isValidProperty</span>
-<a name="l00283"></a>00283         
-<a name="l00284"></a><a class="code" href="classMySQLTable.html#94777e2e52849c53a18f5a0188dca02d">00284</a>         <span class="keyword">protected</span> function <a class="code" href="classMySQLTable.html#94777e2e52849c53a18f5a0188dca02d">bDDRecordToTableRecord</a> ( <a class="code" href="classBDDRecord.html">BDDRecord</a> $record )
-<a name="l00293"></a>00293         {
-<a name="l00294"></a>00294                 $tableRecord = <span class="keyword">new</span> <a class="code" href="classBDDRecord.html">BDDRecord</a>();
-<a name="l00295"></a>00295                 
-<a name="l00296"></a>00296                 foreach ( $record as $champ =&gt; $value ) 
-<a name="l00297"></a>00297                 {
-<a name="l00298"></a>00298                         <span class="keywordflow">if</span> ( $this-&gt;<a class="code" href="classMySQLTable.html#d287c273da5c1b9159a71114944b18c1">isValidProperty</a>( $champ ) )
-<a name="l00299"></a>00299                         {
-<a name="l00300"></a>00300                                 $tableRecord-&gt;SetProperty ( $champ , mysql_real_escape_string ( $value, $this-&gt;bDDConnection ) );
-<a name="l00301"></a>00301                         }
-<a name="l00302"></a>00302                 }
-<a name="l00303"></a>00303                 
-<a name="l00304"></a>00304                 <span class="keywordflow">return</span> $tableRecord;
-<a name="l00305"></a>00305         } <span class="comment">//----- End of bDDRecordToTableRecord</span>
-<a name="l00306"></a>00306 <span class="comment">//------------------------------------------------------ protected members</span>
-<a name="l00307"></a>00307 
-<a name="l00308"></a>00308 }
-<a name="l00309"></a>00309 
-<a name="l00310"></a>00310 <span class="comment">//------------------------------------------------------ other definitions</span>
-<a name="l00311"></a>00311 
-<a name="l00312"></a>00312 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:26 2006 for ExetronSystemProject by&nbsp;
+<a name="l00230"></a>00230         
+<a name="l00239"></a><a class="code" href="classMySQLTable.html#3b47f498cfb9d482c173bdc746b52394">00239</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTable.html#3b47f498cfb9d482c173bdc746b52394">EscapeValue</a> ( $value )
+<a name="l00240"></a>00240         {
+<a name="l00241"></a>00241                 <span class="keywordflow">return</span> mysql_escape_string( $value );
+<a name="l00242"></a>00242         }
+<a name="l00243"></a>00243     
+<a name="l00244"></a>00244 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
+<a name="l00257"></a><a class="code" href="classMySQLTable.html#fd100c44d578b4047b49e7836b46e467">00257</a> <span class="comment"></span>    <span class="keyword">public</span> function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( $table, <a class="code" href="classMySQLConnection.html">MySQLConnection</a> $connection, &amp; $errors )
+<a name="l00258"></a>00258         {
+<a name="l00259"></a>00259                 parent::__construct ( $table, $connection, $errors );
+<a name="l00260"></a>00260         } <span class="comment">//---- End of constructor</span>
+<a name="l00261"></a>00261         
+<a name="l00265"></a><a class="code" href="classMySQLTable.html#51bae42880714255caed4fd45177f93e">00265</a>     function <a class="code" href="classMySQLTable.html#51bae42880714255caed4fd45177f93e">__destruct</a>( )
+<a name="l00266"></a>00266         {
+<a name="l00267"></a>00267                 parent::__destruct();
+<a name="l00268"></a>00268         } <span class="comment">//----- End of Destructor</span>
+<a name="l00269"></a>00269         
+<a name="l00270"></a>00270 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
+<a name="l00271"></a>00271 
+<a name="l00272"></a>00272 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
+<a name="l00273"></a>00273     
+<a name="l00274"></a>00274 <span class="comment">//------------------------------------------------------ protected methods</span>
+<a name="l00275"></a>00275 
+<a name="l00284"></a><a class="code" href="classMySQLTable.html#d287c273da5c1b9159a71114944b18c1">00284</a>         <span class="keyword">protected</span> function <a class="code" href="classMySQLTable.html#d287c273da5c1b9159a71114944b18c1">isValidProperty</a> ( $property )
+<a name="l00285"></a>00285         {
+<a name="l00286"></a>00286                 foreach ( $this-&gt;structure as $champ )
+<a name="l00287"></a>00287                 {
+<a name="l00288"></a>00288                         <span class="keywordflow">if</span> ( $champ-&gt;getProperty( <a class="code" href="classMySQLTable.html#34fff19e99689fe4d3c012e0159d6450">MySQLTable::MYSQL_STRUCTURE_FIELD_NAME</a> ) == $property )
+<a name="l00289"></a>00289                         {
+<a name="l00290"></a>00290                                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00291"></a>00291                         }
+<a name="l00292"></a>00292                 }
+<a name="l00293"></a>00293                 
+<a name="l00294"></a>00294                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00295"></a>00295         } <span class="comment">//----- End of isValidProperty</span>
+<a name="l00296"></a>00296         
+<a name="l00305"></a><a class="code" href="classMySQLTable.html#94777e2e52849c53a18f5a0188dca02d">00305</a>         <span class="keyword">protected</span> function <a class="code" href="classMySQLTable.html#94777e2e52849c53a18f5a0188dca02d">bDDRecordToTableRecord</a> ( <a class="code" href="classBDDRecord.html">BDDRecord</a> $record )
+<a name="l00306"></a>00306         {
+<a name="l00307"></a>00307                 $tableRecord = <span class="keyword">new</span> <a class="code" href="classBDDRecord.html">BDDRecord</a>();
+<a name="l00308"></a>00308                 
+<a name="l00309"></a>00309                 foreach ( $record as $champ =&gt; $value ) 
+<a name="l00310"></a>00310                 {
+<a name="l00311"></a>00311                         <span class="keywordflow">if</span> ( $this-&gt;<a class="code" href="classMySQLTable.html#d287c273da5c1b9159a71114944b18c1">isValidProperty</a>( $champ ) )
+<a name="l00312"></a>00312                         {
+<a name="l00313"></a>00313                                 $tableRecord-&gt;SetProperty ( $champ , mysql_real_escape_string ( $value, $this-&gt;bDDConnection ) );
+<a name="l00314"></a>00314                         }
+<a name="l00315"></a>00315                 }
+<a name="l00316"></a>00316                 
+<a name="l00317"></a>00317                 <span class="keywordflow">return</span> $tableRecord;
+<a name="l00318"></a>00318         } <span class="comment">//----- End of bDDRecordToTableRecord</span>
+<a name="l00319"></a>00319 <span class="comment">//------------------------------------------------------ protected members</span>
+<a name="l00320"></a>00320 
+<a name="l00321"></a>00321 }
+<a name="l00322"></a>00322 
+<a name="l00323"></a>00323 <span class="comment">//------------------------------------------------------ other definitions</span>
+<a name="l00324"></a>00324 
+<a name="l00325"></a>00325 ?&gt;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:02 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

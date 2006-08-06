@@ -70,12 +70,12 @@
 <a name="l00045"></a>00045 
 <a name="l00046"></a>00046 <span class="comment">//--------------------------------------------------------- Public Methods</span>
 <a name="l00047"></a>00047         
-<a name="l00048"></a><a class="code" href="classXHTMLBodyTemplate.html#27a9d3c9e41a01b41c299abca09747c7">00048</a>     <span class="keyword">public</span> function <a class="code" href="classXHTMLBodyTemplate.html#27a9d3c9e41a01b41c299abca09747c7">AddContent</a> ( $content )
+<a name="l00057"></a><a class="code" href="classXHTMLBodyTemplate.html#27a9d3c9e41a01b41c299abca09747c7">00057</a>     <span class="keyword">public</span> function <a class="code" href="classXHTMLBodyTemplate.html#27a9d3c9e41a01b41c299abca09747c7">AddContent</a> ( $content )
 <a name="l00058"></a>00058     {
 <a name="l00059"></a>00059                 $this-&gt;<a class="code" href="classTemplate.html#bb934a6fa6bcaf62429e8991e08ed96d">AddToTag</a> ( self::TAG_CONTENT, $content );
 <a name="l00060"></a>00060     } <span class="comment">//----- End of AddContent</span>
 <a name="l00061"></a>00061         
-<a name="l00062"></a><a class="code" href="classXHTMLBodyTemplate.html#c6e21eb99e0261b3a7e3365c79bc8868">00062</a>     <span class="keyword">public</span> function <a class="code" href="classXHTMLBodyTemplate.html#c6e21eb99e0261b3a7e3365c79bc8868">SetContent</a> ( $content )
+<a name="l00071"></a><a class="code" href="classXHTMLBodyTemplate.html#c6e21eb99e0261b3a7e3365c79bc8868">00071</a>     <span class="keyword">public</span> function <a class="code" href="classXHTMLBodyTemplate.html#c6e21eb99e0261b3a7e3365c79bc8868">SetContent</a> ( $content )
 <a name="l00072"></a>00072     {
 <a name="l00073"></a>00073                 $temp = <span class="keyword">new</span> <a class="code" href="classTemplate.html">Template</a> ();
 <a name="l00074"></a>00074                 $temp-&gt;SetSkeleton ( $content );
@@ -83,12 +83,12 @@
 <a name="l00076"></a>00076         $this-&gt;<a class="code" href="classTemplate.html#1d7b2ec39ef8fb744c42cfc32350ac4c">SetTag</a> ( self::TAG_CONTENT, $temp );
 <a name="l00077"></a>00077     } <span class="comment">//----- End of SetContent</span>
 <a name="l00078"></a>00078         
-<a name="l00079"></a><a class="code" href="classXHTMLBodyTemplate.html#1a1615f2b84c908a5fce3323ae57d60a">00079</a>     <span class="keyword">public</span> function <a class="code" href="classXHTMLBodyTemplate.html#1a1615f2b84c908a5fce3323ae57d60a">AddParams</a> ( $params )
+<a name="l00088"></a><a class="code" href="classXHTMLBodyTemplate.html#1a1615f2b84c908a5fce3323ae57d60a">00088</a>     <span class="keyword">public</span> function <a class="code" href="classXHTMLBodyTemplate.html#1a1615f2b84c908a5fce3323ae57d60a">AddParams</a> ( $params )
 <a name="l00089"></a>00089     {
 <a name="l00090"></a>00090                 $this-&gt;<a class="code" href="classTemplate.html#bb934a6fa6bcaf62429e8991e08ed96d">AddToTag</a> ( self::TAG_PARAMS, $params );
 <a name="l00091"></a>00091     } <span class="comment">//----- End of AddParams</span>
 <a name="l00092"></a>00092         
-<a name="l00093"></a><a class="code" href="classXHTMLBodyTemplate.html#cee279c65bd0a63a8147addccfe64bd5">00093</a>     <span class="keyword">public</span> function <a class="code" href="classXHTMLBodyTemplate.html#cee279c65bd0a63a8147addccfe64bd5">SetParams</a> ( $params )
+<a name="l00102"></a><a class="code" href="classXHTMLBodyTemplate.html#cee279c65bd0a63a8147addccfe64bd5">00102</a>     <span class="keyword">public</span> function <a class="code" href="classXHTMLBodyTemplate.html#cee279c65bd0a63a8147addccfe64bd5">SetParams</a> ( $params )
 <a name="l00103"></a>00103     {
 <a name="l00104"></a>00104                 $temp = <span class="keyword">new</span> <a class="code" href="classTemplate.html">Template</a> ();
 <a name="l00105"></a>00105                 $temp-&gt;SetSkeleton ( $content );
@@ -97,8 +97,7 @@
 <a name="l00108"></a>00108     } <span class="comment">//----- End of SetParams</span>
 <a name="l00109"></a>00109 
 <a name="l00110"></a>00110 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
-<a name="l00111"></a><a class="code" href="classXHTMLBodyTemplate.html#423b63e1cf9a2d5e6cf7b12b01c73288">00111</a>         function <a class="code" href="classXHTMLBodyTemplate.html#423b63e1cf9a2d5e6cf7b12b01c73288">__construct</a> () 
-<a name="l00112"></a>00112         
+<a name="l00117"></a><a class="code" href="classXHTMLBodyTemplate.html#423b63e1cf9a2d5e6cf7b12b01c73288">00117</a> <span class="comment"></span>        function <a class="code" href="classXHTMLBodyTemplate.html#423b63e1cf9a2d5e6cf7b12b01c73288">__construct</a> () 
 <a name="l00118"></a>00118         {
 <a name="l00119"></a>00119                 parent::__construct();
 <a name="l00120"></a>00120                 
@@ -112,15 +111,15 @@
 <a name="l00128"></a>00128 
 <a name="l00129"></a>00129         } <span class="comment">//---- End of __construct</span>
 <a name="l00130"></a>00130          
-<a name="l00131"></a><a class="code" href="classXHTMLBodyTemplate.html#f50650bbe18ce9c661a7cd678143a17e">00131</a>     function <a class="code" href="classXHTMLBodyTemplate.html#f50650bbe18ce9c661a7cd678143a17e">__destruct</a>( )
+<a name="l00134"></a><a class="code" href="classXHTMLBodyTemplate.html#f50650bbe18ce9c661a7cd678143a17e">00134</a>     function <a class="code" href="classXHTMLBodyTemplate.html#f50650bbe18ce9c661a7cd678143a17e">__destruct</a>( )
 <a name="l00135"></a>00135         {       
 <a name="l00136"></a>00136                 parent::__destruct();
 <a name="l00137"></a>00137         } <span class="comment">//----- End of Destructor</span>
 <a name="l00138"></a>00138   
 <a name="l00139"></a>00139 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
-<a name="l00140"></a><a class="code" href="classXHTMLBodyTemplate.html#bd0e450c7069f6691dd52a73155a86a0">00140</a>         <span class="keyword">public</span> function <a class="code" href="classXHTMLBodyTemplate.html#bd0e450c7069f6691dd52a73155a86a0">__ToString</a> ()
+<a name="l00148"></a><a class="code" href="classXHTMLBodyTemplate.html#bd0e450c7069f6691dd52a73155a86a0">00148</a> <span class="comment"></span>        <span class="keyword">public</span> function <a class="code" href="classXHTMLBodyTemplate.html#bd0e450c7069f6691dd52a73155a86a0">__ToString</a> ()
 <a name="l00149"></a>00149         {
-<a name="l00150"></a>00150                 <span class="keywordflow">return</span> $this-&gt;<a class="code" href="classTemplate.html#10efb5fbb001719b7329164fe29097f2">Generate</a> ( );
+<a name="l00150"></a>00150                 <span class="keywordflow">return</span> $this-&gt;<a class="code" href="classTemplate.html#259325ce06ab2f2a27c387ae9647c225">Generate</a> ( );
 <a name="l00151"></a>00151         } <span class="comment">// End of __ToString</span>
 <a name="l00152"></a>00152 
 <a name="l00153"></a>00153 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
@@ -134,7 +133,7 @@
 <a name="l00161"></a>00161 <span class="comment">//----------------------------------------------------- Others definitions</span>
 <a name="l00162"></a>00162 
 <a name="l00163"></a>00163 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:42 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:26 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

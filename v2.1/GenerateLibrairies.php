@@ -1,17 +1,29 @@
 <?php
 
-/*	fichier de concatï¿½nation de scripts	*/
+/*	fichier de concaténation de scripts	*/
 /*	objectif : optimiser le chargement	*/
 /*	en centralisant	le chargement		*/
 
-$startFile = 'src/classes/loader.php';
-$endFile = 'release/lib/librairies.php';
+/*              Change Log              */
+
+/******* cyrille.berliat@gmail.com ******/
+/************* 27.07.2006 ***************/
+/* Fix : file not found                 */
+/****************************************/
+
+$startFile = 'developpement\\classes\\loader.php';
+$endFile = 'deploiment\\lib\\librairies.php';
 
 
 function getCascadeContent ( $currentFile )
 {
-	$currentFile = realpath ( $currentFile );
+	if ( ! file_exists( $currentFile ) )
+	{
+		die ('Fichier ou répertoire inexistant :'.$currentFile);
+	}
 
+	$currentFile = realpath ( $currentFile );
+	
 	$fileContent = file_get_contents ( $currentFile );
 	
 	if ( preg_match_all ( '/require(?:_once|) \((.*)\);/U', $fileContent, $out ) == 0) 
@@ -20,7 +32,7 @@ function getCascadeContent ( $currentFile )
 
 		if ( eval ( $fileContent ) === false ) // to determine problems
 		{
-			die( 'Problï¿½me dans le fichier : <a href="file://'.$currentFile.'">'.$currentFile.'</a><br />' );
+			die( 'Problème dans le fichier : <a href="file://'.$currentFile.'">'.$currentFile.'</a><br />' );
 		}
 		
 		$concatenation[0] = $fileContent;
@@ -60,11 +72,11 @@ $content = "<?php\n\r".$result[0]."\n\r?>";
 $fp = fopen ( $endFile, 'w+');
 if ( $fp && fwrite ( $fp, $content, strlen( $content ) ) )
 {
-	echo 'Librairie gï¿½nï¿½rï¿½e avec succï¿½s ï¿½ partir de '.$result[1].' fichiers';
+	echo 'Librairie générée avec succès à partir de '.$result[1].' fichiers';
 }
 else
 {
-	echo 'Un problï¿½me est survenu';
+	echo 'Un problème est survenu';
 }
 
 fclose ( $fp );

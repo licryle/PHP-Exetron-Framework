@@ -1,2 +1,7 @@
-base referer
-rect dir_47ac7ced951d9c0daf2deeee8386515a.html 6,6 78,54
+digraph G {
+	graph [compound=true];
+	node [label="\N", fontsize=10, fontname=Helvetica];
+	edge [labelfontsize=9, labelfontname=Helvetica];
+	graph [bb="0,0,54,52"];
+	dir_47ac7ced951d9c0daf2deeee8386515a [label=Xxx, shape=box, style=filled, fillcolor="#eeeeff", pencolor=black, URL="dir_47ac7ced951d9c0daf2deeee8386515a.html", pos="27,26", width="0.75", height="0.50"];
+}

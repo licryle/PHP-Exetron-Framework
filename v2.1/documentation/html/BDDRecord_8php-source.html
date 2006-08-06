@@ -68,24 +68,24 @@
 <a name="l00041"></a>00041 
 <a name="l00042"></a>00042 <span class="comment">//--------------------------------------------------------- public methods</span>
 <a name="l00043"></a>00043 
-<a name="l00044"></a><a class="code" href="classBDDRecord.html#ef3cbffd6b0b64d12902ec47b79a4356">00044</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#ef3cbffd6b0b64d12902ec47b79a4356">IsValid</a> (  )
+<a name="l00052"></a><a class="code" href="classBDDRecord.html#ef3cbffd6b0b64d12902ec47b79a4356">00052</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#ef3cbffd6b0b64d12902ec47b79a4356">IsValid</a> (  )
 <a name="l00053"></a>00053         {
 <a name="l00054"></a>00054                 <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00055"></a>00055         } <span class="comment">//----- End of IsValid</span>
 <a name="l00056"></a>00056         
-<a name="l00057"></a><a class="code" href="classBDDRecord.html#5288babcb02e7a5fb1a4e9309cd553cd">00057</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#5288babcb02e7a5fb1a4e9309cd553cd">Validate</a> (  )
+<a name="l00064"></a><a class="code" href="classBDDRecord.html#5288babcb02e7a5fb1a4e9309cd553cd">00064</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#5288babcb02e7a5fb1a4e9309cd553cd">Validate</a> (  )
 <a name="l00065"></a>00065     {
 <a name="l00066"></a>00066                 $this-&gt;isValid = <span class="keyword">true</span>;
 <a name="l00067"></a>00067         
 <a name="l00068"></a>00068                 <span class="keywordflow">return</span> NULL;
 <a name="l00069"></a>00069         } <span class="comment">//----- End of Validate</span>
 <a name="l00070"></a>00070         
-<a name="l00071"></a><a class="code" href="classBDDRecord.html#6676b8217233c0f1990051fd4560c48a">00071</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#6676b8217233c0f1990051fd4560c48a">PropertyExists</a>( $propertyName )
+<a name="l00080"></a><a class="code" href="classBDDRecord.html#6676b8217233c0f1990051fd4560c48a">00080</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#6676b8217233c0f1990051fd4560c48a">PropertyExists</a>( $propertyName )
 <a name="l00081"></a>00081     {
 <a name="l00082"></a>00082                 <span class="keywordflow">return</span> ( isset ( $this-&gt;row[ $propertyName ] ) );
 <a name="l00083"></a>00083     } <span class="comment">//----- End of PropertyExists</span>
 <a name="l00084"></a>00084         
-<a name="l00085"></a><a class="code" href="classBDDRecord.html#a0feceb82056b22bb49876679db26c65">00085</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#a0feceb82056b22bb49876679db26c65">GetProperty</a>( $propertyName )
+<a name="l00095"></a><a class="code" href="classBDDRecord.html#a0feceb82056b22bb49876679db26c65">00095</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#a0feceb82056b22bb49876679db26c65">GetProperty</a>( $propertyName )
 <a name="l00096"></a>00096     {
 <a name="l00097"></a>00097                 <span class="keywordflow">if</span> ( $this-&gt;<a class="code" href="classBDDRecord.html#6676b8217233c0f1990051fd4560c48a">PropertyExists</a>( $propertyName ) )
 <a name="l00098"></a>00098                 {
@@ -101,47 +101,47 @@
 <a name="l00108"></a>00108                 }
 <a name="l00109"></a>00109     } <span class="comment">//----- End of GetProperty</span>
 <a name="l00110"></a>00110         
-<a name="l00111"></a><a class="code" href="classBDDRecord.html#7818e0d216ba0835e377532a7da90d2a">00111</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#7818e0d216ba0835e377532a7da90d2a">SetProperty</a>( $propertyName , $propertyValue )
+<a name="l00119"></a><a class="code" href="classBDDRecord.html#7818e0d216ba0835e377532a7da90d2a">00119</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#7818e0d216ba0835e377532a7da90d2a">SetProperty</a>( $propertyName , $propertyValue )
 <a name="l00120"></a>00120     {
 <a name="l00121"></a>00121                 $this-&gt;row [ $propertyName ] = $propertyValue;
 <a name="l00122"></a>00122                 
 <a name="l00123"></a>00123                 $this-&gt;isValid = <span class="keyword">false</span>;
 <a name="l00124"></a>00124     } <span class="comment">//----- End of SetProperty</span>
 <a name="l00125"></a>00125         
-<a name="l00126"></a><a class="code" href="classBDDRecord.html#6983642ae4e1848f9fe7c830027c7ca9">00126</a>         <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#6983642ae4e1848f9fe7c830027c7ca9">GetPropertyCount</a> ( )
+<a name="l00132"></a><a class="code" href="classBDDRecord.html#6983642ae4e1848f9fe7c830027c7ca9">00132</a>         <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#6983642ae4e1848f9fe7c830027c7ca9">GetPropertyCount</a> ( )
 <a name="l00133"></a>00133         {
 <a name="l00134"></a>00134                         <span class="keywordflow">return</span> count ( $this-&gt;row );
 <a name="l00135"></a>00135         } <span class="comment">//----- End of GetPropertyCount</span>
 <a name="l00136"></a>00136         
 <a name="l00137"></a>00137 <span class="comment">//------------------------------------------- Implementation's of Iterator</span>
-<a name="l00138"></a><a class="code" href="classBDDRecord.html#57ce95be01eb74ee23de7da3a41a8a7d">00138</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#57ce95be01eb74ee23de7da3a41a8a7d">Rewind</a>( )
+<a name="l00142"></a><a class="code" href="classBDDRecord.html#57ce95be01eb74ee23de7da3a41a8a7d">00142</a> <span class="comment"></span>    <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#57ce95be01eb74ee23de7da3a41a8a7d">Rewind</a>( )
 <a name="l00143"></a>00143     {
 <a name="l00144"></a>00144         reset( $this-&gt;row );
 <a name="l00145"></a>00145     } <span class="comment">//--- End of Rewind</span>
 <a name="l00146"></a>00146 
-<a name="l00147"></a><a class="code" href="classBDDRecord.html#004b39a3958ad23d67fc4629050adcd0">00147</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#004b39a3958ad23d67fc4629050adcd0">Current</a>( )
+<a name="l00153"></a><a class="code" href="classBDDRecord.html#004b39a3958ad23d67fc4629050adcd0">00153</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#004b39a3958ad23d67fc4629050adcd0">Current</a>( )
 <a name="l00154"></a>00154     {
 <a name="l00155"></a>00155         <span class="keywordflow">return</span> current( $this-&gt;row );
 <a name="l00156"></a>00156     } <span class="comment">//---- End of Current</span>
 <a name="l00157"></a>00157     
-<a name="l00158"></a><a class="code" href="classBDDRecord.html#753fc5726fbe0758d5530ac8c8d76729">00158</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#753fc5726fbe0758d5530ac8c8d76729">Key</a>( )
+<a name="l00164"></a><a class="code" href="classBDDRecord.html#753fc5726fbe0758d5530ac8c8d76729">00164</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#753fc5726fbe0758d5530ac8c8d76729">Key</a>( )
 <a name="l00165"></a>00165     {
 <a name="l00166"></a>00166         <span class="keywordflow">return</span> key( $this-&gt;row );
 <a name="l00167"></a>00167     } <span class="comment">//---- End of Key</span>
 <a name="l00168"></a>00168     
-<a name="l00169"></a><a class="code" href="classBDDRecord.html#4fd596eb02807231382f25df2ac90799">00169</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#4fd596eb02807231382f25df2ac90799">Next</a>( )
+<a name="l00175"></a><a class="code" href="classBDDRecord.html#4fd596eb02807231382f25df2ac90799">00175</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#4fd596eb02807231382f25df2ac90799">Next</a>( )
 <a name="l00176"></a>00176     {
 <a name="l00177"></a>00177         <span class="keywordflow">return</span> next( $this-&gt;row );
 <a name="l00178"></a>00178     } <span class="comment">//---- End of Next</span>
 <a name="l00179"></a>00179     
-<a name="l00180"></a><a class="code" href="classBDDRecord.html#b36c0bcc41b5209836dcba94e0d639f9">00180</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#b36c0bcc41b5209836dcba94e0d639f9">Valid</a>( )
+<a name="l00187"></a><a class="code" href="classBDDRecord.html#b36c0bcc41b5209836dcba94e0d639f9">00187</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#b36c0bcc41b5209836dcba94e0d639f9">Valid</a>( )
 <a name="l00188"></a>00188     {
 <a name="l00189"></a>00189         <span class="keywordflow">return</span> $this-&gt;current( ) !== <span class="keyword">false</span>;
 <a name="l00190"></a>00190     } <span class="comment">//---- End of Valid</span>
 <a name="l00191"></a>00191 <span class="comment">//--------------------------------------- End of Iterator's implementation</span>
 <a name="l00192"></a>00192 
 <a name="l00193"></a>00193 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
-<a name="l00194"></a><a class="code" href="classBDDRecord.html#c596705eb06a7e9fb11bf65a072ecd5d">00194</a>     function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( <a class="code" href="classBDDRecord.html#bc76308a9d4f2555d942b0867d1ff2df">$row</a> = NULL )
+<a name="l00201"></a><a class="code" href="classBDDRecord.html#c596705eb06a7e9fb11bf65a072ecd5d">00201</a> <span class="comment"></span>    function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( <a class="code" href="classBDDRecord.html#bc76308a9d4f2555d942b0867d1ff2df">$row</a> = NULL )
 <a name="l00202"></a>00202     {
 <a name="l00203"></a>00203                 parent::__construct();
 <a name="l00204"></a>00204                 
@@ -157,13 +157,13 @@
 <a name="l00214"></a>00214                 $this-&gt;isValid = <span class="keyword">false</span>;
 <a name="l00215"></a>00215     } <span class="comment">//---- End of constructor</span>
 <a name="l00216"></a>00216         
-<a name="l00217"></a><a class="code" href="classBDDRecord.html#b7cb8fc1ad4977a2133081bb06a5ef24">00217</a>     function <a class="code" href="classBDDRecord.html#b7cb8fc1ad4977a2133081bb06a5ef24">__destruct</a>( )
+<a name="l00220"></a><a class="code" href="classBDDRecord.html#b7cb8fc1ad4977a2133081bb06a5ef24">00220</a>     function <a class="code" href="classBDDRecord.html#b7cb8fc1ad4977a2133081bb06a5ef24">__destruct</a>( )
 <a name="l00221"></a>00221         {
 <a name="l00222"></a>00222                 parent::__destruct();
 <a name="l00223"></a>00223         } <span class="comment">//----- End of Destructor</span>
 <a name="l00224"></a>00224     
 <a name="l00225"></a>00225 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
-<a name="l00226"></a><a class="code" href="classBDDRecord.html#ee8deb4c0a66976d8d288e8c3989b1d1">00226</a>     function <a class="code" href="classBDDRecord.html#ee8deb4c0a66976d8d288e8c3989b1d1">__ToString</a> ( )
+<a name="l00232"></a><a class="code" href="classBDDRecord.html#ee8deb4c0a66976d8d288e8c3989b1d1">00232</a> <span class="comment"></span>    function <a class="code" href="classBDDRecord.html#ee8deb4c0a66976d8d288e8c3989b1d1">__ToString</a> ( )      
 <a name="l00233"></a>00233     {
 <a name="l00234"></a>00234         <span class="keywordflow">return</span> (String)var_export( $this-&gt;row );
 <a name="l00235"></a>00235     } <span class="comment">// End of __ToString</span>
@@ -181,7 +181,7 @@
 <a name="l00252"></a>00252 <span class="comment">//------------------------------------------------------ other definitions</span>
 <a name="l00253"></a>00253 
 <a name="l00254"></a>00254 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:16 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:03:44 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

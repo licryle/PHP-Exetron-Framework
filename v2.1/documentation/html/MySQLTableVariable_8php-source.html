@@ -67,7 +67,7 @@
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041 <span class="comment">//--------------------------------------------------------- public methods</span>
 <a name="l00042"></a>00042 
-<a name="l00043"></a><a class="code" href="classMySQLTableVariable.html#7c27045b1cb0b030207ab9461904904d">00043</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#7c27045b1cb0b030207ab9461904904d">SaveVariables</a> ( <a class="code" href="classVariables.html">Variables</a> $variables )
+<a name="l00055"></a><a class="code" href="classMySQLTableVariable.html#7c27045b1cb0b030207ab9461904904d">00055</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#7c27045b1cb0b030207ab9461904904d">SaveVariables</a> ( <a class="code" href="classVariables.html">Variables</a> $variables )
 <a name="l00056"></a>00056         {               
 <a name="l00057"></a>00057                 foreach ( $variables as $variable )
 <a name="l00058"></a>00058                 {
@@ -93,7 +93,7 @@
 <a name="l00078"></a>00078                 <span class="keywordflow">return</span> NULL;
 <a name="l00079"></a>00079         } <span class="comment">//---- End of SaveVariables</span>
 <a name="l00080"></a>00080         
-<a name="l00081"></a><a class="code" href="classMySQLTableVariable.html#7db0eb051d18bd62d6e0d126f1cc6ba4">00081</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#7db0eb051d18bd62d6e0d126f1cc6ba4">SelectServerVariables</a> ()
+<a name="l00089"></a><a class="code" href="classMySQLTableVariable.html#7db0eb051d18bd62d6e0d126f1cc6ba4">00089</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#7db0eb051d18bd62d6e0d126f1cc6ba4">SelectServerVariables</a> ()
 <a name="l00090"></a>00090         {
 <a name="l00091"></a>00091                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> (       MySQLTABLE::TABLE_COLUMN_ALL , 
 <a name="l00092"></a>00092                                                                         MySQLTABLE::MYSQL_CLAUSE_WHERE .
@@ -110,7 +110,7 @@
 <a name="l00103"></a>00103                 }
 <a name="l00104"></a>00104         } <span class="comment">//---- End of SelectServerVariable</span>
 <a name="l00105"></a>00105         
-<a name="l00106"></a><a class="code" href="classMySQLTableVariable.html#5f7a9d87148fedd664e70e7b8bc46d5d">00106</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#5f7a9d87148fedd664e70e7b8bc46d5d">SelectSiteVariables</a> ( $idSite )
+<a name="l00117"></a><a class="code" href="classMySQLTableVariable.html#5f7a9d87148fedd664e70e7b8bc46d5d">00117</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#5f7a9d87148fedd664e70e7b8bc46d5d">SelectSiteVariables</a> ( $idSite )
 <a name="l00118"></a>00118         {
 <a name="l00119"></a>00119                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> (       MySQLTABLE::TABLE_COLUMN_ALL ,
 <a name="l00120"></a>00120                                                                         MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -129,7 +129,7 @@
 <a name="l00133"></a>00133                 }
 <a name="l00134"></a>00134         } <span class="comment">//---- End of SelectSiteVariable</span>
 <a name="l00135"></a>00135         
-<a name="l00136"></a><a class="code" href="classMySQLTableVariable.html#467b3b8e672c7b625418e05278853cac">00136</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#467b3b8e672c7b625418e05278853cac">SelectVariablesByName</a> ( $varName )
+<a name="l00151"></a><a class="code" href="classMySQLTableVariable.html#467b3b8e672c7b625418e05278853cac">00151</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#467b3b8e672c7b625418e05278853cac">SelectVariablesByName</a> ( $varName )
 <a name="l00152"></a>00152         {
 <a name="l00153"></a>00153                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
 <a name="l00154"></a>00154                                                 MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -146,7 +146,7 @@
 <a name="l00165"></a>00165                 }
 <a name="l00166"></a>00166         } <span class="comment">//---- End of SelectVariablesByName</span>
 <a name="l00167"></a>00167         
-<a name="l00168"></a><a class="code" href="classMySQLTableVariable.html#78f869ef39da9db27ae48d245437e84f">00168</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#78f869ef39da9db27ae48d245437e84f">UpdateVariableByIdVariable</a> ( <a class="code" href="classVariable.html">Variable</a> $updatedVariable )
+<a name="l00179"></a><a class="code" href="classMySQLTableVariable.html#78f869ef39da9db27ae48d245437e84f">00179</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#78f869ef39da9db27ae48d245437e84f">UpdateVariableByIdVariable</a> ( <a class="code" href="classVariable.html">Variable</a> $updatedVariable )
 <a name="l00180"></a>00180         {
 <a name="l00181"></a>00181                 <span class="keywordflow">if</span> ( ! $new-&gt;isValid( ) )
 <a name="l00182"></a>00182                 {
@@ -170,12 +170,12 @@
 <a name="l00200"></a>00200                 <span class="keywordflow">return</span> $this-&gt;<a class="code" href="classMySQLTable.html#96784244d94a2da7047c24d542a25bc8">Update</a>( $new, $clauses );
 <a name="l00201"></a>00201         } <span class="comment">//---- End of UpdateVariableByIdVariable</span>
 <a name="l00202"></a>00202         
-<a name="l00203"></a><a class="code" href="classMySQLTableVariable.html#55afa8be90b0dc30db1efc6e836fb088">00203</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#55afa8be90b0dc30db1efc6e836fb088">InsertVariable</a> ( <a class="code" href="classVariable.html">Variable</a> $variable )
+<a name="l00213"></a><a class="code" href="classMySQLTableVariable.html#55afa8be90b0dc30db1efc6e836fb088">00213</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#55afa8be90b0dc30db1efc6e836fb088">InsertVariable</a> ( <a class="code" href="classVariable.html">Variable</a> $variable )
 <a name="l00214"></a>00214         {
 <a name="l00215"></a>00215                 <span class="keywordflow">return</span> $this-&gt;<a class="code" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef99816420">Insert</a> ( $variable );
 <a name="l00216"></a>00216         } <span class="comment">//---- End of InsertVariable</span>
 <a name="l00217"></a>00217         
-<a name="l00218"></a><a class="code" href="classMySQLTableVariable.html#0fb44bb4c4d452ba7c0d2b68a4f4e65f">00218</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#0fb44bb4c4d452ba7c0d2b68a4f4e65f">IdVariableExists</a> ( $idVariable )
+<a name="l00228"></a><a class="code" href="classMySQLTableVariable.html#0fb44bb4c4d452ba7c0d2b68a4f4e65f">00228</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableVariable.html#0fb44bb4c4d452ba7c0d2b68a4f4e65f">IdVariableExists</a> ( $idVariable )
 <a name="l00229"></a>00229         {
 <a name="l00230"></a>00230                 $clauses = <a class="code" href="classMySQLTable.html#8516d74e56fef204aec07eef1176979a">MySQLTable::MYSQL_CLAUSE_WHERE</a> . <a class="code" href="classTableVariable.html#cdda335939c2b8ab2554f5df95f54849">TableVariable::TABLE_COLUMN_IDVARIABLE</a> . MySQLTABLE::MYSQL_SEEK_SEPARATOR . <a class="code" href="classMySQLTable.html#af6ea3dde397f4e780d1a282e80e5f6d">MySQLTable::MYSQL_SEEK_STRICT</a> . intval( $idVariable ) . MySQLTABLE::MYSQL_SEEK_SEPARATOR;
 <a name="l00231"></a>00231                 
@@ -199,7 +199,7 @@
 <a name="l00249"></a>00249 <span class="comment">//------------------------------------------------------ other definitions</span>
 <a name="l00250"></a>00250 
 <a name="l00251"></a>00251 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:35 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:15 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

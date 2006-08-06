@@ -28,9 +28,9 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>Session Class Reference</h1><!-- doxytag: class="Session" --><!-- doxytag: inherits="AbstractSingleton" -->Inheritance diagram for Session:<p><center><img src="classSession__inherit__graph.jpg" border="0" usemap="#Session__inherit__map" alt="Inheritance graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for Session:<p><center><img src="classSession__coll__graph.jpg" border="0" usemap="#Session__coll__map" alt="Collaboration graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classSession-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<h1>Session Class Reference</h1><!-- doxytag: class="Session" --><!-- doxytag: inherits="AbstractSingleton,SessionInterface" -->Inherits <a class="el" href="classAbstractSingleton.html">AbstractSingleton</a>, and <a class="el" href="interfaceSessionInterface.html">SessionInterface</a>.
+<p>
+<a href="classSession-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#e9390a5bf2a6760a83fa710ff1b40ca2">Destruct</a> ()</td></tr>
@@ -59,13 +59,17 @@
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#30a489da45f87d8cbb62e03380c2f54d">Valid</a> ()</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a498272c85524e4700abc3363883165b">__destruct</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#3203ea7d685d4606fed832f3159ef508">__ToString</a> ()</td></tr>
+
 <tr><td colspan="2"><br><h2>Static Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#1f88252d54df7ea7720e1884db124152">GetInstance</a> ()</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#57dffa5049484fbb424087242182de65">SetId</a> ($id)</td></tr>
 
 <tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#36373ba15d6c8f932aeea02d7320d7c8">__construct</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#9f19d33fc703088f501aa9edaba28132">__construct</a> ($sessId= '', $sessName= '')</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
@@ -74,7 +78,7 @@ Provides an abstraction for basic PHP's sessions management.
 
 <p>
 Definition at line <a class="el" href="Session_8php-source.html#l00036">36</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.<hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="36373ba15d6c8f932aeea02d7320d7c8"></a><!-- doxytag: member="Session::__construct" ref="36373ba15d6c8f932aeea02d7320d7c8" args="()" --><p>
+<a class="anchor" name="9f19d33fc703088f501aa9edaba28132"></a><!-- doxytag: member="Session::__construct" ref="9f19d33fc703088f501aa9edaba28132" args="($sessId= '', $sessName= '')" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -82,9 +86,19 @@ Definition at line <a class="el" href="Session_8php-source.html#l00036">36</a> o
         <tr>
           <td class="md" nowrap valign="top">Session::__construct           </td>
           <td class="md" valign="top">(&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap>          </td>
-          <td class="md" valign="top">&nbsp;)&nbsp;</td>
-          <td class="md" nowrap><code> [protected]</code></td>
+          <td class="md" nowrap valign="top">$&nbsp;</td>
+          <td class="mdname" nowrap> <em>sessId</em> = <code>''</code>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>$&nbsp;</td>
+          <td class="mdname" nowrap> <em>sessName</em> = <code>''</code></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [protected]</code></td>
         </tr>
       </table>
     </td>
@@ -98,9 +112,79 @@ Definition at line <a class="el" href="Session_8php-source.html#l00036">36</a> o
     <td>
 
 <p>
-instanciates an <a class="el" href="classAbstractSingleton.html">AbstractSingleton</a> (for overwriting only). 
+Instanciates a <a class="el" href="classSession.html">Session</a> object.<p>
+Instianciation must happen before any print out to the screen.<p>
+It will try to determine if a session is active and will work with if found.<p>
+If no active session has ben found, a new session will be created with an unique id.<p>
+<dl compact><dt><b>See also:</b></dt><dd><a href="http://fr.php.net/manual/en/function.session-start.php">http://fr.php.net/manual/en/function.session-start.php</a> </dd></dl>
+
 <p>
-Reimplemented from <a class="el" href="classAbstractSingleton.html#e523a68ebb96b04ad753b625cf46d04c">AbstractSingleton</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00267">267</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="a498272c85524e4700abc3363883165b"></a><!-- doxytag: member="Session::__destruct" ref="a498272c85524e4700abc3363883165b" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">Session::__destruct           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Destructs ressources allocated<p>
+Does not destruct the session, just the <a class="el" href="classSession.html">Session</a> object. 
+<p>
+Reimplemented from <a class="el" href="classAbstractSingleton.html#1ccfd7d830deb6cc98a66672d899103d">AbstractSingleton</a>.
+<p>
+Definition at line <a class="el" href="Session_8php-source.html#l00297">297</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="3203ea7d685d4606fed832f3159ef508"></a><!-- doxytag: member="Session::__ToString" ref="3203ea7d685d4606fed832f3159ef508" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">Session::__ToString           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Returns a printable version of object for debugging.<p>
+<dl compact><dt><b>Returns:</b></dt><dd>String printable on screen </dd></dl>
+
+<p>
+Reimplemented from <a class="el" href="classAbstractSingleton.html#30429fcc3b2023d2d394d0dd086df4cd">AbstractSingleton</a>.
+<p>
+Definition at line <a class="el" href="Session_8php-source.html#l00310">310</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="68331be8d1d2a1c338510fc568a4ba3d"></a><!-- doxytag: member="Session::Current" ref="68331be8d1d2a1c338510fc568a4ba3d" args="()" --><p>
@@ -131,7 +215,7 @@ Gets the current element of the array.<p>
 <dl compact><dt><b>Returns:</b></dt><dd>the current element of array </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00205">205</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00211">211</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="6a7cfce731c625c54b7e857ba12e44d9"></a><!-- doxytag: member="Session::DelAll" ref="6a7cfce731c625c54b7e857ba12e44d9" args="()" --><p>
@@ -160,7 +244,7 @@ Definition at line <a class="el" href="Session_8php-source.html#l00205">205</a> 
 <p>
 Clears the Iterator. 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00173">173</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00177">177</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="e9390a5bf2a6760a83fa710ff1b40ca2"></a><!-- doxytag: member="Session::Destruct" ref="e9390a5bf2a6760a83fa710ff1b40ca2" args="()" --><p>
@@ -189,7 +273,9 @@ Definition at line <a class="el" href="Session_8php-source.html#l00173">173</a> 
 <p>
 Destructs the sessions and all informations relatives to this session 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00060">60</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Implements <a class="el" href="interfaceSessionInterface.html#df6d7b1bb2a42a16b7027129faa2c94f">SessionInterface</a>.
+<p>
+Definition at line <a class="el" href="Session_8php-source.html#l00063">63</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="33e2e360937c90000284d39db522f979"></a><!-- doxytag: member="Session::GetCount" ref="33e2e360937c90000284d39db522f979" args="()" --><p>
@@ -220,7 +306,7 @@ Gets the number of items it contains.<p>
 <dl compact><dt><b>Returns:</b></dt><dd>the number of items it contains </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00184">184</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00190">190</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="741432090c6c7904c73c0c9a07cf5b6d"></a><!-- doxytag: member="Session::GetId" ref="741432090c6c7904c73c0c9a07cf5b6d" args="()" --><p>
@@ -251,7 +337,9 @@ Gets the session id.<p>
 <dl compact><dt><b>Returns:</b></dt><dd>The id of the session </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00071">71</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Implements <a class="el" href="interfaceSessionInterface.html#93a1b77d1f3610fb0336c37d9ee6d094">SessionInterface</a>.
+<p>
+Definition at line <a class="el" href="Session_8php-source.html#l00076">76</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="1f88252d54df7ea7720e1884db124152"></a><!-- doxytag: member="Session::GetInstance" ref="1f88252d54df7ea7720e1884db124152" args="()" --><p>
@@ -286,9 +374,9 @@ This method MUST be redefined in ALL children.<p>
 <p>
 Reimplemented from <a class="el" href="classAbstractSingleton.html#b150ea93e3a6b245bbd9b35181b63f79">AbstractSingleton</a>.
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00043">43</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.
+Definition at line <a class="el" href="Session_8php-source.html#l00055">55</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.
 <p>
-Referenced by <a class="el" href="WebSitePage_8php-source.html#l00063">WebSitePage::OnLoad()</a>.    </td>
+Referenced by <a class="el" href="WebSitePage_8php-source.html#l00108">WebSitePage::OnLoad()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="3da295126a0752ab8a2e32ca421c61c4"></a><!-- doxytag: member="Session::GetVariable" ref="3da295126a0752ab8a2e32ca421c61c4" args="($name)" --><p>
@@ -326,9 +414,11 @@ Gets the value associated to variable named $name.<p>
 - the content of the variable named $name </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00149">149</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.
+Implements <a class="el" href="interfaceSessionInterface.html#60da75d61395fe24d84aec4c8d5cf922">SessionInterface</a>.
 <p>
-References <a class="el" href="Session_8php-source.html#l00094">IsSetVariable()</a>, and <a class="el" href="SessionError_8php-source.html#l00042">SessionError::SESSION_VARIABLE_NOT_SET</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00158">158</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.
+<p>
+References <a class="el" href="Session_8php-source.html#l00102">IsSetVariable()</a>, and <a class="el" href="SessionError_8php-source.html#l00042">SessionError::SESSION_VARIABLE_NOT_SET</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="3e62e8f1e49ba02056c67ee2df961bf3"></a><!-- doxytag: member="Session::IsSetVariable" ref="3e62e8f1e49ba02056c67ee2df961bf3" args="($name)" --><p>
@@ -366,9 +456,11 @@ Checks whether the varaiable named $name exists or not.<p>
 - False otherwise </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00094">94</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.
+Implements <a class="el" href="interfaceSessionInterface.html#2ada03878dc9000220dc7e6b39605e24">SessionInterface</a>.
 <p>
-Referenced by <a class="el" href="Session_8php-source.html#l00149">GetVariable()</a>, and <a class="el" href="Session_8php-source.html#l00107">UnSetVariable()</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00102">102</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.
+<p>
+Referenced by <a class="el" href="Session_8php-source.html#l00158">GetVariable()</a>, and <a class="el" href="Session_8php-source.html#l00115">UnSetVariable()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="7692bf3018c115e7ffadf642de2ec704"></a><!-- doxytag: member="Session::Key" ref="7692bf3018c115e7ffadf642de2ec704" args="()" --><p>
@@ -399,7 +491,7 @@ Gets the key of the current element of the array.<p>
 <dl compact><dt><b>Returns:</b></dt><dd>the key of the current element of array </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00216">216</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00222">222</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="827702be7d0f39494dad0922ec9fb795"></a><!-- doxytag: member="Session::Next" ref="827702be7d0f39494dad0922ec9fb795" args="()" --><p>
@@ -430,7 +522,7 @@ Goes to the next element of array.<p>
 <dl compact><dt><b>Returns:</b></dt><dd>next element of array </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00227">227</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00233">233</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="778acb39ecd02261c2f48178a04d0ee1"></a><!-- doxytag: member="Session::Rewind" ref="778acb39ecd02261c2f48178a04d0ee1" args="()" --><p>
@@ -459,7 +551,7 @@ Definition at line <a class="el" href="Session_8php-source.html#l00227">227</a> 
 <p>
 Gets back to the start of array. 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00196">196</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00200">200</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="57dffa5049484fbb424087242182de65"></a><!-- doxytag: member="Session::SetId" ref="57dffa5049484fbb424087242182de65" args="($id)" --><p>
@@ -496,7 +588,9 @@ This function must be call before the first call of <a class="el" href="classSes
 </dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00081">81</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Implements <a class="el" href="interfaceSessionInterface.html#45e457dc6a42e909f87dedb27961cee5">SessionInterface</a>.
+<p>
+Definition at line <a class="el" href="Session_8php-source.html#l00089">89</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="8f8d02b5f08647c2cb2063f159a2476d"></a><!-- doxytag: member="Session::SetVariable" ref="8f8d02b5f08647c2cb2063f159a2476d" args="($name, $value)" --><p>
@@ -543,7 +637,9 @@ $name must NOT be only numéric or it will not be saved (due to a bug in PHP's AP
 </dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00133">133</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Implements <a class="el" href="interfaceSessionInterface.html#282bf134f4425be957934839a812ef6d">SessionInterface</a>.
+<p>
+Definition at line <a class="el" href="Session_8php-source.html#l00144">144</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="644c529c7ddb86e890a920b393173a85"></a><!-- doxytag: member="Session::UnSetVariable" ref="644c529c7ddb86e890a920b393173a85" args="($name)" --><p>
@@ -581,9 +677,11 @@ Unsets the variable named $name.<p>
 - NULL if operation was successful </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00107">107</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.
+Implements <a class="el" href="interfaceSessionInterface.html#10052e2afb5c28871f90df62e2f57341">SessionInterface</a>.
 <p>
-References <a class="el" href="Session_8php-source.html#l00094">IsSetVariable()</a>, and <a class="el" href="SessionError_8php-source.html#l00042">SessionError::SESSION_VARIABLE_NOT_SET</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00115">115</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.
+<p>
+References <a class="el" href="Session_8php-source.html#l00102">IsSetVariable()</a>, and <a class="el" href="SessionError_8php-source.html#l00042">SessionError::SESSION_VARIABLE_NOT_SET</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="30a489da45f87d8cbb62e03380c2f54d"></a><!-- doxytag: member="Session::Valid" ref="30a489da45f87d8cbb62e03380c2f54d" args="()" --><p>
@@ -615,12 +713,12 @@ Checks if array's element is valid or not.<p>
 - false otherwise </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Session_8php-source.html#l00238">238</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
+Definition at line <a class="el" href="Session_8php-source.html#l00245">245</a> of file <a class="el" href="Session_8php-source.html">Session.php</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/System/Session/<a class="el" href="Session_8php-source.html">Session.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:29 2006 for ExetronSystemProject by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:05:25 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

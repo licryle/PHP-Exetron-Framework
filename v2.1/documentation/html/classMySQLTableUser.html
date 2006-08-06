@@ -28,9 +28,9 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>MySQLTableUser Class Reference</h1><!-- doxytag: class="MySQLTableUser" --><!-- doxytag: inherits="MySQLTable,TableUserInterface" -->Inheritance diagram for MySQLTableUser:<p><center><img src="classMySQLTableUser__inherit__graph.jpg" border="0" usemap="#MySQLTableUser__inherit__map" alt="Inheritance graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for MySQLTableUser:<p><center><img src="classMySQLTableUser__coll__graph.jpg" border="0" usemap="#MySQLTableUser__coll__map" alt="Collaboration graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classMySQLTableUser-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<h1>MySQLTableUser Class Reference</h1><!-- doxytag: class="MySQLTableUser" --><!-- doxytag: inherits="MySQLTable,TableUserInterface" -->Inherits <a class="el" href="classMySQLTable.html">MySQLTable</a>, and <a class="el" href="interfaceTableUserInterface.html">TableUserInterface</a>.
+<p>
+<a href="classMySQLTableUser-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMySQLTableUser.html#ca37f4bdb73d32727a78c799df5d8644">SaveUsers</a> (<a class="el" href="classUsers.html">Users</a> $users)</td></tr>
@@ -93,9 +93,9 @@ Selects the User-s from table which <a class="el" href="classTableUser.html#d128
 <p>
 Implements <a class="el" href="interfaceTableUserInterface.html#e992a73953825d97bd41e176c9068979">TableUserInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00163">163</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
+Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00178">178</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00041">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableUser_8php-source.html#l00044">TableUser::TABLE_COLUMN_NAME</a>.    </td>
+References <a class="el" href="MySQLTable_8php-source.html#l00108">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00041">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableUser_8php-source.html#l00044">TableUser::TABLE_COLUMN_NAME</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="83f01eb045e31435bfb9a10097723892"></a><!-- doxytag: member="MySQLTableUser::IdUserExists" ref="83f01eb045e31435bfb9a10097723892" args="($idUser)" --><p>
@@ -135,11 +135,11 @@ Checks whether the <a class="el" href="classUser.html">User</a> of id $idUser ex
 <p>
 Implements <a class="el" href="interfaceTableUserInterface.html#7437f5934b211bbddd29d1214b605342">TableUserInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00245">245</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
+Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00255">255</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00044">MySQLTable::MYSQL_CLAUSE_WHERE</a>, <a class="el" href="MySQLTable_8php-source.html#l00080">MySQLTable::MYSQL_SEEK_STRICT</a>, <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, and <a class="el" href="TableUser_8php-source.html#l00041">TableUser::TABLE_COLUMN_IDUSER</a>.
+References <a class="el" href="MySQLTable_8php-source.html#l00044">MySQLTable::MYSQL_CLAUSE_WHERE</a>, <a class="el" href="MySQLTable_8php-source.html#l00080">MySQLTable::MYSQL_SEEK_STRICT</a>, <a class="el" href="MySQLTable_8php-source.html#l00108">MySQLTable::Select()</a>, and <a class="el" href="TableUser_8php-source.html#l00041">TableUser::TABLE_COLUMN_IDUSER</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableUser_8php-source.html#l00043">SaveUsers()</a>, and <a class="el" href="MySQLTableUser_8php-source.html#l00195">UpdateUserByIdUser()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableUser_8php-source.html#l00055">SaveUsers()</a>, and <a class="el" href="MySQLTableUser_8php-source.html#l00206">UpdateUserByIdUser()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="192136103ba46c59573f358c2f367209"></a><!-- doxytag: member="MySQLTableUser::InsertUser" ref="192136103ba46c59573f358c2f367209" args="(User $user)" --><p>
@@ -179,11 +179,11 @@ Inserts the given <a class="el" href="classUser.html">User</a> $user into the ta
 <p>
 Implements <a class="el" href="interfaceTableUserInterface.html#4da17a81176b0514db755854bd7ef01a">TableUserInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00230">230</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
+Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00240">240</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00131">MySQLTable::Insert()</a>.
+References <a class="el" href="MySQLTable_8php-source.html#l00141">MySQLTable::Insert()</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableUser_8php-source.html#l00043">SaveUsers()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableUser_8php-source.html#l00055">SaveUsers()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="ca37f4bdb73d32727a78c799df5d8644"></a><!-- doxytag: member="MySQLTableUser::SaveUsers" ref="ca37f4bdb73d32727a78c799df5d8644" args="(Users $users)" --><p>
@@ -223,9 +223,9 @@ Updates validated items in $users in function of its idUser. If idUser doesn't e
 <p>
 Implements <a class="el" href="interfaceTableUserInterface.html#b94b7d2c2e396aadf33619502ab7b93a">TableUserInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00043">43</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
+Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00055">55</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
 <p>
-References <a class="el" href="MySQLTableUser_8php-source.html#l00245">IdUserExists()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00230">InsertUser()</a>, <a class="el" href="TableUser_8php-source.html#l00041">TableUser::TABLE_COLUMN_IDUSER</a>, and <a class="el" href="MySQLTableUser_8php-source.html#l00195">UpdateUserByIdUser()</a>.    </td>
+References <a class="el" href="MySQLTableUser_8php-source.html#l00255">IdUserExists()</a>, <a class="el" href="MySQLTableUser_8php-source.html#l00240">InsertUser()</a>, <a class="el" href="TableUser_8php-source.html#l00041">TableUser::TABLE_COLUMN_IDUSER</a>, and <a class="el" href="MySQLTableUser_8php-source.html#l00206">UpdateUserByIdUser()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="ce0b9b719e1b98e246b33b78cf70c20e"></a><!-- doxytag: member="MySQLTableUser::SelectUserByIdUser" ref="ce0b9b719e1b98e246b33b78cf70c20e" args="($idUser)" --><p>
@@ -265,9 +265,9 @@ Selects the <a class="el" href="classSite.html">Site</a> from table which <a cla
 <p>
 Implements <a class="el" href="interfaceTableUserInterface.html#c5a10e0052241acc1cb861a9648da2ec">TableUserInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00104">104</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
+Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00116">116</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00041">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableUser_8php-source.html#l00041">TableUser::TABLE_COLUMN_IDUSER</a>.    </td>
+References <a class="el" href="MySQLTable_8php-source.html#l00108">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00041">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableUser_8php-source.html#l00041">TableUser::TABLE_COLUMN_IDUSER</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="fd03d4d4a619f4602bf81d1db2fef69d"></a><!-- doxytag: member="MySQLTableUser::SelectUsers" ref="fd03d4d4a619f4602bf81d1db2fef69d" args="()" --><p>
@@ -301,9 +301,9 @@ Selects all the User-s from Table.<p>
 <p>
 Implements <a class="el" href="interfaceTableUserInterface.html#2cb945839c19a1d14937e45f22347a29">TableUserInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00081">81</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
+Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00089">89</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>.    </td>
+References <a class="el" href="MySQLTable_8php-source.html#l00108">MySQLTable::Select()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="bfcc6768618ac6ce07c9bd37fdaed7a9"></a><!-- doxytag: member="MySQLTableUser::SelectUsersByIdGroup" ref="bfcc6768618ac6ce07c9bd37fdaed7a9" args="($idGroup)" --><p>
@@ -343,9 +343,9 @@ Selects the User-s from table which <a class="el" href="classTableUser.html#f2cf
 <p>
 Implements <a class="el" href="interfaceTableUserInterface.html#2cf06a9b8b61254018c2b53784cf4e0f">TableUserInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00133">133</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
+Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00146">146</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
 <p>
-References <a class="el" href="MySQLTable_8php-source.html#l00093">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00041">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableUser_8php-source.html#l00050">TableUser::TABLE_COLUMN_IDGROUP</a>.    </td>
+References <a class="el" href="MySQLTable_8php-source.html#l00108">MySQLTable::Select()</a>, <a class="el" href="MySQLTable_8php-source.html#l00041">MySQLTable::TABLE_COLUMN_ALL</a>, and <a class="el" href="TableUser_8php-source.html#l00050">TableUser::TABLE_COLUMN_IDGROUP</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="47fe70759be011e1cab224694c2841b4"></a><!-- doxytag: member="MySQLTableUser::UpdateUserByIdUser" ref="47fe70759be011e1cab224694c2841b4" args="(User $updatedUser)" --><p>
@@ -385,16 +385,16 @@ Tries to update the given site $updatedUser in function of its property <a class
 <p>
 Implements <a class="el" href="interfaceTableUserInterface.html#289fde40851d89b4b242b2cd9a5c74d4">TableUserInterface</a>.
 <p>
-Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00195">195</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
+Definition at line <a class="el" href="MySQLTableUser_8php-source.html#l00206">206</a> of file <a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a>.
 <p>
-References <a class="el" href="MySQLTableUser_8php-source.html#l00245">IdUserExists()</a>, <a class="el" href="MySQLTable_8php-source.html#l00044">MySQLTable::MYSQL_CLAUSE_WHERE</a>, <a class="el" href="MySQLTable_8php-source.html#l00080">MySQLTable::MYSQL_SEEK_STRICT</a>, <a class="el" href="BDDError_8php-source.html#l00070">BDDError::RECORD_NOT_VALID</a>, <a class="el" href="BDDError_8php-source.html#l00073">BDDError::RECORD_UPDATE_DOESNT_EXIST</a>, <a class="el" href="TableUser_8php-source.html#l00041">TableUser::TABLE_COLUMN_IDUSER</a>, and <a class="el" href="MySQLTable_8php-source.html#l00158">MySQLTable::Update()</a>.
+References <a class="el" href="MySQLTableUser_8php-source.html#l00255">IdUserExists()</a>, <a class="el" href="MySQLTable_8php-source.html#l00044">MySQLTable::MYSQL_CLAUSE_WHERE</a>, <a class="el" href="MySQLTable_8php-source.html#l00080">MySQLTable::MYSQL_SEEK_STRICT</a>, <a class="el" href="BDDError_8php-source.html#l00070">BDDError::RECORD_NOT_VALID</a>, <a class="el" href="BDDError_8php-source.html#l00073">BDDError::RECORD_UPDATE_DOESNT_EXIST</a>, <a class="el" href="TableUser_8php-source.html#l00041">TableUser::TABLE_COLUMN_IDUSER</a>, and <a class="el" href="MySQLTable_8php-source.html#l00171">MySQLTable::Update()</a>.
 <p>
-Referenced by <a class="el" href="MySQLTableUser_8php-source.html#l00043">SaveUsers()</a>.    </td>
+Referenced by <a class="el" href="MySQLTableUser_8php-source.html#l00055">SaveUsers()</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/TableUser/<a class="el" href="MySQLTableUser_8php-source.html">MySQLTableUser.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:28 2006 for ExetronSystemProject by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:05:23 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

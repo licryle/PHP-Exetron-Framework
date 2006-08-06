@@ -1,7 +1,28 @@
-base referer
-rect dir_2ecd046c76e29aeb15401a9040919958.html 560,75 712,123
-rect dir_7e217adb52d93cfa44799bae8e047ea7.html 363,75 536,123
-rect dir_0b9fe70a3acf1189eafe716d636b9ee5.html 184,75 339,123
-rect dir_a68e2335e8d2e0fed9cb303367e53744.html 37,75 160,123
-rect dir_b8b04be60aa5ee30625eb470bbe70adb.html 27,54 875,134
-rect dir_d0a6d466fa9aefe463abd6ae545c30d5.html 16,16 885,144
+digraph G {
+	graph [compound=true];
+	node [label="\N", fontsize=10, fontname=Helvetica];
+	edge [labelfontsize=9, labelfontname=Helvetica];
+	graph [lp="357,0"];
+	graph [bb="0,0,714,100"];
+	subgraph clusterdir_d0a6d466fa9aefe463abd6ae545c30d5 {
+		graph [bgcolor="#ddddee"];
+		graph [pencolor=black];
+		graph [label=Templates];
+		graph [fontname=Helvetica];
+		graph [fontsize=10];
+		graph [URL="dir_d0a6d466fa9aefe463abd6ae545c30d5.html"];
+		graph [lp=""];
+		graph [bb="8,8,706,92"];
+		subgraph clusterdir_b8b04be60aa5ee30625eb470bbe70adb {
+			graph [bgcolor="#eeeeff"];
+			graph [label=""];
+			graph [URL="dir_b8b04be60aa5ee30625eb470bbe70adb.html"];
+			graph [bb="16,16,698,68"];
+			dir_b8b04be60aa5ee30625eb470bbe70adb [label=XHTMLTemplates, shape=plaintext, pos="638,42", width="1.44", height="0.50"];
+			dir_2ecd046c76e29aeb15401a9040919958 [label=XHTMLBodyTemplate, shape=box, color=black, fillcolor=white, style=filled, URL="dir_2ecd046c76e29aeb15401a9040919958.html", pos="505,42", width="1.75", height="0.50"];
+			dir_7e217adb52d93cfa44799bae8e047ea7 [label=XHTMLHeadersTemplate, shape=box, color=black, fillcolor=white, style=filled, URL="dir_7e217adb52d93cfa44799bae8e047ea7.html", pos="354,42", width="1.94", height="0.50"];
+			dir_0b9fe70a3acf1189eafe716d636b9ee5 [label=XHTMLPageTemplate, shape=box, color=black, fillcolor=white, style=filled, URL="dir_0b9fe70a3acf1189eafe716d636b9ee5.html", pos="204,42", width="1.72", height="0.50"];
+			dir_a68e2335e8d2e0fed9cb303367e53744 [label=XHTMLTemplate, shape=box, color=black, fillcolor=white, style=filled, URL="dir_a68e2335e8d2e0fed9cb303367e53744.html", pos="74,42", width="1.39", height="0.50"];
+		}
+	}
+}

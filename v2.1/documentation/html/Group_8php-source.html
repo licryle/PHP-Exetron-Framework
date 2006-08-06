@@ -67,7 +67,7 @@
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 <span class="comment">//--------------------------------------------------------- public methods</span>
 <a name="l00041"></a>00041 
-<a name="l00042"></a><a class="code" href="classGroup.html#4746b39a3cd261e5b7dcfb9b8fd30bc9">00042</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#5288babcb02e7a5fb1a4e9309cd553cd">Validate</a> ( $siteTable )
+<a name="l00062"></a><a class="code" href="classGroup.html#4746b39a3cd261e5b7dcfb9b8fd30bc9">00062</a>     <span class="keyword">public</span> function <a class="code" href="classBDDRecord.html#5288babcb02e7a5fb1a4e9309cd553cd">Validate</a> ( $siteTable )
 <a name="l00063"></a>00063         {
 <a name="l00064"></a>00064                 $errors = <span class="keyword">new</span> <a class="code" href="classErrors.html">Errors</a> ();
 <a name="l00065"></a>00065         
@@ -104,7 +104,7 @@
 <a name="l00096"></a>00096 
 <a name="l00097"></a>00097 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
 <a name="l00098"></a>00098 
-<a name="l00099"></a><a class="code" href="classGroup.html#af407f1eb0847854fad3350a2c52639c">00099</a>     function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( <a class="code" href="classBDDRecord.html">BDDRecord</a> $newRec )
+<a name="l00107"></a><a class="code" href="classGroup.html#af407f1eb0847854fad3350a2c52639c">00107</a>     function <a class="code" href="classAbstractClass.html#7edd9a179401cd4960d6dc9fd8d17958">__construct</a>( <a class="code" href="classBDDRecord.html">BDDRecord</a> $newRec )
 <a name="l00108"></a>00108     {
 <a name="l00109"></a>00109                 parent::__construct( NULL );
 <a name="l00110"></a>00110         
@@ -125,13 +125,13 @@
 <a name="l00125"></a>00125                 $this-&gt;isValid = <span class="keyword">false</span>;
 <a name="l00126"></a>00126     } <span class="comment">//---- End of constructor</span>
 <a name="l00127"></a>00127         
-<a name="l00128"></a><a class="code" href="classGroup.html#cb5535c8eebc1b21e51fff18d085c339">00128</a>     function <a class="code" href="classGroup.html#cb5535c8eebc1b21e51fff18d085c339">__destruct</a>( )
+<a name="l00131"></a><a class="code" href="classGroup.html#cb5535c8eebc1b21e51fff18d085c339">00131</a>     function <a class="code" href="classGroup.html#cb5535c8eebc1b21e51fff18d085c339">__destruct</a>( )
 <a name="l00132"></a>00132         {
 <a name="l00133"></a>00133                 parent::__destruct();
 <a name="l00134"></a>00134         } <span class="comment">//----- End of Destructor</span>
 <a name="l00135"></a>00135     
 <a name="l00136"></a>00136 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
-<a name="l00137"></a><a class="code" href="classGroup.html#ff70af67134215bf2e4884a0e17c6d6a">00137</a>     function <a class="code" href="classGroup.html#ff70af67134215bf2e4884a0e17c6d6a">__ToString</a> ( )
+<a name="l00140"></a><a class="code" href="classGroup.html#ff70af67134215bf2e4884a0e17c6d6a">00140</a> <span class="comment"></span>    function <a class="code" href="classGroup.html#ff70af67134215bf2e4884a0e17c6d6a">__ToString</a> ( )
 <a name="l00141"></a>00141     {
 <a name="l00142"></a>00142         <span class="keywordflow">return</span> parent::__ToString();
 <a name="l00143"></a>00143     } <span class="comment">// End of __ToString</span>
@@ -146,7 +146,7 @@
 <a name="l00152"></a>00152 <span class="comment">//------------------------------------------------------ other definitions</span>
 <a name="l00153"></a>00153 
 <a name="l00154"></a>00154 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:27 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:03 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

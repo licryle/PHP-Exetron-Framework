@@ -28,11 +28,17 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>WebSitePage Class Reference</h1><!-- doxytag: class="WebSitePage" --><!-- doxytag: inherits="XHTMLSitePage" -->Inheritance diagram for WebSitePage:<p><center><img src="classWebSitePage__inherit__graph.jpg" border="0" usemap="#WebSitePage__inherit__map" alt="Inheritance graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for WebSitePage:<p><center><img src="classWebSitePage__coll__graph.jpg" border="0" usemap="#WebSitePage__coll__map" alt="Collaboration graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classWebSitePage-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<h1>WebSitePage Class Reference</h1><!-- doxytag: class="WebSitePage" --><!-- doxytag: inherits="XHTMLSitePage" -->Inherits <a class="el" href="classXHTMLSitePage.html">XHTMLSitePage</a>.
+<p>
+<a href="classWebSitePage-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSitePage.html#1261d79a9b520c10b0ed9271bb5e1395">GetSession</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSitePage.html#36ad196de2768876ca3b89c10f04ce0a">GetDatabasesConnections</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSitePage.html#4becec9330d4e3855a21021e887a18eb">GetConfigurationDatabaseConnection</a> ()</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSitePage.html#38deb73bf3a737443b24efd4682f2513">OnLoad</a> ()</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSitePage.html#60192a8da35ea64a84104441703713c3">Process</a> ()</td></tr>
@@ -48,6 +54,15 @@
 
 <tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSitePage.html#fd2da9a7eaf4f7a5e2493252ec6e9e34">__construct</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSitePage.html#dafe6a80477835f4bcfd137a023cce73">initializeDatabasesConnections</a> (&amp;$DBVars, $confDBIndex)</td></tr>
+
+<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSitePage.html#6d3670aefb3b0ae6781487005558196c">$session</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSitePage.html#bda84959b8c45c7f93c8d9fbd1f0845d">$databasesConnections</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWebSitePage.html#e1d66247c232e716b3921266fbec9d40">$confDatabaseConnection</a></td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
@@ -81,11 +96,11 @@ Definition at line <a class="el" href="WebSitePage_8php-source.html#l00039">39</
     <td>
 
 <p>
-instanciates an <a class="el" href="classXHTMLSitePage.html">XHTMLSitePage</a>. 
+instanciates a <a class="el" href="classWebSitePage.html">WebSitePage</a>. 
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#32888a985736c0d0a966bdd3c7d0ebfb">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="WebSitePage_8php-source.html#l00173">173</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00201">201</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="040f5ecac590617087ca95014438c490"></a><!-- doxytag: member="WebSitePage::__destruct" ref="040f5ecac590617087ca95014438c490" args="()" --><p>
@@ -116,7 +131,7 @@ Destructs ressources allocated
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#57ffee8091b4dc5b4ea97b1868f43b99">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="WebSitePage_8php-source.html#l00183">183</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00213">213</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="e9e2215f5d9684ad9c7daf6fe4ff569a"></a><!-- doxytag: member="WebSitePage::__ToString" ref="e9e2215f5d9684ad9c7daf6fe4ff569a" args="()" --><p>
@@ -149,7 +164,71 @@ Returns a printable version of object for debugging.<p>
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#963383bfe01dd600da1581c0ddaec300">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="WebSitePage_8php-source.html#l00192">192</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00225">225</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="4becec9330d4e3855a21021e887a18eb"></a><!-- doxytag: member="WebSitePage::GetConfigurationDatabaseConnection" ref="4becec9330d4e3855a21021e887a18eb" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">WebSitePage::GetConfigurationDatabaseConnection           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gets configuration database connection<p>
+<dl compact><dt><b>Returns:</b></dt><dd>a Database object </dd></dl>
+
+<p>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00070">70</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.
+<p>
+Referenced by <a class="el" href="WebSitePage_8php-source.html#l00108">OnLoad()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="36ad196de2768876ca3b89c10f04ce0a"></a><!-- doxytag: member="WebSitePage::GetDatabasesConnections" ref="36ad196de2768876ca3b89c10f04ce0a" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">WebSitePage::GetDatabasesConnections           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gets all active databases connections<p>
+<dl compact><dt><b>Returns:</b></dt><dd>an array of all active connections </dd></dl>
+
+<p>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00060">60</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="44d00ed0ec58f0e013aa7914451ce064"></a><!-- doxytag: member="WebSitePage::GetInstance" ref="44d00ed0ec58f0e013aa7914451ce064" args="()" --><p>
@@ -184,7 +263,88 @@ This method MUST be redefined in ALL children.<p>
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#c3ac87f9f7bdc1b80a47dab397b3abdd">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="WebSitePage_8php-source.html#l00045">45</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00087">87</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="1261d79a9b520c10b0ed9271bb5e1395"></a><!-- doxytag: member="WebSitePage::GetSession" ref="1261d79a9b520c10b0ed9271bb5e1395" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">WebSitePage::GetSession           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gets the current session object<p>
+<dl compact><dt><b>Returns:</b></dt><dd>unique instance of a <a class="el" href="classSession.html">Session</a> object </dd></dl>
+
+<p>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00050">50</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="dafe6a80477835f4bcfd137a023cce73"></a><!-- doxytag: member="WebSitePage::initializeDatabasesConnections" ref="dafe6a80477835f4bcfd137a023cce73" args="(&amp;$DBVars, $confDBIndex)" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">WebSitePage::initializeDatabasesConnections           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="md" nowrap valign="top">&amp;$&nbsp;</td>
+          <td class="mdname" nowrap> <em>DBVars</em>, </td>
+        </tr>
+        <tr>
+          <td class="md" nowrap align="right"></td>
+          <td class="md"></td>
+          <td class="md" nowrap>$&nbsp;</td>
+          <td class="mdname" nowrap> <em>confDBIndex</em></td>
+        </tr>
+        <tr>
+          <td class="md"></td>
+          <td class="md">)&nbsp;</td>
+          <td class="md" colspan="2"><code> [protected]</code></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Initializes all databases connections flaged as used in the $DBVars array.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$DBVars</em>&nbsp;</td><td>array of Databases structures</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$confDBIndex</em>&nbsp;</td><td>integer that indicates which $DBVars contains the database connection for the configuration of all sites. </td></tr>
+  </table>
+</dl>
+
+<p>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00243">243</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.
+<p>
+References <a class="el" href="BDDConnection_8php-source.html#l00041">BDDConnection::CONNECTION_PERSISTENT</a>.
+<p>
+Referenced by <a class="el" href="WebSitePage_8php-source.html#l00108">OnLoad()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="38deb73bf3a737443b24efd4682f2513"></a><!-- doxytag: member="WebSitePage::OnLoad" ref="38deb73bf3a737443b24efd4682f2513" args="()" --><p>
@@ -219,9 +379,9 @@ DB_ARRAY_INDEX must be set. MYSQL_CONF_BASE must be set. SITE_SESSIONS_ACTIVATED
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#7176c6e061d36755165bb237e380db8d">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="WebSitePage_8php-source.html#l00063">63</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00108">108</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.
 <p>
-References <a class="el" href="BDDConnection_8php-source.html#l00041">BDDConnection::CONNECTION_PERSISTENT</a>, <a class="el" href="Session_8php-source.html#l00043">Session::GetInstance()</a>, <a class="el" href="Application_8php-source.html#l00049">Application::GetInstance()</a>, and <a class="el" href="TableVariable_8php-source.html#l00073">TableVariable::TABLE_COLUMN_DATA</a>.    </td>
+References <a class="el" href="AbstractSitePage_8php-source.html#l00055">AbstractSitePage::GetApplication()</a>, <a class="el" href="WebSitePage_8php-source.html#l00070">GetConfigurationDatabaseConnection()</a>, <a class="el" href="Session_8php-source.html#l00055">Session::GetInstance()</a>, <a class="el" href="XHTMLSitePage_8php-source.html#l00053">XHTMLSitePage::GetTemplate()</a>, <a class="el" href="WebSitePage_8php-source.html#l00243">initializeDatabasesConnections()</a>, and <a class="el" href="TableVariable_8php-source.html#l00073">TableVariable::TABLE_COLUMN_DATA</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="bf5ab3367f3f70c53ab897ce99d2f544"></a><!-- doxytag: member="WebSitePage::OnUnLoad" ref="bf5ab3367f3f70c53ab897ce99d2f544" args="($applicationVars)" --><p>
@@ -260,7 +420,7 @@ callback function to be called by <a class="el" href="classApplication.html">App
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#cfeccabccb636caf328cea3f2abf13ba">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="WebSitePage_8php-source.html#l00156">156</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00191">191</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="60192a8da35ea64a84104441703713c3"></a><!-- doxytag: member="WebSitePage::Process" ref="60192a8da35ea64a84104441703713c3" args="()" --><p>
@@ -291,12 +451,88 @@ Function called after OnLoad and before OnUnLoad. Here is all the process of the
 <p>
 Reimplemented from <a class="el" href="classXHTMLSitePage.html#b99ebf37eb4a98dc822097f2817833c0">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="WebSitePage_8php-source.html#l00146">146</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00175">175</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Member Data Documentation</h2>
+<a class="anchor" name="e1d66247c232e716b3921266fbec9d40"></a><!-- doxytag: member="WebSitePage::$confDatabaseConnection" ref="e1d66247c232e716b3921266fbec9d40" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">WebSitePage::$confDatabaseConnection<code> [protected]</code>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+reference to main database connection : the configuration one 
+<p>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00291">291</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="bda84959b8c45c7f93c8d9fbd1f0845d"></a><!-- doxytag: member="WebSitePage::$databasesConnections" ref="bda84959b8c45c7f93c8d9fbd1f0845d" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">WebSitePage::$databasesConnections<code> [protected]</code>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+array of databases connections 
+<p>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00288">288</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="6d3670aefb3b0ae6781487005558196c"></a><!-- doxytag: member="WebSitePage::$session" ref="6d3670aefb3b0ae6781487005558196c" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">WebSitePage::$session<code> [protected]</code>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+session object 
+<p>
+Definition at line <a class="el" href="WebSitePage_8php-source.html#l00285">285</a> of file <a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/WebSitePage/<a class="el" href="WebSitePage_8php-source.html">WebSitePage.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:43 2006 for ExetronSystemProject by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:05:45 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

@@ -73,17 +73,17 @@
 <a name="l00058"></a>00058         <span class="comment">//}</span>
 <a name="l00059"></a>00059 
 <a name="l00060"></a>00060 <span class="comment">//-------------------------------------------- Constructeurs - destructeur</span>
-<a name="l00061"></a><a class="code" href="classAbstractSingleton.html#e523a68ebb96b04ad753b625cf46d04c">00061</a>     <span class="keyword">protected</span> function <a class="code" href="classAbstractSingleton.html#e523a68ebb96b04ad753b625cf46d04c">__construct</a>()
+<a name="l00065"></a><a class="code" href="classAbstractSingleton.html#e523a68ebb96b04ad753b625cf46d04c">00065</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="classAbstractSingleton.html#e523a68ebb96b04ad753b625cf46d04c">__construct</a>()
 <a name="l00066"></a>00066     {
 <a name="l00067"></a>00067     } <span class="comment">//---- End of __construct</span>
 <a name="l00068"></a>00068          
-<a name="l00069"></a><a class="code" href="classAbstractSingleton.html#1ccfd7d830deb6cc98a66672d899103d">00069</a>     function <a class="code" href="classAbstractSingleton.html#1ccfd7d830deb6cc98a66672d899103d">__destruct</a>( )
+<a name="l00072"></a><a class="code" href="classAbstractSingleton.html#1ccfd7d830deb6cc98a66672d899103d">00072</a>     function <a class="code" href="classAbstractSingleton.html#1ccfd7d830deb6cc98a66672d899103d">__destruct</a>( )
 <a name="l00073"></a>00073         {
 <a name="l00074"></a>00074         } <span class="comment">//----- End of Destructor</span>
 <a name="l00075"></a>00075 
 <a name="l00076"></a>00076 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
 <a name="l00077"></a>00077 
-<a name="l00078"></a><a class="code" href="classAbstractSingleton.html#30429fcc3b2023d2d394d0dd086df4cd">00078</a>     <span class="keyword">public</span> function <a class="code" href="classAbstractSingleton.html#30429fcc3b2023d2d394d0dd086df4cd">__ToString</a> ( )
+<a name="l00084"></a><a class="code" href="classAbstractSingleton.html#30429fcc3b2023d2d394d0dd086df4cd">00084</a>     <span class="keyword">public</span> function <a class="code" href="classAbstractSingleton.html#30429fcc3b2023d2d394d0dd086df4cd">__ToString</a> ( )
 <a name="l00085"></a>00085     {
 <a name="l00086"></a>00086                 <span class="keywordflow">return</span> parrent::__ToString();
 <a name="l00087"></a>00087     } <span class="comment">//----- End of __ToString</span>
@@ -92,7 +92,7 @@
 <a name="l00090"></a>00090     
 <a name="l00091"></a>00091 <span class="comment">//------------------------------------------------------ protected methods</span>
 <a name="l00092"></a>00092         
-<a name="l00093"></a><a class="code" href="classAbstractSingleton.html#69366dd43f6184303565b69d6550cf87">00093</a>     <span class="keyword">protected</span> <span class="keyword">static</span> function <a class="code" href="classAbstractSingleton.html#69366dd43f6184303565b69d6550cf87">getThis</a> ( $class )
+<a name="l00102"></a><a class="code" href="classAbstractSingleton.html#69366dd43f6184303565b69d6550cf87">00102</a>     <span class="keyword">protected</span> <span class="keyword">static</span> function <a class="code" href="classAbstractSingleton.html#69366dd43f6184303565b69d6550cf87">getThis</a> ( $class )
 <a name="l00103"></a>00103         {
 <a name="l00104"></a>00104                 <span class="keywordflow">if</span> ( !IsSet ( self::$instance ) || ! IsSet ( self::$instance[ $class ] ) )
 <a name="l00105"></a>00105                 <span class="comment">// instance creation</span>
@@ -111,7 +111,7 @@
 <a name="l00119"></a>00119 <span class="comment">//------------------------------------------------------ other definitions</span>
 <a name="l00120"></a>00120 
 <a name="l00121"></a>00121 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:38 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:19 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

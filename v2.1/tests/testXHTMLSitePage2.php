@@ -38,7 +38,7 @@ class CurrentPage extends XHTMLSitePage
 		$this->pageTemplate->GetHeaders ()->AddHeaders( '<title>Coucou</title>' );
 		
 		$load = new XHTMLTemplate();
-		$load->SetMaquette ( round( microtime(true)-$GLOBALS['time'], 5) );
+		$load->SetSkeleton ( round( microtime(true)-$GLOBALS['time'], 5) );
 		$this->pageTemplate->GetBody()->SetTag ( 'LOADTIME', $load);
 		
 		$this->pageTemplate->GetBody()->AddContent(

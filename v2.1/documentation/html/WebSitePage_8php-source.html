@@ -67,120 +67,175 @@
 <a name="l00042"></a>00042 
 <a name="l00043"></a>00043 <span class="comment">//--------------------------------------------------------- Public Methods</span>
 <a name="l00044"></a>00044         
-<a name="l00045"></a><a class="code" href="classWebSitePage.html#44d00ed0ec58f0e013aa7914451ce064">00045</a>     <span class="keyword">public</span> <span class="keyword">static</span> function <a class="code" href="classWebSitePage.html#44d00ed0ec58f0e013aa7914451ce064">GetInstance</a> ( )
-<a name="l00058"></a>00058         {
-<a name="l00059"></a>00059                 <span class="keywordflow">return</span> parent::getThis( __CLASS__ );
-<a name="l00060"></a>00060         } <span class="comment">// End of GetInstance</span>
-<a name="l00061"></a>00061         
-<a name="l00062"></a>00062 
-<a name="l00063"></a><a class="code" href="classWebSitePage.html#38deb73bf3a737443b24efd4682f2513">00063</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#38deb73bf3a737443b24efd4682f2513">OnLoad</a> ( )
-<a name="l00079"></a>00079         {
-<a name="l00080"></a>00080                 parent::OnLoad();
-<a name="l00081"></a>00081                 
-<a name="l00082"></a>00082                 $appl = <a class="code" href="classApplication.html#06a54f6fe0a55d91bea283e91388ee18">Application::GetInstance</a>();
-<a name="l00083"></a>00083                 $DBVars = &amp; @$appl-&gt;GetVariables[ <a class="code" href="conf_8php.html#7ab2d87839c1f7947c7fafc5329e2be4">DB_ARRAY_INDEX</a> ];
-<a name="l00084"></a>00084                 
-<a name="l00085"></a>00085                 <span class="comment">// set up all 'always' needed connections</span>
-<a name="l00086"></a>00086                 foreach ( $DBVars as $key =&gt; $db )
-<a name="l00087"></a>00087                 {
-<a name="l00088"></a>00088                         <span class="keywordflow">if</span> ( $db['alwaysUse'] &amp;&amp; ! isset ( $DBVars[ $key ] ) )
-<a name="l00089"></a>00089                         {
-<a name="l00090"></a>00090                                 <span class="comment">// set up</span>
-<a name="l00091"></a>00091                                 $className = $db[ 'type' ].'Connection';
-<a name="l00092"></a>00092                                 $DBVars[ $key ] = <span class="keyword">new</span> $className ( );
-<a name="l00093"></a>00093                                 
-<a name="l00094"></a>00094                                 $DBVars[ $key ]-&gt;SetServer( $db['host'] );
-<a name="l00095"></a>00095                                 $DBVars[ $key ]-&gt;SetUsername( $db['login'] );
-<a name="l00096"></a>00096                                 $DBVars[ $key ]-&gt;SetPassword( $db['password'] );
-<a name="l00097"></a>00097                                 
-<a name="l00098"></a>00098                                 $DBVars[ $key ]-&gt;Open( <a class="code" href="classBDDConnection.html#9c2a1801ea27af6c57dc66134dad0573">BDDConnection::CONNECTION_PERSISTENT</a> );
-<a name="l00099"></a>00099                                 
-<a name="l00100"></a>00100                                 $DBVars[ $key ]-&gt;SetDatabase( $db['database'] );
-<a name="l00101"></a>00101                         }
-<a name="l00102"></a>00102                 }
-<a name="l00103"></a>00103                 
-<a name="l00104"></a>00104                 $className = $DBVars[ <a class="code" href="conf_8php.html#bd5b6e44bd62cbae816f98e7e3a7d2d9">MYSQL_CONF_BASE</a> ][ 'type' ].'<a class="code" href="classTableVariable.html">TableVariable</a>';
-<a name="l00105"></a>00105                 $configuration = <span class="keyword">new</span> $className ( <a class="code" href="conf_8php.html#b6cea05bf5e452df615bae299ff6b305">CONFIGURATION_TABLE_NAME</a>, $DBVars[ <a class="code" href="conf_8php.html#bd5b6e44bd62cbae816f98e7e3a7d2d9">MYSQL_CONF_BASE</a> ], $errors );
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107                 $servConf = $configuration-&gt;SelectServerVariables();
-<a name="l00108"></a>00108                 $siteConf = $configuration-&gt;SelectSiteVariables( <a class="code" href="conf_8php.html#680b2a11aeb60f8e7066718b17e2df1b">IDSITE</a> );
-<a name="l00109"></a>00109                 
-<a name="l00110"></a>00110                 unset ( $configuration );
+<a name="l00050"></a><a class="code" href="classWebSitePage.html#1261d79a9b520c10b0ed9271bb5e1395">00050</a>         <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#1261d79a9b520c10b0ed9271bb5e1395">GetSession</a>()
+<a name="l00051"></a>00051         {
+<a name="l00052"></a>00052                 <span class="keywordflow">return</span> $this-&gt;session;
+<a name="l00053"></a>00053         } <span class="comment">//---- End of GetSession</span>
+<a name="l00054"></a>00054         
+<a name="l00060"></a><a class="code" href="classWebSitePage.html#36ad196de2768876ca3b89c10f04ce0a">00060</a>         <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#36ad196de2768876ca3b89c10f04ce0a">GetDatabasesConnections</a>()
+<a name="l00061"></a>00061         {
+<a name="l00062"></a>00062                 <span class="keywordflow">return</span> $this-&gt;databasesConnections;
+<a name="l00063"></a>00063         } <span class="comment">//---- End of GetDatabasesConnections</span>
+<a name="l00064"></a>00064         
+<a name="l00070"></a><a class="code" href="classWebSitePage.html#4becec9330d4e3855a21021e887a18eb">00070</a>         <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#4becec9330d4e3855a21021e887a18eb">GetConfigurationDatabaseConnection</a>()
+<a name="l00071"></a>00071         {
+<a name="l00072"></a>00072                 <span class="keywordflow">return</span> $this-&gt;confDatabaseConnection;
+<a name="l00073"></a>00073         } <span class="comment">//---- End of GetDatabasesConnections</span>
+<a name="l00074"></a>00074         
+<a name="l00087"></a><a class="code" href="classWebSitePage.html#44d00ed0ec58f0e013aa7914451ce064">00087</a>     <span class="keyword">public</span> <span class="keyword">static</span> function <a class="code" href="classWebSitePage.html#44d00ed0ec58f0e013aa7914451ce064">GetInstance</a> ( )
+<a name="l00088"></a>00088         {
+<a name="l00089"></a>00089                 <span class="keywordflow">return</span> parent::getThis( __CLASS__ );
+<a name="l00090"></a>00090         } <span class="comment">// End of GetInstance</span>
+<a name="l00091"></a>00091         
+<a name="l00092"></a>00092 
+<a name="l00108"></a><a class="code" href="classWebSitePage.html#38deb73bf3a737443b24efd4682f2513">00108</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#38deb73bf3a737443b24efd4682f2513">OnLoad</a> ( )
+<a name="l00109"></a>00109         {
+<a name="l00110"></a>00110                 parent::OnLoad();
 <a name="l00111"></a>00111                 
-<a name="l00112"></a>00112                 <span class="keywordflow">if</span> ( $siteConf InstanceOf <a class="code" href="classErrors.html">Errors</a> || $servConf InstanceOf <a class="code" href="classErrors.html">Errors</a> )
-<a name="l00113"></a>00113                 {
-<a name="l00114"></a>00114                         echo ( $siteConf . $servConf );
-<a name="l00115"></a>00115                 }
-<a name="l00116"></a>00116                 <span class="keywordflow">else</span>
-<a name="l00117"></a>00117                 {
-<a name="l00118"></a>00118                         $conf = $servConf;
-<a name="l00119"></a>00119                         
-<a name="l00120"></a>00120                         foreach ( $siteConf as $siteVar )
-<a name="l00121"></a>00121                         {
-<a name="l00122"></a>00122                                 $conf-&gt;Add ( $siteVar );
-<a name="l00123"></a>00123                         }
-<a name="l00124"></a>00124                 
-<a name="l00125"></a>00125                         <span class="comment">// load Server configuration</span>
-<a name="l00126"></a>00126                         $appl-&gt;SetConfiguration( $conf );
-<a name="l00127"></a>00127                         
-<a name="l00128"></a>00128                         unset ( $conf );
-<a name="l00129"></a>00129                 }
-<a name="l00130"></a>00130                 
-<a name="l00131"></a>00131                 unset ( $servConf );
-<a name="l00132"></a>00132                 unset ( $siteConf );
-<a name="l00133"></a>00133 
-<a name="l00134"></a>00134                 $sessionsActivated = $appl-&gt;GetConfiguration()-&gt;GetVariableByName( <a class="code" href="conf_8php.html#9e4fe82eecb6d738fe9a9d4c30817cd4">SITE_SESSIONS_ACTIVATED</a> );
-<a name="l00135"></a>00135                 
-<a name="l00136"></a>00136                 <span class="keywordflow">if</span> ( ! ($sessionsActivated InstanceOf Errors) &amp;&amp; $sessionsActivated-&gt;GetProperty ( <a class="code" href="classTableVariable.html#f10e251e38eefbb3fd637a8f1dde3f46">TableVariable::TABLE_COLUMN_DATA</a> ) )
+<a name="l00112"></a>00112                 $DBVars =  &amp; $this-&gt;<a class="code" href="classAbstractSitePage.html#17b8e6c195f7028458335944cab6a13b">GetApplication</a>()-&gt;GetVariables();
+<a name="l00113"></a>00113                 $DBVars = &amp; $DBVars[ <a class="code" href="conf_8php.html#7ab2d87839c1f7947c7fafc5329e2be4">DB_ARRAY_INDEX</a> ];
+<a name="l00114"></a>00114                 
+<a name="l00115"></a>00115                 $this-&gt;<a class="code" href="classWebSitePage.html#dafe6a80477835f4bcfd137a023cce73">initializeDatabasesConnections</a>( $DBVars, <a class="code" href="conf_8php.html#bd5b6e44bd62cbae816f98e7e3a7d2d9">MYSQL_CONF_BASE</a> );
+<a name="l00116"></a>00116                 
+<a name="l00117"></a>00117                 
+<a name="l00118"></a>00118                 $confConnexion = $this-&gt;<a class="code" href="classWebSitePage.html#4becec9330d4e3855a21021e887a18eb">GetConfigurationDatabaseConnection</a>( );
+<a name="l00119"></a>00119                 
+<a name="l00120"></a>00120                 $className = $DBVars[ <a class="code" href="conf_8php.html#bd5b6e44bd62cbae816f98e7e3a7d2d9">MYSQL_CONF_BASE</a> ][ 'type' ].'<a class="code" href="classTableVariable.html">TableVariable</a>';
+<a name="l00121"></a>00121                 $configuration = <span class="keyword">new</span> $className ( <a class="code" href="conf_8php.html#b6cea05bf5e452df615bae299ff6b305">CONFIGURATION_TABLE_NAME</a>, $confConnection, $errors );
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123                 unset ( $DBVars );
+<a name="l00124"></a>00124                 unset ( $className );
+<a name="l00125"></a>00125                 unset ( $confConnection );
+<a name="l00126"></a>00126                 
+<a name="l00127"></a>00127                 $servConf = $configuration-&gt;SelectServerVariables();
+<a name="l00128"></a>00128                 $siteConf = $configuration-&gt;SelectSiteVariables( <a class="code" href="conf_8php.html#680b2a11aeb60f8e7066718b17e2df1b">IDSITE</a> );
+<a name="l00129"></a>00129                 
+<a name="l00130"></a>00130                 unset ( $configuration );
+<a name="l00131"></a>00131                 
+<a name="l00132"></a>00132                 <span class="keywordflow">if</span> ( $siteConf InstanceOf <a class="code" href="classErrors.html">Errors</a> || $servConf InstanceOf <a class="code" href="classErrors.html">Errors</a> )
+<a name="l00133"></a>00133                 {
+<a name="l00134"></a>00134                         echo ( $siteConf . $servConf );
+<a name="l00135"></a>00135                 }
+<a name="l00136"></a>00136                 <span class="keywordflow">else</span>
 <a name="l00137"></a>00137                 {
-<a name="l00138"></a>00138                         <span class="comment">// activate sessions</span>
-<a name="l00139"></a>00139                         <a class="code" href="classSession.html#1f88252d54df7ea7720e1884db124152">Session::GetInstance</a>();
-<a name="l00140"></a>00140                 }
-<a name="l00141"></a>00141                 
-<a name="l00142"></a>00142                 unset ( $sessionsActivated );
-<a name="l00143"></a>00143                 unset ( $appl );
-<a name="l00144"></a>00144         } <span class="comment">//---- End of OnLoad</span>
-<a name="l00145"></a>00145         
-<a name="l00146"></a><a class="code" href="classWebSitePage.html#60192a8da35ea64a84104441703713c3">00146</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#60192a8da35ea64a84104441703713c3">Process</a> ( )
-<a name="l00152"></a>00152         {
-<a name="l00153"></a>00153                 parent::Process();
-<a name="l00154"></a>00154         } <span class="comment">//---- End of Process</span>
-<a name="l00155"></a>00155         
-<a name="l00156"></a><a class="code" href="classWebSitePage.html#bf5ab3367f3f70c53ab897ce99d2f544">00156</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#bf5ab3367f3f70c53ab897ce99d2f544">OnUnLoad</a> ( $applicationVars )
-<a name="l00168"></a>00168         {
-<a name="l00169"></a>00169                 parent::OnUnLoad( $applicationVars );
-<a name="l00170"></a>00170         } <span class="comment">//---- End of OnUnLoad</span>
-<a name="l00171"></a>00171 
-<a name="l00172"></a>00172 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
-<a name="l00173"></a><a class="code" href="classWebSitePage.html#fd2da9a7eaf4f7a5e2493252ec6e9e34">00173</a>     <span class="keyword">protected</span> function <a class="code" href="classWebSitePage.html#fd2da9a7eaf4f7a5e2493252ec6e9e34">__construct</a>()
-<a name="l00178"></a>00178     {   
-<a name="l00179"></a>00179                 parent::__construct();
-<a name="l00180"></a>00180     } <span class="comment">//---- End of __construct</span>
-<a name="l00181"></a>00181 
-<a name="l00182"></a>00182 
-<a name="l00183"></a><a class="code" href="classWebSitePage.html#040f5ecac590617087ca95014438c490">00183</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#040f5ecac590617087ca95014438c490">__destruct</a> ( )
-<a name="l00187"></a>00187     {
-<a name="l00188"></a>00188     } <span class="comment">//---- End of __destruct</span>
-<a name="l00189"></a>00189 
-<a name="l00190"></a>00190 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
-<a name="l00191"></a>00191 
-<a name="l00192"></a><a class="code" href="classWebSitePage.html#e9e2215f5d9684ad9c7daf6fe4ff569a">00192</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#e9e2215f5d9684ad9c7daf6fe4ff569a">__ToString</a> ( )
-<a name="l00199"></a>00199     {
-<a name="l00200"></a>00200                 <span class="keywordflow">return</span> parrent::__ToString();
-<a name="l00201"></a>00201     } <span class="comment">//---- End of __ToString</span>
-<a name="l00202"></a>00202 
-<a name="l00203"></a>00203 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
-<a name="l00204"></a>00204 
-<a name="l00205"></a>00205 <span class="comment">//------------------------------------------------------ protected methods</span>
-<a name="l00206"></a>00206 
-<a name="l00207"></a>00207 <span class="comment">//--------------------------------------------------- protected properties</span>
+<a name="l00138"></a>00138                         $conf = $servConf;
+<a name="l00139"></a>00139                         
+<a name="l00140"></a>00140                         foreach ( $siteConf as $siteVar )
+<a name="l00141"></a>00141                         {
+<a name="l00142"></a>00142                                 $conf-&gt;Add ( $siteVar );
+<a name="l00143"></a>00143                         }
+<a name="l00144"></a>00144                 
+<a name="l00145"></a>00145                         <span class="comment">// load Server configuration</span>
+<a name="l00146"></a>00146                         $this-&gt;<a class="code" href="classAbstractSitePage.html#17b8e6c195f7028458335944cab6a13b">GetApplication</a>()-&gt;SetConfiguration( $conf );
+<a name="l00147"></a>00147                         
+<a name="l00148"></a>00148                         unset ( $conf );
+<a name="l00149"></a>00149                 }
+<a name="l00150"></a>00150                 
+<a name="l00151"></a>00151                 unset ( $servConf );
+<a name="l00152"></a>00152                 unset ( $siteConf );
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154                 $sessionsActivated = $this-&gt;<a class="code" href="classAbstractSitePage.html#17b8e6c195f7028458335944cab6a13b">GetApplication</a>()-&gt;GetConfiguration()-&gt;GetVariableByName( <a class="code" href="conf_8php.html#9e4fe82eecb6d738fe9a9d4c30817cd4">SITE_SESSIONS_ACTIVATED</a> );
+<a name="l00155"></a>00155                 
+<a name="l00156"></a>00156                 
+<a name="l00157"></a>00157                 $this-&gt;<a class="code" href="classXHTMLSitePage.html#2bb512a5f214980ca33a3288008af4e3">GetTemplate</a>()-&gt;GetHeaders()-&gt;AddHeaders( '&lt;title&gt;'.$this-&gt;<a class="code" href="classAbstractSitePage.html#17b8e6c195f7028458335944cab6a13b">GetApplication</a>()-&gt;GetConfiguration()-&gt;GetVariableByName( <a class="code" href="conf_8php.html#97719eb64b23f1b7617861d77fc93680">SITE_TITLE</a> )-&gt;GetProperty ( <a class="code" href="classTableVariable.html#f10e251e38eefbb3fd637a8f1dde3f46">TableVariable::TABLE_COLUMN_DATA</a> ).'&lt;/title&gt;' );
+<a name="l00158"></a>00158                 $this-&gt;<a class="code" href="classXHTMLSitePage.html#2bb512a5f214980ca33a3288008af4e3">GetTemplate</a>()-&gt;GetHeaders()-&gt;AddHeaders( '&lt;meta http-equiv=<span class="stringliteral">"desc"</span> content=<span class="stringliteral">"'.$this-&gt;GetApplication()-&gt;GetConfiguration()-&gt;GetVariableByName( SITE_DESCRIPTION )-&gt;GetProperty ( TableVariable::TABLE_COLUMN_DATA ).'"</span> /&gt;' );
+<a name="l00159"></a>00159                 $this-&gt;<a class="code" href="classXHTMLSitePage.html#2bb512a5f214980ca33a3288008af4e3">GetTemplate</a>()-&gt;GetHeaders()-&gt;AddHeaders( '&lt;meta http-equiv=<span class="stringliteral">"keywords"</span> content=<span class="stringliteral">"'.$this-&gt;GetApplication()-&gt;GetConfiguration()-&gt;GetVariableByName( SITE_KEYWORDS )-&gt;GetProperty ( TableVariable::TABLE_COLUMN_DATA ).'"</span> /&gt;' );
+<a name="l00160"></a>00160                 
+<a name="l00161"></a>00161                 <span class="keywordflow">if</span> ( ! ($sessionsActivated InstanceOf Errors) &amp;&amp; $sessionsActivated-&gt;GetProperty ( TableVariable::TABLE_COLUMN_DATA ) )
+<a name="l00162"></a>00162                 {
+<a name="l00163"></a>00163                         <span class="comment">// activate sessions</span>
+<a name="l00164"></a>00164                         $this-&gt;session = <a class="code" href="classSession.html#1f88252d54df7ea7720e1884db124152">Session::GetInstance</a>();
+<a name="l00165"></a>00165                 }
+<a name="l00166"></a>00166                 
+<a name="l00167"></a>00167                 unset ( $sessionsActivated );
+<a name="l00168"></a>00168         } <span class="comment">//---- End of OnLoad</span>
+<a name="l00169"></a>00169         
+<a name="l00175"></a><a class="code" href="classWebSitePage.html#60192a8da35ea64a84104441703713c3">00175</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#60192a8da35ea64a84104441703713c3">Process</a> ( )
+<a name="l00176"></a>00176         {
+<a name="l00177"></a>00177                 parent::Process();
+<a name="l00178"></a>00178         } <span class="comment">//---- End of Process</span>
+<a name="l00179"></a>00179         
+<a name="l00191"></a><a class="code" href="classWebSitePage.html#bf5ab3367f3f70c53ab897ce99d2f544">00191</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#bf5ab3367f3f70c53ab897ce99d2f544">OnUnLoad</a> ( $applicationVars )
+<a name="l00192"></a>00192         {
+<a name="l00193"></a>00193                 parent::OnUnLoad( $applicationVars );
+<a name="l00194"></a>00194         } <span class="comment">//---- End of OnUnLoad</span>
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
+<a name="l00201"></a><a class="code" href="classWebSitePage.html#fd2da9a7eaf4f7a5e2493252ec6e9e34">00201</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="classWebSitePage.html#fd2da9a7eaf4f7a5e2493252ec6e9e34">__construct</a>()
+<a name="l00202"></a>00202     {
+<a name="l00203"></a>00203                 $this-&gt;databasesConnections = array();
+<a name="l00204"></a>00204                 $this-&gt;confDatabaseConnection = NULL;
+<a name="l00205"></a>00205                 
+<a name="l00206"></a>00206                 parent::__construct();
+<a name="l00207"></a>00207     } <span class="comment">//---- End of __construct</span>
 <a name="l00208"></a>00208 
-<a name="l00209"></a>00209 }
-<a name="l00210"></a>00210 
-<a name="l00211"></a>00211 <span class="comment">//----------------------------------------------------- Others definitions</span>
-<a name="l00212"></a>00212 
-<a name="l00213"></a>00213 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:36 2006 for ExetronSystemProject by&nbsp;
+<a name="l00209"></a>00209 
+<a name="l00213"></a><a class="code" href="classWebSitePage.html#040f5ecac590617087ca95014438c490">00213</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#040f5ecac590617087ca95014438c490">__destruct</a> ( )
+<a name="l00214"></a>00214     {
+<a name="l00215"></a>00215     } <span class="comment">//---- End of __destruct</span>
+<a name="l00216"></a>00216 
+<a name="l00217"></a>00217 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
+<a name="l00218"></a>00218 
+<a name="l00225"></a><a class="code" href="classWebSitePage.html#e9e2215f5d9684ad9c7daf6fe4ff569a">00225</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#e9e2215f5d9684ad9c7daf6fe4ff569a">__ToString</a> ( )
+<a name="l00226"></a>00226     {
+<a name="l00227"></a>00227                 <span class="keywordflow">return</span> parrent::__ToString();
+<a name="l00228"></a>00228     } <span class="comment">//---- End of __ToString</span>
+<a name="l00229"></a>00229 
+<a name="l00230"></a>00230 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
+<a name="l00231"></a>00231 
+<a name="l00232"></a>00232 <span class="comment">//------------------------------------------------------ protected methods</span>
+<a name="l00243"></a><a class="code" href="classWebSitePage.html#dafe6a80477835f4bcfd137a023cce73">00243</a> <span class="comment"></span>        <span class="keyword">protected</span> function <a class="code" href="classWebSitePage.html#dafe6a80477835f4bcfd137a023cce73">initializeDatabasesConnections</a>( &amp; $DBVars, $confDBIndex )
+<a name="l00244"></a>00244         {               
+<a name="l00245"></a>00245                 $this-&gt;confDatabaseConnection = NULL;
+<a name="l00246"></a>00246         
+<a name="l00247"></a>00247                 <span class="comment">// set up all 'always' needed connections</span>
+<a name="l00248"></a>00248                 foreach ( $DBVars as $index =&gt; $db )
+<a name="l00249"></a>00249                 {
+<a name="l00250"></a>00250                         <span class="keywordflow">if</span> ( $db['alwaysUse'] )
+<a name="l00251"></a>00251                         {
+<a name="l00252"></a>00252                                 <span class="comment">// set up</span>
+<a name="l00253"></a>00253                                 $className = $db[ 'type' ].'Connection';
+<a name="l00254"></a>00254                                 $newDB = <span class="keyword">new</span> $className ( ) or ($errors = <span class="keyword">new</span> <a class="code" href="classErrors.html">Errors</a>());
+<a name="l00255"></a>00255                                 
+<a name="l00256"></a>00256                                 $newDB-&gt;SetServer( $db['host'] );
+<a name="l00257"></a>00257                                 $newDB-&gt;SetUsername( $db['login'] );
+<a name="l00258"></a>00258                                 $newDB-&gt;SetPassword( $db['password'] );
+<a name="l00259"></a>00259                                 
+<a name="l00260"></a>00260                                 $newDB-&gt;Open( <a class="code" href="classBDDConnection.html#9c2a1801ea27af6c57dc66134dad0573">BDDConnection::CONNECTION_PERSISTENT</a> );
+<a name="l00261"></a>00261                                 
+<a name="l00262"></a>00262                                 $errors = $newDB-&gt;SetDatabase( $db['database'] );
+<a name="l00263"></a>00263                                 
+<a name="l00264"></a>00264                                 <span class="keywordflow">if</span> ( $errors == NULL )
+<a name="l00265"></a>00265                                 {
+<a name="l00266"></a>00266                                         $this-&gt;databasesConnections[] = &amp; $newDB;
+<a name="l00267"></a>00267                                         
+<a name="l00268"></a>00268                                         <span class="keywordflow">if</span> ( $index == $confDBIndex )
+<a name="l00269"></a>00269                                         {
+<a name="l00270"></a>00270                                                 $this-&gt;confDatabaseConnection = &amp; $newDB;
+<a name="l00271"></a>00271                                         }
+<a name="l00272"></a>00272                                 }
+<a name="l00273"></a>00273                                 <span class="keywordflow">else</span>
+<a name="l00274"></a>00274                                 {
+<a name="l00275"></a>00275                                         die ( $errors );
+<a name="l00276"></a>00276                                 }
+<a name="l00277"></a>00277                                 
+<a name="l00278"></a>00278                                 unset ( $newDB );
+<a name="l00279"></a>00279                         }
+<a name="l00280"></a>00280                 }
+<a name="l00281"></a>00281         } <span class="comment">//----- End of initializeDatabasesConnections</span>
+<a name="l00282"></a>00282 
+<a name="l00283"></a>00283 <span class="comment">//--------------------------------------------------- protected properties</span>
+<a name="l00285"></a><a class="code" href="classWebSitePage.html#6d3670aefb3b0ae6781487005558196c">00285</a> <span class="comment"></span>        <span class="keyword">protected</span> <a class="code" href="classWebSitePage.html#6d3670aefb3b0ae6781487005558196c">$session</a>;
+<a name="l00286"></a>00286         
+<a name="l00288"></a><a class="code" href="classWebSitePage.html#bda84959b8c45c7f93c8d9fbd1f0845d">00288</a>         <span class="keyword">protected</span> <a class="code" href="classWebSitePage.html#bda84959b8c45c7f93c8d9fbd1f0845d">$databasesConnections</a>;
+<a name="l00289"></a>00289         
+<a name="l00291"></a><a class="code" href="classWebSitePage.html#e1d66247c232e716b3921266fbec9d40">00291</a>         <span class="keyword">protected</span> <a class="code" href="classWebSitePage.html#e1d66247c232e716b3921266fbec9d40">$confDatabaseConnection</a>;
+<a name="l00292"></a>00292 }
+<a name="l00293"></a>00293 
+<a name="l00294"></a>00294 <span class="comment">//----------------------------------------------------- Others definitions</span>
+<a name="l00295"></a>00295 
+<a name="l00296"></a>00296 ?&gt;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:16 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

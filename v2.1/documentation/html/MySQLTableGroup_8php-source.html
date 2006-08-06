@@ -67,7 +67,7 @@
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041 <span class="comment">//--------------------------------------------------------- public methods</span>
 <a name="l00042"></a>00042 
-<a name="l00043"></a><a class="code" href="classMySQLTableGroup.html#d9b943cb7b2c544cb531720e435965ea">00043</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#d9b943cb7b2c544cb531720e435965ea">SaveGroups</a> ( <a class="code" href="classGroups.html">Groups</a> $groups )
+<a name="l00055"></a><a class="code" href="classMySQLTableGroup.html#d9b943cb7b2c544cb531720e435965ea">00055</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#d9b943cb7b2c544cb531720e435965ea">SaveGroups</a> ( <a class="code" href="classGroups.html">Groups</a> $groups )
 <a name="l00056"></a>00056         {               
 <a name="l00057"></a>00057                 foreach ( $groups as $group )
 <a name="l00058"></a>00058                 {
@@ -93,7 +93,7 @@
 <a name="l00078"></a>00078                 <span class="keywordflow">return</span> NULL;
 <a name="l00079"></a>00079         } <span class="comment">//---- End of SaveGroups</span>
 <a name="l00080"></a>00080 
-<a name="l00081"></a><a class="code" href="classMySQLTableGroup.html#5d3d5c830a7c6b08a7826b0147885a33">00081</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#5d3d5c830a7c6b08a7826b0147885a33">SelectGroups</a> ()
+<a name="l00089"></a><a class="code" href="classMySQLTableGroup.html#5d3d5c830a7c6b08a7826b0147885a33">00089</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#5d3d5c830a7c6b08a7826b0147885a33">SelectGroups</a> ()
 <a name="l00090"></a>00090         {
 <a name="l00091"></a>00091                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 <a name="l00092"></a>00092                 
@@ -108,7 +108,7 @@
 <a name="l00101"></a>00101         } <span class="comment">//---- End of SelectGroups</span>
 <a name="l00102"></a>00102         
 <a name="l00103"></a>00103         
-<a name="l00104"></a><a class="code" href="classMySQLTableGroup.html#a17b34dc0a67cff3995f0d1604aaeb30">00104</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#a17b34dc0a67cff3995f0d1604aaeb30">SelectGroupByIdGroup</a> ( $idGroup )
+<a name="l00116"></a><a class="code" href="classMySQLTableGroup.html#a17b34dc0a67cff3995f0d1604aaeb30">00116</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#a17b34dc0a67cff3995f0d1604aaeb30">SelectGroupByIdGroup</a> ( $idGroup )
 <a name="l00117"></a>00117         {
 <a name="l00118"></a>00118                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
 <a name="l00119"></a>00119                                                 MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -126,7 +126,7 @@
 <a name="l00131"></a>00131         } <span class="comment">//---- End of SelectGroupByIdGroup</span>
 <a name="l00132"></a>00132         
 <a name="l00133"></a>00133         
-<a name="l00134"></a><a class="code" href="classMySQLTableGroup.html#c6c86728e10ed5291594590bcade3bed">00134</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#c6c86728e10ed5291594590bcade3bed">SelectGroupsByIdSite</a> ( $idSite )
+<a name="l00147"></a><a class="code" href="classMySQLTableGroup.html#c6c86728e10ed5291594590bcade3bed">00147</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#c6c86728e10ed5291594590bcade3bed">SelectGroupsByIdSite</a> ( $idSite )
 <a name="l00148"></a>00148         {
 <a name="l00149"></a>00149                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
 <a name="l00150"></a>00150                                                 MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -143,7 +143,7 @@
 <a name="l00161"></a>00161                 }
 <a name="l00162"></a>00162         } <span class="comment">//---- End of SelectGroupsByIdSite</span>
 <a name="l00163"></a>00163         
-<a name="l00164"></a><a class="code" href="classMySQLTableGroup.html#4f9d1fc96b332cbdff7b1ac3d797971b">00164</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#4f9d1fc96b332cbdff7b1ac3d797971b">FindGroupsByName</a> ( $groupName )
+<a name="l00179"></a><a class="code" href="classMySQLTableGroup.html#4f9d1fc96b332cbdff7b1ac3d797971b">00179</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#4f9d1fc96b332cbdff7b1ac3d797971b">FindGroupsByName</a> ( $groupName )
 <a name="l00180"></a>00180         {
 <a name="l00181"></a>00181                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
 <a name="l00182"></a>00182                                                 MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -160,7 +160,7 @@
 <a name="l00193"></a>00193                 }
 <a name="l00194"></a>00194         } <span class="comment">//---- End of FindGroupsByName</span>
 <a name="l00195"></a>00195         
-<a name="l00196"></a><a class="code" href="classMySQLTableGroup.html#2d353d358aa32807418c5dd5ee7150c0">00196</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#2d353d358aa32807418c5dd5ee7150c0">UpdateGroupByIdGroup</a> ( <a class="code" href="classGroup.html">Group</a> $updatedGroup )
+<a name="l00207"></a><a class="code" href="classMySQLTableGroup.html#2d353d358aa32807418c5dd5ee7150c0">00207</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#2d353d358aa32807418c5dd5ee7150c0">UpdateGroupByIdGroup</a> ( <a class="code" href="classGroup.html">Group</a> $updatedGroup )
 <a name="l00208"></a>00208         {
 <a name="l00209"></a>00209                 <span class="keywordflow">if</span> ( ! $new-&gt;isValid( ) )
 <a name="l00210"></a>00210                 {
@@ -184,12 +184,12 @@
 <a name="l00228"></a>00228                 <span class="keywordflow">return</span> $this-&gt;<a class="code" href="classMySQLTable.html#96784244d94a2da7047c24d542a25bc8">Update</a>( $new, $clauses );
 <a name="l00229"></a>00229         } <span class="comment">//---- End of UpdateGroupByIdGroup</span>
 <a name="l00230"></a>00230         
-<a name="l00231"></a><a class="code" href="classMySQLTableGroup.html#1b5d4590a49e464254dcdaceeba769c8">00231</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#1b5d4590a49e464254dcdaceeba769c8">InsertGroup</a> ( <a class="code" href="classGroup.html">Group</a> $group )
+<a name="l00241"></a><a class="code" href="classMySQLTableGroup.html#1b5d4590a49e464254dcdaceeba769c8">00241</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#1b5d4590a49e464254dcdaceeba769c8">InsertGroup</a> ( <a class="code" href="classGroup.html">Group</a> $group )
 <a name="l00242"></a>00242         {
 <a name="l00243"></a>00243                 <span class="keywordflow">return</span> $this-&gt;<a class="code" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef99816420">Insert</a> ( $group );
 <a name="l00244"></a>00244         } <span class="comment">//---- End of InsertGroup</span>
 <a name="l00245"></a>00245         
-<a name="l00246"></a><a class="code" href="classMySQLTableGroup.html#6bcd259b0e55cc065e6c3e9a3a7afca0">00246</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#6bcd259b0e55cc065e6c3e9a3a7afca0">IdGroupExists</a> ( $idGroup )
+<a name="l00256"></a><a class="code" href="classMySQLTableGroup.html#6bcd259b0e55cc065e6c3e9a3a7afca0">00256</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableGroup.html#6bcd259b0e55cc065e6c3e9a3a7afca0">IdGroupExists</a> ( $idGroup )
 <a name="l00257"></a>00257         {
 <a name="l00258"></a>00258                 $clauses = <a class="code" href="classMySQLTable.html#8516d74e56fef204aec07eef1176979a">MySQLTable::MYSQL_CLAUSE_WHERE</a> . <a class="code" href="classTableGroup.html#9c4e6f29029930675887f59ab80eb482">TableGroup::TABLE_COLUMN_IDGROUP</a> . <a class="code" href="classMySQLTable.html#af6ea3dde397f4e780d1a282e80e5f6d">MySQLTable::MYSQL_SEEK_STRICT</a> . intval( $idGroup );
 <a name="l00259"></a>00259                 
@@ -213,7 +213,7 @@
 <a name="l00277"></a>00277 <span class="comment">//------------------------------------------------------ other definitions</span>
 <a name="l00278"></a>00278 
 <a name="l00279"></a>00279 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:28 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:05 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

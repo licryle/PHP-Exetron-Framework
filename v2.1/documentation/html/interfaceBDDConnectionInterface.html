@@ -28,8 +28,9 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>BDDConnectionInterface Interface Reference</h1><!-- doxytag: class="BDDConnectionInterface" -->Inheritance diagram for BDDConnectionInterface:<p><center><img src="interfaceBDDConnectionInterface__inherit__graph.jpg" border="0" usemap="#BDDConnectionInterface__inherit__map" alt="Inheritance graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="interfaceBDDConnectionInterface-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<h1>BDDConnectionInterface Interface Reference</h1><!-- doxytag: class="BDDConnectionInterface" -->Inherited by <a class="el" href="classBDDConnection.html">BDDConnection</a>.
+<p>
+<a href="interfaceBDDConnectionInterface-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceBDDConnectionInterface.html#be18752f03b8e7ace648b6de9a8e26fb">TableExists</a> ($table)</td></tr>
@@ -252,9 +253,7 @@ Checks whether connection is opened or closed<p>
 - false if connection is closed </dd></dl>
 
 <p>
-Implemented in <a class="el" href="classMySQLConnection.html#5bad3dd9022d6a02dde99d1df10793f0">MySQLConnection</a>.
-<p>
-Referenced by <a class="el" href="BDDConnection_8php-source.html#l00150">BDDConnection::SetPassword()</a>, <a class="el" href="BDDConnection_8php-source.html#l00070">BDDConnection::SetServer()</a>, and <a class="el" href="BDDConnection_8php-source.html#l00110">BDDConnection::SetUsername()</a>.    </td>
+Referenced by <a class="el" href="MySQLConnection_8php-source.html#l00392">MySQLConnection::Close()</a>, <a class="el" href="MySQLConnection_8php-source.html#l00228">MySQLConnection::Open()</a>, <a class="el" href="MySQLConnection_8php-source.html#l00282">MySQLConnection::SetDatabase()</a>, <a class="el" href="BDDConnection_8php-source.html#l00160">BDDConnection::SetPassword()</a>, <a class="el" href="BDDConnection_8php-source.html#l00080">BDDConnection::SetServer()</a>, and <a class="el" href="BDDConnection_8php-source.html#l00120">BDDConnection::SetUsername()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="d01f77c4450c8f71bcff35ff1a60cfc8"></a><!-- doxytag: member="BDDConnectionInterface::Open" ref="d01f77c4450c8f71bcff35ff1a60cfc8" args="($isPersistent)" --><p>
@@ -282,6 +281,14 @@ Referenced by <a class="el" href="BDDConnection_8php-source.html#l00150">BDDConn
     <td>
 
 <p>
+Try to open connection.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>$isPersistent</em>&nbsp;</td><td>specifies if connection may be persistent or not = { CONNECTION_PERSISTENT | CONNECTION_NOT_PERSISTENT }</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Returns:</b></dt><dd>- an <a class="el" href="classErrors.html">Errors</a> object in case of error(s) <p>
+- NULL if operation was successful </dd></dl>
 
 <p>
 Implemented in <a class="el" href="classMySQLConnection.html#546927da9d56a34d1e9163118894cd33">MySQLConnection</a>.    </td>
@@ -514,7 +521,7 @@ Gets the description of the table named $table<p>
 <p>
 Implemented in <a class="el" href="classMySQLConnection.html#1011f2263045023a662fcd16f580529f">MySQLConnection</a>.
 <p>
-Referenced by <a class="el" href="BDDTable_8php-source.html#l00111">BDDTable::__construct()</a>.    </td>
+Referenced by <a class="el" href="BDDTable_8php-source.html#l00133">BDDTable::__construct()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="be18752f03b8e7ace648b6de9a8e26fb"></a><!-- doxytag: member="BDDConnectionInterface::TableExists" ref="be18752f03b8e7ace648b6de9a8e26fb" args="($table)" --><p>
@@ -557,7 +564,7 @@ Implemented in <a class="el" href="classMySQLConnection.html#cac6713c3841770211c
 </table>
 <hr>The documentation for this interface was generated from the following file:<ul>
 <li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/DataBases/BDDConnection/Interfaces/<a class="el" href="BDDConnectionInterface_8php-source.html">BDDConnectionInterface.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:16 2006 for ExetronSystemProject by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:05:09 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

@@ -67,7 +67,7 @@
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041 <span class="comment">//--------------------------------------------------------- public methods</span>
 <a name="l00042"></a>00042 
-<a name="l00043"></a><a class="code" href="classMySQLTableUser.html#ca37f4bdb73d32727a78c799df5d8644">00043</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#ca37f4bdb73d32727a78c799df5d8644">SaveUsers</a> ( <a class="code" href="classUsers.html">Users</a> $users )
+<a name="l00055"></a><a class="code" href="classMySQLTableUser.html#ca37f4bdb73d32727a78c799df5d8644">00055</a>     <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#ca37f4bdb73d32727a78c799df5d8644">SaveUsers</a> ( <a class="code" href="classUsers.html">Users</a> $users )
 <a name="l00056"></a>00056         {               
 <a name="l00057"></a>00057                 foreach ( $users as $user )
 <a name="l00058"></a>00058                 {
@@ -93,7 +93,7 @@
 <a name="l00078"></a>00078                 <span class="keywordflow">return</span> NULL;
 <a name="l00079"></a>00079         } <span class="comment">//---- End of SaveUsers</span>
 <a name="l00080"></a>00080 
-<a name="l00081"></a><a class="code" href="classMySQLTableUser.html#fd03d4d4a619f4602bf81d1db2fef69d">00081</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#fd03d4d4a619f4602bf81d1db2fef69d">SelectUsers</a> ()
+<a name="l00089"></a><a class="code" href="classMySQLTableUser.html#fd03d4d4a619f4602bf81d1db2fef69d">00089</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#fd03d4d4a619f4602bf81d1db2fef69d">SelectUsers</a> ()
 <a name="l00090"></a>00090         {
 <a name="l00091"></a>00091                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( MySQLTABLE::TABLE_COLUMN_ALL , '' );
 <a name="l00092"></a>00092                 
@@ -108,7 +108,7 @@
 <a name="l00101"></a>00101         } <span class="comment">//---- End of SelectUsers</span>
 <a name="l00102"></a>00102         
 <a name="l00103"></a>00103         
-<a name="l00104"></a><a class="code" href="classMySQLTableUser.html#ce0b9b719e1b98e246b33b78cf70c20e">00104</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#ce0b9b719e1b98e246b33b78cf70c20e">SelectUserByIdUser</a> ( $idUser )
+<a name="l00116"></a><a class="code" href="classMySQLTableUser.html#ce0b9b719e1b98e246b33b78cf70c20e">00116</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#ce0b9b719e1b98e246b33b78cf70c20e">SelectUserByIdUser</a> ( $idUser )
 <a name="l00117"></a>00117         {
 <a name="l00118"></a>00118                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
 <a name="l00119"></a>00119                                                 MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -125,7 +125,7 @@
 <a name="l00130"></a>00130                 }       
 <a name="l00131"></a>00131         } <span class="comment">//---- End of SelectUserByIdUser</span>
 <a name="l00132"></a>00132         
-<a name="l00133"></a><a class="code" href="classMySQLTableUser.html#bfcc6768618ac6ce07c9bd37fdaed7a9">00133</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#bfcc6768618ac6ce07c9bd37fdaed7a9">SelectUsersByIdGroup</a> ( $idGroup )
+<a name="l00146"></a><a class="code" href="classMySQLTableUser.html#bfcc6768618ac6ce07c9bd37fdaed7a9">00146</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#bfcc6768618ac6ce07c9bd37fdaed7a9">SelectUsersByIdGroup</a> ( $idGroup )
 <a name="l00147"></a>00147         {
 <a name="l00148"></a>00148                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
 <a name="l00149"></a>00149                                                 MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -142,7 +142,7 @@
 <a name="l00160"></a>00160                 }
 <a name="l00161"></a>00161         } <span class="comment">//---- End of SelectUsersByIdGroup</span>
 <a name="l00162"></a>00162         
-<a name="l00163"></a><a class="code" href="classMySQLTableUser.html#e6a7f3895b5b6ffa157b54e44cfa9b94">00163</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#e6a7f3895b5b6ffa157b54e44cfa9b94">FindUsersByName</a> ( $userName )
+<a name="l00178"></a><a class="code" href="classMySQLTableUser.html#e6a7f3895b5b6ffa157b54e44cfa9b94">00178</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#e6a7f3895b5b6ffa157b54e44cfa9b94">FindUsersByName</a> ( $userName )
 <a name="l00179"></a>00179         {
 <a name="l00180"></a>00180                 $result = $this-&gt;<a class="code" href="classMySQLTable.html#ac4c4928e583451096166dd381ba9ed9">Select</a> ( <a class="code" href="classMySQLTable.html#5b52e42dbe6f4d82427232d7c75a8e4d">TABLE_COLUMN_ALL</a> ,
 <a name="l00181"></a>00181                                                 MySQLTABLE::MYSQL_CLAUSE_WHERE.
@@ -159,7 +159,7 @@
 <a name="l00192"></a>00192                 }
 <a name="l00193"></a>00193         } <span class="comment">//---- End of FindUsersByName</span>
 <a name="l00194"></a>00194         
-<a name="l00195"></a><a class="code" href="classMySQLTableUser.html#47fe70759be011e1cab224694c2841b4">00195</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#47fe70759be011e1cab224694c2841b4">UpdateUserByIdUser</a> ( <a class="code" href="classUser.html">User</a> $updatedUser )
+<a name="l00206"></a><a class="code" href="classMySQLTableUser.html#47fe70759be011e1cab224694c2841b4">00206</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#47fe70759be011e1cab224694c2841b4">UpdateUserByIdUser</a> ( <a class="code" href="classUser.html">User</a> $updatedUser )
 <a name="l00207"></a>00207         {
 <a name="l00208"></a>00208                 <span class="keywordflow">if</span> ( ! $new-&gt;isValid( ) )
 <a name="l00209"></a>00209                 {
@@ -183,12 +183,12 @@
 <a name="l00227"></a>00227                 <span class="keywordflow">return</span> $this-&gt;<a class="code" href="classMySQLTable.html#96784244d94a2da7047c24d542a25bc8">Update</a>( $new, $clauses );
 <a name="l00228"></a>00228         } <span class="comment">//---- End of UpdateUserByIdUser</span>
 <a name="l00229"></a>00229         
-<a name="l00230"></a><a class="code" href="classMySQLTableUser.html#192136103ba46c59573f358c2f367209">00230</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#192136103ba46c59573f358c2f367209">InsertUser</a> ( <a class="code" href="classUser.html">User</a> $user )
+<a name="l00240"></a><a class="code" href="classMySQLTableUser.html#192136103ba46c59573f358c2f367209">00240</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#192136103ba46c59573f358c2f367209">InsertUser</a> ( <a class="code" href="classUser.html">User</a> $user )
 <a name="l00241"></a>00241         {
 <a name="l00242"></a>00242                 <span class="keywordflow">return</span> $this-&gt;<a class="code" href="classMySQLTable.html#9f08a55b2946dfc58864f1ef99816420">Insert</a> ( $user );
 <a name="l00243"></a>00243         } <span class="comment">//---- End of InsertUser</span>
 <a name="l00244"></a>00244         
-<a name="l00245"></a><a class="code" href="classMySQLTableUser.html#83f01eb045e31435bfb9a10097723892">00245</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#83f01eb045e31435bfb9a10097723892">IdUserExists</a> ( $idUser )
+<a name="l00255"></a><a class="code" href="classMySQLTableUser.html#83f01eb045e31435bfb9a10097723892">00255</a>         <span class="keyword">public</span> function <a class="code" href="classMySQLTableUser.html#83f01eb045e31435bfb9a10097723892">IdUserExists</a> ( $idUser )
 <a name="l00256"></a>00256         {
 <a name="l00257"></a>00257                 $clauses = <a class="code" href="classMySQLTable.html#8516d74e56fef204aec07eef1176979a">MySQLTable::MYSQL_CLAUSE_WHERE</a> . <a class="code" href="classTableUser.html#6b3226f3a2a7c13c48442bbe85ff07b7">TableUser::TABLE_COLUMN_IDUSER</a> . <a class="code" href="classMySQLTable.html#af6ea3dde397f4e780d1a282e80e5f6d">MySQLTable::MYSQL_SEEK_STRICT</a> . intval( $idUser );
 <a name="l00258"></a>00258                 
@@ -212,7 +212,7 @@
 <a name="l00276"></a>00276 <span class="comment">//------------------------------------------------------ other definitions</span>
 <a name="l00277"></a>00277 
 <a name="l00278"></a>00278 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:24:33 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:12 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

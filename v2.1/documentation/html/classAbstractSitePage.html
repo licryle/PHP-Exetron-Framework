@@ -28,11 +28,15 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>AbstractSitePage Class Reference</h1><!-- doxytag: class="AbstractSitePage" --><!-- doxytag: inherits="AbstractSingleton" -->Inheritance diagram for AbstractSitePage:<p><center><img src="classAbstractSitePage__inherit__graph.jpg" border="0" usemap="#AbstractSitePage__inherit__map" alt="Inheritance graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for AbstractSitePage:<p><center><img src="classAbstractSitePage__coll__graph.jpg" border="0" usemap="#AbstractSitePage__coll__map" alt="Collaboration graph"></center>
-<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classAbstractSitePage-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+<h1>AbstractSitePage Class Reference</h1><!-- doxytag: class="AbstractSitePage" --><!-- doxytag: inherits="AbstractSingleton" -->Inherits <a class="el" href="classAbstractSingleton.html">AbstractSingleton</a>.
+<p>
+Inherited by <a class="el" href="classXHTMLSitePage.html">XHTMLSitePage</a>.
+<p>
+<a href="classAbstractSitePage-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSitePage.html#17b8e6c195f7028458335944cab6a13b">GetApplication</a> ()</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSitePage.html#df81fddabfb08996ddfc6bdb9ee6f0f5">OnLoad</a> ()</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSitePage.html#2dc88f800cd4f5cef0e4d09e0d1b50c9">Process</a> ()</td></tr>
@@ -49,9 +53,12 @@
 <tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSitePage.html#4daef9b9d3ae7459fbff839f44d53556">__construct</a> ()</td></tr>
 
+<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAbstractSitePage.html#3bfffd9e9b99389f12db347ff5fdcdd3">$application</a></td></tr>
+
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-Provides generic methods for SitePages for WebApplications. It is a "call back" class that auto sets itself into <a class="el" href="classApplication.html">Application</a> unique instance.<p>
+Provides generic methods for SitePages for WebApplications. It is a "call back" class that auto sets itself into <a class="el" href="classWebApplication.html">WebApplication</a> unique instance.<p>
 It sets ApplicationStart /ApplicationEnd with respectively OnLoad / OnUnLoad and Launch <a class="el" href="classAbstractSitePage.html#2dc88f800cd4f5cef0e4d09e0d1b50c9">Process()</a><p>
 All the processing of children will be in <a class="el" href="classAbstractSitePage.html#2dc88f800cd4f5cef0e4d09e0d1b50c9">Process()</a> method. 
 <p>
@@ -90,9 +97,9 @@ Reimplemented from <a class="el" href="classAbstractSingleton.html#e523a68ebb96b
 <p>
 Reimplemented in <a class="el" href="classWebSitePage.html#fd2da9a7eaf4f7a5e2493252ec6e9e34">WebSitePage</a>, and <a class="el" href="classXHTMLSitePage.html#32888a985736c0d0a966bdd3c7d0ebfb">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00096">96</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.
+Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00114">114</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.
 <p>
-References <a class="el" href="Application_8php-source.html#l00049">Application::GetInstance()</a>, <a class="el" href="classAbstractSitePage.html#df81fddabfb08996ddfc6bdb9ee6f0f5">OnLoad()</a>, <a class="el" href="classAbstractSitePage.html#927b1a520306a263176d950657d1cb34">OnUnLoad()</a>, and <a class="el" href="classAbstractSitePage.html#2dc88f800cd4f5cef0e4d09e0d1b50c9">Process()</a>.    </td>
+References <a class="el" href="WebApplication_8php-source.html#l00056">WebApplication::GetInstance()</a>, <a class="el" href="classAbstractSitePage.html#df81fddabfb08996ddfc6bdb9ee6f0f5">OnLoad()</a>, <a class="el" href="classAbstractSitePage.html#927b1a520306a263176d950657d1cb34">OnUnLoad()</a>, and <a class="el" href="classAbstractSitePage.html#2dc88f800cd4f5cef0e4d09e0d1b50c9">Process()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="75c97389f43c27d914e6a7d56cb59c7e"></a><!-- doxytag: member="AbstractSitePage::__destruct" ref="75c97389f43c27d914e6a7d56cb59c7e" args="()" --><p>
@@ -125,7 +132,7 @@ Reimplemented from <a class="el" href="classAbstractSingleton.html#1ccfd7d830deb
 <p>
 Reimplemented in <a class="el" href="classWebSitePage.html#040f5ecac590617087ca95014438c490">WebSitePage</a>, and <a class="el" href="classXHTMLSitePage.html#57ffee8091b4dc5b4ea97b1868f43b99">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00120">120</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
+Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00131">131</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="5aede3dc00f325e34e819566934f93f7"></a><!-- doxytag: member="AbstractSitePage::__ToString" ref="5aede3dc00f325e34e819566934f93f7" args="()" --><p>
@@ -160,7 +167,40 @@ Reimplemented from <a class="el" href="classAbstractSingleton.html#30429fcc3b202
 <p>
 Reimplemented in <a class="el" href="classWebSitePage.html#e9e2215f5d9684ad9c7daf6fe4ff569a">WebSitePage</a>, and <a class="el" href="classXHTMLSitePage.html#963383bfe01dd600da1581c0ddaec300">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00130">130</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
+Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00144">144</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="17b8e6c195f7028458335944cab6a13b"></a><!-- doxytag: member="AbstractSitePage::GetApplication" ref="17b8e6c195f7028458335944cab6a13b" args="()" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">AbstractSitePage::GetApplication           </td>
+          <td class="md" valign="top">(&nbsp;</td>
+          <td class="mdname1" valign="top" nowrap>          </td>
+          <td class="md" valign="top">&nbsp;)&nbsp;</td>
+          <td class="md" nowrap></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gets the current web application<p>
+<dl compact><dt><b>Returns:</b></dt><dd>unique instance of a <a class="el" href="classWebApplication.html">WebApplication</a> object </dd></dl>
+
+<p>
+Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00055">55</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.
+<p>
+Referenced by <a class="el" href="WebSitePage_8php-source.html#l00108">WebSitePage::OnLoad()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="f90c2c5ca20528df84da64d6d9293fe5"></a><!-- doxytag: member="AbstractSitePage::GetInstance" ref="f90c2c5ca20528df84da64d6d9293fe5" args="()" --><p>
@@ -197,7 +237,7 @@ Reimplemented from <a class="el" href="classAbstractSingleton.html#b150ea93e3a6b
 <p>
 Reimplemented in <a class="el" href="classWebSitePage.html#44d00ed0ec58f0e013aa7914451ce064">WebSitePage</a>, and <a class="el" href="classXHTMLSitePage.html#c3ac87f9f7bdc1b80a47dab397b3abdd">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00050">50</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
+Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00072">72</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="df81fddabfb08996ddfc6bdb9ee6f0f5"></a><!-- doxytag: member="AbstractSitePage::OnLoad" ref="df81fddabfb08996ddfc6bdb9ee6f0f5" args="()" --><p>
@@ -224,13 +264,13 @@ Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00050"
     <td>
 
 <p>
-callback function to be called by <a class="el" href="classApplication.html">Application</a> on ApplicationStart<p>
+callback function to be called by <a class="el" href="classWebApplication.html">WebApplication</a> on ApplicationStart<p>
 <dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classApplication.html">Application</a> class </dd></dl>
 
 <p>
 Reimplemented in <a class="el" href="classWebSitePage.html#38deb73bf3a737443b24efd4682f2513">WebSitePage</a>, and <a class="el" href="classXHTMLSitePage.html#7176c6e061d36755165bb237e380db8d">XHTMLSitePage</a>.
 <p>
-Referenced by <a class="el" href="AbstractSitePage_8php-source.html#l00096">__construct()</a>.    </td>
+Referenced by <a class="el" href="AbstractSitePage_8php-source.html#l00114">__construct()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="927b1a520306a263176d950657d1cb34"></a><!-- doxytag: member="AbstractSitePage::OnUnLoad" ref="927b1a520306a263176d950657d1cb34" args="($applicationVars)" --><p>
@@ -258,7 +298,7 @@ Referenced by <a class="el" href="AbstractSitePage_8php-source.html#l00096">__co
     <td>
 
 <p>
-callback function to be called by <a class="el" href="classApplication.html">Application</a> on ApplicationEnd<p>
+callback function to be called by <a class="el" href="classWebApplication.html">WebApplication</a> on ApplicationEnd<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>$applicationVars</em>&nbsp;</td><td>arguments passed by <a class="el" href="classApplication.html">Application</a> on function call - see <a class="el" href="classApplication.html">Application</a> class</td></tr>
@@ -269,7 +309,7 @@ callback function to be called by <a class="el" href="classApplication.html">App
 <p>
 Reimplemented in <a class="el" href="classWebSitePage.html#bf5ab3367f3f70c53ab897ce99d2f544">WebSitePage</a>, and <a class="el" href="classXHTMLSitePage.html#cfeccabccb636caf328cea3f2abf13ba">XHTMLSitePage</a>.
 <p>
-Referenced by <a class="el" href="AbstractSitePage_8php-source.html#l00096">__construct()</a>.    </td>
+Referenced by <a class="el" href="AbstractSitePage_8php-source.html#l00114">__construct()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="2dc88f800cd4f5cef0e4d09e0d1b50c9"></a><!-- doxytag: member="AbstractSitePage::Process" ref="2dc88f800cd4f5cef0e4d09e0d1b50c9" args="()" --><p>
@@ -300,12 +340,38 @@ Function called after OnLoad and before OnUnLoad. Here is all the process of the
 <p>
 Reimplemented in <a class="el" href="classWebSitePage.html#60192a8da35ea64a84104441703713c3">WebSitePage</a>, and <a class="el" href="classXHTMLSitePage.html#b99ebf37eb4a98dc822097f2817833c0">XHTMLSitePage</a>.
 <p>
-Referenced by <a class="el" href="AbstractSitePage_8php-source.html#l00096">__construct()</a>.    </td>
+Referenced by <a class="el" href="AbstractSitePage_8php-source.html#l00114">__construct()</a>.    </td>
+  </tr>
+</table>
+<hr><h2>Member Data Documentation</h2>
+<a class="anchor" name="3bfffd9e9b99389f12db347ff5fdcdd3"></a><!-- doxytag: member="AbstractSitePage::$application" ref="3bfffd9e9b99389f12db347ff5fdcdd3" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">AbstractSitePage::$application<code> [protected]</code>          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+application object linked to SitePage 
+<p>
+Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00156">156</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/System/AbstractSitePage/<a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon May 8 00:25:13 2006 for ExetronSystemProject by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:05:04 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>
