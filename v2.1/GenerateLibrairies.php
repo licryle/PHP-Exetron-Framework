@@ -7,6 +7,11 @@
 /*              Change Log              */
 
 /******* cyrille.berliat@gmail.com ******/
+/************* 12.08.2006 ***************/
+/* New feature : convert to PHP4 classes*/
+/****************************************/
+
+/******* cyrille.berliat@gmail.com ******/
 /************* 27.07.2006 ***************/
 /* Fix : file not found                 */
 /****************************************/
@@ -14,8 +19,43 @@
 $startFile = 'developpement\\classes\\loader.php';
 $endFile = 'deploiment\\lib\\librairies.php';
 
+function convertPHP5toPHP4( $classCode ) {
+	if (strpos($classCode,'class ') ===false )return '';
+	
+	// plus d'interfaces 
+	$classCode = eregi_replace('implements +[a-zA-Z0-9]*( *, *[a-zA-Z0-9]*)*','',$classCode );
+	
+	
+	// scopes
+	$classCode = eregi_replace('(private|public|protected) +static +\$','static $',$classCode);
+	$classCode = eregi_replace('(private|public|protected) +\$','var $',$classCode);
 
-function getCascadeContent ( $currentFile )
+	$classCode = eregi_replace('(private|public|protected)(( +)(static))? +function','\\4 function',$classCode);
+	
+	// plus d'absctract ni de final
+	$classCode = eregi_replace('(abstract|final) +class','class',$classCode );
+	$classCode = eregi_replace('final +function','function',$classCode );
+
+	$classCode = eregi_replace("abstract +(static +)?function +([a-zA-Z0-9]+)( |\n)*(\([^\)]*\))( |\n)*;",'\\1function \\2 \\4 {}',$classCode );
+	
+	
+	// changement du constructeur
+	$classCode = eregi_replace(
+		"(\n".' *)class +([a-zA-Z0-9]+)( +extends +([a-zA-Z0-9]+))?(.*)function +__construct(.*)parent::__construct',
+		'\\1class \\2 \\3\\5function \\2\\6parent::\\4',
+		$classCode
+	);
+	
+	$classCode = eregi_replace(
+		"(\n".' *)class +([a-zA-Z0-9]+)(.*)function +__construct',
+		'\\1class \\2 \\3function \\2',
+		$classCode
+	);
+
+	return $classCode;
+}
+
+function getCascadeContent ( $currentFile, $toPHP4 = false )
 {
 	if ( ! file_exists( $currentFile ) )
 	{
@@ -30,7 +70,10 @@ function getCascadeContent ( $currentFile )
 	{
 		$fileContent = ereg_replace ( '^<\?php(.*)\?>$', '\\1', $fileContent );
 
-		if ( eval ( $fileContent ) === false ) // to determine problems
+		if ( $toPHP4 )
+			$fileContent = convertPHP5toPHP4 ( $fileContent, $currentFile );
+//echo $fileContent;
+		if ( !empty($fileContent) && eval ( $fileContent ) === false ) // to determine problems
 		{
 			die( 'Problème dans le fichier : <a href="file://'.$currentFile.'">'.$currentFile.'</a><br />' );
 		}
@@ -68,6 +111,8 @@ $result = getCascadeContent ( $startFile );
 // add significant tags
 $content = "<?php\n\r".$result[0]."\n\r?>";
 
+chmod ( $endFile,0777);
+
 // write it down
 $fp = fopen ( $endFile, 'w+');
 if ( $fp && fwrite ( $fp, $content, strlen( $content ) ) )
@@ -80,5 +125,7 @@ else
 }
 
 fclose ( $fp );
+
+chmod ( $endFile,0444);
 
 ?>

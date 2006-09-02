@@ -176,7 +176,7 @@ abstract class BDDTable extends AbstractClass implements BDDTableInterface
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     }
 
 //---------------------------------------------------------------- PRIVATE 

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
-<title>ExetronSystemProject: G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/Exetron/WebSitePage/WebSitePage.php Source File</title>
+<title>ExetronSystemProject: W:/www/exetron/v2.1/developpement/classes/Exetron/WebSitePage/WebSitePage.php Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -28,7 +28,7 @@
     <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
   </ul></div>
 <div class="nav">
-<a class="el" href="dir_25166c3fc9cee4b20fce2340295c5e80.html">classes</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_f126a312581717491530ac14b54d25d1.html">Exetron</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_d8fcae8df2fd418ee826507f283b8f7c.html">WebSitePage</a></div>
+<a class="el" href="dir_813e8ee39c0479f4cd51674394253c96.html">classes</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_cc1179b8894756d442a202678f936667.html">Exetron</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_ee75dcaccaca10bd6cafe9301b932ed2.html">WebSitePage</a></div>
 <h1>WebSitePage.php</h1><a href="WebSitePage_8php.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 <span class="comment">/*************************************************************************</span>
@@ -93,22 +93,22 @@
 <a name="l00110"></a>00110                 parent::OnLoad();
 <a name="l00111"></a>00111                 
 <a name="l00112"></a>00112                 $DBVars =  &amp; $this-&gt;<a class="code" href="classAbstractSitePage.html#17b8e6c195f7028458335944cab6a13b">GetApplication</a>()-&gt;GetVariables();
-<a name="l00113"></a>00113                 $DBVars = &amp; $DBVars[ <a class="code" href="conf_8php.html#7ab2d87839c1f7947c7fafc5329e2be4">DB_ARRAY_INDEX</a> ];
+<a name="l00113"></a>00113                 $DBVars = &amp; $DBVars[ DB_ARRAY_INDEX ];
 <a name="l00114"></a>00114                 
-<a name="l00115"></a>00115                 $this-&gt;<a class="code" href="classWebSitePage.html#dafe6a80477835f4bcfd137a023cce73">initializeDatabasesConnections</a>( $DBVars, <a class="code" href="conf_8php.html#bd5b6e44bd62cbae816f98e7e3a7d2d9">MYSQL_CONF_BASE</a> );
+<a name="l00115"></a>00115                 $this-&gt;<a class="code" href="classWebSitePage.html#dafe6a80477835f4bcfd137a023cce73">initializeDatabasesConnections</a>( $DBVars, MYSQL_CONF_BASE );
 <a name="l00116"></a>00116                 
 <a name="l00117"></a>00117                 
 <a name="l00118"></a>00118                 $confConnexion = $this-&gt;<a class="code" href="classWebSitePage.html#4becec9330d4e3855a21021e887a18eb">GetConfigurationDatabaseConnection</a>( );
 <a name="l00119"></a>00119                 
-<a name="l00120"></a>00120                 $className = $DBVars[ <a class="code" href="conf_8php.html#bd5b6e44bd62cbae816f98e7e3a7d2d9">MYSQL_CONF_BASE</a> ][ 'type' ].'<a class="code" href="classTableVariable.html">TableVariable</a>';
-<a name="l00121"></a>00121                 $configuration = <span class="keyword">new</span> $className ( <a class="code" href="conf_8php.html#b6cea05bf5e452df615bae299ff6b305">CONFIGURATION_TABLE_NAME</a>, $confConnection, $errors );
+<a name="l00120"></a>00120                 $className = $DBVars[ MYSQL_CONF_BASE ][ 'type' ].'<a class="code" href="classTableVariable.html">TableVariable</a>';
+<a name="l00121"></a>00121                 $configuration = <span class="keyword">new</span> $className ( CONFIGURATION_TABLE_NAME, $confConnection, $errors );
 <a name="l00122"></a>00122 
 <a name="l00123"></a>00123                 unset ( $DBVars );
 <a name="l00124"></a>00124                 unset ( $className );
 <a name="l00125"></a>00125                 unset ( $confConnection );
 <a name="l00126"></a>00126                 
 <a name="l00127"></a>00127                 $servConf = $configuration-&gt;SelectServerVariables();
-<a name="l00128"></a>00128                 $siteConf = $configuration-&gt;SelectSiteVariables( <a class="code" href="conf_8php.html#680b2a11aeb60f8e7066718b17e2df1b">IDSITE</a> );
+<a name="l00128"></a>00128                 $siteConf = $configuration-&gt;SelectSiteVariables( IDSITE );
 <a name="l00129"></a>00129                 
 <a name="l00130"></a>00130                 unset ( $configuration );
 <a name="l00131"></a>00131                 
@@ -134,10 +134,10 @@
 <a name="l00151"></a>00151                 unset ( $servConf );
 <a name="l00152"></a>00152                 unset ( $siteConf );
 <a name="l00153"></a>00153 
-<a name="l00154"></a>00154                 $sessionsActivated = $this-&gt;<a class="code" href="classAbstractSitePage.html#17b8e6c195f7028458335944cab6a13b">GetApplication</a>()-&gt;GetConfiguration()-&gt;GetVariableByName( <a class="code" href="conf_8php.html#9e4fe82eecb6d738fe9a9d4c30817cd4">SITE_SESSIONS_ACTIVATED</a> );
+<a name="l00154"></a>00154                 $sessionsActivated = $this-&gt;<a class="code" href="classAbstractSitePage.html#17b8e6c195f7028458335944cab6a13b">GetApplication</a>()-&gt;GetConfiguration()-&gt;GetVariableByName( SITE_SESSIONS_ACTIVATED );
 <a name="l00155"></a>00155                 
 <a name="l00156"></a>00156                 
-<a name="l00157"></a>00157                 $this-&gt;<a class="code" href="classXHTMLSitePage.html#2bb512a5f214980ca33a3288008af4e3">GetTemplate</a>()-&gt;GetHeaders()-&gt;AddHeaders( '&lt;title&gt;'.$this-&gt;<a class="code" href="classAbstractSitePage.html#17b8e6c195f7028458335944cab6a13b">GetApplication</a>()-&gt;GetConfiguration()-&gt;GetVariableByName( <a class="code" href="conf_8php.html#97719eb64b23f1b7617861d77fc93680">SITE_TITLE</a> )-&gt;GetProperty ( <a class="code" href="classTableVariable.html#f10e251e38eefbb3fd637a8f1dde3f46">TableVariable::TABLE_COLUMN_DATA</a> ).'&lt;/title&gt;' );
+<a name="l00157"></a>00157                 $this-&gt;<a class="code" href="classXHTMLSitePage.html#2bb512a5f214980ca33a3288008af4e3">GetTemplate</a>()-&gt;GetHeaders()-&gt;AddHeaders( '&lt;title&gt;'.$this-&gt;<a class="code" href="classAbstractSitePage.html#17b8e6c195f7028458335944cab6a13b">GetApplication</a>()-&gt;GetConfiguration()-&gt;GetVariableByName( SITE_TITLE )-&gt;GetProperty ( <a class="code" href="classTableVariable.html#f10e251e38eefbb3fd637a8f1dde3f46">TableVariable::TABLE_COLUMN_DATA</a> ).'&lt;/title&gt;' );
 <a name="l00158"></a>00158                 $this-&gt;<a class="code" href="classXHTMLSitePage.html#2bb512a5f214980ca33a3288008af4e3">GetTemplate</a>()-&gt;GetHeaders()-&gt;AddHeaders( '&lt;meta http-equiv=<span class="stringliteral">"desc"</span> content=<span class="stringliteral">"'.$this-&gt;GetApplication()-&gt;GetConfiguration()-&gt;GetVariableByName( SITE_DESCRIPTION )-&gt;GetProperty ( TableVariable::TABLE_COLUMN_DATA ).'"</span> /&gt;' );
 <a name="l00159"></a>00159                 $this-&gt;<a class="code" href="classXHTMLSitePage.html#2bb512a5f214980ca33a3288008af4e3">GetTemplate</a>()-&gt;GetHeaders()-&gt;AddHeaders( '&lt;meta http-equiv=<span class="stringliteral">"keywords"</span> content=<span class="stringliteral">"'.$this-&gt;GetApplication()-&gt;GetConfiguration()-&gt;GetVariableByName( SITE_KEYWORDS )-&gt;GetProperty ( TableVariable::TABLE_COLUMN_DATA ).'"</span> /&gt;' );
 <a name="l00160"></a>00160                 
@@ -178,7 +178,7 @@
 <a name="l00218"></a>00218 
 <a name="l00225"></a><a class="code" href="classWebSitePage.html#e9e2215f5d9684ad9c7daf6fe4ff569a">00225</a>     <span class="keyword">public</span> function <a class="code" href="classWebSitePage.html#e9e2215f5d9684ad9c7daf6fe4ff569a">__ToString</a> ( )
 <a name="l00226"></a>00226     {
-<a name="l00227"></a>00227                 <span class="keywordflow">return</span> parrent::__ToString();
+<a name="l00227"></a>00227                 <span class="keywordflow">return</span> parent::__ToString();
 <a name="l00228"></a>00228     } <span class="comment">//---- End of __ToString</span>
 <a name="l00229"></a>00229 
 <a name="l00230"></a>00230 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
@@ -235,7 +235,7 @@
 <a name="l00294"></a>00294 <span class="comment">//----------------------------------------------------- Others definitions</span>
 <a name="l00295"></a>00295 
 <a name="l00296"></a>00296 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:16 2006 for ExetronSystemProject by&nbsp;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Sun Sep 3 18:42:42 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

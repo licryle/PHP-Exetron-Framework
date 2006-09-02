@@ -40,33 +40,33 @@ class Xxx extends AbstractClass
 //--------------------------------------------------------- Public Methods
 
 //---------------------------------------------- Constructors - destructor
-    public function __construct()
 	/*
 	 * initialises an Xxx object
 	 *
 	 */
+    public function __construct()
     {
     	parent::__construct();
     } //---- End of __construct
 
 
-    public function __destruct ( )
 	/**
 	 * Destructs ressources allocated
 	 */
+    public function __destruct ( )
     {
     	parent::__destruct();
     } //---- End of __destruct
     
 //---------------------------------------------------------- Magic Methods
 
-    public function __ToString ( )
     /**
 	 * Returns a printable version of object for debugging.
 	 *
 	 * @return String printable on screen
 	 *
 	 */
+    public function __ToString ( )
     {
 		return parent::__ToString();
     } //---- End of __ToString

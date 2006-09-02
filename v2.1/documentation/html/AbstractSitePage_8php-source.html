@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
-<title>ExetronSystemProject: G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/System/AbstractSitePage/AbstractSitePage.php Source File</title>
+<title>ExetronSystemProject: W:/www/exetron/v2.1/developpement/classes/System/AbstractSitePage/AbstractSitePage.php Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -28,7 +28,7 @@
     <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
   </ul></div>
 <div class="nav">
-<a class="el" href="dir_25166c3fc9cee4b20fce2340295c5e80.html">classes</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_46ddeddb429956032b95d52e7e2dd59f.html">System</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_322b6a990021a1e527862add23825a2d.html">AbstractSitePage</a></div>
+<a class="el" href="dir_813e8ee39c0479f4cd51674394253c96.html">classes</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_8289df3cb4bd4cc0d427b07825afc680.html">System</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_eb4c3523aab38439437eee942d8d8e92.html">AbstractSitePage</a></div>
 <h1>AbstractSitePage.php</h1><a href="AbstractSitePage_8php.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 <span class="comment">/*************************************************************************</span>
@@ -92,41 +92,43 @@
 <a name="l00117"></a>00117                 
 <a name="l00118"></a>00118                 $this-&gt;application = <a class="code" href="classWebApplication.html#283c9de72800ece1c6aed7bf86726795">WebApplication::GetInstance</a> ();
 <a name="l00119"></a>00119 
-<a name="l00120"></a>00120                 $this-&gt;application-&gt;OnApplicationStart ( array ( &amp; $this, '<a class="code" href="classAbstractSitePage.html#df81fddabfb08996ddfc6bdb9ee6f0f5">OnLoad</a>' ), array() );
-<a name="l00121"></a>00121                 $this-&gt;application-&gt;OnApplicationEnd ( array ( &amp; $this, '<a class="code" href="classAbstractSitePage.html#927b1a520306a263176d950657d1cb34">OnUnLoad</a>' ), array() );
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123                 $this-&gt;application-&gt;Start();
-<a name="l00124"></a>00124                 
-<a name="l00125"></a>00125                 $this-&gt;<a class="code" href="classAbstractSitePage.html#2dc88f800cd4f5cef0e4d09e0d1b50c9">Process</a>();
-<a name="l00126"></a>00126     } <span class="comment">//---- End of __construct</span>
-<a name="l00127"></a>00127          
-<a name="l00131"></a><a class="code" href="classAbstractSitePage.html#75c97389f43c27d914e6a7d56cb59c7e">00131</a>     function <a class="code" href="classAbstractSitePage.html#75c97389f43c27d914e6a7d56cb59c7e">__destruct</a>( )
-<a name="l00132"></a>00132         {       
-<a name="l00133"></a>00133                 parent::__destruct();
-<a name="l00134"></a>00134         } <span class="comment">//----- End of Destructor</span>
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
+<a name="l00120"></a>00120                 $hooksManager = <a class="code" href="classHooksManager.html#96090e5a55884a1910e6df782aea534a">HooksManager::GetInstance</a>();
+<a name="l00121"></a>00121                 
+<a name="l00122"></a>00122                 $hooksManager-&gt;Register ( <a class="code" href="classApplication.html#6f0669741175ea2ba001639de4c6e742">WebApplication::HOOK_START</a>, array ( &amp; $this, '<a class="code" href="classAbstractSitePage.html#df81fddabfb08996ddfc6bdb9ee6f0f5">OnLoad</a>' ) );
+<a name="l00123"></a>00123                 $hooksManager-&gt;Register ( <a class="code" href="classApplication.html#1f3d99a91c5e9db732768e5eced816db">WebApplication::HOOK_SHUTDOWN</a>, array ( &amp; $this, '<a class="code" href="classAbstractSitePage.html#927b1a520306a263176d950657d1cb34">OnUnLoad</a>' ) );
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125                 $this-&gt;application-&gt;Start();
+<a name="l00126"></a>00126                 
+<a name="l00127"></a>00127                 $this-&gt;<a class="code" href="classAbstractSitePage.html#2dc88f800cd4f5cef0e4d09e0d1b50c9">Process</a>();
+<a name="l00128"></a>00128     } <span class="comment">//---- End of __construct</span>
+<a name="l00129"></a>00129          
+<a name="l00133"></a><a class="code" href="classAbstractSitePage.html#75c97389f43c27d914e6a7d56cb59c7e">00133</a>     function <a class="code" href="classAbstractSitePage.html#75c97389f43c27d914e6a7d56cb59c7e">__destruct</a>( )
+<a name="l00134"></a>00134         {       
+<a name="l00135"></a>00135                 parent::__destruct();
+<a name="l00136"></a>00136         } <span class="comment">//----- End of Destructor</span>
 <a name="l00137"></a>00137 
-<a name="l00144"></a><a class="code" href="classAbstractSitePage.html#5aede3dc00f325e34e819566934f93f7">00144</a>     <span class="keyword">public</span> function <a class="code" href="classAbstractSitePage.html#5aede3dc00f325e34e819566934f93f7">__ToString</a> ( )
-<a name="l00145"></a>00145     {
-<a name="l00146"></a>00146                 <span class="keywordflow">return</span> parrent::__ToString();
-<a name="l00147"></a>00147     } <span class="comment">//----- End of __ToString</span>
-<a name="l00148"></a>00148 
-<a name="l00149"></a>00149 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
+<a name="l00138"></a>00138 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
+<a name="l00139"></a>00139 
+<a name="l00146"></a><a class="code" href="classAbstractSitePage.html#5aede3dc00f325e34e819566934f93f7">00146</a>     <span class="keyword">public</span> function <a class="code" href="classAbstractSitePage.html#5aede3dc00f325e34e819566934f93f7">__ToString</a> ( )
+<a name="l00147"></a>00147     {
+<a name="l00148"></a>00148                 <span class="keywordflow">return</span> parent::__ToString();
+<a name="l00149"></a>00149     } <span class="comment">//----- End of __ToString</span>
 <a name="l00150"></a>00150 
-<a name="l00151"></a>00151 <span class="comment">//------------------------------------------------------ protected methods</span>
+<a name="l00151"></a>00151 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
 <a name="l00152"></a>00152 
-<a name="l00153"></a>00153 <span class="comment">//------------------------------------------------------ protected members</span>
-<a name="l00154"></a>00154         
-<a name="l00156"></a><a class="code" href="classAbstractSitePage.html#3bfffd9e9b99389f12db347ff5fdcdd3">00156</a>         <span class="keyword">protected</span> <a class="code" href="classAbstractSitePage.html#3bfffd9e9b99389f12db347ff5fdcdd3">$application</a>;
-<a name="l00157"></a>00157 
-<a name="l00158"></a>00158 }
+<a name="l00153"></a>00153 <span class="comment">//------------------------------------------------------ protected methods</span>
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155 <span class="comment">//------------------------------------------------------ protected members</span>
+<a name="l00156"></a>00156         
+<a name="l00158"></a><a class="code" href="classAbstractSitePage.html#3bfffd9e9b99389f12db347ff5fdcdd3">00158</a>         <span class="keyword">protected</span> <a class="code" href="classAbstractSitePage.html#3bfffd9e9b99389f12db347ff5fdcdd3">$application</a>;
 <a name="l00159"></a>00159 
-<a name="l00160"></a>00160 <span class="comment">//------------------------------------------------------ other definitions</span>
+<a name="l00160"></a>00160 }
 <a name="l00161"></a>00161 
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:20 2006 for ExetronSystemProject by&nbsp;
+<a name="l00162"></a>00162 <span class="comment">//------------------------------------------------------ other definitions</span>
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164 
+<a name="l00165"></a>00165 ?&gt;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Sun Sep 3 18:42:43 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

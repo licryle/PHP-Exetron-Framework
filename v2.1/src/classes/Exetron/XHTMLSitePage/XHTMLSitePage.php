@@ -43,6 +43,15 @@ class XHTMLSitePage extends AbstractSitePage
 	 */
 	const TAG_EXECUTION_TIME = 'EXECTIME';
 
+	/**
+	 * Hook called when Page has been generated. You can modify $pageContent
+	 * just before it is printed to the screen. This hook provides an easy
+	 * way to modify final content.
+	 *
+	 * Prototype :
+	 * function hook( & $pageContent );
+	 */
+	const HOOK_PAGE_GENERATION = 'XHTMLSitePage_Page_Generation';
 //--------------------------------------------------------- Public Methods
 	
 	/**
@@ -108,11 +117,15 @@ class XHTMLSitePage extends AbstractSitePage
     public function OnUnLoad ( $applicationVars )
 	{
 		$exectime = new Template();
+
 		$exectime->SetSkeleton ( round( microtime(true) - $applicationVars[ Application::SYSTEM_START_TIME ], 4 ) );
 
 		$this->pageTemplate->GetBody()->SetTag( self::TAG_EXECUTION_TIME, $exectime );
-			
-		echo $this->pageTemplate;
+		
+		$pageContent = $this->pageTemplate->Generate();
+		HooksManager::GetInstance()->Trigger(XHTMLSitePage::HOOK_PAGE_GENERATION, array(& $pageContent) );
+		
+		echo $pageContent;
 	} //---- End of OnUnLoad
 
 //---------------------------------------------- Constructors - destructor
@@ -143,7 +156,7 @@ class XHTMLSitePage extends AbstractSitePage
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     } //----- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 

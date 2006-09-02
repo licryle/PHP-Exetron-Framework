@@ -33,6 +33,9 @@ require ( $directory.'/AbstractSitePage/loader.php' ); // Type : SubLoader
 $directory = dirname( __FILE__ );
 require ( $directory.'/Session/loader.php' ); // Type : SubLoader
 
+$directory = dirname( __FILE__ );
+require ( $directory.'/HooksManager/loader.php' ); // Type : SubLoader
+
 //------------------------------------------------------ personal Includes
 
 //-------------------------------------------------------------- Constants

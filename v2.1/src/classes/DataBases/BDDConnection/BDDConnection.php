@@ -295,7 +295,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     }
 
 //---------------------------------------------------------------- PRIVATE 

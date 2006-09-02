@@ -28,10 +28,12 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>Application Class Reference</h1><!-- doxytag: class="Application" --><!-- doxytag: inherits="AbstractSingleton" -->Inherits <a class="el" href="classAbstractSingleton.html">AbstractSingleton</a>.
-<p>
-Inherited by <a class="el" href="classWebApplication.html">WebApplication</a>.
-<p>
+<h1>Application Class Reference</h1><!-- doxytag: class="Application" --><!-- doxytag: inherits="AbstractSingleton" --><p>Inheritance diagram for Application:
+<p><center><img src="classApplication.png" usemap="#Application_map" border="0" alt=""></center>
+<map name="Application_map">
+<area href="classAbstractSingleton.html" alt="AbstractSingleton" shape="rect" coords="0,0,111,24">
+<area href="classWebApplication.html" alt="WebApplication" shape="rect" coords="0,112,111,136">
+</map>
 <a href="classApplication-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
@@ -41,9 +43,7 @@ Inherited by <a class="el" href="classWebApplication.html">WebApplication</a>.
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#2acccd42d5fdb0d059abb584c34e2a54">Start</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#4a28d1851ef12189bf1acd325d87f39c">OnApplicationStart</a> ($function, $params)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#73db603be3b8167672f420bbb03bb148">OnApplicationEnd</a> ($function)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#bdd3d5861206e5af628c525571792d4d">OnApplicationEnd</a> ($params)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#e88fe341f3002aff9806d27c02bb0e78">__destruct</a> ()</td></tr>
 
@@ -55,34 +55,24 @@ Inherited by <a class="el" href="classWebApplication.html">WebApplication</a>.
 <tr><td colspan="2"><br><h2>Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">const&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#c3211bdddc0ae53480fca4fcc4d2e669">SYSTEM_START_TIME</a> = '<a class="el" href="classApplication.html#c3211bdddc0ae53480fca4fcc4d2e669">SYSTEM_START_TIME</a>'</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#1f3d99a91c5e9db732768e5eced816db">HOOK_SHUTDOWN</a> = 'Application_Shutdown'</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">const&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#6f0669741175ea2ba001639de4c6e742">HOOK_START</a> = 'Application_Start'</td></tr>
+
 <tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#97620cd12b475b39007c29c63885a373">__construct</a> ()</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#72a2224eae68ad8f68956dbe342b71ae">isCorrectCallBack</a> (&amp;$function, &amp;$params, <a class="el" href="classErrors.html">Errors</a> &amp;$errors)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#bb62ae6c85d4f138f6d7a045d71fcd61">setCallBack</a> ($callBackName, &amp;$function, &amp;$params)</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#0a782d5d07e8db8c7909a27a6adc28b8">launchCallBack</a> ($callBackName)</td></tr>
 
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#732154c732bae38e0bcf05ca33233e8f">$started</a></td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#0cbde0f81501e1987bce7ea98698fa0f">$systemVars</a></td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#0c84de9e13c93f2409127e6e7afc3872">$onApplicationStart</a></td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#0f5e4fd19062c675864458b105f66e3d">$onApplicationStartParams</a></td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#3e7a79a999d51654b3137d28914e2f8f">$onApplicationEnd</a></td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#49808a521ab6c07a2daafd536f1ba83b">$onApplicationEndParams</a></td></tr>
-
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">$configuration</a></td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Represents an application. All your PHP applications may inherits from this class. It has to be instancied by a first call to <a class="el" href="classApplication.html#06a54f6fe0a55d91bea283e91388ee18">GetInstance()</a>. All next calls will only return the reference to the <a class="el" href="classApplication.html">Application</a> pre- viously instancied.<p>
-When application is started (a call to <a class="el" href="classApplication.html#2acccd42d5fdb0d059abb584c34e2a54">Start()</a>), the <a class="el" href="classApplication.html">Application</a> object automatically calls the call back set up with <a class="el" href="classApplication.html#4a28d1851ef12189bf1acd325d87f39c">OnApplicationStart()</a>.<p>
+When application is started (a call to <a class="el" href="classApplication.html#2acccd42d5fdb0d059abb584c34e2a54">Start()</a>), the <a class="el" href="classApplication.html">Application</a> object automatically calls the call back set up with OnApplicationStart().<p>
 A call back is also called when application ends. <a class="el" href="classApplication.html">Application</a> uses the PHP's API register_shudown_function. You MUST NOT use this function by yourself as it would by pass <a class="el" href="classApplication.html">Application</a> class's callback.<p>
 <a class="el" href="classApplication.html">Application</a> can keep the configuration of your application by using <a class="el" href="classApplication.html#db016acd58a2dd6753583349dda3b107">SetConfiguration()</a> and <a class="el" href="classApplication.html#4dc9fddf9436c3ae6cdab0abacb3741b">GetConfiguration()</a>.<p>
 As a general abstraction of an application, <a class="el" href="classApplication.html">Application</a> does not include $_GET, $_POST or $_FILES variables. You may look at child named <a class="el" href="classWebApplication.html">WebApplication</a>.<p>
@@ -91,7 +81,7 @@ As a general abstraction of an application, <a class="el" href="classApplication
 <p>
 
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00056">56</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.<hr><h2>Member Function Documentation</h2>
+Definition at line <a class="el" href="Application_8php-source.html#l00063">63</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.<hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="97620cd12b475b39007c29c63885a373"></a><!-- doxytag: member="Application::__construct" ref="97620cd12b475b39007c29c63885a373" args="()" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
@@ -122,7 +112,7 @@ Reimplemented from <a class="el" href="classAbstractSingleton.html#e523a68ebb96b
 <p>
 Reimplemented in <a class="el" href="classWebApplication.html#d8bc2c111884a72a8b7ea457c0b01577">WebApplication</a>.
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00203">203</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
+Definition at line <a class="el" href="Application_8php-source.html#l00176">176</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="e88fe341f3002aff9806d27c02bb0e78"></a><!-- doxytag: member="Application::__destruct" ref="e88fe341f3002aff9806d27c02bb0e78" args="()" --><p>
@@ -155,7 +145,7 @@ Reimplemented from <a class="el" href="classAbstractSingleton.html#1ccfd7d830deb
 <p>
 Reimplemented in <a class="el" href="classWebApplication.html#55798d937e8734f71d50897fd04a108e">WebApplication</a>.
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00224">224</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
+Definition at line <a class="el" href="Application_8php-source.html#l00193">193</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="4923316f26b02e26261a50d4732351e9"></a><!-- doxytag: member="Application::__ToString" ref="4923316f26b02e26261a50d4732351e9" args="()" --><p>
@@ -188,7 +178,7 @@ Reimplemented from <a class="el" href="classAbstractSingleton.html#30429fcc3b202
 <p>
 Reimplemented in <a class="el" href="classWebApplication.html#a993897d4f3324ca1f4e2c27640b549a">WebApplication</a>.
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00235">235</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
+Definition at line <a class="el" href="Application_8php-source.html#l00204">204</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="4dc9fddf9436c3ae6cdab0abacb3741b"></a><!-- doxytag: member="Application::GetConfiguration" ref="4dc9fddf9436c3ae6cdab0abacb3741b" args="()" --><p>
@@ -220,7 +210,7 @@ You MUST NOT unset or change it's type using reference.<p>
 <dl compact><dt><b>Returns:</b></dt><dd>the configuration of the application as a Variables' object. </dd></dl>
 
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00090">90</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
+Definition at line <a class="el" href="Application_8php-source.html#l00103">103</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="06a54f6fe0a55d91bea283e91388ee18"></a><!-- doxytag: member="Application::GetInstance" ref="06a54f6fe0a55d91bea283e91388ee18" args="()" --><p>
@@ -257,112 +247,10 @@ Reimplemented from <a class="el" href="classAbstractSingleton.html#b150ea93e3a6b
 <p>
 Reimplemented in <a class="el" href="classWebApplication.html#283c9de72800ece1c6aed7bf86726795">WebApplication</a>.
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00076">76</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
+Definition at line <a class="el" href="Application_8php-source.html#l00089">89</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
   </tr>
 </table>
-<a class="anchor" name="72a2224eae68ad8f68956dbe342b71ae"></a><!-- doxytag: member="Application::isCorrectCallBack" ref="72a2224eae68ad8f68956dbe342b71ae" args="(&amp;$function, &amp;$params, Errors &amp;$errors)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">Application::isCorrectCallBack           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">&amp;$&nbsp;</td>
-          <td class="mdname" nowrap> <em>function</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>&amp;$&nbsp;</td>
-          <td class="mdname" nowrap> <em>params</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap><a class="el" href="classErrors.html">Errors</a> &amp;$&nbsp;</td>
-          <td class="mdname" nowrap> <em>errors</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"><code> [protected]</code></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Let us know if a $function and it's $params are good to form a call back function<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>$function</em>&nbsp;</td><td>The function tobe verified </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>$params</em>&nbsp;</td><td>The parameters for the function as a call back </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>$errors</em>&nbsp;</td><td>The "return by reference"'s variable for errors detected.</td></tr>
-  </table>
-</dl>
-$errors MUST BE a valid <a class="el" href="classErrors.html">Errors</a> object.<p>
-<dl compact><dt><b>Returns:</b></dt><dd>true if the function can be set as CallBack <p>
-false instead </dd></dl>
-
-<p>
-Definition at line <a class="el" href="Application_8php-source.html#l00257">257</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
-<p>
-References <a class="el" href="Errors_8php-source.html#l00049">Errors::Add()</a>, <a class="el" href="ApplicationError_8php-source.html#l00044">ApplicationError::FUNCTION_NOT_CALLABLE</a>, and <a class="el" href="ApplicationError_8php-source.html#l00047">ApplicationError::FUNCTION_PARAM_NOT_ARRAY</a>.
-<p>
-Referenced by <a class="el" href="Application_8php-source.html#l00290">setCallBack()</a>.    </td>
-  </tr>
-</table>
-<a class="anchor" name="0a782d5d07e8db8c7909a27a6adc28b8"></a><!-- doxytag: member="Application::launchCallBack" ref="0a782d5d07e8db8c7909a27a6adc28b8" args="($callBackName)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">Application::launchCallBack           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">$&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>callBackName</em>          </td>
-          <td class="md" valign="top">&nbsp;)&nbsp;</td>
-          <td class="md" nowrap><code> [protected]</code></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Launch CallBack function that names $callBackName.<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>$callBackName</em>&nbsp;</td><td>the name of the call back to be called</td></tr>
-  </table>
-</dl>
-<dl compact><dt><b>Returns:</b></dt><dd>an object of Errors' type in case of Error(s) <p>
-null instead </dd></dl>
-
-<p>
-Definition at line <a class="el" href="Application_8php-source.html#l00325">325</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
-<p>
-References <a class="el" href="ApplicationError_8php-source.html#l00053">ApplicationError::CALLBACK_NOT_SET</a>.
-<p>
-Referenced by <a class="el" href="Application_8php-source.html#l00123">Start()</a>.    </td>
-  </tr>
-</table>
-<a class="anchor" name="73db603be3b8167672f420bbb03bb148"></a><!-- doxytag: member="Application::OnApplicationEnd" ref="73db603be3b8167672f420bbb03bb148" args="($function)" --><p>
+<a class="anchor" name="bdd3d5861206e5af628c525571792d4d"></a><!-- doxytag: member="Application::OnApplicationEnd" ref="bdd3d5861206e5af628c525571792d4d" args="($params)" --><p>
 <table class="mdTable" cellpadding="2" cellspacing="0">
   <tr>
     <td class="mdRow">
@@ -371,7 +259,7 @@ Referenced by <a class="el" href="Application_8php-source.html#l00123">Start()</
           <td class="md" nowrap valign="top">Application::OnApplicationEnd           </td>
           <td class="md" valign="top">(&nbsp;</td>
           <td class="md" nowrap valign="top">$&nbsp;</td>
-          <td class="mdname1" valign="top" nowrap> <em>function</em>          </td>
+          <td class="mdname1" valign="top" nowrap> <em>params</em>          </td>
           <td class="md" valign="top">&nbsp;)&nbsp;</td>
           <td class="md" nowrap></td>
         </tr>
@@ -387,137 +275,17 @@ Referenced by <a class="el" href="Application_8php-source.html#l00123">Start()</
     <td>
 
 <p>
-Set up call_back function for <a class="el" href="classApplication.html">Application</a> End. The $function will be called when Script will be stopped<p>
+Triggers the <a class="el" href="classApplication.html#1f3d99a91c5e9db732768e5eced816db">Application::HOOK_SHUTDOWN</a> hook with the given $params.<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>$function</em>&nbsp;</td><td>the name of the function to be called </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>$function</em>&nbsp;</td><td>may accept 1 argument. This argument will be an array of system variables Please look at the definition of systemVars</td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>$params</em>&nbsp;</td><td>array of parameters to be sent to registered functions for this hook. </td></tr>
   </table>
 </dl>
-For calling method of a class, use array (&amp; $obj, 'method_name')<p>
-<dl compact><dt><b>Returns:</b></dt><dd>an object of Errors' type in case of Error(s) <p>
-null instead</dd></dl>
-<a class="el" href="classErrors.html">Errors</a> may be composed by :<ul>
-<li><a class="el" href="classApplicationError.html#4d874c059634ddfe33b1556ac95ca5f1">ApplicationError::FUNCTION_NOT_CALLABLE</a>;</li><li><a class="el" href="classApplicationError.html#83c5e6bb94adf704156ae3871b877f0b">ApplicationError::FUNCTION_PARAM_NOT_ARRAY</a>;</li><li><a class="el" href="classApplicationError.html#7fdb65b7ac9bd51d1999f8842a0198a9">ApplicationError::CALLBACK_NOT_EXISTS</a>; </li></ul>
 
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00185">185</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
+Definition at line <a class="el" href="Application_8php-source.html#l00166">166</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
 <p>
-References <a class="el" href="Application_8php-source.html#l00290">setCallBack()</a>.    </td>
-  </tr>
-</table>
-<a class="anchor" name="4a28d1851ef12189bf1acd325d87f39c"></a><!-- doxytag: member="Application::OnApplicationStart" ref="4a28d1851ef12189bf1acd325d87f39c" args="($function, $params)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">Application::OnApplicationStart           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">$&nbsp;</td>
-          <td class="mdname" nowrap> <em>function</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>$&nbsp;</td>
-          <td class="mdname" nowrap> <em>params</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Set up call_back function for <a class="el" href="classApplication.html">Application</a> Start. The $function will be called when <a class="el" href="classApplication.html#2acccd42d5fdb0d059abb584c34e2a54">Start()</a> will.<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>$function</em>&nbsp;</td><td>the name of the function to be called </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>$params</em>&nbsp;</td><td>must be an array of parameters for the function</td></tr>
-  </table>
-</dl>
-For calling method of a class, use array (&amp; $obj, 'method_name')<p>
-<dl compact><dt><b>Returns:</b></dt><dd>an object of Errors' type in case of Error(s) <p>
-null instead</dd></dl>
-<a class="el" href="classErrors.html">Errors</a> may be composed by :<ul>
-<li><a class="el" href="classApplicationError.html#4d874c059634ddfe33b1556ac95ca5f1">ApplicationError::FUNCTION_NOT_CALLABLE</a>;</li><li><a class="el" href="classApplicationError.html#83c5e6bb94adf704156ae3871b877f0b">ApplicationError::FUNCTION_PARAM_NOT_ARRAY</a>;</li><li><a class="el" href="classApplicationError.html#7fdb65b7ac9bd51d1999f8842a0198a9">ApplicationError::CALLBACK_NOT_EXISTS</a>; </li></ul>
-
-<p>
-Definition at line <a class="el" href="Application_8php-source.html#l00161">161</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
-<p>
-References <a class="el" href="Application_8php-source.html#l00290">setCallBack()</a>.    </td>
-  </tr>
-</table>
-<a class="anchor" name="bb62ae6c85d4f138f6d7a045d71fcd61"></a><!-- doxytag: member="Application::setCallBack" ref="bb62ae6c85d4f138f6d7a045d71fcd61" args="($callBackName, &amp;$function, &amp;$params)" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">Application::setCallBack           </td>
-          <td class="md" valign="top">(&nbsp;</td>
-          <td class="md" nowrap valign="top">$&nbsp;</td>
-          <td class="mdname" nowrap> <em>callBackName</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>&amp;$&nbsp;</td>
-          <td class="mdname" nowrap> <em>function</em>, </td>
-        </tr>
-        <tr>
-          <td class="md" nowrap align="right"></td>
-          <td class="md"></td>
-          <td class="md" nowrap>&amp;$&nbsp;</td>
-          <td class="mdname" nowrap> <em>params</em></td>
-        </tr>
-        <tr>
-          <td class="md"></td>
-          <td class="md">)&nbsp;</td>
-          <td class="md" colspan="2"><code> [protected]</code></td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-Internally sets call back for callback named $callBackName/<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>$callBackName</em>&nbsp;</td><td>the name of the call back to be set </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>$function</em>&nbsp;</td><td>the function to set as a callback </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>$params</em>&nbsp;</td><td>the parameters for the function to be set</td></tr>
-  </table>
-</dl>
-<dl compact><dt><b>Returns:</b></dt><dd>an object of Errors' type in case of Error(s) <p>
-null instead</dd></dl>
-<a class="el" href="classErrors.html">Errors</a> may be composed by :<ul>
-<li><a class="el" href="classApplicationError.html#4d874c059634ddfe33b1556ac95ca5f1">ApplicationError::FUNCTION_NOT_CALLABLE</a>;</li><li><a class="el" href="classApplicationError.html#83c5e6bb94adf704156ae3871b877f0b">ApplicationError::FUNCTION_PARAM_NOT_ARRAY</a></li><li><a class="el" href="classApplicationError.html#7fdb65b7ac9bd51d1999f8842a0198a9">ApplicationError::CALLBACK_NOT_EXISTS</a> </li></ul>
-
-<p>
-Definition at line <a class="el" href="Application_8php-source.html#l00290">290</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
-<p>
-References <a class="el" href="ApplicationError_8php-source.html#l00050">ApplicationError::CALLBACK_NOT_EXISTS</a>, and <a class="el" href="Application_8php-source.html#l00257">isCorrectCallBack()</a>.
-<p>
-Referenced by <a class="el" href="Application_8php-source.html#l00185">OnApplicationEnd()</a>, and <a class="el" href="Application_8php-source.html#l00161">OnApplicationStart()</a>.    </td>
+References <a class="el" href="HooksManager_8php-source.html#l00076">HooksManager::GetInstance()</a>, and <a class="el" href="Application_8php-source.html#l00070">HOOK_SHUTDOWN</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="db016acd58a2dd6753583349dda3b107"></a><!-- doxytag: member="Application::SetConfiguration" ref="db016acd58a2dd6753583349dda3b107" args="(Variables $configuration)" --><p>
@@ -553,9 +321,9 @@ Set the <a class="el" href="classApplication.html">Application</a> Configuration
 </dl>
 
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00101">101</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
+Definition at line <a class="el" href="Application_8php-source.html#l00114">114</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
 <p>
-References <a class="el" href="Application_8php-source.html#l00372">$configuration</a>.    </td>
+References <a class="el" href="Application_8php-source.html#l00226">$configuration</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="2acccd42d5fdb0d059abb584c34e2a54"></a><!-- doxytag: member="Application::Start" ref="2acccd42d5fdb0d059abb584c34e2a54" args="()" --><p>
@@ -582,14 +350,16 @@ References <a class="el" href="Application_8php-source.html#l00372">$configurati
     <td>
 
 <p>
-Start the application. Call the call back function set up by OnApplicationStart.<p>
+Tries to start the application. Sets up system vars and shutdown_function. Triggers <a class="el" href="classApplication.html#6f0669741175ea2ba001639de4c6e742">Application::HOOK_START</a> without an empty array of parameters.<p>
 <dl compact><dt><b>Returns:</b></dt><dd>null if application successfully started <p>
-an object of type <a class="el" href="classErrors.html">Errors</a> in case of error(s). </dd></dl>
+an object of type <a class="el" href="classErrors.html">Errors</a> in case of error(s). <a class="el" href="classErrors.html">Errors</a> can be :<ul>
+<li><a class="el" href="classApplicationError.html#b8be67c3c88a06a91311f2d27b9e9640">ApplicationError::ALREADY_STARTED</a> if <a class="el" href="classApplication.html#2acccd42d5fdb0d059abb584c34e2a54">Application::Start</a> has already been called. </li></ul>
+</dd></dl>
 
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00123">123</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
+Definition at line <a class="el" href="Application_8php-source.html#l00139">139</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
 <p>
-References <a class="el" href="ApplicationError_8php-source.html#l00056">ApplicationError::ALREADY_STARTED</a>, and <a class="el" href="Application_8php-source.html#l00325">launchCallBack()</a>.    </td>
+References <a class="el" href="ApplicationError_8php-source.html#l00056">ApplicationError::ALREADY_STARTED</a>, <a class="el" href="HooksManager_8php-source.html#l00076">HooksManager::GetInstance()</a>, and <a class="el" href="Application_8php-source.html#l00073">HOOK_START</a>.    </td>
   </tr>
 </table>
 <hr><h2>Member Data Documentation</h2>
@@ -615,109 +385,9 @@ References <a class="el" href="ApplicationError_8php-source.html#l00056">Applica
 <p>
 contains the configuration of the <a class="el" href="classApplication.html">Application</a> 
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00372">372</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
+Definition at line <a class="el" href="Application_8php-source.html#l00226">226</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
 <p>
-Referenced by <a class="el" href="Application_8php-source.html#l00101">SetConfiguration()</a>.    </td>
-  </tr>
-</table>
-<a class="anchor" name="3e7a79a999d51654b3137d28914e2f8f"></a><!-- doxytag: member="Application::$onApplicationEnd" ref="3e7a79a999d51654b3137d28914e2f8f" args="" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">Application::$onApplicationEnd<code> [protected]</code>          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-the function to call back on <a class="el" href="classApplication.html">Application</a> end 
-<p>
-Definition at line <a class="el" href="Application_8php-source.html#l00363">363</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
-  </tr>
-</table>
-<a class="anchor" name="49808a521ab6c07a2daafd536f1ba83b"></a><!-- doxytag: member="Application::$onApplicationEndParams" ref="49808a521ab6c07a2daafd536f1ba83b" args="" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">Application::$onApplicationEndParams<code> [protected]</code>          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-false parameters of the function to call back on application end The true parameters are generated from system configuration. 
-<p>
-Definition at line <a class="el" href="Application_8php-source.html#l00369">369</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
-  </tr>
-</table>
-<a class="anchor" name="0c84de9e13c93f2409127e6e7afc3872"></a><!-- doxytag: member="Application::$onApplicationStart" ref="0c84de9e13c93f2409127e6e7afc3872" args="" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">Application::$onApplicationStart<code> [protected]</code>          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-the function to call back on <a class="el" href="classApplication.html">Application</a> start 
-<p>
-Definition at line <a class="el" href="Application_8php-source.html#l00358">358</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
-  </tr>
-</table>
-<a class="anchor" name="0f5e4fd19062c675864458b105f66e3d"></a><!-- doxytag: member="Application::$onApplicationStartParams" ref="0f5e4fd19062c675864458b105f66e3d" args="" --><p>
-<table class="mdTable" cellpadding="2" cellspacing="0">
-  <tr>
-    <td class="mdRow">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td class="md" nowrap valign="top">Application::$onApplicationStartParams<code> [protected]</code>          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<table cellspacing="5" cellpadding="0" border="0">
-  <tr>
-    <td>
-      &nbsp;
-    </td>
-    <td>
-
-<p>
-the parameters of the function to call back on application start 
-<p>
-Definition at line <a class="el" href="Application_8php-source.html#l00360">360</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
+Referenced by <a class="el" href="Application_8php-source.html#l00114">SetConfiguration()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="732154c732bae38e0bcf05ca33233e8f"></a><!-- doxytag: member="Application::$started" ref="732154c732bae38e0bcf05ca33233e8f" args="" --><p>
@@ -742,7 +412,7 @@ Definition at line <a class="el" href="Application_8php-source.html#l00360">360<
 <p>
 check if the application has already been started 
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00345">345</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
+Definition at line <a class="el" href="Application_8php-source.html#l00215">215</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="0cbde0f81501e1987bce7ea98698fa0f"></a><!-- doxytag: member="Application::$systemVars" ref="0cbde0f81501e1987bce7ea98698fa0f" args="" --><p>
@@ -769,7 +439,61 @@ The system's variable of the <a class="el" href="classApplication.html">Applicat
 <li>SYSTEM_START_TIME : Unix Time of <a class="el" href="classApplication.html">Application</a> start </li></ul>
 
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00353">353</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
+Definition at line <a class="el" href="Application_8php-source.html#l00223">223</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="1f3d99a91c5e9db732768e5eced816db"></a><!-- doxytag: member="Application::HOOK_SHUTDOWN" ref="1f3d99a91c5e9db732768e5eced816db" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">const <a class="el" href="classApplication.html#1f3d99a91c5e9db732768e5eced816db">Application::HOOK_SHUTDOWN</a> = 'Application_Shutdown'          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Hook called just before <a class="el" href="classApplication.html">Application</a> shutdown 
+<p>
+Definition at line <a class="el" href="Application_8php-source.html#l00070">70</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
+<p>
+Referenced by <a class="el" href="AbstractSitePage_8php-source.html#l00114">AbstractSitePage::__construct()</a>, and <a class="el" href="Application_8php-source.html#l00166">OnApplicationEnd()</a>.    </td>
+  </tr>
+</table>
+<a class="anchor" name="6f0669741175ea2ba001639de4c6e742"></a><!-- doxytag: member="Application::HOOK_START" ref="6f0669741175ea2ba001639de4c6e742" args="" --><p>
+<table class="mdTable" cellpadding="2" cellspacing="0">
+  <tr>
+    <td class="mdRow">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="md" nowrap valign="top">const <a class="el" href="classApplication.html#6f0669741175ea2ba001639de4c6e742">Application::HOOK_START</a> = 'Application_Start'          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="5" cellpadding="0" border="0">
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Hook called just before <a class="el" href="classApplication.html">Application</a> shutdown 
+<p>
+Definition at line <a class="el" href="Application_8php-source.html#l00073">73</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
+<p>
+Referenced by <a class="el" href="AbstractSitePage_8php-source.html#l00114">AbstractSitePage::__construct()</a>, and <a class="el" href="Application_8php-source.html#l00139">Start()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="c3211bdddc0ae53480fca4fcc4d2e669"></a><!-- doxytag: member="Application::SYSTEM_START_TIME" ref="c3211bdddc0ae53480fca4fcc4d2e669" args="" --><p>
@@ -794,14 +518,14 @@ Definition at line <a class="el" href="Application_8php-source.html#l00353">353<
 <p>
 <a class="el" href="classVariable.html">Variable</a> index for Unix Time of <a class="el" href="classApplication.html">Application</a> start 
 <p>
-Definition at line <a class="el" href="Application_8php-source.html#l00060">60</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
+Definition at line <a class="el" href="Application_8php-source.html#l00067">67</a> of file <a class="el" href="Application_8php-source.html">Application.php</a>.
 <p>
-Referenced by <a class="el" href="XHTMLSitePage_8php-source.html#l00108">XHTMLSitePage::OnUnLoad()</a>.    </td>
+Referenced by <a class="el" href="XHTMLSitePage_8php-source.html#l00117">XHTMLSitePage::OnUnLoad()</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
-<li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/System/Application/<a class="el" href="Application_8php-source.html">Application.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:05:06 2006 for ExetronSystemProject by&nbsp;
+<li>W:/www/exetron/v2.1/developpement/classes/System/Application/<a class="el" href="Application_8php-source.html">Application.php</a></ul>
+<hr size="1"><address style="align: right;"><small>Generated on Sun Sep 3 18:43:27 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

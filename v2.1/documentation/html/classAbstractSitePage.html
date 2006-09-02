@@ -28,10 +28,13 @@
     <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
     <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
   </ul></div>
-<h1>AbstractSitePage Class Reference</h1><!-- doxytag: class="AbstractSitePage" --><!-- doxytag: inherits="AbstractSingleton" -->Inherits <a class="el" href="classAbstractSingleton.html">AbstractSingleton</a>.
-<p>
-Inherited by <a class="el" href="classXHTMLSitePage.html">XHTMLSitePage</a>.
-<p>
+<h1>AbstractSitePage Class Reference</h1><!-- doxytag: class="AbstractSitePage" --><!-- doxytag: inherits="AbstractSingleton" --><p>Inheritance diagram for AbstractSitePage:
+<p><center><img src="classAbstractSitePage.png" usemap="#AbstractSitePage_map" border="0" alt=""></center>
+<map name="AbstractSitePage_map">
+<area href="classAbstractSingleton.html" alt="AbstractSingleton" shape="rect" coords="0,0,111,24">
+<area href="classXHTMLSitePage.html" alt="XHTMLSitePage" shape="rect" coords="0,112,111,136">
+<area href="classWebSitePage.html" alt="WebSitePage" shape="rect" coords="0,168,111,192">
+</map>
 <a href="classAbstractSitePage-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
@@ -99,7 +102,7 @@ Reimplemented in <a class="el" href="classWebSitePage.html#fd2da9a7eaf4f7a5e2493
 <p>
 Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00114">114</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.
 <p>
-References <a class="el" href="WebApplication_8php-source.html#l00056">WebApplication::GetInstance()</a>, <a class="el" href="classAbstractSitePage.html#df81fddabfb08996ddfc6bdb9ee6f0f5">OnLoad()</a>, <a class="el" href="classAbstractSitePage.html#927b1a520306a263176d950657d1cb34">OnUnLoad()</a>, and <a class="el" href="classAbstractSitePage.html#2dc88f800cd4f5cef0e4d09e0d1b50c9">Process()</a>.    </td>
+References <a class="el" href="HooksManager_8php-source.html#l00076">HooksManager::GetInstance()</a>, <a class="el" href="WebApplication_8php-source.html#l00056">WebApplication::GetInstance()</a>, <a class="el" href="Application_8php-source.html#l00070">Application::HOOK_SHUTDOWN</a>, <a class="el" href="Application_8php-source.html#l00073">Application::HOOK_START</a>, <a class="el" href="classAbstractSitePage.html#df81fddabfb08996ddfc6bdb9ee6f0f5">OnLoad()</a>, <a class="el" href="classAbstractSitePage.html#927b1a520306a263176d950657d1cb34">OnUnLoad()</a>, and <a class="el" href="classAbstractSitePage.html#2dc88f800cd4f5cef0e4d09e0d1b50c9">Process()</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="75c97389f43c27d914e6a7d56cb59c7e"></a><!-- doxytag: member="AbstractSitePage::__destruct" ref="75c97389f43c27d914e6a7d56cb59c7e" args="()" --><p>
@@ -132,7 +135,7 @@ Reimplemented from <a class="el" href="classAbstractSingleton.html#1ccfd7d830deb
 <p>
 Reimplemented in <a class="el" href="classWebSitePage.html#040f5ecac590617087ca95014438c490">WebSitePage</a>, and <a class="el" href="classXHTMLSitePage.html#57ffee8091b4dc5b4ea97b1868f43b99">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00131">131</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
+Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00133">133</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="5aede3dc00f325e34e819566934f93f7"></a><!-- doxytag: member="AbstractSitePage::__ToString" ref="5aede3dc00f325e34e819566934f93f7" args="()" --><p>
@@ -167,7 +170,7 @@ Reimplemented from <a class="el" href="classAbstractSingleton.html#30429fcc3b202
 <p>
 Reimplemented in <a class="el" href="classWebSitePage.html#e9e2215f5d9684ad9c7daf6fe4ff569a">WebSitePage</a>, and <a class="el" href="classXHTMLSitePage.html#963383bfe01dd600da1581c0ddaec300">XHTMLSitePage</a>.
 <p>
-Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00144">144</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
+Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00146">146</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
   </tr>
 </table>
 <a class="anchor" name="17b8e6c195f7028458335944cab6a13b"></a><!-- doxytag: member="AbstractSitePage::GetApplication" ref="17b8e6c195f7028458335944cab6a13b" args="()" --><p>
@@ -366,12 +369,12 @@ Referenced by <a class="el" href="AbstractSitePage_8php-source.html#l00114">__co
 <p>
 application object linked to SitePage 
 <p>
-Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00156">156</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
+Definition at line <a class="el" href="AbstractSitePage_8php-source.html#l00158">158</a> of file <a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a>.    </td>
   </tr>
 </table>
 <hr>The documentation for this class was generated from the following file:<ul>
-<li>G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/System/AbstractSitePage/<a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:05:04 2006 for ExetronSystemProject by&nbsp;
+<li>W:/www/exetron/v2.1/developpement/classes/System/AbstractSitePage/<a class="el" href="AbstractSitePage_8php-source.html">AbstractSitePage.php</a></ul>
+<hr size="1"><address style="align: right;"><small>Generated on Sun Sep 3 18:43:24 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

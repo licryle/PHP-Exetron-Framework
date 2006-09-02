@@ -460,7 +460,7 @@ class MySQLConnection extends BDDConnection
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     }
 
 //---------------------------------------------------------------- PRIVATE 

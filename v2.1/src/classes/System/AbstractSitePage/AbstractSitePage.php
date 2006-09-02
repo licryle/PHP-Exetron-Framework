@@ -117,8 +117,10 @@ abstract class AbstractSitePage extends AbstractSingleton
 		
 		$this->application = WebApplication::GetInstance ();
 
-		$this->application->OnApplicationStart ( array ( & $this, 'OnLoad' ), array() );
-		$this->application->OnApplicationEnd ( array ( & $this, 'OnUnLoad' ), array() );
+		$hooksManager = HooksManager::GetInstance();
+		
+		$hooksManager->Register ( WebApplication::HOOK_START, array ( & $this, 'OnLoad' ) );
+		$hooksManager->Register ( WebApplication::HOOK_SHUTDOWN, array ( & $this, 'OnUnLoad' ) );
 
 		$this->application->Start();
 		
@@ -143,7 +145,7 @@ abstract class AbstractSitePage extends AbstractSingleton
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     } //----- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 

@@ -224,7 +224,7 @@ class WebSitePage extends XHTMLSitePage
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     } //---- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 

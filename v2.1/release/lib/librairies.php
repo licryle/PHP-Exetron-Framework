@@ -128,7 +128,7 @@ abstract class AbstractClass
 	/**
 	 * Destructs ressources allocated
 	 */
-    function __destruct( )
+    public function __destruct( )
 	{
         /*$vars = get_object_vars($this);
         
@@ -244,7 +244,7 @@ abstract class AbstractSingleton
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     } //----- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
@@ -664,7 +664,14 @@ class ApplicationError extends Error
     e-mail               : cyrille.berliat@gmail.com
 *************************************************************************/
 
-//-------------- Class <Application> (file Application.php) -----------------
+/*!
+ * *************************** Change Log ********************************
+ * 08.08.2006 by Cyrille BERLIAT <cyrille.berliat@gmail.com>
+ * Changing old callback system to use HookManager for functions 
+ * OnApplicationStart and OnApplicationEnd
+ * ***********************************************************************
+ */
+//------------- Class <Application> (file Application.php) ---------------
 /*if (defined('APPLICATION_H'))
 {
     return;
@@ -714,6 +721,12 @@ class Application extends AbstractSingleton
 //----------------------------------------------------------------- PUBLIC
 	/** Variable index for Unix Time of Application start */
 	const SYSTEM_START_TIME = 'SYSTEM_START_TIME';
+	
+	/** Hook called just before Application shutdown */
+	const HOOK_SHUTDOWN = 'Application_Shutdown';
+	
+	/** Hook called just before Application shutdown */
+	const HOOK_START = 'Application_Start';
 
 //--------------------------------------------------------- Public Methods
 	
@@ -790,34 +803,11 @@ class Application extends AbstractSingleton
 		$this->systemVars[ self::SYSTEM_START_TIME ] = microtime ( true );
 		
 		// set up call back function for the end of the application
-		register_shutdown_function ( $this->onApplicationEnd, $this->systemVars );
+		register_shutdown_function ( array(& $this,'onApplicationEnd'), $this->systemVars );
 
-		return $this->launchCallBack ( 'onApplicationStart' );
+		$var = array();
+		HooksManager::GetInstance()->Trigger( Application::HOOK_START, $var );
 	} //----- End of Start
-	
-    /**
-     * Set up call_back function for Application Start.
-	 * The $function will be called when Start() will.
-	 * 
-	 * @param $function the name of the function to be called
-	 * @param $params must be an array of parameters for the function
-	 * 
-	 * For calling method of a class, use array (& $obj, 'method_name')
-	 * 
-	 * @return an object of Errors' type in case of Error(s)
-	 * @return null instead
-	 * 
-	 * 
-	 * Errors may be composed by :
-	 * - ApplicationError::FUNCTION_NOT_CALLABLE;
-	 * - ApplicationError::FUNCTION_PARAM_NOT_ARRAY;
-	 * - ApplicationError::CALLBACK_NOT_EXISTS;
-	 * 
-	 */
-    public function OnApplicationStart ( $function, $params )
-	{
-		return $this->setCallBack ( 'onApplicationStart', $function, $params ) ;
-	} //----- End of OnApplicationStart
 	
     /**
      * Set up call_back function for Application End.
@@ -838,18 +828,10 @@ class Application extends AbstractSingleton
 	 * - ApplicationError::CALLBACK_NOT_EXISTS;
 	 *
      */
-    public function OnApplicationEnd ( $function )
+    public function OnApplicationEnd ( $params )
 	{
-		$falseArray = array();
-			$errors = $this->setCallBack ( 'onApplicationEnd', $function, $falseArray ) ;
-		unset( $falseArray );
-		
-		if ( $errors InstanceOf Errors )
-		{
-			return $errors;
-		}
-
-		return null;
+		$params = array( $params );
+		HooksManager::GetInstance()->Trigger( Application::HOOK_SHUTDOWN, $params );
 	} //----- End of OnApplicationEnd
 
 //---------------------------------------------- Constructors - destructor
@@ -864,12 +846,8 @@ class Application extends AbstractSingleton
 		$this->started = false;
 		
 		$this->systemVars = array( );
-	
-		$this->onApplicationStart = -1;
-		$this->onApplicationStartParams = -1;
 		
-		$this->onApplicationEnd = -1;
-		$this->onApplicationEndParams = -1;
+		
     } //---- End of __construct
 
 
@@ -896,105 +874,6 @@ class Application extends AbstractSingleton
 //---------------------------------------------------------------- PRIVATE 
 
 //------------------------------------------------------ protected methods
-	
-	/**
-	 * Let us know if a $function and it's $params are good to form a 
-	 * call back function
-	 *
-	 * @param $function The function tobe verified
-	 * @param $params The parameters for the function as a call back
-	 * @param $errors The "return by reference"'s variable for errors detected.
-	 *
-	 * $errors MUST BE a valid Errors object.
-	 *
-	 * @return true if the function can be set as CallBack
-	 * @return false instead
-	 */
-	protected function isCorrectCallBack ( & $function, & $params, Errors & $errors )
-	{	
-		// function incorrect or doesn't have good scope
-		if ( !is_callable( $function ) )
-		{
-			$errors->Add ( new ApplicationError ( ApplicationError::FUNCTION_NOT_CALLABLE, 'Incorrect function or scope.') );
-		}
-		
-		// params not an array
-		if ( !is_array( $params ) )
-		{
-			$errors->Add ( new ApplicationError ( ApplicationError::FUNCTION_PARAM_NOT_ARRAY, 'Params of the function must be an array.') );		
-		}
-		
-		return ( $errors->GetCount () == 0 );
-	} //------ End of isCorrectCallBack
-	
-	/**
-	 * Internally sets call back for callback named $callBackName/
-	 *
-	 * @param $callBackName the name of the call back to be set
-	 * @param $function the function to set as a callback
-	 * @param $params the parameters for the function to be set
-	 *
-	 * @return an object of Errors' type in case of Error(s)
-	 * @return null instead
-	 *
-	 * Errors may be composed by :
-	 * - ApplicationError::FUNCTION_NOT_CALLABLE;
-	 * - ApplicationError::FUNCTION_PARAM_NOT_ARRAY
-	 * - ApplicationError::CALLBACK_NOT_EXISTS
-	 *
-	 */
-	protected function setCallBack ( $callBackName, & $function, & $params )
-	{			
-		$errors = new Errors();
-		
-		if ( $this->isCorrectCallBack( $function , $params, $errors ) === false )
-		// if we had some errors
-		{
-			return $errors;
-		}
-
-		if ( ! IsSet ( $this->{$callBackName} ) || ! IsSet ( $this->{$callBackName.'Params'} ) )
-		{
-			$errors->Add ( new ApplicationError ( ApplicationError::CALLBACK_NOT_EXISTS, 'You tried to set up a callback that doesn\'t exists.') );
-			
-			return $errors;
-		}
-		
-		// association
-		$this->{$callBackName} = $function;
-		$this->{$callBackName.'Params'} = $params;
-		
-		unset ( $errors );
-		
-		return null;
-	} //----- End of setCallBack
-	
-	/**
-	 * Launch CallBack function that names $callBackName.
-	 * 
-	 * @param $callBackName the name of the call back to be called
-	 *
-	 * @return an object of Errors' type in case of Error(s)
-	 * @return null instead
-	 *
-	 */
-	protected function launchCallBack ( $callBackName )
-	{
-		// launch start call_back function if set
-		if ( @$this->{ $callBackName } !== -1 )
-		{
-			call_user_func_array ( $this->{ $callBackName }, $this->{ $callBackName.'Params' } );
-			
-			return null;
-		}
-		else
-		{
-			$errors = new Errors();
-			$errors->Add ( new ApplicationError ( ApplicationError::CALLBACK_NOT_SET, 'You are trying to launch an unset callback function.') );
-			
-			return $errors;
-		}
-	} //----- End of launchCallBack
 
 //--------------------------------------------------- protected properties
 	/** check if the application has already been started */
@@ -1007,22 +886,6 @@ class Application extends AbstractSingleton
 	 *
 	 */
 	protected $systemVars; 
-	
-	// call-backs
-	
-	/** the function to call back on Application start */
-	protected $onApplicationStart;
-	/** the parameters of the function to call back on application start */
-	protected $onApplicationStartParams;
-	
-	/** the function to call back on Application end */
-	protected $onApplicationEnd;
-	/**
-	 * false parameters of the function to call back on application end
-	 * The true parameters are generated from system configuration.
-	 *
-	 */
-	protected $onApplicationEndParams;
 	
 	/** contains the configuration of the Application */
 	protected $configuration;
@@ -1365,8 +1228,10 @@ abstract class AbstractSitePage extends AbstractSingleton
 		
 		$this->application = WebApplication::GetInstance ();
 
-		$this->application->OnApplicationStart ( array ( & $this, 'OnLoad' ), array() );
-		$this->application->OnApplicationEnd ( array ( & $this, 'OnUnLoad' ), array() );
+		$hooksManager = HooksManager::GetInstance();
+		
+		$hooksManager->Register ( WebApplication::HOOK_START, array ( & $this, 'OnLoad' ) );
+		$hooksManager->Register ( WebApplication::HOOK_SHUTDOWN, array ( & $this, 'OnUnLoad' ) );
 
 		$this->application->Start();
 		
@@ -1391,7 +1256,7 @@ abstract class AbstractSitePage extends AbstractSingleton
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     } //----- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
@@ -1897,6 +1762,292 @@ class Session extends AbstractSingleton implements Iterator, SessionInterface//,
 //------------------------------------------------------ protected methods
 
 //------------------------------------------------------ protected members
+
+}
+
+//------------------------------------------------------ other definitions
+
+
+
+/*************************************************************************
+                           |HooksManagerError.php|
+                             -------------------
+    début                : |08.08.2006|
+    copyright            : (C) 2006 par BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
+*************************************************************************/
+
+//---------- Classe <HooksManagerError> (file HooksManagerError.php) --------------
+/*if (defined('HOOKSMANAGERERROR_H'))
+{
+    return;
+}
+else
+{
+
+}
+define('HOOKSMANAGERERROR_H',1);*/
+
+//--------------------------------------------------------------- Includes 
+
+//-------------------------------------------------------------- Constants
+
+//----------------------------------------------------------------- PUBLIC
+
+//------------------------------------------------------------------ Types 
+
+//------------------------------------------------------------------------ 
+/*!
+ * Provides specific constants for HooksManager's Errors.
+ */
+//------------------------------------------------------------------------ 
+
+class HooksManagerError extends Error
+{
+//----------------------------------------------------------------- PUBLIC
+
+//-------------------------------------------------------------- Constants
+
+//--------------------------------------------------------- public methods
+
+//---------------------------------------------- Constructors - destructor
+    
+//---------------------------------------------------------- Magic Methods
+
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
+
+//------------------------------------------------------ protected members
+
+}
+
+//------------------------------------------------------ other definitions
+
+
+
+/*************************************************************************
+                           |HooksManager.php|
+                             -------------------
+    started              : |07.08.2006|
+    copyright            : (C) 2006 by BERLIAT Cyrille
+    e-mail               : cyrille.berliat@gmail.com
+*************************************************************************/
+
+//----------- Class <HooksManager> (file HooksManager.php) --------------
+/*if (defined('HOOKSMANAGER_H'))
+{
+    return;
+}
+else
+{
+
+}
+define('HOOKSMANAGER_H',1);*/
+
+//--------------------------------------------------------------- Includes 
+
+//-------------------------------------------------------------- Constants
+
+//----------------------------------------------------------------- PUBLIC
+
+//------------------------------------------------------------------ Types 
+
+//------------------------------------------------------------------------ 
+/*!
+ * Provides a Hooks Management: an easy and clean way to set callback in
+ * your classes. All listeners just register for a Hook and each class
+ * triggers the corresponding Hook. Each callback can treat data as call-
+ * backs should work with references.
+ *
+ * To ensure the unicity of the Hooks. In each class you want to implement
+ * a Hook, create a constant following this rule "HOOK_NameOfHook" and
+ * whose value will start by the name of the class.
+ *
+ * e.g. If you want to implement a Hook for displaying result in the class
+ * UserInformation, you will have to declare UserInformation::HOOK_DISPLAY
+ * with the value "UserInformation_Display" or something similar.
+ *
+ * If you want to build Instance specific Hooks, use BuildInstanceHook(). 
+ * This function will give you the name of the instance hook name.
+ *
+ * Typical "instance mode" use:
+ * - $hookManager->Register( $hookManager->BuildInstanceHook($hookedClass, HookedClass::HOOK_action), array($this,'function') );
+ * - $hookManager->Trigger( $hookManager->BuildInstanceHook($hookedClass, HookedClass::HOOK_action), $parameters );
+ *
+ *
+ * @see AbstractClass::BuildInstanceHook()
+ */
+//------------------------------------------------------------------------ 
+
+class HooksManager extends AbstractSingleton
+{
+//----------------------------------------------------------------- PUBLIC
+
+//--------------------------------------------------------- public methods
+	
+
+	/**
+	 * Gets a unique instance of current class.
+	 * Create it if it doesn't exist.
+	 * Children must call parent::getInstance( __CLASS__ )
+	 *
+	 * This method MUST be redefined in ALL children.
+	 *
+	 * @return unique instance of current class
+	 *
+	 * @see AbstractSingleton::getThis()
+	 *
+	 */
+    public static function GetInstance ( )
+	{	
+		return parent::getThis( __CLASS__ );
+	} //---- End of GetInstance
+
+	/**
+	 * UnRegisters the $method as a call back for the Hook named $hookName
+	 *
+	 * @param $method The method which will not be anymore called back when 
+	 * the hook $hookName is triggered
+	 *
+	 * @param $hookName The name of the Hook.
+	 *
+	 * @param $removeAll Boolean that indicates if UnRegister have to 
+	 * UnRegister all callbacks of the given $method for the specific Hook.
+	 * This option has no sense if Register has been used with $allMultiple
+	 * set to false.
+	 *
+	 */
+    public function UnRegister( $hookName, $method, $removeAll = true )
+    {
+		if ( is_array ( $this->listeners[ $hookName ] ) )
+		{
+			foreach ( $this->listeners[ $hookName ] as $key => $val )
+			{
+				if ( $method == $val )
+				{
+					unset( $this->listeners[ $hookName ][ $key ] );
+					
+					if ( ! $removeAll )
+					{
+						return;
+					}
+				}
+			}
+		}
+    } //---- End of UnRegister
+
+	/**
+	 * Registers the $method as a call back for the Hook named $hookName
+	 *
+	 * @param $method The method which will be called back when the hook
+	 * $hookName is triggered
+	 *
+	 * @param $hookName The name of the Hook.
+	 *
+	 * @param $allowMultiple Boolean that indicates if a method can be 
+	 * registered several times for the same Hook.
+	 *
+	 */
+    public function Register( $hookName, $method, $allowMultiple = false )
+    {
+		if ( ! is_array ( @ $this->listeners[ $hookName ] ) )
+		{
+			$this->listeners[ $hookName ] = array();
+		}
+	
+		if ( ! $allowMultiple && in_array ( $this->listeners[ $hookName ], $method ) )
+		{
+			return;
+		}
+		
+		$this->listeners[ $hookName ][] = $method;
+    } //---- End of Register
+
+	/**
+	 * Calls back every listener previously registered by Register() method.
+	 *
+	 * If one of the callback is not callable anymore, an Exception is thrown
+	 *
+	 * @param $hookName The name of the Hook to be triggered.
+	 *
+	 * @param $params Array of parameters to be passed by reference to the
+	 * call back methods
+	 */
+    public function Trigger( $hookName, $params )
+    {
+		if ( is_array ( @ $this->listeners[ $hookName ] ) )
+		// if there is some listener for this Hook
+		{
+			foreach (  $this->listeners[ $hookName ] as $callBack )
+			{
+				if ( is_callable ( $callBack ) )
+				{
+					call_user_func_array ( $callBack, $params );
+				}
+				else
+				{
+					throw new Exception();
+				}
+			}
+		}
+    } //---- End of Trigger
+
+	/**
+	 * Build the name of the hook based on the instance $object and the name
+	 * of the hook $hookName.
+	 *
+	 * @param $object The instance of the class to be hooked
+	 * @param $hookName The name of the hook
+	 *
+	 * @return The name of the hook specific to the instance $object
+	 *
+	 */
+    public function BuildInstanceHook( AbstractClass $object, $hookName )
+    {
+		return get_class($object).$hookName.$object;
+    } //---- End of BuildInstanceHook
+
+//-------------------------------------------- Constructeurs - destructeur
+	/**
+	 * Instanciates a HooksManager object.
+	 *
+	 */
+    protected function __construct( )
+    {
+		$this->listeners = array();
+    } //---- End of constructeur
+
+	/**
+	 * Destructs the listeners information.
+	 */
+    public function __destruct ( )
+    {
+		parent::__destruct();
+		
+		unset ( $this->listeners );
+    } //---- End of destructor
+ 
+//---------------------------------------------------------- Magic Methods
+
+    /**
+	 * Returns a printable version of object for debugging.
+	 *
+	 * @return String printable on screen
+	 *
+	 */
+    function __ToString ( )
+    {
+        return parent::__ToString();
+    } // End of __ToString
+
+//---------------------------------------------------------------- PRIVATE 
+    
+//------------------------------------------------------ protected methods
+
+//------------------------------------------------------ protected members
+	/** Array of listeners organised by names of the hooks */
+	protected $listeners;
 
 }
 
@@ -3033,7 +3184,7 @@ abstract class BDDConnection extends AbstractClass implements BDDConnectionInter
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     }
 
 //---------------------------------------------------------------- PRIVATE 
@@ -3243,7 +3394,7 @@ abstract class BDDTable extends AbstractClass implements BDDTableInterface
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     }
 
 //---------------------------------------------------------------- PRIVATE 
@@ -3725,7 +3876,7 @@ class MySQLConnection extends BDDConnection
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     }
 
 //---------------------------------------------------------------- PRIVATE 
@@ -5089,6 +5240,15 @@ class XHTMLSitePage extends AbstractSitePage
 	 */
 	const TAG_EXECUTION_TIME = 'EXECTIME';
 
+	/**
+	 * Hook called when Page has been generated. You can modify $pageContent
+	 * just before it is printed to the screen. This hook provides an easy
+	 * way to modify final content.
+	 *
+	 * Prototype :
+	 * function hook( & $pageContent );
+	 */
+	const HOOK_PAGE_GENERATION = 'XHTMLSitePage_Page_Generation';
 //--------------------------------------------------------- Public Methods
 	
 	/**
@@ -5154,11 +5314,15 @@ class XHTMLSitePage extends AbstractSitePage
     public function OnUnLoad ( $applicationVars )
 	{
 		$exectime = new Template();
+
 		$exectime->SetSkeleton ( round( microtime(true) - $applicationVars[ Application::SYSTEM_START_TIME ], 4 ) );
 
 		$this->pageTemplate->GetBody()->SetTag( self::TAG_EXECUTION_TIME, $exectime );
-			
-		echo $this->pageTemplate;
+		
+		$pageContent = $this->pageTemplate->Generate();
+		HooksManager::GetInstance()->Trigger(XHTMLSitePage::HOOK_PAGE_GENERATION, array(& $pageContent) );
+		
+		echo $pageContent;
 	} //---- End of OnUnLoad
 
 //---------------------------------------------- Constructors - destructor
@@ -5189,7 +5353,7 @@ class XHTMLSitePage extends AbstractSitePage
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     } //----- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 
@@ -5429,7 +5593,7 @@ class WebSitePage extends XHTMLSitePage
 	 */
     public function __ToString ( )
     {
-		return parrent::__ToString();
+		return parent::__ToString();
     } //---- End of __ToString
 
 //---------------------------------------------------------------- PRIVATE 

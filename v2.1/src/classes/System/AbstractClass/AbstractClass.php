@@ -50,7 +50,7 @@ abstract class AbstractClass
 	/**
 	 * Destructs ressources allocated
 	 */
-    function __destruct( )
+    public function __destruct( )
 	{
         /*$vars = get_object_vars($this);
         

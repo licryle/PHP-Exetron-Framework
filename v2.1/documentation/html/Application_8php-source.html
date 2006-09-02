@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
-<title>ExetronSystemProject: G:/developpement/web/mnt/www/exetron/v2.1/developpement/classes/System/Application/Application.php Source File</title>
+<title>ExetronSystemProject: W:/www/exetron/v2.1/developpement/classes/System/Application/Application.php Source File</title>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <link href="tabs.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -28,7 +28,7 @@
     <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
   </ul></div>
 <div class="nav">
-<a class="el" href="dir_25166c3fc9cee4b20fce2340295c5e80.html">classes</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_46ddeddb429956032b95d52e7e2dd59f.html">System</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_a3c421d0be48395ce016a02fa233c149.html">Application</a></div>
+<a class="el" href="dir_813e8ee39c0479f4cd51674394253c96.html">classes</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_8289df3cb4bd4cc0d427b07825afc680.html">System</a>&nbsp;&raquo&nbsp;<a class="el" href="dir_826f61f77f82ec8ef387f7f67539b558.html">Application</a></div>
 <h1>Application.php</h1><a href="Application_8php.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 <span class="comment">/*************************************************************************</span>
@@ -39,212 +39,131 @@
 <a name="l00008"></a>00008 <span class="comment">    e-mail               : cyrille.berliat@gmail.com</span>
 <a name="l00009"></a>00009 <span class="comment">*************************************************************************/</span>
 <a name="l00010"></a>00010 
-<a name="l00011"></a>00011 <span class="comment">//-------------- Class &lt;Application&gt; (file Application.php) -----------------</span>
-<a name="l00012"></a>00012 <span class="comment">/*if (defined('APPLICATION_H'))</span>
-<a name="l00013"></a>00013 <span class="comment">{</span>
-<a name="l00014"></a>00014 <span class="comment">    return;</span>
-<a name="l00015"></a>00015 <span class="comment">}</span>
-<a name="l00016"></a>00016 <span class="comment">else</span>
-<a name="l00017"></a>00017 <span class="comment">{</span>
-<a name="l00018"></a>00018 <span class="comment"></span>
-<a name="l00019"></a>00019 <span class="comment">}</span>
-<a name="l00020"></a>00020 <span class="comment">define('APPLICATION_H',1);*/</span>
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="comment">//--------------------------------------------------------------- Includes </span>
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="comment">//-------------------------------------------------------------- Constants</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="comment">//------------------------------------------------------------------ Types </span>
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="comment">//------------------------------------------------------------------------ </span>
-<a name="l00054"></a>00054 <span class="comment"></span><span class="comment">//------------------------------------------------------------------------ </span>
-<a name="l00055"></a>00055 
-<a name="l00056"></a><a class="code" href="classApplication.html">00056</a> <span class="keyword">class </span><a class="code" href="classApplication.html">Application</a> <span class="keyword">extends</span> <a class="code" href="classAbstractSingleton.html">AbstractSingleton</a>
-<a name="l00057"></a>00057 {
-<a name="l00058"></a>00058 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
-<a name="l00060"></a><a class="code" href="classApplication.html#c3211bdddc0ae53480fca4fcc4d2e669">00060</a> <span class="comment"></span>        <span class="keyword">const</span> <a class="code" href="classApplication.html#c3211bdddc0ae53480fca4fcc4d2e669">SYSTEM_START_TIME</a> = '<a class="code" href="classApplication.html#c3211bdddc0ae53480fca4fcc4d2e669">SYSTEM_START_TIME</a>';
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062 <span class="comment">//--------------------------------------------------------- Public Methods</span>
-<a name="l00063"></a>00063         
-<a name="l00076"></a><a class="code" href="classApplication.html#06a54f6fe0a55d91bea283e91388ee18">00076</a>     <span class="keyword">public</span> <span class="keyword">static</span> function <a class="code" href="classApplication.html#06a54f6fe0a55d91bea283e91388ee18">GetInstance</a> ( )
-<a name="l00077"></a>00077         {       
-<a name="l00078"></a>00078                 <span class="keywordflow">return</span> parent::getThis( __CLASS__ );
-<a name="l00079"></a>00079         } <span class="comment">//----- End of GetInstance</span>
-<a name="l00080"></a>00080         
-<a name="l00090"></a><a class="code" href="classApplication.html#4dc9fddf9436c3ae6cdab0abacb3741b">00090</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#4dc9fddf9436c3ae6cdab0abacb3741b">GetConfiguration</a> ( )
-<a name="l00091"></a>00091         {
-<a name="l00092"></a>00092                 <span class="keywordflow">return</span> $this-&gt;configuration;
-<a name="l00093"></a>00093         } <span class="comment">//----- End of GetConfiguration</span>
-<a name="l00094"></a>00094         
-<a name="l00101"></a><a class="code" href="classApplication.html#db016acd58a2dd6753583349dda3b107">00101</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#db016acd58a2dd6753583349dda3b107">SetConfiguration</a> ( <a class="code" href="classVariables.html">Variables</a> <a class="code" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">$configuration</a> )
-<a name="l00102"></a>00102         {
-<a name="l00103"></a>00103                 <span class="keywordflow">if</span> ( <a class="code" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">$configuration</a> == NULL )
-<a name="l00104"></a>00104                 {
-<a name="l00105"></a>00105                         unset ( $this-&gt;configuration );
-<a name="l00106"></a>00106                         $this-&gt;configuration = <span class="keyword">new</span> <a class="code" href="classVariables.html">Variables</a>( <span class="keyword">new</span> BBDRecordSet() );
-<a name="l00107"></a>00107                 }
-<a name="l00108"></a>00108                 <span class="keywordflow">else</span>
-<a name="l00109"></a>00109                 {
-<a name="l00110"></a>00110                         $this-&gt;configuration = <a class="code" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">$configuration</a>;
-<a name="l00111"></a>00111                 }
-<a name="l00112"></a>00112         } <span class="comment">//----- End of SetConfiguration</span>
-<a name="l00113"></a>00113         
-<a name="l00114"></a>00114         
-<a name="l00123"></a><a class="code" href="classApplication.html#2acccd42d5fdb0d059abb584c34e2a54">00123</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#2acccd42d5fdb0d059abb584c34e2a54">Start</a> ( )
-<a name="l00124"></a>00124         {
-<a name="l00125"></a>00125                 <span class="keywordflow">if</span> ( $this-&gt;started )
-<a name="l00126"></a>00126                 {
-<a name="l00127"></a>00127                         $errors = <span class="keyword">new</span> <a class="code" href="classErrors.html">Errors</a> ();
-<a name="l00128"></a>00128                         $errors-&gt;Add ( <span class="keyword">new</span> <a class="code" href="classApplicationError.html">ApplicationError</a> ( <a class="code" href="classApplicationError.html#b8be67c3c88a06a91311f2d27b9e9640">ApplicationError::ALREADY_STARTED</a>, '<a class="code" href="classApplication.html">Application</a> has been already started.' ) );
-<a name="l00129"></a>00129                         
-<a name="l00130"></a>00130                         <span class="keywordflow">return</span> $errors;
-<a name="l00131"></a>00131                 }
-<a name="l00132"></a>00132         
-<a name="l00133"></a>00133                 <span class="comment">// get launchTime in microseconds</span>
-<a name="l00134"></a>00134                 $this-&gt;systemVars[ self::SYSTEM_START_TIME ] = microtime ( <span class="keyword">true</span> );
-<a name="l00135"></a>00135                 
-<a name="l00136"></a>00136                 <span class="comment">// set up call back function for the end of the application</span>
-<a name="l00137"></a>00137                 register_shutdown_function ( $this-&gt;onApplicationEnd, $this-&gt;systemVars );
-<a name="l00138"></a>00138 
-<a name="l00139"></a>00139                 <span class="keywordflow">return</span> $this-&gt;<a class="code" href="classApplication.html#0a782d5d07e8db8c7909a27a6adc28b8">launchCallBack</a> ( 'onApplicationStart' );
-<a name="l00140"></a>00140         } <span class="comment">//----- End of Start</span>
-<a name="l00141"></a>00141         
-<a name="l00161"></a><a class="code" href="classApplication.html#4a28d1851ef12189bf1acd325d87f39c">00161</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#4a28d1851ef12189bf1acd325d87f39c">OnApplicationStart</a> ( $function, $params )
-<a name="l00162"></a>00162         {
-<a name="l00163"></a>00163                 <span class="keywordflow">return</span> $this-&gt;<a class="code" href="classApplication.html#bb62ae6c85d4f138f6d7a045d71fcd61">setCallBack</a> ( 'onApplicationStart', $function, $params ) ;
-<a name="l00164"></a>00164         } <span class="comment">//----- End of OnApplicationStart</span>
-<a name="l00165"></a>00165         
-<a name="l00185"></a><a class="code" href="classApplication.html#73db603be3b8167672f420bbb03bb148">00185</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#73db603be3b8167672f420bbb03bb148">OnApplicationEnd</a> ( $function )
-<a name="l00186"></a>00186         {
-<a name="l00187"></a>00187                 $falseArray = array();
-<a name="l00188"></a>00188                         $errors = $this-&gt;<a class="code" href="classApplication.html#bb62ae6c85d4f138f6d7a045d71fcd61">setCallBack</a> ( 'onApplicationEnd', $function, $falseArray ) ;
-<a name="l00189"></a>00189                 unset( $falseArray );
-<a name="l00190"></a>00190                 
-<a name="l00191"></a>00191                 <span class="keywordflow">if</span> ( $errors InstanceOf <a class="code" href="classErrors.html">Errors</a> )
-<a name="l00192"></a>00192                 {
-<a name="l00193"></a>00193                         <span class="keywordflow">return</span> $errors;
-<a name="l00194"></a>00194                 }
-<a name="l00195"></a>00195 
-<a name="l00196"></a>00196                 <span class="keywordflow">return</span> null;
-<a name="l00197"></a>00197         } <span class="comment">//----- End of OnApplicationEnd</span>
-<a name="l00198"></a>00198 
-<a name="l00199"></a>00199 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
-<a name="l00203"></a><a class="code" href="classApplication.html#97620cd12b475b39007c29c63885a373">00203</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="classApplication.html#97620cd12b475b39007c29c63885a373">__construct</a>()
-<a name="l00204"></a>00204     {
-<a name="l00205"></a>00205                 parent::__construct();
-<a name="l00206"></a>00206                 
-<a name="l00207"></a>00207                 $this-&gt;configuration = <span class="keyword">new</span> <a class="code" href="classVariables.html">Variables</a> ( <span class="keyword">new</span> <a class="code" href="classBDDRecordSet.html">BDDRecordSet</a>() );
-<a name="l00208"></a>00208                 $this-&gt;started = <span class="keyword">false</span>;
-<a name="l00209"></a>00209                 
-<a name="l00210"></a>00210                 $this-&gt;systemVars = array( );
-<a name="l00211"></a>00211         
-<a name="l00212"></a>00212                 $this-&gt;onApplicationStart = -1;
-<a name="l00213"></a>00213                 $this-&gt;onApplicationStartParams = -1;
-<a name="l00214"></a>00214                 
-<a name="l00215"></a>00215                 $this-&gt;onApplicationEnd = -1;
-<a name="l00216"></a>00216                 $this-&gt;onApplicationEndParams = -1;
-<a name="l00217"></a>00217     } <span class="comment">//---- End of __construct</span>
-<a name="l00218"></a>00218 
-<a name="l00219"></a>00219 
-<a name="l00224"></a><a class="code" href="classApplication.html#e88fe341f3002aff9806d27c02bb0e78">00224</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#e88fe341f3002aff9806d27c02bb0e78">__destruct</a> ( )
-<a name="l00225"></a>00225     {
-<a name="l00226"></a>00226                 parent::__destruct();
-<a name="l00227"></a>00227     } <span class="comment">//---- End of __destruct</span>
-<a name="l00228"></a>00228     
-<a name="l00229"></a>00229 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
+<a name="l00018"></a>00018 <span class="comment">//------------- Class &lt;Application&gt; (file Application.php) ---------------</span>
+<a name="l00019"></a>00019 <span class="comment">/*if (defined('APPLICATION_H'))</span>
+<a name="l00020"></a>00020 <span class="comment">{</span>
+<a name="l00021"></a>00021 <span class="comment">    return;</span>
+<a name="l00022"></a>00022 <span class="comment">}</span>
+<a name="l00023"></a>00023 <span class="comment">else</span>
+<a name="l00024"></a>00024 <span class="comment">{</span>
+<a name="l00025"></a>00025 <span class="comment"></span>
+<a name="l00026"></a>00026 <span class="comment">}</span>
+<a name="l00027"></a>00027 <span class="comment">define('APPLICATION_H',1);*/</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="comment">//--------------------------------------------------------------- Includes </span>
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="comment">//-------------------------------------------------------------- Constants</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="comment">//------------------------------------------------------------------ Types </span>
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 <span class="comment">//------------------------------------------------------------------------ </span>
+<a name="l00061"></a>00061 <span class="comment"></span><span class="comment">//------------------------------------------------------------------------ </span>
+<a name="l00062"></a>00062 
+<a name="l00063"></a><a class="code" href="classApplication.html">00063</a> <span class="keyword">class </span><a class="code" href="classApplication.html">Application</a> <span class="keyword">extends</span> <a class="code" href="classAbstractSingleton.html">AbstractSingleton</a>
+<a name="l00064"></a>00064 {
+<a name="l00065"></a>00065 <span class="comment">//----------------------------------------------------------------- PUBLIC</span>
+<a name="l00067"></a><a class="code" href="classApplication.html#c3211bdddc0ae53480fca4fcc4d2e669">00067</a> <span class="comment"></span>        <span class="keyword">const</span> <a class="code" href="classApplication.html#c3211bdddc0ae53480fca4fcc4d2e669">SYSTEM_START_TIME</a> = '<a class="code" href="classApplication.html#c3211bdddc0ae53480fca4fcc4d2e669">SYSTEM_START_TIME</a>';
+<a name="l00068"></a>00068         
+<a name="l00070"></a><a class="code" href="classApplication.html#1f3d99a91c5e9db732768e5eced816db">00070</a>         <span class="keyword">const</span> <a class="code" href="classApplication.html#1f3d99a91c5e9db732768e5eced816db">HOOK_SHUTDOWN</a> = 'Application_Shutdown';
+<a name="l00071"></a>00071         
+<a name="l00073"></a><a class="code" href="classApplication.html#6f0669741175ea2ba001639de4c6e742">00073</a>         <span class="keyword">const</span> <a class="code" href="classApplication.html#6f0669741175ea2ba001639de4c6e742">HOOK_START</a> = 'Application_Start';
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="comment">//--------------------------------------------------------- Public Methods</span>
+<a name="l00076"></a>00076         
+<a name="l00089"></a><a class="code" href="classApplication.html#06a54f6fe0a55d91bea283e91388ee18">00089</a>     <span class="keyword">public</span> <span class="keyword">static</span> function <a class="code" href="classApplication.html#06a54f6fe0a55d91bea283e91388ee18">GetInstance</a> ( )
+<a name="l00090"></a>00090         {       
+<a name="l00091"></a>00091                 <span class="keywordflow">return</span> parent::getThis( __CLASS__ );
+<a name="l00092"></a>00092         } <span class="comment">//----- End of GetInstance</span>
+<a name="l00093"></a>00093         
+<a name="l00103"></a><a class="code" href="classApplication.html#4dc9fddf9436c3ae6cdab0abacb3741b">00103</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#4dc9fddf9436c3ae6cdab0abacb3741b">GetConfiguration</a> ( )
+<a name="l00104"></a>00104         {
+<a name="l00105"></a>00105                 <span class="keywordflow">return</span> $this-&gt;configuration;
+<a name="l00106"></a>00106         } <span class="comment">//----- End of GetConfiguration</span>
+<a name="l00107"></a>00107         
+<a name="l00114"></a><a class="code" href="classApplication.html#db016acd58a2dd6753583349dda3b107">00114</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#db016acd58a2dd6753583349dda3b107">SetConfiguration</a> ( <a class="code" href="classVariables.html">Variables</a> <a class="code" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">$configuration</a> )
+<a name="l00115"></a>00115         {
+<a name="l00116"></a>00116                 <span class="keywordflow">if</span> ( <a class="code" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">$configuration</a> == NULL )
+<a name="l00117"></a>00117                 {
+<a name="l00118"></a>00118                         unset ( $this-&gt;configuration );
+<a name="l00119"></a>00119                         $this-&gt;configuration = <span class="keyword">new</span> <a class="code" href="classVariables.html">Variables</a>( <span class="keyword">new</span> BBDRecordSet() );
+<a name="l00120"></a>00120                 }
+<a name="l00121"></a>00121                 <span class="keywordflow">else</span>
+<a name="l00122"></a>00122                 {
+<a name="l00123"></a>00123                         $this-&gt;configuration = <a class="code" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">$configuration</a>;
+<a name="l00124"></a>00124                 }
+<a name="l00125"></a>00125         } <span class="comment">//----- End of SetConfiguration</span>
+<a name="l00126"></a>00126         
+<a name="l00127"></a>00127         
+<a name="l00139"></a><a class="code" href="classApplication.html#2acccd42d5fdb0d059abb584c34e2a54">00139</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#2acccd42d5fdb0d059abb584c34e2a54">Start</a> ( )
+<a name="l00140"></a>00140         {
+<a name="l00141"></a>00141                 <span class="keywordflow">if</span> ( $this-&gt;started )
+<a name="l00142"></a>00142                 {
+<a name="l00143"></a>00143                         $errors = <span class="keyword">new</span> <a class="code" href="classErrors.html">Errors</a> ();
+<a name="l00144"></a>00144                         $errors-&gt;Add ( <span class="keyword">new</span> <a class="code" href="classApplicationError.html">ApplicationError</a> ( <a class="code" href="classApplicationError.html#b8be67c3c88a06a91311f2d27b9e9640">ApplicationError::ALREADY_STARTED</a>, '<a class="code" href="classApplication.html">Application</a> has been already started.' ) );
+<a name="l00145"></a>00145                         
+<a name="l00146"></a>00146                         <span class="keywordflow">return</span> $errors;
+<a name="l00147"></a>00147                 }
+<a name="l00148"></a>00148         
+<a name="l00149"></a>00149                 <span class="comment">// get launchTime in microseconds</span>
+<a name="l00150"></a>00150                 $this-&gt;systemVars[ self::SYSTEM_START_TIME ] = microtime ( <span class="keyword">true</span> );
+<a name="l00151"></a>00151                 
+<a name="l00152"></a>00152                 <span class="comment">// set up call back function for the end of the application</span>
+<a name="l00153"></a>00153                 register_shutdown_function ( array(&amp; $this,'onApplicationEnd'), $this-&gt;systemVars );
+<a name="l00154"></a>00154 
+<a name="l00155"></a>00155                 $var = array();
+<a name="l00156"></a>00156                 <a class="code" href="classHooksManager.html#96090e5a55884a1910e6df782aea534a">HooksManager::GetInstance</a>()-&gt;Trigger( <a class="code" href="classApplication.html#6f0669741175ea2ba001639de4c6e742">Application::HOOK_START</a>, $var );
+<a name="l00157"></a>00157         } <span class="comment">//----- End of Start</span>
+<a name="l00158"></a>00158         
+<a name="l00166"></a><a class="code" href="classApplication.html#bdd3d5861206e5af628c525571792d4d">00166</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#bdd3d5861206e5af628c525571792d4d">OnApplicationEnd</a> ( $params )
+<a name="l00167"></a>00167         {
+<a name="l00168"></a>00168                 $params = array( $params );
+<a name="l00169"></a>00169                 <a class="code" href="classHooksManager.html#96090e5a55884a1910e6df782aea534a">HooksManager::GetInstance</a>()-&gt;Trigger( <a class="code" href="classApplication.html#1f3d99a91c5e9db732768e5eced816db">Application::HOOK_SHUTDOWN</a>, $params );
+<a name="l00170"></a>00170         } <span class="comment">//----- End of OnApplicationEnd</span>
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172 <span class="comment">//---------------------------------------------- Constructors - destructor</span>
+<a name="l00176"></a><a class="code" href="classApplication.html#97620cd12b475b39007c29c63885a373">00176</a> <span class="comment"></span>    <span class="keyword">protected</span> function <a class="code" href="classApplication.html#97620cd12b475b39007c29c63885a373">__construct</a>()
+<a name="l00177"></a>00177     {
+<a name="l00178"></a>00178                 parent::__construct();
+<a name="l00179"></a>00179                 
+<a name="l00180"></a>00180                 $this-&gt;configuration = <span class="keyword">new</span> <a class="code" href="classVariables.html">Variables</a> ( <span class="keyword">new</span> <a class="code" href="classBDDRecordSet.html">BDDRecordSet</a>() );
+<a name="l00181"></a>00181                 $this-&gt;started = <span class="keyword">false</span>;
+<a name="l00182"></a>00182                 
+<a name="l00183"></a>00183                 $this-&gt;systemVars = array( );
+<a name="l00184"></a>00184                 
+<a name="l00185"></a>00185                 
+<a name="l00186"></a>00186     } <span class="comment">//---- End of __construct</span>
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188 
+<a name="l00193"></a><a class="code" href="classApplication.html#e88fe341f3002aff9806d27c02bb0e78">00193</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#e88fe341f3002aff9806d27c02bb0e78">__destruct</a> ( )
+<a name="l00194"></a>00194     {
+<a name="l00195"></a>00195                 parent::__destruct();
+<a name="l00196"></a>00196     } <span class="comment">//---- End of __destruct</span>
+<a name="l00197"></a>00197     
+<a name="l00198"></a>00198 <span class="comment">//---------------------------------------------------------- Magic Methods</span>
+<a name="l00199"></a>00199 
+<a name="l00204"></a><a class="code" href="classApplication.html#4923316f26b02e26261a50d4732351e9">00204</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#4923316f26b02e26261a50d4732351e9">__ToString</a> ( )
+<a name="l00205"></a>00205     {
+<a name="l00206"></a>00206                 <span class="keywordflow">return</span> '';
+<a name="l00207"></a>00207     } <span class="comment">//---- End of __ToString</span>
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
+<a name="l00210"></a>00210 
+<a name="l00211"></a>00211 <span class="comment">//------------------------------------------------------ protected methods</span>
+<a name="l00212"></a>00212 
+<a name="l00213"></a>00213 <span class="comment">//--------------------------------------------------- protected properties</span>
+<a name="l00215"></a><a class="code" href="classApplication.html#732154c732bae38e0bcf05ca33233e8f">00215</a> <span class="comment"></span>        <span class="keyword">protected</span> <a class="code" href="classApplication.html#732154c732bae38e0bcf05ca33233e8f">$started</a>;
+<a name="l00216"></a>00216 
+<a name="l00223"></a><a class="code" href="classApplication.html#0cbde0f81501e1987bce7ea98698fa0f">00223</a>         <span class="keyword">protected</span> <a class="code" href="classApplication.html#0cbde0f81501e1987bce7ea98698fa0f">$systemVars</a>; 
+<a name="l00224"></a>00224         
+<a name="l00226"></a><a class="code" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">00226</a>         <span class="keyword">protected</span> <a class="code" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">$configuration</a>;
+<a name="l00227"></a>00227 }
+<a name="l00228"></a>00228 
+<a name="l00229"></a>00229 <span class="comment">//----------------------------------------------------- Others definitions</span>
 <a name="l00230"></a>00230 
-<a name="l00235"></a><a class="code" href="classApplication.html#4923316f26b02e26261a50d4732351e9">00235</a>     <span class="keyword">public</span> function <a class="code" href="classApplication.html#4923316f26b02e26261a50d4732351e9">__ToString</a> ( )
-<a name="l00236"></a>00236     {
-<a name="l00237"></a>00237                 <span class="keywordflow">return</span> '';
-<a name="l00238"></a>00238     } <span class="comment">//---- End of __ToString</span>
-<a name="l00239"></a>00239 
-<a name="l00240"></a>00240 <span class="comment">//---------------------------------------------------------------- PRIVATE </span>
-<a name="l00241"></a>00241 
-<a name="l00242"></a>00242 <span class="comment">//------------------------------------------------------ protected methods</span>
-<a name="l00243"></a>00243         
-<a name="l00257"></a><a class="code" href="classApplication.html#72a2224eae68ad8f68956dbe342b71ae">00257</a>         <span class="keyword">protected</span> function <a class="code" href="classApplication.html#72a2224eae68ad8f68956dbe342b71ae">isCorrectCallBack</a> ( &amp; $function, &amp; $params, <a class="code" href="classErrors.html">Errors</a> &amp; $errors )
-<a name="l00258"></a>00258         {       
-<a name="l00259"></a>00259                 <span class="comment">// function incorrect or doesn't have good scope</span>
-<a name="l00260"></a>00260                 <span class="keywordflow">if</span> ( !is_callable( $function ) )
-<a name="l00261"></a>00261                 {
-<a name="l00262"></a>00262                         $errors-&gt;<a class="code" href="classErrors.html#28b5ae9e05e2f937aec675edbbf07977">Add</a> ( <span class="keyword">new</span> <a class="code" href="classApplicationError.html">ApplicationError</a> ( <a class="code" href="classApplicationError.html#4d874c059634ddfe33b1556ac95ca5f1">ApplicationError::FUNCTION_NOT_CALLABLE</a>, 'Incorrect function or scope.') );
-<a name="l00263"></a>00263                 }
-<a name="l00264"></a>00264                 
-<a name="l00265"></a>00265                 <span class="comment">// params not an array</span>
-<a name="l00266"></a>00266                 <span class="keywordflow">if</span> ( !is_array( $params ) )
-<a name="l00267"></a>00267                 {
-<a name="l00268"></a>00268                         $errors-&gt;<a class="code" href="classErrors.html#28b5ae9e05e2f937aec675edbbf07977">Add</a> ( <span class="keyword">new</span> <a class="code" href="classApplicationError.html">ApplicationError</a> ( <a class="code" href="classApplicationError.html#83c5e6bb94adf704156ae3871b877f0b">ApplicationError::FUNCTION_PARAM_NOT_ARRAY</a>, 'Params of the function must be an array.') );                
-<a name="l00269"></a>00269                 }
-<a name="l00270"></a>00270                 
-<a name="l00271"></a>00271                 <span class="keywordflow">return</span> ( $errors-&gt;GetCount () == 0 );
-<a name="l00272"></a>00272         } <span class="comment">//------ End of isCorrectCallBack</span>
-<a name="l00273"></a>00273         
-<a name="l00290"></a><a class="code" href="classApplication.html#bb62ae6c85d4f138f6d7a045d71fcd61">00290</a>         <span class="keyword">protected</span> function <a class="code" href="classApplication.html#bb62ae6c85d4f138f6d7a045d71fcd61">setCallBack</a> ( $callBackName, &amp; $function, &amp; $params )
-<a name="l00291"></a>00291         {                       
-<a name="l00292"></a>00292                 $errors = <span class="keyword">new</span> <a class="code" href="classErrors.html">Errors</a>();
-<a name="l00293"></a>00293                 
-<a name="l00294"></a>00294                 <span class="keywordflow">if</span> ( $this-&gt;<a class="code" href="classApplication.html#72a2224eae68ad8f68956dbe342b71ae">isCorrectCallBack</a>( $function , $params, $errors ) === <span class="keyword">false</span> )
-<a name="l00295"></a>00295                 <span class="comment">// if we had some errors</span>
-<a name="l00296"></a>00296                 {
-<a name="l00297"></a>00297                         <span class="keywordflow">return</span> $errors;
-<a name="l00298"></a>00298                 }
-<a name="l00299"></a>00299 
-<a name="l00300"></a>00300                 <span class="keywordflow">if</span> ( ! IsSet ( $this-&gt;{$callBackName} ) || ! IsSet ( $this-&gt;{$callBackName.'Params'} ) )
-<a name="l00301"></a>00301                 {
-<a name="l00302"></a>00302                         $errors-&gt;Add ( <span class="keyword">new</span> <a class="code" href="classApplicationError.html">ApplicationError</a> ( <a class="code" href="classApplicationError.html#7fdb65b7ac9bd51d1999f8842a0198a9">ApplicationError::CALLBACK_NOT_EXISTS</a>, 'You tried to set up a callback that doesn\'t exists.') );
-<a name="l00303"></a>00303                         
-<a name="l00304"></a>00304                         <span class="keywordflow">return</span> $errors;
-<a name="l00305"></a>00305                 }
-<a name="l00306"></a>00306                 
-<a name="l00307"></a>00307                 <span class="comment">// association</span>
-<a name="l00308"></a>00308                 $this-&gt;{$callBackName} = $function;
-<a name="l00309"></a>00309                 $this-&gt;{$callBackName.'Params'} = $params;
-<a name="l00310"></a>00310                 
-<a name="l00311"></a>00311                 unset ( $errors );
-<a name="l00312"></a>00312                 
-<a name="l00313"></a>00313                 <span class="keywordflow">return</span> null;
-<a name="l00314"></a>00314         } <span class="comment">//----- End of setCallBack</span>
-<a name="l00315"></a>00315         
-<a name="l00325"></a><a class="code" href="classApplication.html#0a782d5d07e8db8c7909a27a6adc28b8">00325</a>         <span class="keyword">protected</span> function <a class="code" href="classApplication.html#0a782d5d07e8db8c7909a27a6adc28b8">launchCallBack</a> ( $callBackName )
-<a name="l00326"></a>00326         {
-<a name="l00327"></a>00327                 <span class="comment">// launch start call_back function if set</span>
-<a name="l00328"></a>00328                 <span class="keywordflow">if</span> ( @$this-&gt;{ $callBackName } !== -1 )
-<a name="l00329"></a>00329                 {
-<a name="l00330"></a>00330                         call_user_func_array ( $this-&gt;{ $callBackName }, $this-&gt;{ $callBackName.'Params' } );
-<a name="l00331"></a>00331                         
-<a name="l00332"></a>00332                         <span class="keywordflow">return</span> null;
-<a name="l00333"></a>00333                 }
-<a name="l00334"></a>00334                 <span class="keywordflow">else</span>
-<a name="l00335"></a>00335                 {
-<a name="l00336"></a>00336                         $errors = <span class="keyword">new</span> <a class="code" href="classErrors.html">Errors</a>();
-<a name="l00337"></a>00337                         $errors-&gt;Add ( <span class="keyword">new</span> <a class="code" href="classApplicationError.html">ApplicationError</a> ( <a class="code" href="classApplicationError.html#f99e9e4dfc9e7636828548c32db7a277">ApplicationError::CALLBACK_NOT_SET</a>, 'You are trying to launch an unset callback function.') );
-<a name="l00338"></a>00338                         
-<a name="l00339"></a>00339                         <span class="keywordflow">return</span> $errors;
-<a name="l00340"></a>00340                 }
-<a name="l00341"></a>00341         } <span class="comment">//----- End of launchCallBack</span>
-<a name="l00342"></a>00342 
-<a name="l00343"></a>00343 <span class="comment">//--------------------------------------------------- protected properties</span>
-<a name="l00345"></a><a class="code" href="classApplication.html#732154c732bae38e0bcf05ca33233e8f">00345</a> <span class="comment"></span>        <span class="keyword">protected</span> <a class="code" href="classApplication.html#732154c732bae38e0bcf05ca33233e8f">$started</a>;
-<a name="l00346"></a>00346 
-<a name="l00353"></a><a class="code" href="classApplication.html#0cbde0f81501e1987bce7ea98698fa0f">00353</a>         <span class="keyword">protected</span> <a class="code" href="classApplication.html#0cbde0f81501e1987bce7ea98698fa0f">$systemVars</a>; 
-<a name="l00354"></a>00354         
-<a name="l00355"></a>00355         <span class="comment">// call-backs</span>
-<a name="l00356"></a>00356         
-<a name="l00358"></a><a class="code" href="classApplication.html#0c84de9e13c93f2409127e6e7afc3872">00358</a>         <span class="keyword">protected</span> <a class="code" href="classApplication.html#0c84de9e13c93f2409127e6e7afc3872">$onApplicationStart</a>;
-<a name="l00360"></a><a class="code" href="classApplication.html#0f5e4fd19062c675864458b105f66e3d">00360</a>         <span class="keyword">protected</span> <a class="code" href="classApplication.html#0f5e4fd19062c675864458b105f66e3d">$onApplicationStartParams</a>;
-<a name="l00361"></a>00361         
-<a name="l00363"></a><a class="code" href="classApplication.html#3e7a79a999d51654b3137d28914e2f8f">00363</a>         <span class="keyword">protected</span> <a class="code" href="classApplication.html#3e7a79a999d51654b3137d28914e2f8f">$onApplicationEnd</a>;
-<a name="l00369"></a><a class="code" href="classApplication.html#49808a521ab6c07a2daafd536f1ba83b">00369</a>         <span class="keyword">protected</span> <a class="code" href="classApplication.html#49808a521ab6c07a2daafd536f1ba83b">$onApplicationEndParams</a>;
-<a name="l00370"></a>00370         
-<a name="l00372"></a><a class="code" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">00372</a>         <span class="keyword">protected</span> <a class="code" href="classApplication.html#8a555d1e26373fd8a65e639d8107b6ad">$configuration</a>;
-<a name="l00373"></a>00373 }
-<a name="l00374"></a>00374 
-<a name="l00375"></a>00375 <span class="comment">//----------------------------------------------------- Others definitions</span>
-<a name="l00376"></a>00376 
-<a name="l00377"></a>00377 ?&gt;
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Mon Aug 7 22:04:21 2006 for ExetronSystemProject by&nbsp;
+<a name="l00231"></a>00231 ?&gt;
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Sun Sep 3 18:42:44 2006 for ExetronSystemProject by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.6-NO </small></address>
 </body>

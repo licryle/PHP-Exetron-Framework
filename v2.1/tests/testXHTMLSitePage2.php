@@ -35,7 +35,7 @@ class CurrentPage extends XHTMLSitePage
     // Contract :
     //
 	{
-		$this->pageTemplate->GetHeaders ()->AddHeaders( '<title>Coucou</title>' );
+		$this->pageTemplate->GetHeaders ()->AddRawHeaders( '<title>Coucou</title>' );
 		
 		$load = new XHTMLTemplate();
 		$load->SetSkeleton ( round( microtime(true)-$GLOBALS['time'], 5) );
@@ -45,7 +45,14 @@ class CurrentPage extends XHTMLSitePage
 			'Bonjour!<br />'.
 			'Total temps '.Template::BuildTag( 'LOADTIME' ).' secondes<br />'.
 			'Execut� en '.Template::BuildTag( XHTMLSitePage::TAG_EXECUTION_TIME ).' secondes'
-		);	
+		);
+		
+		HooksManager::GetInstance()->Register ( XHTMLSitePage::HOOK_PAGE_GENERATION, array ( &$this, 'modifyContent' ) );
+	}
+	
+	public function modifyContent( $pageContent )
+	{
+		$pageContent = ereg_replace('<body >(.*)</body>','<body><b>\\1</b></body>',$pageContent);
 	}
 
 //---------------------------------------------- Constructors - destructor
